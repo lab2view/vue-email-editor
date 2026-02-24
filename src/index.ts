@@ -1,0 +1,7 @@
+export { default as EmailEditor } from './EmailEditor.vue'
+export type { EmailDocument, EmailNode, EmailDesignJson, EmailNodeType, NodeId } from './types'
+export { isNewEditorJson } from './types'
+export type { EditorLabels } from './labels'
+export { DEFAULT_LABELS } from './labels'
+export { compileMjml } from './composables/useMjmlCompiler'
+export type { MjmlCompilationResult } from './composables/useMjmlCompiler'
