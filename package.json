@@ -1,0 +1,48 @@
+{
+  "name": "@lab2view/email-editor",
+  "version": "0.1.0",
+  "description": "Vue 3 drag-and-drop email editor built on MJML",
+  "license": "MIT",
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./*": "./src/*"
+  },
+  "files": [
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lab2view/email-editor.git"
+  },
+  "peerDependencies": {
+    "vue": "^3.4.0",
+    "mjml-browser": "^4.15.0"
+  },
+  "dependencies": {
+    "@codemirror/commands": "^6.8.0",
+    "@codemirror/lang-xml": "^6.1.0",
+    "@codemirror/state": "^6.5.0",
+    "@codemirror/theme-one-dark": "^6.1.0",
+    "@codemirror/view": "^6.38.0",
+    "@tiptap/extension-color": "^3.20.0",
+    "@tiptap/extension-link": "^3.20.0",
+    "@tiptap/extension-text-align": "^3.20.0",
+    "@tiptap/extension-text-style": "^3.20.0",
+    "@tiptap/extension-underline": "^3.20.0",
+    "@tiptap/starter-kit": "^3.2.0",
+    "@tiptap/vue-3": "^3.2.0",
+    "@vueuse/core": "^13.0.0",
+    "lodash": "^4.17.21",
+    "lucide-vue-next": ">=0.400.0",
+    "nanoid": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.17.0",
+    "@types/mjml-browser": "^4.15.0",
+    "typescript": "~5.8.0",
+    "vue": "^3.5.0"
+  }
+}
