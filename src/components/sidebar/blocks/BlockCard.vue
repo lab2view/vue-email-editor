@@ -1,11 +1,17 @@
 <script setup lang="ts">
-import { inject, ref } from 'vue'
+import { inject, ref, computed } from 'vue'
 import type { BlockDefinition } from '../../../types'
 import { EMAIL_DRAG_DROP_KEY } from '../../../injection-keys'
+import { EMAIL_LABELS_KEY, DEFAULT_LABELS, type EditorLabels } from '../../../labels'
 import BlockPreview from './BlockPreview.vue'
 
 const props = defineProps<{ block: BlockDefinition }>()
 const dragDrop = inject(EMAIL_DRAG_DROP_KEY)!
+const labels = inject(EMAIL_LABELS_KEY, DEFAULT_LABELS)
+
+const displayLabel = computed(() =>
+  (labels as EditorLabels)[props.block.label as keyof EditorLabels] ?? props.block.label
+)
 const isDragging = ref(false)
 
 function onDragStart(e: DragEvent) {
@@ -33,7 +39,7 @@ function onDragEnd() {
     <div class="ebb-block-card__preview">
       <BlockPreview :block-id="block.id" />
     </div>
-    <span class="ebb-block-card__label" :title="block.label">{{ block.label }}</span>
+    <span class="ebb-block-card__label" :title="displayLabel">{{ displayLabel }}</span>
   </div>
 </template>
 
@@ -57,7 +63,7 @@ html[data-theme='dark'] .ebb-block-card {
 }
 
 .ebb-block-card:hover {
-  border-color: #01A8AB;
+  border-color: var(--ee-primary);
   background: #f0fdfd;
   box-shadow: 0 2px 8px rgba(1, 168, 171, 0.1);
 }
@@ -73,7 +79,7 @@ html[data-theme='dark'] .ebb-block-card:hover {
 
 .ebb-block-card--dragging {
   opacity: 0.4;
-  border-color: #01A8AB;
+  border-color: var(--ee-primary);
   background: rgba(1, 168, 171, 0.05);
   transform: scale(0.95);
 }

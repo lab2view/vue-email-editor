@@ -134,7 +134,7 @@ onBeforeUnmount(() => {
   position: absolute;
   z-index: 1;
   background: #ffffff;
-  border: 2px solid #01A8AB;
+  border: 2px solid var(--ee-primary);
   border-radius: 4px;
   overflow: auto;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
@@ -155,7 +155,7 @@ onBeforeUnmount(() => {
 }
 
 .ebb-inline-editor__content a {
-  color: #01A8AB;
+  color: var(--ee-primary);
   text-decoration: underline;
 }
 

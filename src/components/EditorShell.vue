@@ -7,13 +7,49 @@ import EditorSidebar from './sidebar/EditorSidebar.vue'
 import { EMAIL_DOCUMENT_KEY } from '../injection-keys'
 import { EMAIL_LABELS_KEY, DEFAULT_LABELS } from '../labels'
 import { DEVICE_PRESETS } from '../constants'
+import type { ThemeConfig } from '../types'
+import { DEFAULT_THEME } from '../types'
 
 const CodeEditor = defineAsyncComponent(() => import('./code/CodeEditor.vue'))
 
-defineProps<{
+const props = defineProps<{
   label?: string
   required?: boolean
+  theme?: Partial<ThemeConfig>
 }>()
+
+const themeStyles = computed(() => {
+  const t = { ...DEFAULT_THEME, ...props.theme }
+  return {
+    '--ee-primary': t.primaryColor,
+    '--ee-primary-hover': t.primaryHover,
+    '--ee-primary-active': t.primaryActive,
+    '--ee-border': t.borderColor,
+    '--ee-border-hover': t.borderColorHover,
+    '--ee-bg': t.backgroundColor,
+    '--ee-bg-hover': t.backgroundHover,
+    '--ee-bg-active': t.backgroundActive,
+    '--ee-text-primary': t.textPrimary,
+    '--ee-text-secondary': t.textSecondary,
+    '--ee-text-muted': t.textMuted,
+    '--ee-canvas-bg': t.canvasBg,
+    '--ee-canvas-border': t.canvasBorder,
+    '--ee-selection': t.selectionColor,
+    '--ee-hover': t.hoverColor,
+    '--ee-drop-indicator': t.dropIndicatorColor,
+    '--ee-sidebar-bg': t.sidebarBg,
+    '--ee-sidebar-border': t.sidebarBorder,
+    '--ee-panel-header-bg': t.panelHeaderBg,
+    '--ee-toolbar-bg': t.toolbarBg,
+    '--ee-toolbar-border': t.toolbarBorder,
+    '--ee-success': t.successColor,
+    '--ee-warning': t.warningColor,
+    '--ee-error': t.errorColor,
+    '--ee-font-family': t.fontFamily,
+    '--ee-font-size': t.fontSize,
+    '--ee-border-radius': t.borderRadius,
+  }
+})
 
 const labels = inject(EMAIL_LABELS_KEY, DEFAULT_LABELS)
 const doc = inject(EMAIL_DOCUMENT_KEY)!
@@ -53,7 +89,15 @@ function toggleCodeView() {
       v-show="!initError"
       class="ebb-shell"
       :class="{ 'ebb-shell--fullscreen': isFullscreen }"
+      :style="themeStyles"
+      role="application"
+      :aria-label="labels.editor_title"
     >
+      <!-- Skip link for keyboard users -->
+      <a href="#ebb-canvas-region" class="ebb-sr-only ebb-sr-only--focusable">
+        {{ labels.editor_title }}
+      </a>
+
       <!-- ═══ TOP TOOLBAR ═══ -->
       <EditorToolbar
         :is-fullscreen="isFullscreen"
@@ -88,16 +132,12 @@ function toggleCodeView() {
   display: block;
   font-size: 14px;
   font-weight: 500;
-  color: #374151;
+  color: var(--ee-text-primary, #374151);
   margin-bottom: 8px;
 }
 
-html[data-theme='dark'] .ebb-label {
-  color: #e5e7eb;
-}
-
 .ebb-label__required {
-  color: #ef4444;
+  color: var(--ee-error, #ef4444);
 }
 
 .ebb-alert {
@@ -125,21 +165,17 @@ html[data-theme='dark'] .ebb-alert {
 }
 
 .ebb-shell {
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--ee-border, #e5e7eb);
   border-radius: 12px;
   overflow: hidden;
-  background: #f9fafb;
+  background: var(--ee-panel-header-bg, #f9fafb);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
   display: flex;
   flex-direction: column;
   height: calc(100vh - 180px);
   min-height: 500px;
-}
-
-html[data-theme='dark'] .ebb-shell {
-  border-color: #374151;
-  background: #111827;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  font-family: var(--ee-font-family, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  font-size: var(--ee-font-size, 13px);
 }
 
 .ebb-shell--fullscreen {
@@ -159,5 +195,32 @@ html[data-theme='dark'] .ebb-shell {
   overflow: hidden;
 }
 
+/* ═══ Screen reader only ═══ */
+.ebb-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
+.ebb-sr-only--focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 8px 16px;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  background: var(--ee-primary);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  z-index: 100;
+}
 </style>

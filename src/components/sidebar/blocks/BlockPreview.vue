@@ -11,7 +11,7 @@ const LINE = '#c4c8ce'
 const ACCENT = '#01A8AB'
 const DARK = '#6b7280'
 const IMG = '#d1d5db'
-const BTN = '#01A8AB'
+const BTN = ACCENT
 </script>
 
 <template>
