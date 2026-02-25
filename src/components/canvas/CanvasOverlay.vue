@@ -2,8 +2,9 @@
 import { computed, inject } from 'vue'
 import EIcon from '../internal/EIcon.vue'
 import { EMAIL_DOCUMENT_KEY, EMAIL_SELECTION_KEY } from '../../injection-keys'
+import { EMAIL_LABELS_KEY, DEFAULT_LABELS, type EditorLabels } from '../../labels'
 import { findNode, findParent } from '../../utils/tree'
-import { getNodeTypeLabel } from '../../properties/property-definitions'
+import { getNodeTypeLabelKey } from '../../properties/property-definitions'
 
 const props = defineProps<{
   selectedRect: DOMRect | null
@@ -17,11 +18,16 @@ const props = defineProps<{
 
 const doc = inject(EMAIL_DOCUMENT_KEY)!
 const selection = inject(EMAIL_SELECTION_KEY)!
+const labels = inject(EMAIL_LABELS_KEY, DEFAULT_LABELS)
+
+function resolveLabel(key: string): string {
+  return (labels as EditorLabels)[key as keyof EditorLabels] ?? key
+}
 
 const selectedNodeType = computed(() => {
   if (!props.selectedNodeId) return ''
   const node = findNode(doc.document.value.body, props.selectedNodeId)
-  return node ? getNodeTypeLabel(node.type) : ''
+  return node ? resolveLabel(getNodeTypeLabelKey(node.type)) : ''
 })
 
 const canSelectParent = computed(() => {
@@ -95,7 +101,7 @@ const dropIndicatorStyle = computed(() => {
 </script>
 
 <template>
-  <div class="ebb-overlay">
+  <div class="ebb-overlay" aria-hidden="true">
     <!-- Hover outline -->
     <div
       v-if="hoveredRect && hoveredNodeId && hoveredNodeId !== selectedNodeId"
@@ -120,23 +126,23 @@ const dropIndicatorStyle = computed(() => {
       }"
     >
       <!-- Node toolbar -->
-      <div class="ebb-overlay__toolbar">
-        <button v-if="canSelectParent" class="ebb-overlay__btn" title="Sélectionner parent" @click.stop="onSelectParent">
+      <div class="ebb-overlay__toolbar" role="toolbar" :aria-label="selectedNodeType">
+        <button v-if="canSelectParent" class="ebb-overlay__btn" :title="resolveLabel('select_parent')" :aria-label="resolveLabel('select_parent')" @click.stop="onSelectParent">
           <EIcon name="ArrowUp" :size="12" />
         </button>
         <span class="ebb-overlay__label">{{ selectedNodeType }}</span>
         <span class="ebb-overlay__sep"></span>
-        <button v-if="canMoveUp" class="ebb-overlay__btn" title="Monter" @click.stop="onMoveUp">
+        <button v-if="canMoveUp" class="ebb-overlay__btn" :title="resolveLabel('move_up')" :aria-label="resolveLabel('move_up')" @click.stop="onMoveUp">
           <EIcon name="ChevronUp" :size="12" />
         </button>
-        <button v-if="canMoveDown" class="ebb-overlay__btn" title="Descendre" @click.stop="onMoveDown">
+        <button v-if="canMoveDown" class="ebb-overlay__btn" :title="resolveLabel('move_down')" :aria-label="resolveLabel('move_down')" @click.stop="onMoveDown">
           <EIcon name="ChevronDown" :size="12" />
         </button>
         <span class="ebb-overlay__sep"></span>
-        <button class="ebb-overlay__btn" title="Dupliquer" @click.stop="onDuplicate">
+        <button class="ebb-overlay__btn" :title="resolveLabel('duplicate_node')" :aria-label="resolveLabel('duplicate_node')" @click.stop="onDuplicate">
           <EIcon name="Copy" :size="12" />
         </button>
-        <button class="ebb-overlay__btn ebb-overlay__btn--danger" title="Supprimer" @click.stop="onDelete">
+        <button class="ebb-overlay__btn ebb-overlay__btn--danger" :title="resolveLabel('delete_node')" :aria-label="resolveLabel('delete_node')" @click.stop="onDelete">
           <EIcon name="Trash2" :size="12" />
         </button>
       </div>
@@ -170,14 +176,14 @@ const dropIndicatorStyle = computed(() => {
 
 .ebb-overlay__hover {
   position: absolute;
-  border: 1px dashed rgba(1, 168, 171, 0.4);
+  border: 1px dashed color-mix(in srgb, var(--ee-hover) 40%, transparent);
   pointer-events: none;
   transition: all 0.1s ease;
 }
 
 .ebb-overlay__selection {
   position: absolute;
-  border: 2px solid #01A8AB;
+  border: 2px solid var(--ee-selection);
   pointer-events: none;
 }
 
@@ -188,7 +194,7 @@ const dropIndicatorStyle = computed(() => {
   display: flex;
   align-items: center;
   gap: 2px;
-  background: #01A8AB;
+  background: var(--ee-primary);
   border-radius: 4px;
   padding: 2px 4px;
   pointer-events: auto;
@@ -235,7 +241,7 @@ const dropIndicatorStyle = computed(() => {
 
 .ebb-overlay__drop-indicator {
   position: absolute;
-  background: #01A8AB;
+  background: var(--ee-drop-indicator);
   pointer-events: none;
   z-index: 10;
   transition: top 0.08s ease, left 0.08s ease, width 0.08s ease;
@@ -246,7 +252,7 @@ const dropIndicatorStyle = computed(() => {
   position: absolute;
   width: 8px;
   height: 8px;
-  background: #01A8AB;
+  background: var(--ee-drop-indicator);
   border: 2px solid #ffffff;
   border-radius: 50%;
   top: 50%;

@@ -5,14 +5,18 @@
  */
 import { inject, computed, ref } from 'vue'
 import EIcon from '../internal/EIcon.vue'
-import { EMAIL_LABELS_KEY, DEFAULT_LABELS } from '../../labels'
+import { EMAIL_LABELS_KEY, DEFAULT_LABELS, type EditorLabels } from '../../labels'
 import { EMAIL_DOCUMENT_KEY, EMAIL_SELECTION_KEY } from '../../injection-keys'
-import { getNodeTypeLabel } from '../../properties/property-definitions'
+import { getNodeTypeLabelKey } from '../../properties/property-definitions'
 import type { EmailNode } from '../../types'
 
 const labels = inject(EMAIL_LABELS_KEY, DEFAULT_LABELS)
 const doc = inject(EMAIL_DOCUMENT_KEY)!
 const selection = inject(EMAIL_SELECTION_KEY)!
+
+function resolveLabel(key: string): string {
+  return (labels as EditorLabels)[key as keyof EditorLabels] ?? key
+}
 
 const body = computed(() => doc.document.value.body)
 
@@ -82,7 +86,7 @@ function getTypeColor(type: string): string {
     'mj-column': '#8b5cf6',
     'mj-text': '#059669',
     'mj-image': '#d97706',
-    'mj-button': '#01A8AB',
+    'mj-button': '#0ea5e9',
     'mj-divider': '#9ca3af',
     'mj-spacer': '#9ca3af',
     'mj-social': '#ec4899',
@@ -92,7 +96,7 @@ function getTypeColor(type: string): string {
 }
 
 function getShortLabel(node: EmailNode): string {
-  const base = getNodeTypeLabel(node.type)
+  const base = resolveLabel(getNodeTypeLabelKey(node.type))
   // For text, show a snippet
   if (node.type === 'mj-text' && node.htmlContent) {
     const text = node.htmlContent.replace(/<[^>]+>/g, '').trim()
@@ -120,7 +124,7 @@ function getShortLabel(node: EmailNode): string {
     </div>
 
     <!-- Recursive tree -->
-    <div class="ebb-layers__tree">
+    <div class="ebb-layers__tree" role="tree" :aria-label="labels.layers">
       <template v-for="(section, si) in body.children" :key="section.id">
         <!-- Section row -->
         <div
@@ -129,6 +133,9 @@ function getShortLabel(node: EmailNode): string {
             'ebb-layers__node--selected': selection.selectedNodeId.value === section.id,
             'ebb-layers__node--hovered': selection.hoveredNodeId.value === section.id,
           }"
+          role="treeitem"
+          :aria-expanded="section.children.length ? !collapsed.has(section.id) : undefined"
+          :aria-selected="selection.selectedNodeId.value === section.id"
           @click="selectNode(section.id, $event)"
           @mouseenter="selection.hoverNode(section.id)"
           @mouseleave="selection.hoverNode(null)"
@@ -144,12 +151,12 @@ function getShortLabel(node: EmailNode): string {
           <span class="ebb-layers__icon" :style="{ color: getTypeColor(section.type) }">
             <EIcon :name="getIcon(section.type)" :size="12" />
           </span>
-          <span class="ebb-layers__label">Section {{ si + 1 }}</span>
+          <span class="ebb-layers__label">{{ resolveLabel('section_label') }} {{ si + 1 }}</span>
           <div class="ebb-layers__actions">
             <button
               v-if="!isFirst(section.id, body.children)"
               class="ebb-layers__action-btn"
-              title="Monter"
+              :title="resolveLabel('move_up')"
               @click="onMoveUp(section.id, $event)"
             >
               <EIcon name="ChevronUp" :size="10" />
@@ -157,14 +164,14 @@ function getShortLabel(node: EmailNode): string {
             <button
               v-if="!isLast(section.id, body.children)"
               class="ebb-layers__action-btn"
-              title="Descendre"
+              :title="resolveLabel('move_down')"
               @click="onMoveDown(section.id, $event)"
             >
               <EIcon name="ChevronDown" :size="10" />
             </button>
             <button
               class="ebb-layers__action-btn ebb-layers__action-btn--danger"
-              title="Supprimer"
+              :title="resolveLabel('delete_node')"
               @click="onDeleteNode(section.id, $event)"
             >
               <EIcon name="Trash2" :size="10" />
@@ -181,6 +188,9 @@ function getShortLabel(node: EmailNode): string {
                 'ebb-layers__node--selected': selection.selectedNodeId.value === col.id,
                 'ebb-layers__node--hovered': selection.hoveredNodeId.value === col.id,
               }"
+              role="treeitem"
+              :aria-expanded="col.children.length ? !collapsed.has(col.id) : undefined"
+              :aria-selected="selection.selectedNodeId.value === col.id"
               @click="selectNode(col.id, $event)"
               @mouseenter="selection.hoverNode(col.id)"
               @mouseleave="selection.hoverNode(null)"
@@ -196,7 +206,7 @@ function getShortLabel(node: EmailNode): string {
               <span class="ebb-layers__icon" :style="{ color: getTypeColor(col.type) }">
                 <EIcon :name="getIcon(col.type)" :size="12" />
               </span>
-              <span class="ebb-layers__label">Colonne {{ ci + 1 }}</span>
+              <span class="ebb-layers__label">{{ resolveLabel('column_label') }} {{ ci + 1 }}</span>
             </div>
 
             <!-- Content level -->
@@ -209,6 +219,8 @@ function getShortLabel(node: EmailNode): string {
                   'ebb-layers__node--selected': selection.selectedNodeId.value === content.id,
                   'ebb-layers__node--hovered': selection.hoveredNodeId.value === content.id,
                 }"
+                role="treeitem"
+                :aria-selected="selection.selectedNodeId.value === content.id"
                 @click="selectNode(content.id, $event)"
                 @mouseenter="selection.hoverNode(content.id)"
                 @mouseleave="selection.hoverNode(null)"
@@ -222,7 +234,7 @@ function getShortLabel(node: EmailNode): string {
                   <button
                     v-if="!isFirst(content.id, col.children)"
                     class="ebb-layers__action-btn"
-                    title="Monter"
+                    :title="resolveLabel('move_up')"
                     @click="onMoveUp(content.id, $event)"
                   >
                     <EIcon name="ChevronUp" :size="10" />
@@ -230,14 +242,14 @@ function getShortLabel(node: EmailNode): string {
                   <button
                     v-if="!isLast(content.id, col.children)"
                     class="ebb-layers__action-btn"
-                    title="Descendre"
+                    :title="resolveLabel('move_down')"
                     @click="onMoveDown(content.id, $event)"
                   >
                     <EIcon name="ChevronDown" :size="10" />
                   </button>
                   <button
                     class="ebb-layers__action-btn ebb-layers__action-btn--danger"
-                    title="Supprimer"
+                    :title="resolveLabel('delete_node')"
                     @click="onDeleteNode(content.id, $event)"
                   >
                     <EIcon name="Trash2" :size="10" />
@@ -253,7 +265,7 @@ function getShortLabel(node: EmailNode): string {
     <!-- Empty state -->
     <div v-if="body.children.length === 0" class="ebb-layers__empty">
       <EIcon name="Layers" :size="24" color="#d1d5db" />
-      <p>Glissez des blocs dans le canvas pour construire votre email</p>
+      <p>{{ resolveLabel('empty_canvas_hint') }}</p>
     </div>
   </div>
 </template>
@@ -270,9 +282,9 @@ function getShortLabel(node: EmailNode): string {
   padding: 12px 16px;
   font-size: 13px;
   font-weight: 600;
-  color: #01A8AB;
-  border-bottom: 1px solid #e5e7eb;
-  background: #f9fafb;
+  color: var(--ee-primary);
+  border-bottom: 1px solid var(--ee-border);
+  background: var(--ee-panel-header-bg);
 }
 
 html[data-theme='dark'] .ebb-layers__header {
@@ -330,8 +342,8 @@ html[data-theme='dark'] .ebb-layers__node:hover {
 
 .ebb-layers__node--selected {
   background: rgba(1, 168, 171, 0.08);
-  border-left-color: #01A8AB;
-  color: #01A8AB;
+  border-left-color: var(--ee-primary);
+  color: var(--ee-primary);
 }
 
 .ebb-layers__node--selected:hover {

@@ -1,9 +1,9 @@
 import type { DevicePreset } from './types'
 
 export const DEVICE_PRESETS: DevicePreset[] = [
-  { name: 'Desktop', label: 'template.email_builder.desktop', icon: 'Monitor', width: 600 },
-  { name: 'Tablet', label: 'template.email_builder.tablet', icon: 'Tablet', width: 480 },
-  { name: 'Mobile', label: 'template.email_builder.mobile', icon: 'Smartphone', width: 320 },
+  { name: 'Desktop', label: 'desktop', icon: 'Monitor', width: 600 },
+  { name: 'Tablet', label: 'tablet', icon: 'Tablet', width: 480 },
+  { name: 'Mobile', label: 'mobile', icon: 'Smartphone', width: 320 },
 ]
 
 export const FONT_OPTIONS = [
@@ -18,5 +18,3 @@ export const FONT_OPTIONS = [
   { label: 'Inter', value: "'Inter', Helvetica, Arial, sans-serif" },
   { label: 'Work Sans', value: "'Work Sans', Helvetica, Arial, sans-serif" },
 ]
-
-export const BRAND_COLOR = '#01A8AB'

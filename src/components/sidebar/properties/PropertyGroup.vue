@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { inject, ref } from 'vue'
 import type { PropertyDefinition, EmailNode } from '../../../types'
+import { EMAIL_LABELS_KEY, DEFAULT_LABELS, type EditorLabels } from '../../../labels'
 import EIcon from '../../internal/EIcon.vue'
 
 const props = defineProps<{
@@ -13,7 +14,12 @@ const emit = defineEmits<{
   update: [key: string, value: string]
 }>()
 
+const labels = inject(EMAIL_LABELS_KEY, DEFAULT_LABELS)
 const isExpanded = ref(true)
+
+function resolveLabel(key: string): string {
+  return (labels as EditorLabels)[key as keyof EditorLabels] ?? key
+}
 
 function getValue(key: string): string {
   return props.node.attributes[key] || ''
@@ -28,7 +34,7 @@ function getValue(key: string): string {
     </button>
     <div v-show="isExpanded" class="ebb-prop-group__body">
       <div v-for="prop in properties" :key="prop.key" class="ebb-prop-group__field">
-        <label class="ebb-prop-group__label">{{ prop.label }}</label>
+        <label class="ebb-prop-group__label">{{ resolveLabel(prop.label) }}</label>
 
         <!-- Color picker -->
         <div v-if="prop.type === 'color'" class="ebb-prop-group__color">
@@ -36,6 +42,7 @@ function getValue(key: string): string {
             type="color"
             :value="getValue(prop.key) || prop.defaultValue || '#000000'"
             class="ebb-prop-group__color-input"
+            :aria-label="resolveLabel(prop.label)"
             @input="emit('update', prop.key, ($event.target as HTMLInputElement).value)"
           />
           <input
@@ -60,7 +67,7 @@ function getValue(key: string): string {
             :key="opt.value"
             :value="opt.value"
           >
-            {{ opt.label }}
+            {{ resolveLabel(opt.label) }}
           </option>
         </select>
 
@@ -102,7 +109,7 @@ function getValue(key: string): string {
             :class="{ 'ebb-prop-group__toggle-btn--active': getValue(prop.key) === 'full-width' }"
             @click="emit('update', prop.key, getValue(prop.key) ? '' : 'full-width')"
           >
-            {{ getValue(prop.key) ? 'Oui' : 'Non' }}
+            {{ getValue(prop.key) ? resolveLabel('toggle_yes') : resolveLabel('toggle_no') }}
           </button>
         </div>
 
@@ -207,7 +214,7 @@ html[data-theme='dark'] .ebb-prop-group__text-input {
 
 .ebb-prop-group__text-input:focus {
   outline: none;
-  border-color: #01A8AB;
+  border-color: var(--ee-primary);
   box-shadow: 0 0 0 2px rgba(1, 168, 171, 0.1);
 }
 
@@ -231,7 +238,7 @@ html[data-theme='dark'] .ebb-prop-group__select {
 
 .ebb-prop-group__select:focus {
   outline: none;
-  border-color: #01A8AB;
+  border-color: var(--ee-primary);
 }
 
 .ebb-prop-group__color {
@@ -291,8 +298,8 @@ html[data-theme='dark'] .ebb-prop-group__select {
 
 .ebb-prop-group__align-btn--active {
   background: rgba(1, 168, 171, 0.1);
-  border-color: #01A8AB;
-  color: #01A8AB;
+  border-color: var(--ee-primary);
+  color: var(--ee-primary);
 }
 
 html[data-theme='dark'] .ebb-prop-group__align-btn {
@@ -302,8 +309,8 @@ html[data-theme='dark'] .ebb-prop-group__align-btn {
 
 html[data-theme='dark'] .ebb-prop-group__align-btn--active {
   background: rgba(1, 168, 171, 0.15);
-  border-color: #01A8AB;
-  color: #01A8AB;
+  border-color: var(--ee-primary);
+  color: var(--ee-primary);
 }
 
 .ebb-prop-group__toggle-btn {
@@ -319,7 +326,7 @@ html[data-theme='dark'] .ebb-prop-group__align-btn--active {
 
 .ebb-prop-group__toggle-btn--active {
   background: rgba(1, 168, 171, 0.1);
-  border-color: #01A8AB;
-  color: #01A8AB;
+  border-color: var(--ee-primary);
+  color: var(--ee-primary);
 }
 </style>

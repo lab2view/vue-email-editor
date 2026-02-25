@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { inject, watch, ref, onMounted, onBeforeUnmount } from 'vue'
 import { EMAIL_DOCUMENT_KEY, EMAIL_SELECTION_KEY, EMAIL_DRAG_DROP_KEY } from '../../injection-keys'
+import { EMAIL_LABELS_KEY, DEFAULT_LABELS } from '../../labels'
 import type { IframeMessage, DropPosition, EmailNode } from '../../types'
 import { CONTENT_NODE_TYPES } from '../../types'
 import { findNode, findParent } from '../../utils/tree'
@@ -16,6 +17,7 @@ const props = withDefaults(defineProps<{
 const doc = inject(EMAIL_DOCUMENT_KEY)!
 const selection = inject(EMAIL_SELECTION_KEY)!
 const dragDrop = inject(EMAIL_DRAG_DROP_KEY)!
+const labels = inject(EMAIL_LABELS_KEY, DEFAULT_LABELS)
 
 const iframeRef = ref<HTMLIFrameElement | null>(null)
 const canvasRef = ref<HTMLDivElement | null>(null)
@@ -514,12 +516,15 @@ onBeforeUnmount(() => {
 <template>
   <div
     ref="canvasRef"
+    id="ebb-canvas-region"
     class="ebb-canvas"
+    role="region"
+    aria-label="Email canvas"
   >
     <!-- Loading overlay -->
-    <div v-if="doc.isCompiling.value && !doc.compiledHtml.value" class="ebb-canvas__loading">
+    <div v-if="doc.isCompiling.value && !doc.compiledHtml.value" class="ebb-canvas__loading" role="status" aria-live="polite">
       <div class="ebb-canvas__spinner"></div>
-      <span>Chargement...</span>
+      <span>{{ labels.loading }}</span>
     </div>
 
     <!-- Iframe wrapper: iframe + overlays share the same coordinate space -->
@@ -606,7 +611,7 @@ html[data-theme='dark'] .ebb-canvas__loading {
   width: 32px;
   height: 32px;
   border: 3px solid #e5e7eb;
-  border-top-color: #01A8AB;
+  border-top-color: var(--ee-primary);
   border-radius: 50%;
   animation: ebb-spin 0.8s linear infinite;
 }
