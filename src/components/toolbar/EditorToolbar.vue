@@ -36,15 +36,17 @@ function redo() {
 </script>
 
 <template>
-  <div class="ebb-toolbar">
-    <!-- Left: Device switcher + undo/redo -->
+  <div class="ebb-toolbar" role="toolbar" :aria-label="labels.editor_title">
+    <!-- Left: Device switcher -->
     <div class="ebb-toolbar__left">
-      <div class="ebb-toolbar__device-group">
+      <div class="ebb-toolbar__device-group" role="radiogroup" :aria-label="labels.desktop">
         <button
           v-for="(device, i) in DEVICE_PRESETS"
           :key="device.name"
           class="ebb-toolbar__device-btn"
           :class="{ 'ebb-toolbar__device-btn--active': activeDeviceIndex === i }"
+          role="radio"
+          :aria-checked="activeDeviceIndex === i"
           :title="device.name"
           @click="setDevice(i)"
         >
@@ -52,25 +54,6 @@ function redo() {
           <span class="ebb-toolbar__device-label">{{ device.name }}</span>
         </button>
       </div>
-
-      <div class="ebb-toolbar__divider"></div>
-
-      <button
-        class="ebb-toolbar__action-btn"
-        :class="{ 'ebb-toolbar__action-btn--disabled': !doc.history.canUndo.value }"
-        :title="labels.undo"
-        @click="undo"
-      >
-        <EIcon name="Undo2" :size="16" />
-      </button>
-      <button
-        class="ebb-toolbar__action-btn"
-        :class="{ 'ebb-toolbar__action-btn--disabled': !doc.history.canRedo.value }"
-        :title="labels.redo"
-        @click="redo"
-      >
-        <EIcon name="Redo2" :size="16" />
-      </button>
     </div>
 
     <!-- Center: Title -->
@@ -78,12 +61,37 @@ function redo() {
       {{ labels.editor_title }}
     </div>
 
-    <!-- Right: Code + Fullscreen -->
+    <!-- Right: Undo/Redo + Code + Fullscreen -->
     <div class="ebb-toolbar__group">
       <button
         class="ebb-toolbar__action-btn"
+        :class="{ 'ebb-toolbar__action-btn--disabled': !doc.history.canUndo.value }"
+        :disabled="!doc.history.canUndo.value"
+        :aria-disabled="!doc.history.canUndo.value"
+        :title="labels.undo"
+        :aria-label="labels.undo"
+        @click="undo"
+      >
+        <EIcon name="Undo2" :size="16" />
+      </button>
+      <button
+        class="ebb-toolbar__action-btn"
+        :class="{ 'ebb-toolbar__action-btn--disabled': !doc.history.canRedo.value }"
+        :disabled="!doc.history.canRedo.value"
+        :aria-disabled="!doc.history.canRedo.value"
+        :title="labels.redo"
+        :aria-label="labels.redo"
+        @click="redo"
+      >
+        <EIcon name="Redo2" :size="16" />
+      </button>
+      <div class="ebb-toolbar__divider"></div>
+      <button
+        class="ebb-toolbar__action-btn"
         :class="{ 'ebb-toolbar__action-btn--active': activeView === 'code' }"
+        :aria-pressed="activeView === 'code'"
         :title="labels.code"
+        :aria-label="labels.code"
         @click="emit('toggle-code-view')"
       >
         <EIcon name="Code" :size="16" />
@@ -91,7 +99,9 @@ function redo() {
       <div class="ebb-toolbar__divider"></div>
       <button
         class="ebb-toolbar__action-btn"
+        :aria-pressed="isFullscreen"
         :title="labels.fullscreen"
+        :aria-label="labels.fullscreen"
         @click="emit('toggle-fullscreen')"
       >
         <EIcon :name="isFullscreen ? 'Minimize2' : 'Maximize2'" :size="16" />
@@ -174,13 +184,13 @@ html[data-theme='dark'] .ebb-toolbar__device-btn:hover {
 
 .ebb-toolbar__device-btn--active {
   background: #ffffff;
-  color: #01A8AB;
+  color: var(--ee-primary);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 html[data-theme='dark'] .ebb-toolbar__device-btn--active {
   background: #374151;
-  color: #01A8AB;
+  color: var(--ee-primary);
 }
 
 .ebb-toolbar__title {
@@ -220,7 +230,7 @@ html[data-theme='dark'] .ebb-toolbar__action-btn:hover {
 
 .ebb-toolbar__action-btn--active {
   background: rgba(1, 168, 171, 0.12);
-  color: #01A8AB;
+  color: var(--ee-primary);
 }
 
 .ebb-toolbar__action-btn--disabled {

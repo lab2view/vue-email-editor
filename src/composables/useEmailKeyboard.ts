@@ -49,6 +49,13 @@ export function useEmailKeyboard(
       return
     }
 
+    // Duplicate selected node: Ctrl+D
+    if (isMod && e.key === 'd' && selection.selectedNodeId.value) {
+      e.preventDefault()
+      doc.duplicateNode(selection.selectedNodeId.value)
+      return
+    }
+
     // Escape: clear selection
     if (e.key === 'Escape') {
       selection.clearSelection()
