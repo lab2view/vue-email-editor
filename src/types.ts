@@ -1,9 +1,12 @@
 /**
- * Type definitions for the Mesagoo Email Editor.
+ * Type definitions for the @lab2view/email-editor package.
  *
  * The data model mirrors the MJML document structure for straightforward
  * serialization: EmailDocument -> MJML string -> HTML.
  */
+
+import type { Component, Ref } from 'vue'
+import type { EditorLabels } from './labels'
 
 // ─── Node ID ────────────────────────────────────────────────────
 
@@ -93,16 +96,27 @@ export function isNewEditorJson(data: unknown): data is EmailDesignJson {
 
 // ─── Block Definitions ──────────────────────────────────────────
 
-export type BlockCategory = 'layout' | 'content' | 'composite' | 'variable'
+export type BlockCategory = string
 
 export interface BlockDefinition {
   id: string
+  /** Label key (resolved via EditorLabels) or raw display string */
   label: string
   category: BlockCategory
   /** Lucide icon name */
   icon: string
   /** Factory returning node(s) to insert */
   factory: () => EmailNode | EmailNode[]
+}
+
+export interface BlockCategoryDefinition {
+  id: string
+  /** Label key (resolved via EditorLabels) or raw display string */
+  label: string
+  /** Lucide icon name */
+  icon: string
+  /** Sort order (lower = first) */
+  order?: number
 }
 
 // ─── Property Panel ─────────────────────────────────────────────
@@ -171,3 +185,159 @@ export type IframeMessage =
   | { type: 'ebb:hit-test-result'; nodeId: string | null; position?: DropPosition; rect?: DOMRect; isDrop: boolean }
   | { type: 'ebb:height'; height: number }
   | { type: 'ebb:ready' }
+
+// ─── Editor Event Map ───────────────────────────────────────────
+
+export interface EditorEventMap {
+  'editor:ready': { document: EmailDocument }
+  'editor:change': { document: EmailDocument }
+  'node:selected': { nodeId: NodeId; node: EmailNode }
+  'node:deselected': { nodeId: NodeId }
+  'node:deleted': { nodeId: NodeId }
+  'node:moved': { nodeId: NodeId; fromParentId: NodeId; toParentId: NodeId }
+  'node:duplicated': { originalId: NodeId; newId: NodeId }
+  'block:dropped': { blockId: string; parentId: NodeId }
+  'history:undo': { canUndo: boolean; canRedo: boolean }
+  'history:redo': { canUndo: boolean; canRedo: boolean }
+  'property:changed': { nodeId: NodeId; key: string; value: string }
+}
+
+// ─── Theme Configuration ────────────────────────────────────────
+
+export interface ThemeConfig {
+  primaryColor?: string
+  primaryHover?: string
+  primaryActive?: string
+
+  borderColor?: string
+  borderColorHover?: string
+  backgroundColor?: string
+  backgroundHover?: string
+  backgroundActive?: string
+
+  textPrimary?: string
+  textSecondary?: string
+  textMuted?: string
+
+  canvasBg?: string
+  canvasBorder?: string
+  selectionColor?: string
+  hoverColor?: string
+  dropIndicatorColor?: string
+
+  sidebarBg?: string
+  sidebarBorder?: string
+  panelHeaderBg?: string
+
+  toolbarBg?: string
+  toolbarBorder?: string
+
+  successColor?: string
+  warningColor?: string
+  errorColor?: string
+
+  fontFamily?: string
+  fontSize?: string
+  borderRadius?: string
+}
+
+export const DEFAULT_THEME: Required<ThemeConfig> = {
+  primaryColor: '#01A8AB',
+  primaryHover: '#018F91',
+  primaryActive: '#017375',
+
+  borderColor: '#e5e7eb',
+  borderColorHover: '#d1d5db',
+  backgroundColor: '#ffffff',
+  backgroundHover: '#f3f4f6',
+  backgroundActive: '#e5e7eb',
+
+  textPrimary: '#1f2937',
+  textSecondary: '#6b7280',
+  textMuted: '#9ca3af',
+
+  canvasBg: '#e5e7eb',
+  canvasBorder: '#d1d5db',
+  selectionColor: '#01A8AB',
+  hoverColor: '#01A8AB',
+  dropIndicatorColor: '#01A8AB',
+
+  sidebarBg: '#ffffff',
+  sidebarBorder: '#e5e7eb',
+  panelHeaderBg: '#f9fafb',
+
+  toolbarBg: '#ffffff',
+  toolbarBorder: '#e5e7eb',
+
+  successColor: '#10b981',
+  warningColor: '#f59e0b',
+  errorColor: '#ef4444',
+
+  fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+  fontSize: '13px',
+  borderRadius: '6px',
+}
+
+// ─── Toolbar / Sidebar Extensibility ────────────────────────────
+
+export interface ToolbarAction {
+  id: string
+  label: string
+  icon: string
+  handler: () => void
+  position?: 'left' | 'right'
+  order?: number
+}
+
+export interface SidebarPanel {
+  id: string
+  label: string
+  icon: string
+  component: Component
+  order?: number
+}
+
+// ─── Plugin System ──────────────────────────────────────────────
+
+export interface PluginContext {
+  registerBlock: (block: BlockDefinition) => void
+  registerBlockCategory: (category: BlockCategoryDefinition) => void
+  registerPropertyEditor: (type: string, component: Component) => void
+  registerToolbarAction: (action: ToolbarAction) => void
+  registerSidebarPanel: (panel: SidebarPanel) => void
+  on: <K extends keyof EditorEventMap>(event: K, handler: (payload: EditorEventMap[K]) => void) => void
+  off: <K extends keyof EditorEventMap>(event: K, handler: (payload: EditorEventMap[K]) => void) => void
+  labels: Ref<EditorLabels>
+}
+
+export type Plugin = (context: PluginContext) => void | Promise<void>
+
+// ─── Imperative API (defineExpose) ──────────────────────────────
+
+export interface EmailEditorAPI {
+  getDocument: () => EmailDocument
+  setDocument: (doc: EmailDocument) => void
+
+  getMjml: () => string
+  getHtml: () => string
+  getDesignJson: () => EmailDesignJson
+
+  undo: () => void
+  redo: () => void
+  canUndo: () => boolean
+  canRedo: () => boolean
+
+  selectNode: (nodeId: NodeId) => void
+  getSelectedNode: () => EmailNode | null
+  clearSelection: () => void
+
+  deleteNode: (nodeId: NodeId) => void
+  duplicateNode: (nodeId: NodeId) => NodeId | null
+  insertBlock: (block: BlockDefinition, parentId: NodeId, index?: number) => NodeId | null
+  updateNodeAttribute: (nodeId: NodeId, key: string, value: string) => void
+
+  loadTemplate: (template: EmailDocument) => void
+
+  on: <K extends keyof EditorEventMap>(event: K, handler: (payload: EditorEventMap[K]) => void) => void
+  off: <K extends keyof EditorEventMap>(event: K, handler: (payload: EditorEventMap[K]) => void) => void
+}
