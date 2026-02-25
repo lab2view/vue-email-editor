@@ -1,6 +1,13 @@
-# @lab2view/vue-email-editor
+<p align="center">
+  <img src="src/assets/logo.png" alt="@lab2view/vue-email-editor" width="200" />
+</p>
 
-A professional, extensible drag-and-drop email editor built with **Vue 3** and **MJML**. Design responsive HTML emails visually with 43 pre-built blocks, a plugin system, full i18n support, and a complete imperative API.
+<h1 align="center">@lab2view/vue-email-editor</h1>
+
+<p align="center">
+  A professional, extensible drag-and-drop email editor built with <strong>Vue 3</strong> and <strong>MJML</strong>.<br/>
+  Design responsive HTML emails visually with 43 pre-built blocks, a plugin system, full i18n support, and a complete imperative API.
+</p>
 
 ## Screenshots
 
