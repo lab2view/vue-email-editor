@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, inject } from 'vue'
 import EIcon from '../internal/EIcon.vue'
-import { EMAIL_DOCUMENT_KEY, EMAIL_SELECTION_KEY } from '../../injection-keys'
+import { EMAIL_DOCUMENT_KEY, EMAIL_SELECTION_KEY, EMAIL_DRAG_DROP_KEY } from '../../injection-keys'
 import { EMAIL_LABELS_KEY, DEFAULT_LABELS, type EditorLabels } from '../../labels'
 import { findNode, findParent } from '../../utils/tree'
 import { getNodeTypeLabelKey } from '../../properties/property-definitions'
@@ -18,6 +18,7 @@ const props = defineProps<{
 
 const doc = inject(EMAIL_DOCUMENT_KEY)!
 const selection = inject(EMAIL_SELECTION_KEY)!
+const dragDrop = inject(EMAIL_DRAG_DROP_KEY)!
 const labels = inject(EMAIL_LABELS_KEY, DEFAULT_LABELS)
 
 function resolveLabel(key: string): string {
@@ -77,6 +78,26 @@ function onMoveDown() {
   doc.moveNodeDown(props.selectedNodeId)
 }
 
+function onDragHandleStart(e: DragEvent) {
+  if (!props.selectedNodeId || !e.dataTransfer) return
+  e.dataTransfer.effectAllowed = 'move'
+  e.dataTransfer.setData('text/plain', props.selectedNodeId)
+
+  // Ghost preview for canvas drag
+  const ghost = document.createElement('div')
+  ghost.style.cssText = 'position:fixed;top:-9999px;left:-9999px;display:flex;align-items:center;gap:6px;padding:6px 12px;background:#01A8AB;border-radius:6px;box-shadow:0 4px 12px rgba(0,0,0,0.2);font-size:11px;font-weight:600;color:#fff;white-space:nowrap;z-index:9999;pointer-events:none;'
+  ghost.textContent = selectedNodeType.value
+  document.body.appendChild(ghost)
+  e.dataTransfer.setDragImage(ghost, 0, 0)
+  requestAnimationFrame(() => document.body.removeChild(ghost))
+
+  dragDrop.startDrag({ type: 'existing-node', nodeId: props.selectedNodeId })
+}
+
+function onDragHandleEnd() {
+  dragDrop.endDrag()
+}
+
 const dropIndicatorStyle = computed(() => {
   const rect = props.dropIndicatorRect
   if (!rect) return {} as Record<string, string>
@@ -127,6 +148,15 @@ const dropIndicatorStyle = computed(() => {
     >
       <!-- Node toolbar -->
       <div class="ebb-overlay__toolbar" role="toolbar" :aria-label="selectedNodeType">
+        <div
+          class="ebb-overlay__btn ebb-overlay__drag-handle"
+          draggable="true"
+          title="Drag to reorder"
+          @dragstart="onDragHandleStart"
+          @dragend="onDragHandleEnd"
+        >
+          <EIcon name="GripVertical" :size="12" />
+        </div>
         <button v-if="canSelectParent" class="ebb-overlay__btn" :title="resolveLabel('select_parent')" :aria-label="resolveLabel('select_parent')" @click.stop="onSelectParent">
           <EIcon name="ArrowUp" :size="12" />
         </button>
@@ -232,6 +262,17 @@ const dropIndicatorStyle = computed(() => {
   background: rgba(255, 0, 0, 0.3);
 }
 
+.ebb-overlay__drag-handle {
+  cursor: grab;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  padding-right: 4px;
+  margin-right: 2px;
+}
+
+.ebb-overlay__drag-handle:active {
+  cursor: grabbing;
+}
+
 .ebb-overlay__sep {
   width: 1px;
   height: 12px;
@@ -244,8 +285,14 @@ const dropIndicatorStyle = computed(() => {
   background: var(--ee-drop-indicator);
   pointer-events: none;
   z-index: 10;
-  transition: top 0.08s ease, left 0.08s ease, width 0.08s ease;
-  box-shadow: 0 0 8px rgba(1, 168, 171, 0.4);
+  transition: top 0.1s ease-out, left 0.1s ease-out, width 0.1s ease-out, height 0.1s ease-out;
+  box-shadow: 0 0 10px rgba(1, 168, 171, 0.5), 0 0 20px rgba(1, 168, 171, 0.2);
+  animation: ebb-drop-glow 1s ease-in-out infinite;
+}
+
+@keyframes ebb-drop-glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(1, 168, 171, 0.4), 0 0 16px rgba(1, 168, 171, 0.15); }
+  50% { box-shadow: 0 0 12px rgba(1, 168, 171, 0.6), 0 0 24px rgba(1, 168, 171, 0.3); }
 }
 
 .ebb-overlay__drop-indicator-dot {
