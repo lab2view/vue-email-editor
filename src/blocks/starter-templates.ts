@@ -64,7 +64,7 @@ function headerSection(logoText = 'LOGO') {
     [
       createColumn([
         createImage({
-          src: `https://via.placeholder.com/150x50/01A8AB/ffffff?text=${encodeURIComponent(logoText)}`,
+          src: `https://picsum.photos/seed/${encodeURIComponent(logoText)}/150/50`,
           alt: 'Logo',
           width: '150px',
           align: 'center',
@@ -135,7 +135,7 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
         createSection(
           [
             createColumn(
-              [createImage({ src: 'https://via.placeholder.com/280x180/e5e7eb/6b7280?text=Article+1', alt: 'Article', 'border-radius': '8px', padding: '0' })],
+              [createImage({ src: 'https://picsum.photos/seed/article1/280/180', alt: 'Article', 'border-radius': '8px', padding: '0' })],
               { width: '45%' },
             ),
             createColumn(
@@ -156,7 +156,7 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
           [
             createColumn(
               [
-                createImage({ src: 'https://via.placeholder.com/280x160/e5e7eb/6b7280?text=Article+2', alt: 'Article', 'border-radius': '8px', padding: '0 0 10px 0' }),
+                createImage({ src: 'https://picsum.photos/seed/article2/280/160', alt: 'Article', 'border-radius': '8px', padding: '0 0 10px 0' }),
                 createText('<h4 style="margin: 0;">5 tendances marketing 2026</h4>', { 'font-size': '15px', color: '#333333', padding: '0 5px 5px 5px' }),
                 createText('<p style="margin: 0;">Les stratégies qui vont transformer votre approche...</p>', { 'font-size': '12px', color: '#666666', 'line-height': '1.5', padding: '0 5px 10px 5px' }),
                 createButton('Lire →', { 'background-color': 'transparent', color: '#01A8AB', 'font-size': '13px', border: '1px solid #01A8AB', 'border-radius': '6px', 'inner-padding': '8px 20px', align: 'left', padding: '0 5px' }),
@@ -165,7 +165,7 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
             ),
             createColumn(
               [
-                createImage({ src: 'https://via.placeholder.com/280x160/e5e7eb/6b7280?text=Article+3', alt: 'Article', 'border-radius': '8px', padding: '0 0 10px 0' }),
+                createImage({ src: 'https://picsum.photos/seed/article3/280/160', alt: 'Article', 'border-radius': '8px', padding: '0 0 10px 0' }),
                 createText('<h4 style="margin: 0;">Guide : segmentation avancée</h4>', { 'font-size': '15px', color: '#333333', padding: '0 5px 5px 5px' }),
                 createText('<p style="margin: 0;">Apprenez à cibler précisément vos audiences...</p>', { 'font-size': '12px', color: '#666666', 'line-height': '1.5', padding: '0 5px 10px 5px' }),
                 createButton('Lire →', { 'background-color': 'transparent', color: '#01A8AB', 'font-size': '13px', border: '1px solid #01A8AB', 'border-radius': '6px', 'inner-padding': '8px 20px', align: 'left', padding: '0 5px' }),
@@ -231,19 +231,19 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
         createSection(
           [
             createColumn([
-              createImage({ src: 'https://via.placeholder.com/180x180/ffffff/6b7280?text=Produit+1', alt: 'Produit', 'border-radius': '8px', padding: '0 0 8px 0' }),
+              createImage({ src: 'https://picsum.photos/seed/product1/180/180', alt: 'Produit', 'border-radius': '8px', padding: '0 0 8px 0' }),
               createText('<p style="margin: 0; font-weight: bold;">Article tendance</p>', { align: 'center', 'font-size': '14px', color: '#333333', padding: '0 5px 4px 5px' }),
               createText('<p style="margin: 0;"><span style="text-decoration: line-through; color: #999;">59,99 €</span> <strong style="color: #dc2626;">41,99 €</strong></p>', { align: 'center', 'font-size': '14px', padding: '0 5px 8px 5px' }),
               createButton('Voir', { 'background-color': '#01A8AB', color: '#ffffff', 'font-size': '12px', 'border-radius': '6px', 'inner-padding': '8px 20px', padding: '0' }),
             ], { width: '33.33%' }),
             createColumn([
-              createImage({ src: 'https://via.placeholder.com/180x180/ffffff/6b7280?text=Produit+2', alt: 'Produit', 'border-radius': '8px', padding: '0 0 8px 0' }),
+              createImage({ src: 'https://picsum.photos/seed/product2/180/180', alt: 'Produit', 'border-radius': '8px', padding: '0 0 8px 0' }),
               createText('<p style="margin: 0; font-weight: bold;">Best-seller</p>', { align: 'center', 'font-size': '14px', color: '#333333', padding: '0 5px 4px 5px' }),
               createText('<p style="margin: 0;"><span style="text-decoration: line-through; color: #999;">89,99 €</span> <strong style="color: #dc2626;">62,99 €</strong></p>', { align: 'center', 'font-size': '14px', padding: '0 5px 8px 5px' }),
               createButton('Voir', { 'background-color': '#01A8AB', color: '#ffffff', 'font-size': '12px', 'border-radius': '6px', 'inner-padding': '8px 20px', padding: '0' }),
             ], { width: '33.33%' }),
             createColumn([
-              createImage({ src: 'https://via.placeholder.com/180x180/ffffff/6b7280?text=Produit+3', alt: 'Produit', 'border-radius': '8px', padding: '0 0 8px 0' }),
+              createImage({ src: 'https://picsum.photos/seed/product3/180/180', alt: 'Produit', 'border-radius': '8px', padding: '0 0 8px 0' }),
               createText('<p style="margin: 0; font-weight: bold;">Nouveauté</p>', { align: 'center', 'font-size': '14px', color: '#333333', padding: '0 5px 4px 5px' }),
               createText('<p style="margin: 0;"><span style="text-decoration: line-through; color: #999;">49,99 €</span> <strong style="color: #dc2626;">34,99 €</strong></p>', { align: 'center', 'font-size': '14px', padding: '0 5px 8px 5px' }),
               createButton('Voir', { 'background-color': '#01A8AB', color: '#ffffff', 'font-size': '12px', 'border-radius': '6px', 'inner-padding': '8px 20px', padding: '0' }),
@@ -281,7 +281,7 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
           [createColumn([
             createText('<h1 style="margin: 0;">Bienvenue ! 🎉</h1>', { align: 'center', 'font-size': '28px', color: '#333333', padding: '0 0 10px 0' }),
             createText('<p style="margin: 0;">Merci de nous avoir rejoints. Nous sommes ravis de vous compter parmi notre communauté.</p>', { align: 'center', 'font-size': '16px', color: '#666666', 'line-height': '1.6', padding: '0 30px 20px 30px' }),
-            createImage({ src: 'https://via.placeholder.com/500x200/e0f7fa/01A8AB?text=Bienvenue', alt: 'Bienvenue', 'border-radius': '8px', padding: '0 20px' }),
+            createImage({ src: 'https://picsum.photos/seed/welcome/500/200', alt: 'Bienvenue', 'border-radius': '8px', padding: '0 20px' }),
           ])],
           { 'background-color': '#ffffff', padding: '35px 20px' },
         ),
@@ -354,7 +354,7 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
         ),
         createSection(
           [
-            createColumn([createImage({ src: 'https://via.placeholder.com/80x80/f3f4f6/6b7280?text=A', alt: 'Produit', width: '60px', padding: '0' })], { width: '15%', 'vertical-align': 'middle' }),
+            createColumn([createImage({ src: 'https://picsum.photos/seed/avatarA/80/80', alt: 'Produit', width: '60px', padding: '0' })], { width: '15%', 'vertical-align': 'middle' }),
             createColumn([
               createText('<p style="margin: 0; font-weight: bold;">Article premium</p>', { 'font-size': '14px', color: '#333333', padding: '0 0 2px 0' }),
               createText('<p style="margin: 0;">Quantité : 2</p>', { 'font-size': '12px', color: '#999999', padding: '0' }),
@@ -548,7 +548,7 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
         // Cart items
         createSection(
           [
-            createColumn([createImage({ src: 'https://via.placeholder.com/100x100/f3f4f6/6b7280?text=1', alt: 'Produit', width: '80px', padding: '0', 'border-radius': '8px' })], { width: '20%', 'vertical-align': 'middle' }),
+            createColumn([createImage({ src: 'https://picsum.photos/seed/cart1/100/100', alt: 'Produit', width: '80px', padding: '0', 'border-radius': '8px' })], { width: '20%', 'vertical-align': 'middle' }),
             createColumn([
               createText('<p style="margin: 0; font-weight: bold;">Article premium</p>', { 'font-size': '14px', color: '#333333', padding: '0 0 2px 0' }),
               createText('<p style="margin: 0;">Taille : M &bull; Couleur : Bleu</p>', { 'font-size': '12px', color: '#999999', padding: '0' }),
@@ -563,7 +563,7 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
         ),
         createSection(
           [
-            createColumn([createImage({ src: 'https://via.placeholder.com/100x100/f3f4f6/6b7280?text=2', alt: 'Produit', width: '80px', padding: '0', 'border-radius': '8px' })], { width: '20%', 'vertical-align': 'middle' }),
+            createColumn([createImage({ src: 'https://picsum.photos/seed/cart2/100/100', alt: 'Produit', width: '80px', padding: '0', 'border-radius': '8px' })], { width: '20%', 'vertical-align': 'middle' }),
             createColumn([
               createText('<p style="margin: 0; font-weight: bold;">Accessoire classique</p>', { 'font-size': '14px', color: '#333333', padding: '0 0 2px 0' }),
               createText('<p style="margin: 0;">Quantité : 1</p>', { 'font-size': '12px', color: '#999999', padding: '0' }),
@@ -637,7 +637,7 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
         // Product image
         createSection(
           [createColumn([
-            createImage({ src: 'https://via.placeholder.com/520x260/e0f2fe/0891b2?text=Product+X', alt: 'Product X', 'border-radius': '12px', padding: '0 20px' }),
+            createImage({ src: 'https://picsum.photos/seed/productX/520/260', alt: 'Product X', 'border-radius': '12px', padding: '0 20px' }),
           ])],
           { 'background-color': '#ffffff', padding: '10px 20px 30px 20px' },
         ),
@@ -853,7 +853,7 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
         // Speaker
         createSection(
           [
-            createColumn([createImage({ src: 'https://via.placeholder.com/100x100/e5e7eb/6b7280?text=Speaker', alt: 'Intervenant', width: '80px', 'border-radius': '50%', padding: '0' })], { width: '20%', 'vertical-align': 'middle' }),
+            createColumn([createImage({ src: 'https://picsum.photos/seed/speaker/100/100', alt: 'Intervenant', width: '80px', 'border-radius': '50%', padding: '0' })], { width: '20%', 'vertical-align': 'middle' }),
             createColumn([
               createText('<p style="margin: 0; font-weight: bold;">Marie Dupont</p>', { 'font-size': '15px', color: '#333333', padding: '0 0 3px 0' }),
               createText('<p style="margin: 0;">Directrice Marketing, 15 ans d\'expérience en email marketing et automatisation.</p>', { 'font-size': '13px', color: '#666666', 'line-height': '1.5', padding: '0' }),
@@ -1084,17 +1084,17 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
         createSection(
           [
             createColumn([
-              createImage({ src: 'https://via.placeholder.com/180x120/dbeafe/1d4ed8?text=Mode', alt: 'Mode', 'border-radius': '8px', padding: '0 0 8px 0' }),
+              createImage({ src: 'https://picsum.photos/seed/fashion/180/120', alt: 'Mode', 'border-radius': '8px', padding: '0 0 8px 0' }),
               createText('<p style="margin: 0; font-weight: bold;">Mode</p>', { align: 'center', 'font-size': '14px', color: '#333333', padding: '0 0 3px 0' }),
               createText('<p style="margin: 0; color: #1d4ed8; font-weight: bold;">Jusqu\'à -50%</p>', { align: 'center', 'font-size': '13px', color: '#1d4ed8', padding: '0' }),
             ], { width: '33.33%' }),
             createColumn([
-              createImage({ src: 'https://via.placeholder.com/180x120/dbeafe/1d4ed8?text=Maison', alt: 'Maison', 'border-radius': '8px', padding: '0 0 8px 0' }),
+              createImage({ src: 'https://picsum.photos/seed/home/180/120', alt: 'Maison', 'border-radius': '8px', padding: '0 0 8px 0' }),
               createText('<p style="margin: 0; font-weight: bold;">Maison</p>', { align: 'center', 'font-size': '14px', color: '#333333', padding: '0 0 3px 0' }),
               createText('<p style="margin: 0; color: #1d4ed8; font-weight: bold;">Jusqu\'à -40%</p>', { align: 'center', 'font-size': '13px', color: '#1d4ed8', padding: '0' }),
             ], { width: '33.33%' }),
             createColumn([
-              createImage({ src: 'https://via.placeholder.com/180x120/dbeafe/1d4ed8?text=Tech', alt: 'Tech', 'border-radius': '8px', padding: '0 0 8px 0' }),
+              createImage({ src: 'https://picsum.photos/seed/tech/180/120', alt: 'Tech', 'border-radius': '8px', padding: '0 0 8px 0' }),
               createText('<p style="margin: 0; font-weight: bold;">Tech</p>', { align: 'center', 'font-size': '14px', color: '#333333', padding: '0 0 3px 0' }),
               createText('<p style="margin: 0; color: #1d4ed8; font-weight: bold;">Jusqu\'à -30%</p>', { align: 'center', 'font-size': '13px', color: '#1d4ed8', padding: '0' }),
             ], { width: '33.33%' }),
@@ -1203,7 +1203,7 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
         // Testimonial 1
         createSection(
           [
-            createColumn([createImage({ src: 'https://via.placeholder.com/80x80/e5e7eb/6b7280?text=JD', alt: 'Jean Dupont', width: '60px', 'border-radius': '50%', padding: '0' })], { width: '15%', 'vertical-align': 'top' }),
+            createColumn([createImage({ src: 'https://picsum.photos/seed/jd/80/80', alt: 'Jean Dupont', width: '60px', 'border-radius': '50%', padding: '0' })], { width: '15%', 'vertical-align': 'top' }),
             createColumn([
               createText('<p style="margin: 0;">⭐⭐⭐⭐⭐</p>', { 'font-size': '14px', padding: '0 0 5px 0' }),
               createText('<p style="margin: 0; font-style: italic;">"Outil incroyable ! Nos taux d\'ouverture ont augmenté de 40% en 3 mois. L\'interface est intuitive et le support client est exceptionnel."</p>', { 'font-size': '14px', color: '#333333', 'line-height': '1.6', padding: '0 0 8px 0' }),
@@ -1216,7 +1216,7 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
         // Testimonial 2
         createSection(
           [
-            createColumn([createImage({ src: 'https://via.placeholder.com/80x80/e5e7eb/6b7280?text=ML', alt: 'Marie Lefebvre', width: '60px', 'border-radius': '50%', padding: '0' })], { width: '15%', 'vertical-align': 'top' }),
+            createColumn([createImage({ src: 'https://picsum.photos/seed/ml/80/80', alt: 'Marie Lefebvre', width: '60px', 'border-radius': '50%', padding: '0' })], { width: '15%', 'vertical-align': 'top' }),
             createColumn([
               createText('<p style="margin: 0;">⭐⭐⭐⭐⭐</p>', { 'font-size': '14px', padding: '0 0 5px 0' }),
               createText('<p style="margin: 0; font-style: italic;">"La meilleure solution email que nous avons testée. Simple, puissant et abordable. Nous avons abandonné Mailchimp pour cette solution !"</p>', { 'font-size': '14px', color: '#333333', 'line-height': '1.6', padding: '0 0 8px 0' }),
@@ -1270,7 +1270,7 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
         // Hero image
         createSection(
           [createColumn([
-            createImage({ src: 'https://via.placeholder.com/560x280/d1fae5/15803d?text=Villa+de+charme', alt: 'Propriété', 'border-radius': '12px', padding: '0 10px' }),
+            createImage({ src: 'https://picsum.photos/seed/villa/560/280', alt: 'Propriété', 'border-radius': '12px', padding: '0 10px' }),
           ])],
           { 'background-color': '#ffffff', padding: '15px 15px 10px 15px' },
         ),
@@ -1334,7 +1334,7 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
         createSection(
           [createColumn([
             createImage({
-              src: 'https://via.placeholder.com/150x50/1a1a2e/ffffff?text=Le+Bistrot',
+              src: 'https://picsum.photos/seed/bistrot/150/50',
               alt: 'Le Bistrot',
               width: '150px',
               align: 'center',
@@ -1346,7 +1346,7 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
         // Hero
         createSection(
           [createColumn([
-            createImage({ src: 'https://via.placeholder.com/560x260/fef3c7/b45309?text=Nouveau+Menu', alt: 'Menu', 'border-radius': '0', padding: '0' }),
+            createImage({ src: 'https://picsum.photos/seed/restaurant/560/260', alt: 'Menu', 'border-radius': '0', padding: '0' }),
           ])],
           { 'background-color': '#1a1a2e', padding: '0' },
         ),
