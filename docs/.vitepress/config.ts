@@ -4,6 +4,7 @@ export default defineConfig({
   title: '@lab2view/vue-email-editor',
   description: 'A professional, extensible drag-and-drop email editor for Vue 3, built on MJML.',
   base: '/vue-email-editor/',
+  appearance: 'force-auto',
 
   head: [
     ['link', { rel: 'icon', href: '/vue-email-editor/logo.png' }],

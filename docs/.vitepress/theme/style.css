@@ -331,7 +331,30 @@
 }
 
 /* ----------------------------------------------------------
-   8. Responsive
+   8. Light mode — bright, warm, inspiring
+   ---------------------------------------------------------- */
+
+/* Soft gradient background on homepage */
+.VPHome {
+  background: linear-gradient(180deg, #f0fdfa 0%, #ffffff 30%, #faf5ff 60%, #ffffff 100%);
+}
+
+.dark .VPHome {
+  background: none;
+}
+
+/* Light mode feature cards — softer, warmer */
+.VPFeature .box {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* Feature icon color */
+.VPFeature .icon svg {
+  color: var(--vp-c-brand-1);
+}
+
+/* ----------------------------------------------------------
+   9. Responsive
    ---------------------------------------------------------- */
 @media (max-width: 768px) {
   .home-stats {

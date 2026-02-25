@@ -1,0 +1,156 @@
+[
+  {
+    "id": "blank",
+    "label": "Vide",
+    "description": "Commencez de zéro",
+    "color": "#9ca3af",
+    "file": "blank.html"
+  },
+  {
+    "id": "newsletter",
+    "label": "Newsletter",
+    "description": "Actualités et articles",
+    "color": "#3b82f6",
+    "file": "newsletter.html"
+  },
+  {
+    "id": "promotion",
+    "label": "Promotion",
+    "description": "Offre commerciale",
+    "color": "#dc2626",
+    "file": "promotion.html"
+  },
+  {
+    "id": "welcome",
+    "label": "Bienvenue",
+    "description": "Accueil nouveau client",
+    "color": "#01A8AB",
+    "file": "welcome.html"
+  },
+  {
+    "id": "order-confirmation",
+    "label": "Confirmation",
+    "description": "Confirmation de commande",
+    "color": "#16a34a",
+    "file": "order-confirmation.html"
+  },
+  {
+    "id": "event",
+    "label": "Événement",
+    "description": "Invitation à un événement",
+    "color": "#7c3aed",
+    "file": "event.html"
+  },
+  {
+    "id": "notification",
+    "label": "Notification",
+    "description": "Alerte ou mise à jour",
+    "color": "#f59e0b",
+    "file": "notification.html"
+  },
+  {
+    "id": "password-reset",
+    "label": "Mot de passe",
+    "description": "Réinitialisation du mot de passe",
+    "color": "#6366f1",
+    "file": "password-reset.html"
+  },
+  {
+    "id": "abandoned-cart",
+    "label": "Panier abandonné",
+    "description": "Récupération de panier",
+    "color": "#ea580c",
+    "file": "abandoned-cart.html"
+  },
+  {
+    "id": "product-launch",
+    "label": "Lancement produit",
+    "description": "Annonce de nouveau produit",
+    "color": "#0891b2",
+    "file": "product-launch.html"
+  },
+  {
+    "id": "survey",
+    "label": "Enquête",
+    "description": "Satisfaction client",
+    "color": "#059669",
+    "file": "survey.html"
+  },
+  {
+    "id": "referral",
+    "label": "Parrainage",
+    "description": "Programme de parrainage",
+    "color": "#8b5cf6",
+    "file": "referral.html"
+  },
+  {
+    "id": "re-engagement",
+    "label": "Réengagement",
+    "description": "Reconquérir les inactifs",
+    "color": "#e11d48",
+    "file": "re-engagement.html"
+  },
+  {
+    "id": "webinar",
+    "label": "Webinaire",
+    "description": "Invitation webinaire",
+    "color": "#2563eb",
+    "file": "webinar.html"
+  },
+  {
+    "id": "receipt",
+    "label": "Reçu",
+    "description": "Reçu de paiement",
+    "color": "#0d9488",
+    "file": "receipt.html"
+  },
+  {
+    "id": "shipping",
+    "label": "Expédition",
+    "description": "Confirmation d'expédition",
+    "color": "#0284c7",
+    "file": "shipping.html"
+  },
+  {
+    "id": "birthday",
+    "label": "Anniversaire",
+    "description": "Voeux d'anniversaire",
+    "color": "#ec4899",
+    "file": "birthday.html"
+  },
+  {
+    "id": "seasonal-sale",
+    "label": "Soldes",
+    "description": "Promotions saisonnières",
+    "color": "#1d4ed8",
+    "file": "seasonal-sale.html"
+  },
+  {
+    "id": "saas-onboarding",
+    "label": "Onboarding",
+    "description": "Onboarding application SaaS",
+    "color": "#7c3aed",
+    "file": "saas-onboarding.html"
+  },
+  {
+    "id": "testimonials",
+    "label": "Témoignages",
+    "description": "Avis et témoignages clients",
+    "color": "#d97706",
+    "file": "testimonials.html"
+  },
+  {
+    "id": "real-estate",
+    "label": "Immobilier",
+    "description": "Annonce immobilière",
+    "color": "#15803d",
+    "file": "real-estate.html"
+  },
+  {
+    "id": "restaurant",
+    "label": "Restaurant",
+    "description": "Menu et réservation",
+    "color": "#b45309",
+    "file": "restaurant.html"
+  }
+]
