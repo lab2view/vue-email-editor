@@ -4,6 +4,7 @@ import type { UseEmailSelectionReturn } from './composables/useEmailSelection'
 import type { UseEmailDragDropReturn } from './composables/useEmailDragDrop'
 import type { UseEmailEventsReturn } from './composables/useEmailEvents'
 import type { UsePluginRegistryReturn } from './composables/usePluginRegistry'
+import type { ImageUploadHandler, BrowseAssetsHandler } from './types'
 
 export const EMAIL_DOCUMENT_KEY: InjectionKey<UseEmailDocumentReturn> = Symbol('email-document')
 export const EMAIL_SELECTION_KEY: InjectionKey<UseEmailSelectionReturn> = Symbol('email-selection')
@@ -13,4 +14,6 @@ export const PLUGIN_REGISTRY_KEY: InjectionKey<UsePluginRegistryReturn> = Symbol
 
 export const EMAIL_EDITOR_CONFIG_KEY: InjectionKey<{
   variables: Ref<string[]>
+  onImageUpload?: ImageUploadHandler
+  onBrowseAssets?: BrowseAssetsHandler
 }> = Symbol('email-editor-config')

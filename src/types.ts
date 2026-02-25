@@ -312,6 +312,17 @@ export interface PluginContext {
 
 export type Plugin = (context: PluginContext) => void | Promise<void>
 
+// ─── Image Upload ───────────────────────────────────────────────
+
+export interface ImageUploadResult {
+  /** The URL of the uploaded image */
+  url: string
+}
+
+export type ImageUploadHandler = (file: File) => Promise<ImageUploadResult>
+
+export type BrowseAssetsHandler = () => Promise<string | null>
+
 // ─── Imperative API (defineExpose) ──────────────────────────────
 
 export interface EmailEditorAPI {

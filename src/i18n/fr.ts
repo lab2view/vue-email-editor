@@ -196,6 +196,18 @@ export const FR_LABELS: EditorLabels = {
   column_label: 'Colonne',
   empty_canvas_hint: 'Glissez des blocs dans le canvas pour construire votre email',
 
+  // ─── Image Upload ───
+  image_upload: 'Importer une image',
+  image_browse: 'Parcourir les ressources',
+  image_drop_hint: 'Déposez une image ou cliquez pour importer',
+  image_uploading: 'Import en cours...',
+  image_upload_error: "Erreur lors de l'import",
+  image_max_size: 'Taille max : 5 Mo',
+  image_invalid_type: 'Seuls les formats JPG, PNG, GIF, SVG et WebP sont autorisés',
+  image_remove: "Supprimer l'image",
+  image_change: "Changer l'image",
+  image_no_preview: 'Aucune image sélectionnée',
+
   // ─── Status Messages ───
   loading: 'Chargement...',
 
