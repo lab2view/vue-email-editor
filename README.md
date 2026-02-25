@@ -1,4 +1,4 @@
-# @lab2view/email-editor
+# @lab2view/vue-email-editor
 
 A professional, extensible drag-and-drop email editor built with **Vue 3** and **MJML**. Design responsive HTML emails visually with 43 pre-built blocks, a plugin system, full i18n support, and a complete imperative API.
 
@@ -57,7 +57,7 @@ Powered by [TipTap](https://tiptap.dev), with inline formatting:
 ## Installation
 
 ```bash
-npm install @lab2view/email-editor
+npm install @lab2view/vue-email-editor
 ```
 
 **Peer dependencies:**
@@ -70,7 +70,7 @@ npm install vue@^3.4 mjml-browser@^4.15
 ```vue
 <script setup lang="ts">
 import { ref } from 'vue'
-import { EmailEditor, FR_LABELS } from '@lab2view/email-editor'
+import { EmailEditor, FR_LABELS } from '@lab2view/vue-email-editor'
 
 const editorRef = ref()
 const mjml = ref('')
@@ -130,7 +130,7 @@ The editor ships with English defaults and a complete French translation. Pass c
 
 ```vue
 <script setup>
-import { EmailEditor, FR_LABELS } from '@lab2view/email-editor'
+import { EmailEditor, FR_LABELS } from '@lab2view/vue-email-editor'
 </script>
 
 <!-- French UI -->
@@ -149,7 +149,7 @@ Access the editor programmatically via template ref:
 ```vue
 <script setup>
 import { ref, onMounted } from 'vue'
-import { EmailEditor } from '@lab2view/email-editor'
+import { EmailEditor } from '@lab2view/vue-email-editor'
 
 const editor = ref()
 
@@ -239,8 +239,8 @@ editor.value.on('editor:change', ({ document }) => {
 Extend the editor with custom blocks, property editors, toolbar actions, and sidebar panels:
 
 ```ts
-import type { Plugin } from '@lab2view/email-editor'
-import { createText } from '@lab2view/email-editor'
+import type { Plugin } from '@lab2view/vue-email-editor'
+import { createText } from '@lab2view/vue-email-editor'
 
 const myPlugin: Plugin = (ctx) => {
   // Add a custom block
@@ -302,36 +302,36 @@ The package provides 35+ exports for advanced usage:
 
 ```ts
 // Component
-import { EmailEditor } from '@lab2view/email-editor'
+import { EmailEditor } from '@lab2view/vue-email-editor'
 
 // Labels & i18n
-import { DEFAULT_LABELS, FR_LABELS } from '@lab2view/email-editor'
+import { DEFAULT_LABELS, FR_LABELS } from '@lab2view/vue-email-editor'
 
 // Types
 import type {
   EmailDocument, EmailNode, EmailDesignJson, EmailEditorAPI,
   Plugin, PluginContext, ThemeConfig, EditorEventMap,
   BlockDefinition, PropertyDefinition,
-} from '@lab2view/email-editor'
+} from '@lab2view/vue-email-editor'
 
 // Serialization
-import { compileMjml, documentToMjml, mjmlToDocument } from '@lab2view/email-editor'
+import { compileMjml, documentToMjml, mjmlToDocument } from '@lab2view/vue-email-editor'
 
 // Node factories
 import {
   createDefaultDocument, createSection, createColumn,
   createText, createImage, createButton, createDivider,
   createSpacer, createSocial, createHero, createWrapper,
-} from '@lab2view/email-editor'
+} from '@lab2view/vue-email-editor'
 
 // Tree utilities
-import { findNode, findParent, removeNode, moveNode, cloneSubtree } from '@lab2view/email-editor'
+import { findNode, findParent, removeNode, moveNode, cloneSubtree } from '@lab2view/vue-email-editor'
 
 // Constants
 import {
   DEFAULT_THEME, STATIC_BLOCKS,
   CONTENT_NODE_TYPES, CONTAINER_NODE_TYPES, SELF_CLOSING_NODE_TYPES,
-} from '@lab2view/email-editor'
+} from '@lab2view/vue-email-editor'
 ```
 
 ## Keyboard Shortcuts
