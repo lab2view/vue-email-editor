@@ -24,6 +24,7 @@ export type {
   ImageUploadHandler,
   ImageUploadResult,
   BrowseAssetsHandler,
+  MergeTag,
 } from './types'
 
 // ─── Block / Property Types ───
@@ -80,3 +81,6 @@ export {
 
 // ─── Block Definitions ───
 export { STATIC_BLOCKS } from './blocks/block-definitions'
+
+// ─── Extensions ───
+export { MergeTagExtension } from './extensions/merge-tag'

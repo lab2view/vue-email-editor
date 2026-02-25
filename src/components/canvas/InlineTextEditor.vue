@@ -4,7 +4,7 @@
  * Positioned over the iframe node using the node's bounding rect.
  * On blur/close, the HTML is committed back to the document.
  */
-import { ref, watch, onBeforeUnmount, nextTick } from 'vue'
+import { ref, watch, onBeforeUnmount, nextTick, inject, computed } from 'vue'
 import { useEditor, EditorContent } from '@tiptap/vue-3'
 import StarterKit from '@tiptap/starter-kit'
 import Link from '@tiptap/extension-link'
@@ -12,6 +12,8 @@ import { TextStyle } from '@tiptap/extension-text-style'
 import Color from '@tiptap/extension-color'
 import TextAlign from '@tiptap/extension-text-align'
 import Underline from '@tiptap/extension-underline'
+import { MergeTagExtension } from '../../extensions/merge-tag'
+import { EMAIL_EDITOR_CONFIG_KEY } from '../../injection-keys'
 import InlineToolbar from './InlineToolbar.vue'
 
 const props = defineProps<{
@@ -25,6 +27,8 @@ const emit = defineEmits<{
 }>()
 
 const toolbarRef = ref<HTMLDivElement | null>(null)
+const config = inject(EMAIL_EDITOR_CONFIG_KEY, undefined)
+const mergeTags = computed(() => config?.mergeTags ?? [])
 
 const editor = useEditor({
   content: props.content,
@@ -37,6 +41,7 @@ const editor = useEditor({
     Color,
     TextAlign.configure({ types: ['heading', 'paragraph'] }),
     Underline,
+    MergeTagExtension,
   ],
   editorProps: {
     attributes: {
@@ -89,7 +94,7 @@ onBeforeUnmount(() => {
         width: rect.width + 'px',
       }"
     >
-      <InlineToolbar :editor="editor ?? null" />
+      <InlineToolbar :editor="editor ?? null" :merge-tags="mergeTags" />
     </div>
 
     <!-- Editor container positioned over the iframe node -->
@@ -165,5 +170,34 @@ onBeforeUnmount(() => {
 .ebb-inline-editor__content h4 {
   margin: 0;
   line-height: 1.3;
+}
+
+/* ─── Merge Tag Chips ─── */
+.ebb-merge-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 6px;
+  margin: 0 1px;
+  background: rgba(1, 168, 171, 0.12);
+  border: 1px solid rgba(1, 168, 171, 0.3);
+  border-radius: 3px;
+  font-size: 0.9em;
+  color: var(--ee-primary, #01A8AB);
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: default;
+  user-select: all;
+  vertical-align: baseline;
+  line-height: 1.4;
+}
+
+.ebb-merge-tag:hover {
+  background: rgba(1, 168, 171, 0.2);
+  border-color: rgba(1, 168, 171, 0.5);
+}
+
+.ebb-merge-tag.ProseMirror-selectednode {
+  outline: 2px solid var(--ee-primary, #01A8AB);
+  outline-offset: 1px;
 }
 </style>

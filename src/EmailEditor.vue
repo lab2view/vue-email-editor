@@ -6,7 +6,7 @@
  * the external props/emits contract matching the old GrapesJS editor.
  */
 import { provide, watch, onMounted, toRef, computed } from 'vue'
-import type { EmailDesignJson, ThemeConfig, Plugin, EmailEditorAPI, EmailNode, NodeId, ImageUploadHandler, BrowseAssetsHandler } from './types'
+import type { EmailDesignJson, ThemeConfig, Plugin, EmailEditorAPI, EmailNode, NodeId, ImageUploadHandler, BrowseAssetsHandler, MergeTag } from './types'
 import { isNewEditorJson } from './types'
 import { useEmailDocument } from './composables/useEmailDocument'
 import { useEmailSelection } from './composables/useEmailSelection'
@@ -39,6 +39,7 @@ const props = withDefaults(
     plugins?: Plugin[]
     onImageUpload?: ImageUploadHandler
     onBrowseAssets?: BrowseAssetsHandler
+    mergeTags?: MergeTag[]
   }>(),
   {
     label: '',
@@ -49,6 +50,7 @@ const props = withDefaults(
     plugins: () => [],
     onImageUpload: undefined,
     onBrowseAssets: undefined,
+    mergeTags: () => [],
   },
 )
 
@@ -93,6 +95,7 @@ provide(EMAIL_EDITOR_CONFIG_KEY, {
   variables: toRef(props, 'variables'),
   onImageUpload: props.onImageUpload,
   onBrowseAssets: props.onBrowseAssets,
+  mergeTags: props.mergeTags,
 })
 
 // Merge user-provided labels with defaults

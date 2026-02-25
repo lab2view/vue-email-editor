@@ -196,6 +196,11 @@ export const FR_LABELS: EditorLabels = {
   column_label: 'Colonne',
   empty_canvas_hint: 'Glissez des blocs dans le canvas pour construire votre email',
 
+  // ─── Merge Tags ───
+  merge_tags: 'Variables de fusion',
+  merge_tags_empty: 'Aucune variable configurée',
+  insert_merge_tag: 'Insérer une variable',
+
   // ─── Image Upload ───
   image_upload: 'Importer une image',
   image_browse: 'Parcourir les ressources',
