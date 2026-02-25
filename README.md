@@ -5,8 +5,18 @@
 <h1 align="center">@lab2view/vue-email-editor</h1>
 
 <p align="center">
+  <a href="https://www.npmjs.com/package/@lab2view/vue-email-editor"><img src="https://img.shields.io/npm/v/@lab2view/vue-email-editor.svg?style=flat-square" alt="npm version" /></a>
+  <a href="https://github.com/lab2view/vue-email-editor/actions"><img src="https://img.shields.io/github/actions/workflow/status/lab2view/vue-email-editor/ci.yml?style=flat-square" alt="CI" /></a>
+  <a href="https://github.com/lab2view/vue-email-editor/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/@lab2view/vue-email-editor.svg?style=flat-square" alt="license" /></a>
+  <img src="https://img.shields.io/badge/vue-3.x-42b883?style=flat-square&logo=vue.js" alt="Vue 3" />
+  <img src="https://img.shields.io/badge/mjml-4.x-e54434?style=flat-square" alt="MJML" />
+  <img src="https://img.shields.io/badge/TypeScript-strict-3178c6?style=flat-square&logo=typescript" alt="TypeScript" />
+</p>
+
+<p align="center">
   A professional, extensible drag-and-drop email editor built with <strong>Vue 3</strong> and <strong>MJML</strong>.<br/>
-  Design responsive HTML emails visually with 43 pre-built blocks, a plugin system, full i18n support, and a complete imperative API.
+  Design responsive HTML emails visually with 43 pre-built blocks, a plugin system, full i18n support, and a complete imperative API.<br/>
+  <strong>Free and open-source alternative to Unlayer, Beefree, and Stripo.</strong>
 </p>
 
 ## Screenshots
@@ -53,11 +63,53 @@ Powered by [TipTap](https://tiptap.dev), with inline formatting:
 - Full history with keyboard shortcuts (`Ctrl+Z` / `Ctrl+Shift+Z`)
 - Reactive `canUndo` / `canRedo` state
 
+### Merge Tags
+- Insert dynamic variables into text content (`{{first_name}}`, `{{company}}`, etc.)
+- Categorized merge tag picker in the inline toolbar
+- Visual chip rendering in the editor
+- TipTap extension for atomic merge tag nodes
+
+### Conditional Content
+- Show/hide email sections based on merge tag values
+- Visual condition builder on any node (variable, operator, value)
+- 6 operators: equals, not equals, contains, not contains, exists, not exists
+- Exports as HTML conditional comments for ESP processing
+
+### AI Text Generation
+- BYOAI (Bring Your Own AI) pattern — plug in any AI provider
+- Generate, improve, shorten, expand, and translate text
+- Custom prompt input for freeform generation
+- Non-blocking async generation with loading state
+
+### Dark Mode Preview
+- Toggle dark mode preview in the toolbar (Moon/Sun icon)
+- Simulates email client dark mode behavior in the canvas
+- Background inversion, text color adjustment, link color adaptation
+
+### ESP Export Presets
+- Export HTML pre-formatted for 6 email service providers
+- **Mailchimp**: `*|FNAME|*` merge tags, auto-inject unsubscribe
+- **SendGrid**: `{{variable}}` handlebars format
+- **Brevo**: `{{ contact.ATTRIBUTE }}` format
+- **AWS SES**: `{{camelCase}}` template variables
+- **Postmark**: `{{variable}}` Mustache format
+- **Resend**: `{{variable}}` format
+- Custom preset support for any ESP
+
+### Image Upload
+- Drag-and-drop image upload with progress indicator
+- Asset browser integration via callback
+- File type validation and size limits
+- Preview with change/remove actions
+
 ### Property Editing
 - 40+ editable MJML attributes across 11 property types
 - Color pickers, padding controls, alignment selectors
 - Global styles panel (email background, default font, preview text)
 - Custom fonts support
+
+### 22 Starter Templates
+Professional email templates for common use cases: welcome, newsletter, e-commerce, abandoned cart, product launch, shipping notification, birthday, seasonal sale, SaaS onboarding, and more.
 
 ---
 
@@ -339,6 +391,13 @@ import {
   DEFAULT_THEME, STATIC_BLOCKS,
   CONTENT_NODE_TYPES, CONTAINER_NODE_TYPES, SELF_CLOSING_NODE_TYPES,
 } from '@lab2view/vue-email-editor'
+
+// ESP Export Presets
+import {
+  exportForEsp, exportForMailchimp, exportForSendGrid,
+  exportForBrevo, exportForAwsSes, exportForPostmark, exportForResend,
+  ESP_PRESETS, MAILCHIMP_PRESET, SENDGRID_PRESET,
+} from '@lab2view/vue-email-editor'
 ```
 
 ## Keyboard Shortcuts
@@ -363,6 +422,77 @@ import {
 | `required` | `boolean` | `false` | Form validation flag |
 | `theme` | `Partial<ThemeConfig>` | `DEFAULT_THEME` | Visual customization |
 | `plugins` | `Plugin[]` | `[]` | Editor extensions |
+| `mergeTags` | `MergeTag[]` | — | Dynamic variable tags |
+| `aiProvider` | `AiProvider` | — | AI text generation callbacks |
+| `onImageUpload` | `(file: File) => Promise<{ url }>` | — | Image upload handler |
+| `onBrowseAssets` | `() => Promise<string \| null>` | — | Asset browser handler |
+
+## Merge Tags
+
+Insert dynamic content with merge tag variables:
+
+```vue
+<EmailEditor
+  :merge-tags="[
+    { name: 'First Name', value: '{{first_name}}', category: 'Contact' },
+    { name: 'Company', value: '{{company}}', category: 'Contact' },
+    { name: 'Unsubscribe', value: '{{unsubscribe_url}}', category: 'Links' },
+  ]"
+/>
+```
+
+## AI Text Generation
+
+Bring your own AI provider for inline text generation:
+
+```vue
+<EmailEditor
+  :ai-provider="{
+    generateText: async (prompt, context) => {
+      const response = await fetch('/api/ai/generate', {
+        method: 'POST',
+        body: JSON.stringify({ prompt, context }),
+      })
+      return (await response.json()).text
+    },
+    improveText: async (text, instruction) => {
+      const response = await fetch('/api/ai/improve', {
+        method: 'POST',
+        body: JSON.stringify({ text, instruction }),
+      })
+      return (await response.json()).text
+    },
+  }"
+/>
+```
+
+## ESP Export
+
+Export HTML pre-formatted for your email service provider:
+
+```ts
+import {
+  exportForMailchimp,
+  exportForSendGrid,
+  exportForBrevo,
+  exportForAwsSes,
+  exportForEsp,
+} from '@lab2view/vue-email-editor'
+
+// Get the document from the editor
+const document = editorRef.value.getDocument()
+
+// Export for Mailchimp (transforms {{first_name}} → *|FNAME|*)
+const { html, mjml } = await exportForMailchimp(document)
+
+// Export for SendGrid
+const result = await exportForSendGrid(document)
+
+// Export with custom merge tag mappings
+const custom = await exportForEsp(document, 'brevo', {
+  mergeTags: { plan_name: '{{ contact.PLAN }}' },
+})
+```
 
 ## Development
 
@@ -370,7 +500,7 @@ import {
 # Type check
 npm run typecheck
 
-# Run tests (64 tests)
+# Run tests (147 tests)
 npm test
 
 # Build library
