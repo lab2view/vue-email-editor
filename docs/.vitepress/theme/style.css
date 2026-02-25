@@ -114,6 +114,10 @@
 /* ----------------------------------------------------------
    4. Feature Cards
    ---------------------------------------------------------- */
+.VPFeatures.VPHomeFeatures {
+  padding-top: 0 !important;
+}
+
 .VPFeature {
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
@@ -128,17 +132,25 @@
   box-shadow: 0 12px 32px rgba(45, 212, 191, 0.08);
 }
 
-/* Feature icon styling — gradient background circle */
+/* Feature icon — big emoji */
 .VPFeature .VPImage,
 .VPFeatures .icon {
-  font-size: 1.75rem;
+  font-size: 2.5rem;
 }
 
 /* Feature title */
 .VPFeature .title {
+  font-size: 1.05rem !important;
   font-weight: 700;
   letter-spacing: -0.01em;
   color: var(--vp-c-text-1) !important;
+}
+
+/* Feature details */
+.VPFeature .details {
+  font-size: 0.9rem !important;
+  line-height: 1.55 !important;
+  color: var(--vp-c-text-2) !important;
 }
 
 /* ----------------------------------------------------------
@@ -207,65 +219,6 @@
   font-size: 0.875rem;
   color: var(--vp-c-text-2);
   font-weight: 500;
-}
-
-/* Screenshot section */
-.home-screenshot {
-  max-width: 960px;
-  margin: 1rem auto 3rem;
-  padding: 0 1.5rem;
-}
-
-.home-screenshot__wrapper {
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow:
-    0 4px 6px rgba(0, 0, 0, 0.05),
-    0 20px 60px rgba(1, 168, 171, 0.15);
-  border: 1px solid var(--vp-c-divider);
-  transform: perspective(1200px) rotateX(2deg);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.home-screenshot__wrapper:hover {
-  transform: perspective(1200px) rotateX(0deg);
-  box-shadow:
-    0 4px 6px rgba(0, 0, 0, 0.05),
-    0 24px 70px rgba(1, 168, 171, 0.2);
-}
-
-.dark .home-screenshot__wrapper {
-  box-shadow:
-    0 4px 6px rgba(0, 0, 0, 0.2),
-    0 20px 60px rgba(45, 212, 191, 0.1);
-}
-
-.dark .home-screenshot__wrapper:hover {
-  box-shadow:
-    0 4px 6px rgba(0, 0, 0, 0.2),
-    0 24px 70px rgba(45, 212, 191, 0.15);
-}
-
-.home-screenshot__wrapper img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-/* Gradient glow behind screenshot */
-.home-screenshot__glow {
-  position: absolute;
-  inset: -20%;
-  background: linear-gradient(
-    135deg,
-    rgba(1, 168, 171, 0.08) 0%,
-    rgba(99, 102, 241, 0.08) 50%,
-    rgba(168, 85, 247, 0.08) 100%
-  );
-  filter: blur(40px);
-  z-index: -1;
-  border-radius: 50%;
 }
 
 /* Code example section */
