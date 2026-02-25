@@ -18,6 +18,16 @@ function onDragStart(e: DragEvent) {
   if (!e.dataTransfer) return
   e.dataTransfer.effectAllowed = 'copy'
   e.dataTransfer.setData('text/plain', props.block.id)
+
+  // Create a custom ghost preview
+  const ghost = document.createElement('div')
+  ghost.style.cssText = 'position:fixed;top:-9999px;left:-9999px;display:flex;align-items:center;gap:8px;padding:8px 14px;background:#fff;border:2px solid #01A8AB;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,0.15);font-size:12px;font-weight:600;color:#1f2937;white-space:nowrap;z-index:9999;pointer-events:none;'
+  ghost.textContent = displayLabel.value
+  document.body.appendChild(ghost)
+  e.dataTransfer.setDragImage(ghost, 0, 0)
+  // Clean up ghost after a tick
+  requestAnimationFrame(() => document.body.removeChild(ghost))
+
   dragDrop.startDrag({ type: 'new-block', block: props.block })
   isDragging.value = true
 }
