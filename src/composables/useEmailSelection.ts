@@ -1,6 +1,7 @@
 import { ref, computed, type Ref } from 'vue'
 import type { NodeId, EmailNode, EmailDocument } from '../types'
 import { findNode, getAncestorPath } from '../utils/tree'
+import type { UseEmailEventsReturn } from './useEmailEvents'
 
 export interface UseEmailSelectionReturn {
   selectedNodeId: Ref<NodeId | null>
@@ -13,7 +14,10 @@ export interface UseEmailSelectionReturn {
   clearSelection: () => void
 }
 
-export function useEmailSelection(document: Ref<EmailDocument>): UseEmailSelectionReturn {
+export function useEmailSelection(
+  document: Ref<EmailDocument>,
+  events?: UseEmailEventsReturn,
+): UseEmailSelectionReturn {
   const selectedNodeId = ref<NodeId | null>(null)
   const hoveredNodeId = ref<NodeId | null>(null)
 
@@ -28,7 +32,18 @@ export function useEmailSelection(document: Ref<EmailDocument>): UseEmailSelecti
   })
 
   function selectNode(nodeId: NodeId | null) {
+    const previousId = selectedNodeId.value
     selectedNodeId.value = nodeId
+
+    if (previousId && previousId !== nodeId) {
+      events?.emit('node:deselected', { nodeId: previousId })
+    }
+    if (nodeId) {
+      const node = findNode(document.value.body, nodeId)
+      if (node) {
+        events?.emit('node:selected', { nodeId, node })
+      }
+    }
   }
 
   function selectParent() {
@@ -44,8 +59,12 @@ export function useEmailSelection(document: Ref<EmailDocument>): UseEmailSelecti
   }
 
   function clearSelection() {
+    const previousId = selectedNodeId.value
     selectedNodeId.value = null
     hoveredNodeId.value = null
+    if (previousId) {
+      events?.emit('node:deselected', { nodeId: previousId })
+    }
   }
 
   return {

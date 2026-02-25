@@ -1,7 +1,8 @@
-import { computed, type Ref } from 'vue'
+import { computed, shallowRef, type Ref } from 'vue'
 import { useManualRefHistory } from '@vueuse/core'
 import { cloneDeep } from 'lodash'
 import type { EmailDocument } from '../types'
+import type { UseEmailEventsReturn } from './useEmailEvents'
 
 export interface UseEmailHistoryReturn {
   /** Take a snapshot of the current state (call BEFORE mutating) */
@@ -14,8 +15,11 @@ export interface UseEmailHistoryReturn {
   canRedo: Ref<boolean>
 }
 
-export function useEmailHistory(document: Ref<EmailDocument>): UseEmailHistoryReturn {
-  const { commit: rawCommit, undo: rawUndo, redo: rawRedo, history } = useManualRefHistory(
+export function useEmailHistory(
+  document: Ref<EmailDocument>,
+  events?: UseEmailEventsReturn,
+): UseEmailHistoryReturn {
+  const { commit: rawCommit, undo: rawUndo, history } = useManualRefHistory(
     document,
     {
       capacity: 50,
@@ -24,41 +28,38 @@ export function useEmailHistory(document: Ref<EmailDocument>): UseEmailHistoryRe
   )
 
   const canUndo = computed(() => history.value.length > 1)
-  const canRedo = computed(() => {
-    // useManualRefHistory tracks redo internally via the undone list
-    // We check if there are entries after the current pointer
-    // Since useManualRefHistory doesn't expose canRedo, we track it differently
-    return false // Will be improved when we implement a custom solution if needed
-  })
 
-  // We track redo capability manually
-  let undoStack: EmailDocument[] = []
+  // Reactive redo stack — shallowRef triggers reactivity on reassign
+  const redoStack = shallowRef<EmailDocument[]>([])
+  const canRedo = computed(() => redoStack.value.length > 0)
 
   function commit() {
     rawCommit()
-    undoStack = [] // Clear redo stack on new action
+    redoStack.value = [] // Clear redo stack on new action
   }
 
   function undo() {
     if (history.value.length <= 1) return
-    undoStack.push(cloneDeep(document.value))
+    redoStack.value = [...redoStack.value, cloneDeep(document.value)]
     rawUndo()
+    events?.emit('history:undo', { canUndo: canUndo.value, canRedo: canRedo.value })
   }
 
   function redo() {
-    if (undoStack.length === 0) return
+    if (redoStack.value.length === 0) return
+    const stack = [...redoStack.value]
+    const redoState = stack.pop()!
+    redoStack.value = stack
     rawCommit()
-    const redoState = undoStack.pop()!
     document.value = redoState
+    events?.emit('history:redo', { canUndo: canUndo.value, canRedo: canRedo.value })
   }
-
-  const canRedoComputed = computed(() => undoStack.length > 0)
 
   return {
     commit,
     undo,
     redo,
     canUndo,
-    canRedo: canRedoComputed,
+    canRedo,
   }
 }
