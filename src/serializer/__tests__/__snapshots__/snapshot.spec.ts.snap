@@ -1,5 +1,170 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`MJML Snapshot Tests > serializes abandoned-cart template to MJML 1`] = `
+"<mjml>
+  <mj-head>
+    <mj-preview>Vous avez oublié quelque chose dans votre panier !</mj-preview>
+  </mj-head>
+  <mj-body background-color="#f4f4f4" css-class="ebb-node-id-41">
+    <mj-section background-color="#ffffff" padding="20px 0" css-class="ebb-node-id-3">
+      <mj-column css-class="ebb-node-id-2">
+        <mj-image src="https://via.placeholder.com/150x50/01A8AB/ffffff?text=LOGO" alt="Logo" padding="0" width="150px" align="center" css-class="ebb-node-id-1" />
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="30px 20px 10px 20px" css-class="ebb-node-id-8">
+      <mj-column css-class="ebb-node-id-7">
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#555555" padding="0 0 10px 0" align="center" css-class="ebb-node-id-4">
+          <p style="margin: 0; text-align: center; font-size: 40px;">🛒</p>
+        </mj-text>
+        <mj-text font-size="24px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 10px 0" align="center" css-class="ebb-node-id-5">
+          <h1 style="margin: 0;">Vous avez oublié quelque chose !</h1>
+        </mj-text>
+        <mj-text font-size="15px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 30px 20px 30px" align="center" line-height="1.6" css-class="ebb-node-id-6">
+          <p style="margin: 0;">Vous avez des articles dans votre panier qui n'attendent que vous. Finalisez votre commande avant qu'ils ne soient plus disponibles.</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="10px 25px" css-class="ebb-node-id-16">
+      <mj-column width="20%" vertical-align="middle" css-class="ebb-node-id-10">
+        <mj-image src="https://via.placeholder.com/100x100/f3f4f6/6b7280?text=1" alt="Produit" padding="0" width="80px" border-radius="8px" css-class="ebb-node-id-9" />
+      </mj-column>
+      <mj-column width="50%" vertical-align="middle" css-class="ebb-node-id-13">
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 2px 0" css-class="ebb-node-id-11">
+          <p style="margin: 0; font-weight: bold;">Article premium</p>
+        </mj-text>
+        <mj-text font-size="12px" font-family="Helvetica, Arial, sans-serif" color="#999999" padding="0" css-class="ebb-node-id-12">
+          <p style="margin: 0;">Taille : M &bull; Couleur : Bleu</p>
+        </mj-text>
+      </mj-column>
+      <mj-column width="30%" vertical-align="middle" css-class="ebb-node-id-15">
+        <mj-text font-size="15px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0" align="right" css-class="ebb-node-id-14">
+          <p style="margin: 0; text-align: right; font-weight: bold;">49,99 €</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="0 25px" css-class="ebb-node-id-19">
+      <mj-column css-class="ebb-node-id-18">
+        <mj-divider border-color="#f3f4f6" border-width="1px" padding="0" css-class="ebb-node-id-17" />
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="10px 25px" css-class="ebb-node-id-27">
+      <mj-column width="20%" vertical-align="middle" css-class="ebb-node-id-21">
+        <mj-image src="https://via.placeholder.com/100x100/f3f4f6/6b7280?text=2" alt="Produit" padding="0" width="80px" border-radius="8px" css-class="ebb-node-id-20" />
+      </mj-column>
+      <mj-column width="50%" vertical-align="middle" css-class="ebb-node-id-24">
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 2px 0" css-class="ebb-node-id-22">
+          <p style="margin: 0; font-weight: bold;">Accessoire classique</p>
+        </mj-text>
+        <mj-text font-size="12px" font-family="Helvetica, Arial, sans-serif" color="#999999" padding="0" css-class="ebb-node-id-23">
+          <p style="margin: 0;">Quantité : 1</p>
+        </mj-text>
+      </mj-column>
+      <mj-column width="30%" vertical-align="middle" css-class="ebb-node-id-26">
+        <mj-text font-size="15px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0" align="right" css-class="ebb-node-id-25">
+          <p style="margin: 0; text-align: right; font-weight: bold;">29,99 €</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#fff7ed" padding="25px 20px" css-class="ebb-node-id-31">
+      <mj-column css-class="ebb-node-id-30">
+        <mj-button background-color="#ea580c" color="#ffffff" font-size="16px" border-radius="6px" inner-padding="16px 40px" href="#" font-weight="bold" css-class="ebb-node-id-28">
+          Finaliser ma commande
+        </mj-button>
+        <mj-text font-size="12px" font-family="Helvetica, Arial, sans-serif" color="#999999" padding="12px 0 0 0" align="center" css-class="ebb-node-id-29">
+          <p style="margin: 0;">Votre panier expire dans <strong>24 heures</strong></p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#333333" padding="25px 20px" css-class="ebb-node-id-40">
+      <mj-column css-class="ebb-node-id-39">
+        <mj-social font-size="11px" icon-size="24px" mode="horizontal" align="center" padding="0 0 15px 0" color="#999999" css-class="ebb-node-id-36">
+          <mj-social-element name="facebook" href="https://facebook.com/" background-color="#555555" css-class="ebb-node-id-32"></mj-social-element>
+          <mj-social-element name="twitter" href="https://twitter.com/" background-color="#555555" css-class="ebb-node-id-33"></mj-social-element>
+          <mj-social-element name="instagram" href="https://instagram.com/" background-color="#555555" css-class="ebb-node-id-34"></mj-social-element>
+          <mj-social-element name="linkedin" href="https://linkedin.com/" background-color="#555555" css-class="ebb-node-id-35"></mj-social-element>
+        </mj-social>
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#999999" padding="0 20px" align="center" line-height="1.6" css-class="ebb-node-id-37">
+          <p style="margin: 0;">Vous recevez cet email car vous êtes inscrit sur notre plateforme.<br/><a href="#" style="color: #01A8AB; text-decoration: underline;">Se désinscrire</a> &nbsp;|&nbsp; <a href="#" style="color: #01A8AB; text-decoration: underline;">Préférences</a></p>
+        </mj-text>
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="10px 0 0 0" align="center" css-class="ebb-node-id-38">
+          <p style="margin: 0;">&copy; 2026 Votre Entreprise. Tous droits réservés.</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>"
+`;
+
+exports[`MJML Snapshot Tests > serializes birthday template to MJML 1`] = `
+"<mjml>
+  <mj-head>
+    <mj-preview>Joyeux anniversaire ! Un cadeau vous attend 🎂</mj-preview>
+  </mj-head>
+  <mj-body background-color="#f4f4f4" css-class="ebb-node-id-28">
+    <mj-section background-color="#ffffff" padding="20px 0" css-class="ebb-node-id-3">
+      <mj-column css-class="ebb-node-id-2">
+        <mj-image src="https://via.placeholder.com/150x50/01A8AB/ffffff?text=LOGO" alt="Logo" padding="0" width="150px" align="center" css-class="ebb-node-id-1" />
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="30px 20px 10px 20px" css-class="ebb-node-id-8">
+      <mj-column css-class="ebb-node-id-7">
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#555555" padding="0 0 10px 0" align="center" css-class="ebb-node-id-4">
+          <p style="margin: 0; text-align: center; font-size: 48px;">🎂</p>
+        </mj-text>
+        <mj-text font-size="28px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 10px 0" align="center" css-class="ebb-node-id-5">
+          <h1 style="margin: 0;">Joyeux anniversaire !</h1>
+        </mj-text>
+        <mj-text font-size="15px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 30px 20px 30px" align="center" line-height="1.6" css-class="ebb-node-id-6">
+          <p style="margin: 0;">Toute l'équipe vous souhaite un merveilleux anniversaire. Pour célébrer cette journée spéciale, nous avons un petit cadeau pour vous !</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#fdf2f8" padding="30px 20px" border-radius="8px" css-class="ebb-node-id-17">
+      <mj-column css-class="ebb-node-id-16">
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#555555" padding="0 0 10px 0" align="center" css-class="ebb-node-id-9">
+          <p style="margin: 0; text-align: center; font-size: 36px;">🎁</p>
+        </mj-text>
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#ec4899" padding="0 0 8px 0" align="center" css-class="ebb-node-id-10">
+          <p style="margin: 0; text-transform: uppercase; letter-spacing: 2px;">Votre cadeau</p>
+        </mj-text>
+        <mj-text font-size="36px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 5px 0" align="center" css-class="ebb-node-id-11">
+          <h2 style="margin: 0; font-size: 36px;">-30%</h2>
+        </mj-text>
+        <mj-text font-size="15px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 0 10px 0" align="center" css-class="ebb-node-id-12">
+          <p style="margin: 0;">sur tout le site, rien que pour vous !</p>
+        </mj-text>
+        <mj-text font-size="22px" font-family="Helvetica, Arial, sans-serif" color="#ec4899" padding="10px 0 20px 0" align="center" css-class="ebb-node-id-13">
+          <p style="margin: 0; font-weight: bold; letter-spacing: 3px; color: #ec4899;">BIRTHDAY30</p>
+        </mj-text>
+        <mj-button background-color="#ec4899" color="#ffffff" font-size="16px" border-radius="6px" inner-padding="14px 40px" href="#" font-weight="bold" css-class="ebb-node-id-14">
+          Ouvrir mon cadeau
+        </mj-button>
+        <mj-text font-size="12px" font-family="Helvetica, Arial, sans-serif" color="#999999" padding="10px 0 0 0" align="center" css-class="ebb-node-id-15">
+          <p style="margin: 0;">Valable pendant 7 jours</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-spacer height="10px" css-class="ebb-node-id-18" />
+    <mj-section background-color="#333333" padding="25px 20px" css-class="ebb-node-id-27">
+      <mj-column css-class="ebb-node-id-26">
+        <mj-social font-size="11px" icon-size="24px" mode="horizontal" align="center" padding="0 0 15px 0" color="#999999" css-class="ebb-node-id-23">
+          <mj-social-element name="facebook" href="https://facebook.com/" background-color="#555555" css-class="ebb-node-id-19"></mj-social-element>
+          <mj-social-element name="twitter" href="https://twitter.com/" background-color="#555555" css-class="ebb-node-id-20"></mj-social-element>
+          <mj-social-element name="instagram" href="https://instagram.com/" background-color="#555555" css-class="ebb-node-id-21"></mj-social-element>
+          <mj-social-element name="linkedin" href="https://linkedin.com/" background-color="#555555" css-class="ebb-node-id-22"></mj-social-element>
+        </mj-social>
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#999999" padding="0 20px" align="center" line-height="1.6" css-class="ebb-node-id-24">
+          <p style="margin: 0;">Vous recevez cet email car vous êtes inscrit sur notre plateforme.<br/><a href="#" style="color: #01A8AB; text-decoration: underline;">Se désinscrire</a> &nbsp;|&nbsp; <a href="#" style="color: #01A8AB; text-decoration: underline;">Préférences</a></p>
+        </mj-text>
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="10px 0 0 0" align="center" css-class="ebb-node-id-25">
+          <p style="margin: 0;">&copy; 2026 Votre Entreprise. Tous droits réservés.</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>"
+`;
+
 exports[`MJML Snapshot Tests > serializes blank template to MJML 1`] = `
 "<mjml>
   <mj-head>
@@ -423,6 +588,108 @@ exports[`MJML Snapshot Tests > serializes password-reset template to MJML 1`] = 
 </mjml>"
 `;
 
+exports[`MJML Snapshot Tests > serializes product-launch template to MJML 1`] = `
+"<mjml>
+  <mj-head>
+    <mj-preview>Découvrez notre dernière innovation !</mj-preview>
+  </mj-head>
+  <mj-body background-color="#f4f4f4" css-class="ebb-node-id-41">
+    <mj-section background-color="#ffffff" padding="20px 0" css-class="ebb-node-id-3">
+      <mj-column css-class="ebb-node-id-2">
+        <mj-image src="https://via.placeholder.com/150x50/01A8AB/ffffff?text=LOGO" alt="Logo" padding="0" width="150px" align="center" css-class="ebb-node-id-1" />
+      </mj-column>
+    </mj-section>
+    <mj-hero mode="fixed" background-height="380px" background-width="600px" background-color="#0891b2" padding="50px 20px" css-class="ebb-node-id-8">
+      <mj-text font-size="12px" font-family="Helvetica, Arial, sans-serif" color="rgba(255,255,255,0.7)" padding="0 0 10px 0" align="center" css-class="ebb-node-id-4">
+        <p style="margin: 0; text-transform: uppercase; letter-spacing: 3px;">Nouveau</p>
+      </mj-text>
+      <mj-text font-size="32px" font-family="Helvetica, Arial, sans-serif" color="#ffffff" padding="0 0 10px 0" align="center" css-class="ebb-node-id-5">
+        <h1 style="margin: 0; font-size: 32px;">Introducing Product X</h1>
+      </mj-text>
+      <mj-text font-size="16px" font-family="Helvetica, Arial, sans-serif" color="rgba(255,255,255,0.85)" padding="0 30px 25px 30px" align="center" line-height="1.5" css-class="ebb-node-id-6">
+        <p style="margin: 0;">La prochaine génération de notre technologie phare. Plus rapide, plus intelligent, plus puissant.</p>
+      </mj-text>
+      <mj-button background-color="#ffffff" color="#0891b2" font-size="16px" border-radius="6px" inner-padding="14px 40px" href="#" font-weight="bold" css-class="ebb-node-id-7">
+        Découvrir
+      </mj-button>
+    </mj-hero>
+    <mj-section background-color="#ffffff" padding="35px 20px 5px 20px" css-class="ebb-node-id-11">
+      <mj-column css-class="ebb-node-id-10">
+        <mj-text font-size="22px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 25px 0" align="center" css-class="ebb-node-id-9">
+          <h2 style="margin: 0; text-align: center;">Pourquoi vous allez l'adorer</h2>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="5px 15px 25px 15px" css-class="ebb-node-id-24">
+      <mj-column width="33.33%" css-class="ebb-node-id-15">
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#555555" padding="0 0 8px 0" align="center" css-class="ebb-node-id-12">
+          <p style="margin: 0; text-align: center; font-size: 28px;">⚡</p>
+        </mj-text>
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 10px 5px 10px" align="center" css-class="ebb-node-id-13">
+          <p style="margin: 0; font-weight: bold;">Ultra rapide</p>
+        </mj-text>
+        <mj-text font-size="12px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 10px" align="center" line-height="1.5" css-class="ebb-node-id-14">
+          <p style="margin: 0;">Performance multipliée par 3 par rapport à la version précédente.</p>
+        </mj-text>
+      </mj-column>
+      <mj-column width="33.33%" css-class="ebb-node-id-19">
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#555555" padding="0 0 8px 0" align="center" css-class="ebb-node-id-16">
+          <p style="margin: 0; text-align: center; font-size: 28px;">🎨</p>
+        </mj-text>
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 10px 5px 10px" align="center" css-class="ebb-node-id-17">
+          <p style="margin: 0; font-weight: bold;">Design repensé</p>
+        </mj-text>
+        <mj-text font-size="12px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 10px" align="center" line-height="1.5" css-class="ebb-node-id-18">
+          <p style="margin: 0;">Interface intuitive et moderne pour une expérience fluide.</p>
+        </mj-text>
+      </mj-column>
+      <mj-column width="33.33%" css-class="ebb-node-id-23">
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#555555" padding="0 0 8px 0" align="center" css-class="ebb-node-id-20">
+          <p style="margin: 0; text-align: center; font-size: 28px;">🔒</p>
+        </mj-text>
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 10px 5px 10px" align="center" css-class="ebb-node-id-21">
+          <p style="margin: 0; font-weight: bold;">Sécurité renforcée</p>
+        </mj-text>
+        <mj-text font-size="12px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 10px" align="center" line-height="1.5" css-class="ebb-node-id-22">
+          <p style="margin: 0;">Protection avancée et chiffrement de bout en bout.</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="10px 20px 30px 20px" css-class="ebb-node-id-27">
+      <mj-column css-class="ebb-node-id-26">
+        <mj-image src="https://via.placeholder.com/520x260/e0f2fe/0891b2?text=Product+X" alt="Product X" padding="0 20px" border-radius="12px" css-class="ebb-node-id-25" />
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#f0f9ff" padding="25px 20px" css-class="ebb-node-id-31">
+      <mj-column css-class="ebb-node-id-30">
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 0 15px 0" align="center" css-class="ebb-node-id-28">
+          <p style="margin: 0;">Disponible dès maintenant. Offre de lancement -20%.</p>
+        </mj-text>
+        <mj-button background-color="#0891b2" color="#ffffff" font-size="16px" border-radius="6px" inner-padding="14px 36px" href="#" font-weight="bold" css-class="ebb-node-id-29">
+          Commander maintenant
+        </mj-button>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#333333" padding="25px 20px" css-class="ebb-node-id-40">
+      <mj-column css-class="ebb-node-id-39">
+        <mj-social font-size="11px" icon-size="24px" mode="horizontal" align="center" padding="0 0 15px 0" color="#999999" css-class="ebb-node-id-36">
+          <mj-social-element name="facebook" href="https://facebook.com/" background-color="#555555" css-class="ebb-node-id-32"></mj-social-element>
+          <mj-social-element name="twitter" href="https://twitter.com/" background-color="#555555" css-class="ebb-node-id-33"></mj-social-element>
+          <mj-social-element name="instagram" href="https://instagram.com/" background-color="#555555" css-class="ebb-node-id-34"></mj-social-element>
+          <mj-social-element name="linkedin" href="https://linkedin.com/" background-color="#555555" css-class="ebb-node-id-35"></mj-social-element>
+        </mj-social>
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#999999" padding="0 20px" align="center" line-height="1.6" css-class="ebb-node-id-37">
+          <p style="margin: 0;">Vous recevez cet email car vous êtes inscrit sur notre plateforme.<br/><a href="#" style="color: #01A8AB; text-decoration: underline;">Se désinscrire</a> &nbsp;|&nbsp; <a href="#" style="color: #01A8AB; text-decoration: underline;">Préférences</a></p>
+        </mj-text>
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="10px 0 0 0" align="center" css-class="ebb-node-id-38">
+          <p style="margin: 0;">&copy; 2026 Votre Entreprise. Tous droits réservés.</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>"
+`;
+
 exports[`MJML Snapshot Tests > serializes promotion template to MJML 1`] = `
 "<mjml>
   <mj-head>
@@ -531,6 +798,1082 @@ exports[`MJML Snapshot Tests > serializes promotion template to MJML 1`] = `
           <p style="margin: 0;">Vous recevez cet email car vous êtes inscrit sur notre plateforme.<br/><a href="#" style="color: #01A8AB; text-decoration: underline;">Se désinscrire</a> &nbsp;|&nbsp; <a href="#" style="color: #01A8AB; text-decoration: underline;">Préférences</a></p>
         </mj-text>
         <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="10px 0 0 0" align="center" css-class="ebb-node-id-45">
+          <p style="margin: 0;">&copy; 2026 Votre Entreprise. Tous droits réservés.</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>"
+`;
+
+exports[`MJML Snapshot Tests > serializes re-engagement template to MJML 1`] = `
+"<mjml>
+  <mj-head>
+    <mj-preview>Vous nous manquez ! Revenez avec une offre spéciale.</mj-preview>
+  </mj-head>
+  <mj-body background-color="#f4f4f4" css-class="ebb-node-id-41">
+    <mj-section background-color="#ffffff" padding="20px 0" css-class="ebb-node-id-3">
+      <mj-column css-class="ebb-node-id-2">
+        <mj-image src="https://via.placeholder.com/150x50/01A8AB/ffffff?text=LOGO" alt="Logo" padding="0" width="150px" align="center" css-class="ebb-node-id-1" />
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="30px 20px 10px 20px" css-class="ebb-node-id-8">
+      <mj-column css-class="ebb-node-id-7">
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#555555" padding="0 0 10px 0" align="center" css-class="ebb-node-id-4">
+          <p style="margin: 0; text-align: center; font-size: 40px;">💔</p>
+        </mj-text>
+        <mj-text font-size="26px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 10px 0" align="center" css-class="ebb-node-id-5">
+          <h1 style="margin: 0;">Vous nous manquez !</h1>
+        </mj-text>
+        <mj-text font-size="15px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 30px 20px 30px" align="center" line-height="1.6" css-class="ebb-node-id-6">
+          <p style="margin: 0;">Cela fait un moment que nous n'avons pas eu de vos nouvelles. Nous avons de belles choses à vous montrer !</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#fff1f2" padding="30px 20px" border-radius="8px" css-class="ebb-node-id-15">
+      <mj-column css-class="ebb-node-id-14">
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#e11d48" padding="0 0 8px 0" align="center" css-class="ebb-node-id-9">
+          <p style="margin: 0; text-transform: uppercase; letter-spacing: 2px;">Offre de retour exclusive</p>
+        </mj-text>
+        <mj-text font-size="38px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 5px 0" align="center" css-class="ebb-node-id-10">
+          <h2 style="margin: 0; font-size: 38px;">-25%</h2>
+        </mj-text>
+        <mj-text font-size="16px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 0 10px 0" align="center" css-class="ebb-node-id-11">
+          <p style="margin: 0;">sur votre prochaine commande</p>
+        </mj-text>
+        <mj-text font-size="20px" font-family="Helvetica, Arial, sans-serif" color="#e11d48" padding="10px 0 20px 0" align="center" css-class="ebb-node-id-12">
+          <p style="margin: 0; font-weight: bold; letter-spacing: 3px; color: #e11d48;">COMEBACK25</p>
+        </mj-text>
+        <mj-button background-color="#e11d48" color="#ffffff" font-size="16px" border-radius="6px" inner-padding="14px 40px" href="#" font-weight="bold" css-class="ebb-node-id-13">
+          Revenir maintenant
+        </mj-button>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="25px 20px 5px 20px" css-class="ebb-node-id-18">
+      <mj-column css-class="ebb-node-id-17">
+        <mj-text font-size="18px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 15px 0" align="center" css-class="ebb-node-id-16">
+          <h3 style="margin: 0; text-align: center;">Ce que vous avez raté</h3>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="5px 15px 25px 15px" css-class="ebb-node-id-31">
+      <mj-column width="33.33%" css-class="ebb-node-id-22">
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#555555" padding="0 0 5px 0" align="center" css-class="ebb-node-id-19">
+          <p style="margin: 0; text-align: center; font-size: 24px;">🆕</p>
+        </mj-text>
+        <mj-text font-size="13px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 5px 3px 5px" align="center" css-class="ebb-node-id-20">
+          <p style="margin: 0; font-weight: bold;">Nouvelle collection</p>
+        </mj-text>
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 5px" align="center" css-class="ebb-node-id-21">
+          <p style="margin: 0;">Plus de 50 nouveaux articles.</p>
+        </mj-text>
+      </mj-column>
+      <mj-column width="33.33%" css-class="ebb-node-id-26">
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#555555" padding="0 0 5px 0" align="center" css-class="ebb-node-id-23">
+          <p style="margin: 0; text-align: center; font-size: 24px;">🚚</p>
+        </mj-text>
+        <mj-text font-size="13px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 5px 3px 5px" align="center" css-class="ebb-node-id-24">
+          <p style="margin: 0; font-weight: bold;">Livraison gratuite</p>
+        </mj-text>
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 5px" align="center" css-class="ebb-node-id-25">
+          <p style="margin: 0;">Sur toutes les commandes.</p>
+        </mj-text>
+      </mj-column>
+      <mj-column width="33.33%" css-class="ebb-node-id-30">
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#555555" padding="0 0 5px 0" align="center" css-class="ebb-node-id-27">
+          <p style="margin: 0; text-align: center; font-size: 24px;">⭐</p>
+        </mj-text>
+        <mj-text font-size="13px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 5px 3px 5px" align="center" css-class="ebb-node-id-28">
+          <p style="margin: 0; font-weight: bold;">Programme fidélité</p>
+        </mj-text>
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 5px" align="center" css-class="ebb-node-id-29">
+          <p style="margin: 0;">Cumulez des points bonus.</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#333333" padding="25px 20px" css-class="ebb-node-id-40">
+      <mj-column css-class="ebb-node-id-39">
+        <mj-social font-size="11px" icon-size="24px" mode="horizontal" align="center" padding="0 0 15px 0" color="#999999" css-class="ebb-node-id-36">
+          <mj-social-element name="facebook" href="https://facebook.com/" background-color="#555555" css-class="ebb-node-id-32"></mj-social-element>
+          <mj-social-element name="twitter" href="https://twitter.com/" background-color="#555555" css-class="ebb-node-id-33"></mj-social-element>
+          <mj-social-element name="instagram" href="https://instagram.com/" background-color="#555555" css-class="ebb-node-id-34"></mj-social-element>
+          <mj-social-element name="linkedin" href="https://linkedin.com/" background-color="#555555" css-class="ebb-node-id-35"></mj-social-element>
+        </mj-social>
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#999999" padding="0 20px" align="center" line-height="1.6" css-class="ebb-node-id-37">
+          <p style="margin: 0;">Vous recevez cet email car vous êtes inscrit sur notre plateforme.<br/><a href="#" style="color: #01A8AB; text-decoration: underline;">Se désinscrire</a> &nbsp;|&nbsp; <a href="#" style="color: #01A8AB; text-decoration: underline;">Préférences</a></p>
+        </mj-text>
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="10px 0 0 0" align="center" css-class="ebb-node-id-38">
+          <p style="margin: 0;">&copy; 2026 Votre Entreprise. Tous droits réservés.</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>"
+`;
+
+exports[`MJML Snapshot Tests > serializes real-estate template to MJML 1`] = `
+"<mjml>
+  <mj-head>
+    <mj-preview>Nouveau bien : Appartement 3 pièces avec terrasse</mj-preview>
+  </mj-head>
+  <mj-body background-color="#f4f4f4" css-class="ebb-node-id-39">
+    <mj-section background-color="#ffffff" padding="20px 0" css-class="ebb-node-id-3">
+      <mj-column css-class="ebb-node-id-2">
+        <mj-image src="https://via.placeholder.com/150x50/01A8AB/ffffff?text=LOGO" alt="Logo" padding="0" width="150px" align="center" css-class="ebb-node-id-1" />
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="15px 15px 10px 15px" css-class="ebb-node-id-6">
+      <mj-column css-class="ebb-node-id-5">
+        <mj-image src="https://via.placeholder.com/560x280/d1fae5/15803d?text=Villa+de+charme" alt="Propriété" padding="0 10px" border-radius="12px" css-class="ebb-node-id-4" />
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="5px 25px 10px 25px" css-class="ebb-node-id-12">
+      <mj-column css-class="ebb-node-id-11">
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#15803d" padding="0 0 5px 0" css-class="ebb-node-id-7">
+          <p style="margin: 0; text-transform: uppercase; letter-spacing: 1px;">Nouveau bien</p>
+        </mj-text>
+        <mj-text font-size="22px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 5px 0" css-class="ebb-node-id-8">
+          <h1 style="margin: 0;">Appartement 3 pièces avec terrasse</h1>
+        </mj-text>
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 0 10px 0" css-class="ebb-node-id-9">
+          <p style="margin: 0;">📍 Paris 11ème — Quartier Bastille</p>
+        </mj-text>
+        <mj-text font-size="24px" font-family="Helvetica, Arial, sans-serif" color="#15803d" padding="0 0 15px 0" css-class="ebb-node-id-10">
+          <p style="margin: 0; font-weight: bold; font-size: 24px; color: #15803d;">425 000 €</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#f0fdf4" padding="20px 15px" border-radius="8px" css-class="ebb-node-id-25">
+      <mj-column width="25%" css-class="ebb-node-id-15">
+        <mj-text font-size="18px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 3px 0" align="center" css-class="ebb-node-id-13">
+          <p style="margin: 0; font-weight: bold; font-size: 18px;">65 m²</p>
+        </mj-text>
+        <mj-text font-size="12px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0" align="center" css-class="ebb-node-id-14">
+          <p style="margin: 0;">Surface</p>
+        </mj-text>
+      </mj-column>
+      <mj-column width="25%" css-class="ebb-node-id-18">
+        <mj-text font-size="18px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 3px 0" align="center" css-class="ebb-node-id-16">
+          <p style="margin: 0; font-weight: bold; font-size: 18px;">3</p>
+        </mj-text>
+        <mj-text font-size="12px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0" align="center" css-class="ebb-node-id-17">
+          <p style="margin: 0;">Pièces</p>
+        </mj-text>
+      </mj-column>
+      <mj-column width="25%" css-class="ebb-node-id-21">
+        <mj-text font-size="18px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 3px 0" align="center" css-class="ebb-node-id-19">
+          <p style="margin: 0; font-weight: bold; font-size: 18px;">2</p>
+        </mj-text>
+        <mj-text font-size="12px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0" align="center" css-class="ebb-node-id-20">
+          <p style="margin: 0;">Chambres</p>
+        </mj-text>
+      </mj-column>
+      <mj-column width="25%" css-class="ebb-node-id-24">
+        <mj-text font-size="18px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 3px 0" align="center" css-class="ebb-node-id-22">
+          <p style="margin: 0; font-weight: bold; font-size: 18px;">12 m²</p>
+        </mj-text>
+        <mj-text font-size="12px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0" align="center" css-class="ebb-node-id-23">
+          <p style="margin: 0;">Terrasse</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="20px 25px 25px 25px" css-class="ebb-node-id-29">
+      <mj-column css-class="ebb-node-id-28">
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 0 15px 0" line-height="1.6" css-class="ebb-node-id-26">
+          <p style="margin: 0;">Charmant appartement rénové avec goût au 4ème étage avec ascenseur. Lumineux, traversant, avec une belle terrasse exposée sud. Cuisine équipée, parquet ancien, hauteur sous plafond.</p>
+        </mj-text>
+        <mj-button background-color="#15803d" color="#ffffff" font-size="15px" border-radius="6px" inner-padding="14px 36px" href="#" font-weight="bold" css-class="ebb-node-id-27">
+          Voir l'annonce complète
+        </mj-button>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#333333" padding="25px 20px" css-class="ebb-node-id-38">
+      <mj-column css-class="ebb-node-id-37">
+        <mj-social font-size="11px" icon-size="24px" mode="horizontal" align="center" padding="0 0 15px 0" color="#999999" css-class="ebb-node-id-34">
+          <mj-social-element name="facebook" href="https://facebook.com/" background-color="#555555" css-class="ebb-node-id-30"></mj-social-element>
+          <mj-social-element name="twitter" href="https://twitter.com/" background-color="#555555" css-class="ebb-node-id-31"></mj-social-element>
+          <mj-social-element name="instagram" href="https://instagram.com/" background-color="#555555" css-class="ebb-node-id-32"></mj-social-element>
+          <mj-social-element name="linkedin" href="https://linkedin.com/" background-color="#555555" css-class="ebb-node-id-33"></mj-social-element>
+        </mj-social>
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#999999" padding="0 20px" align="center" line-height="1.6" css-class="ebb-node-id-35">
+          <p style="margin: 0;">Vous recevez cet email car vous êtes inscrit sur notre plateforme.<br/><a href="#" style="color: #01A8AB; text-decoration: underline;">Se désinscrire</a> &nbsp;|&nbsp; <a href="#" style="color: #01A8AB; text-decoration: underline;">Préférences</a></p>
+        </mj-text>
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="10px 0 0 0" align="center" css-class="ebb-node-id-36">
+          <p style="margin: 0;">&copy; 2026 Votre Entreprise. Tous droits réservés.</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>"
+`;
+
+exports[`MJML Snapshot Tests > serializes receipt template to MJML 1`] = `
+"<mjml>
+  <mj-head>
+    <mj-preview>Votre reçu de paiement</mj-preview>
+  </mj-head>
+  <mj-body background-color="#f4f4f4" css-class="ebb-node-id-45">
+    <mj-section background-color="#ffffff" padding="20px 0" css-class="ebb-node-id-3">
+      <mj-column css-class="ebb-node-id-2">
+        <mj-image src="https://via.placeholder.com/150x50/01A8AB/ffffff?text=LOGO" alt="Logo" padding="0" width="150px" align="center" css-class="ebb-node-id-1" />
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="25px 20px 10px 20px" css-class="ebb-node-id-8">
+      <mj-column css-class="ebb-node-id-7">
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#555555" padding="0 0 10px 0" align="center" css-class="ebb-node-id-4">
+          <p style="margin: 0; text-align: center; font-size: 40px;">🧾</p>
+        </mj-text>
+        <mj-text font-size="22px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 5px 0" align="center" css-class="ebb-node-id-5">
+          <h2 style="margin: 0;">Reçu de paiement</h2>
+        </mj-text>
+        <mj-text font-size="13px" font-family="Helvetica, Arial, sans-serif" color="#999999" padding="0 0 15px 0" align="center" css-class="ebb-node-id-6">
+          <p style="margin: 0;">Transaction #TXN-2026-0001</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="15px 25px" css-class="ebb-node-id-16">
+      <mj-column width="60%" css-class="ebb-node-id-12">
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#999999" padding="0 0 10px 0" css-class="ebb-node-id-9">
+          <p style="margin: 0; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; font-size: 11px; color: #999;">Description</p>
+        </mj-text>
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 4px 0" css-class="ebb-node-id-10">
+          <p style="margin: 0;">Plan Professionnel</p>
+        </mj-text>
+        <mj-text font-size="12px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0" css-class="ebb-node-id-11">
+          <p style="margin: 0;">Période : Mars 2026</p>
+        </mj-text>
+      </mj-column>
+      <mj-column width="40%" css-class="ebb-node-id-15">
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#999999" padding="0 0 10px 0" align="right" css-class="ebb-node-id-13">
+          <p style="margin: 0; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; font-size: 11px; color: #999; text-align: right;">Montant</p>
+        </mj-text>
+        <mj-text font-size="22px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0" align="right" css-class="ebb-node-id-14">
+          <p style="margin: 0; text-align: right; font-weight: bold; font-size: 22px;">49,00 €</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="0 25px" css-class="ebb-node-id-19">
+      <mj-column css-class="ebb-node-id-18">
+        <mj-divider border-color="#e5e7eb" border-width="1px" padding="0" css-class="ebb-node-id-17" />
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="10px 25px 20px 25px" css-class="ebb-node-id-28">
+      <mj-column width="60%" css-class="ebb-node-id-23">
+        <mj-text font-size="13px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0" css-class="ebb-node-id-20">
+          <p style="margin: 0; color: #666;">Sous-total</p>
+        </mj-text>
+        <mj-text font-size="13px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="4px 0 0 0" css-class="ebb-node-id-21">
+          <p style="margin: 0; color: #666;">TVA (20%)</p>
+        </mj-text>
+        <mj-text font-size="15px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="8px 0 0 0" css-class="ebb-node-id-22">
+          <p style="margin: 0; font-weight: bold; font-size: 15px; margin-top: 8px;">Total TTC</p>
+        </mj-text>
+      </mj-column>
+      <mj-column width="40%" css-class="ebb-node-id-27">
+        <mj-text font-size="13px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0" align="right" css-class="ebb-node-id-24">
+          <p style="margin: 0; text-align: right;">40,83 €</p>
+        </mj-text>
+        <mj-text font-size="13px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="4px 0 0 0" align="right" css-class="ebb-node-id-25">
+          <p style="margin: 0; text-align: right;">8,17 €</p>
+        </mj-text>
+        <mj-text font-size="15px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="8px 0 0 0" align="right" css-class="ebb-node-id-26">
+          <p style="margin: 0; text-align: right; font-weight: bold; font-size: 15px;">49,00 €</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#f8f9fa" padding="15px 25px" border-radius="8px" css-class="ebb-node-id-32">
+      <mj-column css-class="ebb-node-id-31">
+        <mj-text font-size="12px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 0 3px 0" css-class="ebb-node-id-29">
+          <p style="margin: 0;"><strong>Mode de paiement :</strong> Visa •••• 4242</p>
+        </mj-text>
+        <mj-text font-size="12px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0" css-class="ebb-node-id-30">
+          <p style="margin: 0;"><strong>Date :</strong> 25 février 2026</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="20px" css-class="ebb-node-id-35">
+      <mj-column css-class="ebb-node-id-34">
+        <mj-button background-color="#0d9488" color="#ffffff" font-size="14px" border-radius="6px" inner-padding="12px 28px" href="#" font-weight="bold" css-class="ebb-node-id-33">
+          Télécharger la facture PDF
+        </mj-button>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#333333" padding="25px 20px" css-class="ebb-node-id-44">
+      <mj-column css-class="ebb-node-id-43">
+        <mj-social font-size="11px" icon-size="24px" mode="horizontal" align="center" padding="0 0 15px 0" color="#999999" css-class="ebb-node-id-40">
+          <mj-social-element name="facebook" href="https://facebook.com/" background-color="#555555" css-class="ebb-node-id-36"></mj-social-element>
+          <mj-social-element name="twitter" href="https://twitter.com/" background-color="#555555" css-class="ebb-node-id-37"></mj-social-element>
+          <mj-social-element name="instagram" href="https://instagram.com/" background-color="#555555" css-class="ebb-node-id-38"></mj-social-element>
+          <mj-social-element name="linkedin" href="https://linkedin.com/" background-color="#555555" css-class="ebb-node-id-39"></mj-social-element>
+        </mj-social>
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#999999" padding="0 20px" align="center" line-height="1.6" css-class="ebb-node-id-41">
+          <p style="margin: 0;">Vous recevez cet email car vous êtes inscrit sur notre plateforme.<br/><a href="#" style="color: #01A8AB; text-decoration: underline;">Se désinscrire</a> &nbsp;|&nbsp; <a href="#" style="color: #01A8AB; text-decoration: underline;">Préférences</a></p>
+        </mj-text>
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="10px 0 0 0" align="center" css-class="ebb-node-id-42">
+          <p style="margin: 0;">&copy; 2026 Votre Entreprise. Tous droits réservés.</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>"
+`;
+
+exports[`MJML Snapshot Tests > serializes referral template to MJML 1`] = `
+"<mjml>
+  <mj-head>
+    <mj-preview>Parrainez vos amis et gagnez des récompenses !</mj-preview>
+  </mj-head>
+  <mj-body background-color="#f4f4f4" css-class="ebb-node-id-36">
+    <mj-section background-color="#ffffff" padding="20px 0" css-class="ebb-node-id-3">
+      <mj-column css-class="ebb-node-id-2">
+        <mj-image src="https://via.placeholder.com/150x50/01A8AB/ffffff?text=LOGO" alt="Logo" padding="0" width="150px" align="center" css-class="ebb-node-id-1" />
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="30px 20px 10px 20px" css-class="ebb-node-id-8">
+      <mj-column css-class="ebb-node-id-7">
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#555555" padding="0 0 10px 0" align="center" css-class="ebb-node-id-4">
+          <p style="margin: 0; text-align: center; font-size: 40px;">🎁</p>
+        </mj-text>
+        <mj-text font-size="26px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 10px 0" align="center" css-class="ebb-node-id-5">
+          <h1 style="margin: 0;">Parrainez, gagnez !</h1>
+        </mj-text>
+        <mj-text font-size="15px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 30px 20px 30px" align="center" line-height="1.6" css-class="ebb-node-id-6">
+          <p style="margin: 0;">Invitez vos amis à nous rejoindre et recevez des récompenses exclusives pour chaque parrainage réussi.</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#faf5ff" padding="25px 15px" css-class="ebb-node-id-21">
+      <mj-column width="33.33%" css-class="ebb-node-id-12">
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#555555" padding="0 0 10px 0" align="center" css-class="ebb-node-id-9">
+          <p style="margin: 0; text-align: center;"><span style="display: inline-block; background: #8b5cf6; color: #fff; width: 36px; height: 36px; line-height: 36px; border-radius: 50%; font-weight: bold; font-size: 16px;">1</span></p>
+        </mj-text>
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 5px 0" align="center" css-class="ebb-node-id-10">
+          <p style="margin: 0; font-weight: bold;">Partagez</p>
+        </mj-text>
+        <mj-text font-size="12px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 10px" align="center" css-class="ebb-node-id-11">
+          <p style="margin: 0;">Envoyez votre lien unique à vos amis.</p>
+        </mj-text>
+      </mj-column>
+      <mj-column width="33.33%" css-class="ebb-node-id-16">
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#555555" padding="0 0 10px 0" align="center" css-class="ebb-node-id-13">
+          <p style="margin: 0; text-align: center;"><span style="display: inline-block; background: #8b5cf6; color: #fff; width: 36px; height: 36px; line-height: 36px; border-radius: 50%; font-weight: bold; font-size: 16px;">2</span></p>
+        </mj-text>
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 5px 0" align="center" css-class="ebb-node-id-14">
+          <p style="margin: 0; font-weight: bold;">Ils s'inscrivent</p>
+        </mj-text>
+        <mj-text font-size="12px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 10px" align="center" css-class="ebb-node-id-15">
+          <p style="margin: 0;">Votre ami crée son compte gratuitement.</p>
+        </mj-text>
+      </mj-column>
+      <mj-column width="33.33%" css-class="ebb-node-id-20">
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#555555" padding="0 0 10px 0" align="center" css-class="ebb-node-id-17">
+          <p style="margin: 0; text-align: center;"><span style="display: inline-block; background: #8b5cf6; color: #fff; width: 36px; height: 36px; line-height: 36px; border-radius: 50%; font-weight: bold; font-size: 16px;">3</span></p>
+        </mj-text>
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 5px 0" align="center" css-class="ebb-node-id-18">
+          <p style="margin: 0; font-weight: bold;">Gagnez</p>
+        </mj-text>
+        <mj-text font-size="12px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 10px" align="center" css-class="ebb-node-id-19">
+          <p style="margin: 0;">Vous recevez 15€ de crédit chacun.</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="25px 20px" css-class="ebb-node-id-26">
+      <mj-column css-class="ebb-node-id-25">
+        <mj-text font-size="13px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 0 8px 0" align="center" css-class="ebb-node-id-22">
+          <p style="margin: 0;">Votre code de parrainage :</p>
+        </mj-text>
+        <mj-text font-size="24px" font-family="Helvetica, Arial, sans-serif" color="#8b5cf6" padding="0 0 15px 0" align="center" css-class="ebb-node-id-23">
+          <p style="margin: 0; font-weight: bold; letter-spacing: 4px; font-size: 24px; color: #8b5cf6;">PARRAIN2026</p>
+        </mj-text>
+        <mj-button background-color="#8b5cf6" color="#ffffff" font-size="16px" border-radius="6px" inner-padding="14px 36px" href="#" font-weight="bold" css-class="ebb-node-id-24">
+          Partager maintenant
+        </mj-button>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#333333" padding="25px 20px" css-class="ebb-node-id-35">
+      <mj-column css-class="ebb-node-id-34">
+        <mj-social font-size="11px" icon-size="24px" mode="horizontal" align="center" padding="0 0 15px 0" color="#999999" css-class="ebb-node-id-31">
+          <mj-social-element name="facebook" href="https://facebook.com/" background-color="#555555" css-class="ebb-node-id-27"></mj-social-element>
+          <mj-social-element name="twitter" href="https://twitter.com/" background-color="#555555" css-class="ebb-node-id-28"></mj-social-element>
+          <mj-social-element name="instagram" href="https://instagram.com/" background-color="#555555" css-class="ebb-node-id-29"></mj-social-element>
+          <mj-social-element name="linkedin" href="https://linkedin.com/" background-color="#555555" css-class="ebb-node-id-30"></mj-social-element>
+        </mj-social>
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#999999" padding="0 20px" align="center" line-height="1.6" css-class="ebb-node-id-32">
+          <p style="margin: 0;">Vous recevez cet email car vous êtes inscrit sur notre plateforme.<br/><a href="#" style="color: #01A8AB; text-decoration: underline;">Se désinscrire</a> &nbsp;|&nbsp; <a href="#" style="color: #01A8AB; text-decoration: underline;">Préférences</a></p>
+        </mj-text>
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="10px 0 0 0" align="center" css-class="ebb-node-id-33">
+          <p style="margin: 0;">&copy; 2026 Votre Entreprise. Tous droits réservés.</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>"
+`;
+
+exports[`MJML Snapshot Tests > serializes restaurant template to MJML 1`] = `
+"<mjml>
+  <mj-head>
+    <mj-preview>Découvrez notre nouveau menu et réservez votre table !</mj-preview>
+  </mj-head>
+  <mj-body background-color="#f4f4f4" css-class="ebb-node-id-45">
+    <mj-section background-color="#1a1a2e" padding="25px 0" css-class="ebb-node-id-3">
+      <mj-column css-class="ebb-node-id-2">
+        <mj-image src="https://via.placeholder.com/150x50/1a1a2e/ffffff?text=Le+Bistrot" alt="Le Bistrot" padding="0" width="150px" align="center" css-class="ebb-node-id-1" />
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#1a1a2e" padding="0" css-class="ebb-node-id-6">
+      <mj-column css-class="ebb-node-id-5">
+        <mj-image src="https://via.placeholder.com/560x260/fef3c7/b45309?text=Nouveau+Menu" alt="Menu" padding="0" border-radius="0" css-class="ebb-node-id-4" />
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#fffbeb" padding="25px 20px 10px 20px" css-class="ebb-node-id-11">
+      <mj-column css-class="ebb-node-id-10">
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#b45309" padding="0 0 8px 0" align="center" css-class="ebb-node-id-7">
+          <p style="margin: 0; text-transform: uppercase; letter-spacing: 3px;">Saison 2026</p>
+        </mj-text>
+        <mj-text font-size="24px" font-family="Helvetica, Arial, sans-serif" color="#1a1a2e" padding="0 0 10px 0" align="center" css-class="ebb-node-id-8">
+          <h1 style="margin: 0;">Notre nouveau menu est arrivé</h1>
+        </mj-text>
+        <mj-text font-size="15px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 30px 20px 30px" align="center" line-height="1.6" css-class="ebb-node-id-9">
+          <p style="margin: 0;">Des saveurs raffinées, des produits de saison, et une carte repensée pour éveiller vos papilles.</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#fffbeb" padding="10px 20px 5px 20px" css-class="ebb-node-id-14">
+      <mj-column css-class="ebb-node-id-13">
+        <mj-text font-size="18px" font-family="Helvetica, Arial, sans-serif" color="#1a1a2e" padding="0 0 15px 0" align="center" css-class="ebb-node-id-12">
+          <h3 style="margin: 0; text-align: center;">Nos coups de coeur</h3>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#fffbeb" padding="0 15px 25px 15px" css-class="ebb-node-id-30">
+      <mj-column width="33.33%" css-class="ebb-node-id-19">
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#555555" padding="0 0 5px 0" align="center" css-class="ebb-node-id-15">
+          <p style="margin: 0; text-align: center; font-size: 24px;">🥗</p>
+        </mj-text>
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#1a1a2e" padding="0 10px 3px 10px" align="center" css-class="ebb-node-id-16">
+          <p style="margin: 0; font-weight: bold;">Entrée</p>
+        </mj-text>
+        <mj-text font-size="12px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 10px 5px 10px" align="center" css-class="ebb-node-id-17">
+          <p style="margin: 0;">Carpaccio de betteraves, chèvre frais et noix</p>
+        </mj-text>
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#b45309" padding="0" align="center" css-class="ebb-node-id-18">
+          <p style="margin: 0; font-weight: bold; color: #b45309;">12 €</p>
+        </mj-text>
+      </mj-column>
+      <mj-column width="33.33%" css-class="ebb-node-id-24">
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#555555" padding="0 0 5px 0" align="center" css-class="ebb-node-id-20">
+          <p style="margin: 0; text-align: center; font-size: 24px;">🥩</p>
+        </mj-text>
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#1a1a2e" padding="0 10px 3px 10px" align="center" css-class="ebb-node-id-21">
+          <p style="margin: 0; font-weight: bold;">Plat</p>
+        </mj-text>
+        <mj-text font-size="12px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 10px 5px 10px" align="center" css-class="ebb-node-id-22">
+          <p style="margin: 0;">Filet de boeuf, sauce truffe et écrasé de pommes</p>
+        </mj-text>
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#b45309" padding="0" align="center" css-class="ebb-node-id-23">
+          <p style="margin: 0; font-weight: bold; color: #b45309;">28 €</p>
+        </mj-text>
+      </mj-column>
+      <mj-column width="33.33%" css-class="ebb-node-id-29">
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#555555" padding="0 0 5px 0" align="center" css-class="ebb-node-id-25">
+          <p style="margin: 0; text-align: center; font-size: 24px;">🍰</p>
+        </mj-text>
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#1a1a2e" padding="0 10px 3px 10px" align="center" css-class="ebb-node-id-26">
+          <p style="margin: 0; font-weight: bold;">Dessert</p>
+        </mj-text>
+        <mj-text font-size="12px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 10px 5px 10px" align="center" css-class="ebb-node-id-27">
+          <p style="margin: 0;">Tarte tatin revisitée, glace vanille</p>
+        </mj-text>
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#b45309" padding="0" align="center" css-class="ebb-node-id-28">
+          <p style="margin: 0; font-weight: bold; color: #b45309;">10 €</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#1a1a2e" padding="25px 20px" color="#ffffff" css-class="ebb-node-id-35">
+      <mj-column css-class="ebb-node-id-34">
+        <mj-text font-size="13px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 0 5px 0" align="center" css-class="ebb-node-id-31">
+          <p style="margin: 0;">📍 12 rue de la Gastronomie, 75003 Paris</p>
+        </mj-text>
+        <mj-text font-size="13px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 0 15px 0" align="center" css-class="ebb-node-id-32">
+          <p style="margin: 0;">📞 01 23 45 67 89 &nbsp;|&nbsp; Ouvert du mardi au samedi</p>
+        </mj-text>
+        <mj-button background-color="#b45309" color="#ffffff" font-size="16px" border-radius="6px" inner-padding="14px 36px" href="#" font-weight="bold" css-class="ebb-node-id-33">
+          Réserver une table
+        </mj-button>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#333333" padding="25px 20px" css-class="ebb-node-id-44">
+      <mj-column css-class="ebb-node-id-43">
+        <mj-social font-size="11px" icon-size="24px" mode="horizontal" align="center" padding="0 0 15px 0" color="#999999" css-class="ebb-node-id-40">
+          <mj-social-element name="facebook" href="https://facebook.com/" background-color="#555555" css-class="ebb-node-id-36"></mj-social-element>
+          <mj-social-element name="twitter" href="https://twitter.com/" background-color="#555555" css-class="ebb-node-id-37"></mj-social-element>
+          <mj-social-element name="instagram" href="https://instagram.com/" background-color="#555555" css-class="ebb-node-id-38"></mj-social-element>
+          <mj-social-element name="linkedin" href="https://linkedin.com/" background-color="#555555" css-class="ebb-node-id-39"></mj-social-element>
+        </mj-social>
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#999999" padding="0 20px" align="center" line-height="1.6" css-class="ebb-node-id-41">
+          <p style="margin: 0;">Vous recevez cet email car vous êtes inscrit sur notre plateforme.<br/><a href="#" style="color: #01A8AB; text-decoration: underline;">Se désinscrire</a> &nbsp;|&nbsp; <a href="#" style="color: #01A8AB; text-decoration: underline;">Préférences</a></p>
+        </mj-text>
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="10px 0 0 0" align="center" css-class="ebb-node-id-42">
+          <p style="margin: 0;">&copy; 2026 Votre Entreprise. Tous droits réservés.</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>"
+`;
+
+exports[`MJML Snapshot Tests > serializes saas-onboarding template to MJML 1`] = `
+"<mjml>
+  <mj-head>
+    <mj-preview>Votre guide de démarrage rapide</mj-preview>
+  </mj-head>
+  <mj-body background-color="#f4f4f4" css-class="ebb-node-id-47">
+    <mj-section background-color="#ffffff" padding="20px 0" css-class="ebb-node-id-3">
+      <mj-column css-class="ebb-node-id-2">
+        <mj-image src="https://via.placeholder.com/150x50/01A8AB/ffffff?text=LOGO" alt="Logo" padding="0" width="150px" align="center" css-class="ebb-node-id-1" />
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="30px 20px 10px 20px" css-class="ebb-node-id-7">
+      <mj-column css-class="ebb-node-id-6">
+        <mj-text font-size="24px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 10px 0" align="center" css-class="ebb-node-id-4">
+          <h1 style="margin: 0;">Démarrez en 5 minutes 🚀</h1>
+        </mj-text>
+        <mj-text font-size="15px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 30px 20px 30px" align="center" line-height="1.6" css-class="ebb-node-id-5">
+          <p style="margin: 0;">Votre compte est prêt ! Suivez ces étapes simples pour tirer le meilleur de votre nouvel outil.</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="15px 25px" css-class="ebb-node-id-14">
+      <mj-column width="10%" vertical-align="top" css-class="ebb-node-id-9">
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#555555" padding="5px 0 0 0" css-class="ebb-node-id-8">
+          <p style="margin: 0;"><span style="display: inline-block; background: #7c3aed; color: #fff; width: 28px; height: 28px; line-height: 28px; border-radius: 50%; font-weight: bold; text-align: center;">1</span></p>
+        </mj-text>
+      </mj-column>
+      <mj-column width="90%" css-class="ebb-node-id-13">
+        <mj-text font-size="15px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 5px 0" css-class="ebb-node-id-10">
+          <p style="margin: 0; font-weight: bold;">Complétez votre profil</p>
+        </mj-text>
+        <mj-text font-size="13px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 0 8px 0" line-height="1.5" css-class="ebb-node-id-11">
+          <p style="margin: 0;">Ajoutez votre logo, vos couleurs et vos informations d'entreprise pour personnaliser l'expérience.</p>
+        </mj-text>
+        <mj-button background-color="transparent" color="#7c3aed" font-size="13px" border-radius="6px" inner-padding="8px 20px" href="#" border="1px solid #7c3aed" align="left" padding="0" css-class="ebb-node-id-12">
+          Compléter le profil →
+        </mj-button>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="5px 25px" css-class="ebb-node-id-17">
+      <mj-column css-class="ebb-node-id-16">
+        <mj-divider border-color="#f3f4f6" border-width="1px" padding="0 30px" css-class="ebb-node-id-15" />
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="15px 25px" css-class="ebb-node-id-24">
+      <mj-column width="10%" vertical-align="top" css-class="ebb-node-id-19">
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#555555" padding="5px 0 0 0" css-class="ebb-node-id-18">
+          <p style="margin: 0;"><span style="display: inline-block; background: #7c3aed; color: #fff; width: 28px; height: 28px; line-height: 28px; border-radius: 50%; font-weight: bold; text-align: center;">2</span></p>
+        </mj-text>
+      </mj-column>
+      <mj-column width="90%" css-class="ebb-node-id-23">
+        <mj-text font-size="15px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 5px 0" css-class="ebb-node-id-20">
+          <p style="margin: 0; font-weight: bold;">Importez vos contacts</p>
+        </mj-text>
+        <mj-text font-size="13px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 0 8px 0" line-height="1.5" css-class="ebb-node-id-21">
+          <p style="margin: 0;">Uploadez votre fichier CSV ou connectez votre CRM pour synchroniser automatiquement.</p>
+        </mj-text>
+        <mj-button background-color="transparent" color="#7c3aed" font-size="13px" border-radius="6px" inner-padding="8px 20px" href="#" border="1px solid #7c3aed" align="left" padding="0" css-class="ebb-node-id-22">
+          Importer les contacts →
+        </mj-button>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="5px 25px" css-class="ebb-node-id-27">
+      <mj-column css-class="ebb-node-id-26">
+        <mj-divider border-color="#f3f4f6" border-width="1px" padding="0 30px" css-class="ebb-node-id-25" />
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="15px 25px 20px 25px" css-class="ebb-node-id-34">
+      <mj-column width="10%" vertical-align="top" css-class="ebb-node-id-29">
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#555555" padding="5px 0 0 0" css-class="ebb-node-id-28">
+          <p style="margin: 0;"><span style="display: inline-block; background: #7c3aed; color: #fff; width: 28px; height: 28px; line-height: 28px; border-radius: 50%; font-weight: bold; text-align: center;">3</span></p>
+        </mj-text>
+      </mj-column>
+      <mj-column width="90%" css-class="ebb-node-id-33">
+        <mj-text font-size="15px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 5px 0" css-class="ebb-node-id-30">
+          <p style="margin: 0; font-weight: bold;">Créez votre première campagne</p>
+        </mj-text>
+        <mj-text font-size="13px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 0 8px 0" line-height="1.5" css-class="ebb-node-id-31">
+          <p style="margin: 0;">Choisissez un template, personnalisez-le et envoyez votre premier email en quelques clics.</p>
+        </mj-text>
+        <mj-button background-color="transparent" color="#7c3aed" font-size="13px" border-radius="6px" inner-padding="8px 20px" href="#" border="1px solid #7c3aed" align="left" padding="0" css-class="ebb-node-id-32">
+          Créer une campagne →
+        </mj-button>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#f5f3ff" padding="20px" css-class="ebb-node-id-37">
+      <mj-column css-class="ebb-node-id-36">
+        <mj-text font-size="13px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0" align="center" css-class="ebb-node-id-35">
+          <p style="margin: 0;">Besoin d'aide ? Consultez notre <a href="#" style="color: #7c3aed;">centre d'aide</a> ou écrivez-nous à <a href="mailto:support@mesagoo.com" style="color: #7c3aed;">support@mesagoo.com</a>.</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#333333" padding="25px 20px" css-class="ebb-node-id-46">
+      <mj-column css-class="ebb-node-id-45">
+        <mj-social font-size="11px" icon-size="24px" mode="horizontal" align="center" padding="0 0 15px 0" color="#999999" css-class="ebb-node-id-42">
+          <mj-social-element name="facebook" href="https://facebook.com/" background-color="#555555" css-class="ebb-node-id-38"></mj-social-element>
+          <mj-social-element name="twitter" href="https://twitter.com/" background-color="#555555" css-class="ebb-node-id-39"></mj-social-element>
+          <mj-social-element name="instagram" href="https://instagram.com/" background-color="#555555" css-class="ebb-node-id-40"></mj-social-element>
+          <mj-social-element name="linkedin" href="https://linkedin.com/" background-color="#555555" css-class="ebb-node-id-41"></mj-social-element>
+        </mj-social>
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#999999" padding="0 20px" align="center" line-height="1.6" css-class="ebb-node-id-43">
+          <p style="margin: 0;">Vous recevez cet email car vous êtes inscrit sur notre plateforme.<br/><a href="#" style="color: #01A8AB; text-decoration: underline;">Se désinscrire</a> &nbsp;|&nbsp; <a href="#" style="color: #01A8AB; text-decoration: underline;">Préférences</a></p>
+        </mj-text>
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="10px 0 0 0" align="center" css-class="ebb-node-id-44">
+          <p style="margin: 0;">&copy; 2026 Votre Entreprise. Tous droits réservés.</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>"
+`;
+
+exports[`MJML Snapshot Tests > serializes seasonal-sale template to MJML 1`] = `
+"<mjml>
+  <mj-head>
+    <mj-preview>Les soldes sont là ! Jusqu'à -50% sur une sélection.</mj-preview>
+  </mj-head>
+  <mj-body background-color="#f4f4f4" css-class="ebb-node-id-38">
+    <mj-section background-color="#1d4ed8" padding="10px 20px" css-class="ebb-node-id-3">
+      <mj-column css-class="ebb-node-id-2">
+        <mj-text font-size="13px" font-family="Helvetica, Arial, sans-serif" color="#ffffff" padding="0" align="center" font-weight="bold" css-class="ebb-node-id-1">
+          <p style="margin: 0;">❄️ SOLDES D'HIVER — Jusqu'à -50% ❄️</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="20px 0" css-class="ebb-node-id-6">
+      <mj-column css-class="ebb-node-id-5">
+        <mj-image src="https://via.placeholder.com/150x50/01A8AB/ffffff?text=LOGO" alt="Logo" padding="0" width="150px" align="center" css-class="ebb-node-id-4" />
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="30px 20px" css-class="ebb-node-id-12">
+      <mj-column css-class="ebb-node-id-11">
+        <mj-text font-size="12px" font-family="Helvetica, Arial, sans-serif" color="#1d4ed8" padding="0 0 10px 0" align="center" css-class="ebb-node-id-7">
+          <p style="margin: 0; text-transform: uppercase; letter-spacing: 3px;">Soldes d'hiver</p>
+        </mj-text>
+        <mj-text font-size="40px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 5px 0" align="center" css-class="ebb-node-id-8">
+          <h1 style="margin: 0; font-size: 40px;">-50%</h1>
+        </mj-text>
+        <mj-text font-size="18px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 0 20px 0" align="center" css-class="ebb-node-id-9">
+          <p style="margin: 0; font-size: 18px;">sur des centaines d'articles</p>
+        </mj-text>
+        <mj-button background-color="#1d4ed8" color="#ffffff" font-size="16px" border-radius="6px" inner-padding="16px 40px" href="#" font-weight="bold" css-class="ebb-node-id-10">
+          Voir les offres
+        </mj-button>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#f8f9fa" padding="25px 20px 10px 20px" css-class="ebb-node-id-15">
+      <mj-column css-class="ebb-node-id-14">
+        <mj-text font-size="18px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 15px 0" align="center" css-class="ebb-node-id-13">
+          <h3 style="margin: 0; text-align: center;">Par catégorie</h3>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#f8f9fa" padding="5px 15px 25px 15px" css-class="ebb-node-id-28">
+      <mj-column width="33.33%" css-class="ebb-node-id-19">
+        <mj-image src="https://via.placeholder.com/180x120/dbeafe/1d4ed8?text=Mode" alt="Mode" padding="0 0 8px 0" border-radius="8px" css-class="ebb-node-id-16" />
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 3px 0" align="center" css-class="ebb-node-id-17">
+          <p style="margin: 0; font-weight: bold;">Mode</p>
+        </mj-text>
+        <mj-text font-size="13px" font-family="Helvetica, Arial, sans-serif" color="#1d4ed8" padding="0" align="center" css-class="ebb-node-id-18">
+          <p style="margin: 0; color: #1d4ed8; font-weight: bold;">Jusqu'à -50%</p>
+        </mj-text>
+      </mj-column>
+      <mj-column width="33.33%" css-class="ebb-node-id-23">
+        <mj-image src="https://via.placeholder.com/180x120/dbeafe/1d4ed8?text=Maison" alt="Maison" padding="0 0 8px 0" border-radius="8px" css-class="ebb-node-id-20" />
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 3px 0" align="center" css-class="ebb-node-id-21">
+          <p style="margin: 0; font-weight: bold;">Maison</p>
+        </mj-text>
+        <mj-text font-size="13px" font-family="Helvetica, Arial, sans-serif" color="#1d4ed8" padding="0" align="center" css-class="ebb-node-id-22">
+          <p style="margin: 0; color: #1d4ed8; font-weight: bold;">Jusqu'à -40%</p>
+        </mj-text>
+      </mj-column>
+      <mj-column width="33.33%" css-class="ebb-node-id-27">
+        <mj-image src="https://via.placeholder.com/180x120/dbeafe/1d4ed8?text=Tech" alt="Tech" padding="0 0 8px 0" border-radius="8px" css-class="ebb-node-id-24" />
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 3px 0" align="center" css-class="ebb-node-id-25">
+          <p style="margin: 0; font-weight: bold;">Tech</p>
+        </mj-text>
+        <mj-text font-size="13px" font-family="Helvetica, Arial, sans-serif" color="#1d4ed8" padding="0" align="center" css-class="ebb-node-id-26">
+          <p style="margin: 0; color: #1d4ed8; font-weight: bold;">Jusqu'à -30%</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#333333" padding="25px 20px" css-class="ebb-node-id-37">
+      <mj-column css-class="ebb-node-id-36">
+        <mj-social font-size="11px" icon-size="24px" mode="horizontal" align="center" padding="0 0 15px 0" color="#999999" css-class="ebb-node-id-33">
+          <mj-social-element name="facebook" href="https://facebook.com/" background-color="#555555" css-class="ebb-node-id-29"></mj-social-element>
+          <mj-social-element name="twitter" href="https://twitter.com/" background-color="#555555" css-class="ebb-node-id-30"></mj-social-element>
+          <mj-social-element name="instagram" href="https://instagram.com/" background-color="#555555" css-class="ebb-node-id-31"></mj-social-element>
+          <mj-social-element name="linkedin" href="https://linkedin.com/" background-color="#555555" css-class="ebb-node-id-32"></mj-social-element>
+        </mj-social>
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#999999" padding="0 20px" align="center" line-height="1.6" css-class="ebb-node-id-34">
+          <p style="margin: 0;">Vous recevez cet email car vous êtes inscrit sur notre plateforme.<br/><a href="#" style="color: #01A8AB; text-decoration: underline;">Se désinscrire</a> &nbsp;|&nbsp; <a href="#" style="color: #01A8AB; text-decoration: underline;">Préférences</a></p>
+        </mj-text>
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="10px 0 0 0" align="center" css-class="ebb-node-id-35">
+          <p style="margin: 0;">&copy; 2026 Votre Entreprise. Tous droits réservés.</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>"
+`;
+
+exports[`MJML Snapshot Tests > serializes shipping template to MJML 1`] = `
+"<mjml>
+  <mj-head>
+    <mj-preview>Votre commande est en route !</mj-preview>
+  </mj-head>
+  <mj-body background-color="#f4f4f4" css-class="ebb-node-id-37">
+    <mj-section background-color="#ffffff" padding="20px 0" css-class="ebb-node-id-3">
+      <mj-column css-class="ebb-node-id-2">
+        <mj-image src="https://via.placeholder.com/150x50/01A8AB/ffffff?text=LOGO" alt="Logo" padding="0" width="150px" align="center" css-class="ebb-node-id-1" />
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="30px 20px 10px 20px" css-class="ebb-node-id-8">
+      <mj-column css-class="ebb-node-id-7">
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#555555" padding="0 0 10px 0" align="center" css-class="ebb-node-id-4">
+          <p style="margin: 0; text-align: center; font-size: 40px;">📦</p>
+        </mj-text>
+        <mj-text font-size="24px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 10px 0" align="center" css-class="ebb-node-id-5">
+          <h1 style="margin: 0;">Votre colis est en route !</h1>
+        </mj-text>
+        <mj-text font-size="15px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 30px 20px 30px" align="center" line-height="1.6" css-class="ebb-node-id-6">
+          <p style="margin: 0;">Bonne nouvelle ! Votre commande <strong>#12345</strong> a été expédiée et est en chemin vers vous.</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#f0f9ff" padding="20px 30px" border-radius="8px" css-class="ebb-node-id-14">
+      <mj-column css-class="ebb-node-id-13">
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 8px 0" css-class="ebb-node-id-9">
+          <p style="margin: 0;"><span style="color: #16a34a; font-weight: bold;">✓</span> Commande confirmée</p>
+        </mj-text>
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 8px 0" css-class="ebb-node-id-10">
+          <p style="margin: 0;"><span style="color: #16a34a; font-weight: bold;">✓</span> Préparation terminée</p>
+        </mj-text>
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#0284c7" padding="0 0 8px 0" css-class="ebb-node-id-11">
+          <p style="margin: 0;"><span style="color: #0284c7; font-weight: bold;">●</span> <strong>En transit</strong></p>
+        </mj-text>
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#999999" padding="0" css-class="ebb-node-id-12">
+          <p style="margin: 0;"><span style="color: #d1d5db;">○</span> <span style="color: #999;">Livré</span></p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="20px 20px" css-class="ebb-node-id-24">
+      <mj-column width="33.33%" css-class="ebb-node-id-17">
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#999999" padding="0 0 5px 0" css-class="ebb-node-id-15">
+          <p style="margin: 0; font-weight: bold; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #999;">Transporteur</p>
+        </mj-text>
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0" css-class="ebb-node-id-16">
+          <p style="margin: 0;">Colissimo</p>
+        </mj-text>
+      </mj-column>
+      <mj-column width="33.33%" css-class="ebb-node-id-20">
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#999999" padding="0 0 5px 0" css-class="ebb-node-id-18">
+          <p style="margin: 0; font-weight: bold; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #999;">N° de suivi</p>
+        </mj-text>
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0" css-class="ebb-node-id-19">
+          <p style="margin: 0;">8R 123 456 789 0</p>
+        </mj-text>
+      </mj-column>
+      <mj-column width="33.33%" css-class="ebb-node-id-23">
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#999999" padding="0 0 5px 0" css-class="ebb-node-id-21">
+          <p style="margin: 0; font-weight: bold; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #999;">Livraison estimée</p>
+        </mj-text>
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0" css-class="ebb-node-id-22">
+          <p style="margin: 0;">27-28 février</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="5px 20px 25px 20px" css-class="ebb-node-id-27">
+      <mj-column css-class="ebb-node-id-26">
+        <mj-button background-color="#0284c7" color="#ffffff" font-size="15px" border-radius="6px" inner-padding="14px 36px" href="#" font-weight="bold" css-class="ebb-node-id-25">
+          Suivre mon colis
+        </mj-button>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#333333" padding="25px 20px" css-class="ebb-node-id-36">
+      <mj-column css-class="ebb-node-id-35">
+        <mj-social font-size="11px" icon-size="24px" mode="horizontal" align="center" padding="0 0 15px 0" color="#999999" css-class="ebb-node-id-32">
+          <mj-social-element name="facebook" href="https://facebook.com/" background-color="#555555" css-class="ebb-node-id-28"></mj-social-element>
+          <mj-social-element name="twitter" href="https://twitter.com/" background-color="#555555" css-class="ebb-node-id-29"></mj-social-element>
+          <mj-social-element name="instagram" href="https://instagram.com/" background-color="#555555" css-class="ebb-node-id-30"></mj-social-element>
+          <mj-social-element name="linkedin" href="https://linkedin.com/" background-color="#555555" css-class="ebb-node-id-31"></mj-social-element>
+        </mj-social>
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#999999" padding="0 20px" align="center" line-height="1.6" css-class="ebb-node-id-33">
+          <p style="margin: 0;">Vous recevez cet email car vous êtes inscrit sur notre plateforme.<br/><a href="#" style="color: #01A8AB; text-decoration: underline;">Se désinscrire</a> &nbsp;|&nbsp; <a href="#" style="color: #01A8AB; text-decoration: underline;">Préférences</a></p>
+        </mj-text>
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="10px 0 0 0" align="center" css-class="ebb-node-id-34">
+          <p style="margin: 0;">&copy; 2026 Votre Entreprise. Tous droits réservés.</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>"
+`;
+
+exports[`MJML Snapshot Tests > serializes survey template to MJML 1`] = `
+"<mjml>
+  <mj-head>
+    <mj-preview>Votre avis compte ! Donnez-nous votre retour.</mj-preview>
+  </mj-head>
+  <mj-body background-color="#f4f4f4" css-class="ebb-node-id-26">
+    <mj-section background-color="#ffffff" padding="20px 0" css-class="ebb-node-id-3">
+      <mj-column css-class="ebb-node-id-2">
+        <mj-image src="https://via.placeholder.com/150x50/01A8AB/ffffff?text=LOGO" alt="Logo" padding="0" width="150px" align="center" css-class="ebb-node-id-1" />
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="30px 20px 10px 20px" css-class="ebb-node-id-8">
+      <mj-column css-class="ebb-node-id-7">
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#555555" padding="0 0 10px 0" align="center" css-class="ebb-node-id-4">
+          <p style="margin: 0; text-align: center; font-size: 40px;">💬</p>
+        </mj-text>
+        <mj-text font-size="24px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 10px 0" align="center" css-class="ebb-node-id-5">
+          <h1 style="margin: 0;">Votre avis nous intéresse</h1>
+        </mj-text>
+        <mj-text font-size="15px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 30px 25px 30px" align="center" line-height="1.6" css-class="ebb-node-id-6">
+          <p style="margin: 0;">Aidez-nous à améliorer nos services en répondant à cette courte enquête. Cela ne prendra que 2 minutes !</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#f0fdf4" padding="25px 20px" border-radius="8px" css-class="ebb-node-id-12">
+      <mj-column css-class="ebb-node-id-11">
+        <mj-text font-size="15px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 15px 0" align="center" css-class="ebb-node-id-9">
+          <p style="margin: 0; font-weight: bold;">Comment évaluez-vous votre expérience ?</p>
+        </mj-text>
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#555555" padding="0 0 20px 0" align="center" css-class="ebb-node-id-10">
+          <p style="margin: 0; font-size: 36px; letter-spacing: 8px;">⭐⭐⭐⭐⭐</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="25px 20px" css-class="ebb-node-id-16">
+      <mj-column css-class="ebb-node-id-15">
+        <mj-button background-color="#059669" color="#ffffff" font-size="16px" border-radius="6px" inner-padding="14px 36px" href="#" font-weight="bold" css-class="ebb-node-id-13">
+          Répondre à l'enquête
+        </mj-button>
+        <mj-text font-size="13px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="15px 20px 0 20px" align="center" css-class="ebb-node-id-14">
+          <p style="margin: 0;">En remerciement, recevez <strong>10% de réduction</strong> sur votre prochain achat.</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#333333" padding="25px 20px" css-class="ebb-node-id-25">
+      <mj-column css-class="ebb-node-id-24">
+        <mj-social font-size="11px" icon-size="24px" mode="horizontal" align="center" padding="0 0 15px 0" color="#999999" css-class="ebb-node-id-21">
+          <mj-social-element name="facebook" href="https://facebook.com/" background-color="#555555" css-class="ebb-node-id-17"></mj-social-element>
+          <mj-social-element name="twitter" href="https://twitter.com/" background-color="#555555" css-class="ebb-node-id-18"></mj-social-element>
+          <mj-social-element name="instagram" href="https://instagram.com/" background-color="#555555" css-class="ebb-node-id-19"></mj-social-element>
+          <mj-social-element name="linkedin" href="https://linkedin.com/" background-color="#555555" css-class="ebb-node-id-20"></mj-social-element>
+        </mj-social>
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#999999" padding="0 20px" align="center" line-height="1.6" css-class="ebb-node-id-22">
+          <p style="margin: 0;">Vous recevez cet email car vous êtes inscrit sur notre plateforme.<br/><a href="#" style="color: #01A8AB; text-decoration: underline;">Se désinscrire</a> &nbsp;|&nbsp; <a href="#" style="color: #01A8AB; text-decoration: underline;">Préférences</a></p>
+        </mj-text>
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="10px 0 0 0" align="center" css-class="ebb-node-id-23">
+          <p style="margin: 0;">&copy; 2026 Votre Entreprise. Tous droits réservés.</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>"
+`;
+
+exports[`MJML Snapshot Tests > serializes testimonials template to MJML 1`] = `
+"<mjml>
+  <mj-head>
+    <mj-preview>Découvrez ce que nos clients disent de nous</mj-preview>
+  </mj-head>
+  <mj-body background-color="#f4f4f4" css-class="ebb-node-id-45">
+    <mj-section background-color="#ffffff" padding="20px 0" css-class="ebb-node-id-3">
+      <mj-column css-class="ebb-node-id-2">
+        <mj-image src="https://via.placeholder.com/150x50/01A8AB/ffffff?text=LOGO" alt="Logo" padding="0" width="150px" align="center" css-class="ebb-node-id-1" />
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="30px 20px 10px 20px" css-class="ebb-node-id-7">
+      <mj-column css-class="ebb-node-id-6">
+        <mj-text font-size="24px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 10px 0" align="center" css-class="ebb-node-id-4">
+          <h1 style="margin: 0;">Ils nous font confiance</h1>
+        </mj-text>
+        <mj-text font-size="15px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 30px 20px 30px" align="center" line-height="1.6" css-class="ebb-node-id-5">
+          <p style="margin: 0;">Rejoignez plus de 10 000 entreprises qui utilisent notre solution au quotidien.</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#fffbeb" padding="20px" border-radius="8px" css-class="ebb-node-id-14">
+      <mj-column width="15%" vertical-align="top" css-class="ebb-node-id-9">
+        <mj-image src="https://via.placeholder.com/80x80/e5e7eb/6b7280?text=JD" alt="Jean Dupont" padding="0" width="60px" border-radius="50%" css-class="ebb-node-id-8" />
+      </mj-column>
+      <mj-column width="85%" css-class="ebb-node-id-13">
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#555555" padding="0 0 5px 0" css-class="ebb-node-id-10">
+          <p style="margin: 0;">⭐⭐⭐⭐⭐</p>
+        </mj-text>
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 8px 0" line-height="1.6" css-class="ebb-node-id-11">
+          <p style="margin: 0; font-style: italic;">"Outil incroyable ! Nos taux d'ouverture ont augmenté de 40% en 3 mois. L'interface est intuitive et le support client est exceptionnel."</p>
+        </mj-text>
+        <mj-text font-size="12px" font-family="Helvetica, Arial, sans-serif" color="#999999" padding="0" css-class="ebb-node-id-12">
+          <p style="margin: 0;"><strong>Jean Dupont</strong> — Directeur Marketing, TechCorp</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-spacer height="10px" css-class="ebb-node-id-15" />
+    <mj-section background-color="#fffbeb" padding="20px" border-radius="8px" css-class="ebb-node-id-22">
+      <mj-column width="15%" vertical-align="top" css-class="ebb-node-id-17">
+        <mj-image src="https://via.placeholder.com/80x80/e5e7eb/6b7280?text=ML" alt="Marie Lefebvre" padding="0" width="60px" border-radius="50%" css-class="ebb-node-id-16" />
+      </mj-column>
+      <mj-column width="85%" css-class="ebb-node-id-21">
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#555555" padding="0 0 5px 0" css-class="ebb-node-id-18">
+          <p style="margin: 0;">⭐⭐⭐⭐⭐</p>
+        </mj-text>
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 8px 0" line-height="1.6" css-class="ebb-node-id-19">
+          <p style="margin: 0; font-style: italic;">"La meilleure solution email que nous avons testée. Simple, puissant et abordable. Nous avons abandonné Mailchimp pour cette solution !"</p>
+        </mj-text>
+        <mj-text font-size="12px" font-family="Helvetica, Arial, sans-serif" color="#999999" padding="0" css-class="ebb-node-id-20">
+          <p style="margin: 0;"><strong>Marie Lefebvre</strong> — CEO, StartupBox</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="25px 15px" css-class="ebb-node-id-32">
+      <mj-column width="33.33%" css-class="ebb-node-id-25">
+        <mj-text font-size="28px" font-family="Helvetica, Arial, sans-serif" color="#d97706" padding="0 0 3px 0" align="center" css-class="ebb-node-id-23">
+          <p style="margin: 0; font-weight: bold; font-size: 28px; color: #d97706;">10K+</p>
+        </mj-text>
+        <mj-text font-size="12px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0" align="center" css-class="ebb-node-id-24">
+          <p style="margin: 0;">Entreprises</p>
+        </mj-text>
+      </mj-column>
+      <mj-column width="33.33%" css-class="ebb-node-id-28">
+        <mj-text font-size="28px" font-family="Helvetica, Arial, sans-serif" color="#d97706" padding="0 0 3px 0" align="center" css-class="ebb-node-id-26">
+          <p style="margin: 0; font-weight: bold; font-size: 28px; color: #d97706;">4.9/5</p>
+        </mj-text>
+        <mj-text font-size="12px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0" align="center" css-class="ebb-node-id-27">
+          <p style="margin: 0;">Note moyenne</p>
+        </mj-text>
+      </mj-column>
+      <mj-column width="33.33%" css-class="ebb-node-id-31">
+        <mj-text font-size="28px" font-family="Helvetica, Arial, sans-serif" color="#d97706" padding="0 0 3px 0" align="center" css-class="ebb-node-id-29">
+          <p style="margin: 0; font-weight: bold; font-size: 28px; color: #d97706;">50M+</p>
+        </mj-text>
+        <mj-text font-size="12px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0" align="center" css-class="ebb-node-id-30">
+          <p style="margin: 0;">Emails envoyés</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="5px 20px 25px 20px" css-class="ebb-node-id-35">
+      <mj-column css-class="ebb-node-id-34">
+        <mj-button background-color="#d97706" color="#ffffff" font-size="16px" border-radius="6px" inner-padding="14px 36px" href="#" font-weight="bold" css-class="ebb-node-id-33">
+          Essayer gratuitement
+        </mj-button>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#333333" padding="25px 20px" css-class="ebb-node-id-44">
+      <mj-column css-class="ebb-node-id-43">
+        <mj-social font-size="11px" icon-size="24px" mode="horizontal" align="center" padding="0 0 15px 0" color="#999999" css-class="ebb-node-id-40">
+          <mj-social-element name="facebook" href="https://facebook.com/" background-color="#555555" css-class="ebb-node-id-36"></mj-social-element>
+          <mj-social-element name="twitter" href="https://twitter.com/" background-color="#555555" css-class="ebb-node-id-37"></mj-social-element>
+          <mj-social-element name="instagram" href="https://instagram.com/" background-color="#555555" css-class="ebb-node-id-38"></mj-social-element>
+          <mj-social-element name="linkedin" href="https://linkedin.com/" background-color="#555555" css-class="ebb-node-id-39"></mj-social-element>
+        </mj-social>
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#999999" padding="0 20px" align="center" line-height="1.6" css-class="ebb-node-id-41">
+          <p style="margin: 0;">Vous recevez cet email car vous êtes inscrit sur notre plateforme.<br/><a href="#" style="color: #01A8AB; text-decoration: underline;">Se désinscrire</a> &nbsp;|&nbsp; <a href="#" style="color: #01A8AB; text-decoration: underline;">Préférences</a></p>
+        </mj-text>
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="10px 0 0 0" align="center" css-class="ebb-node-id-42">
+          <p style="margin: 0;">&copy; 2026 Votre Entreprise. Tous droits réservés.</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>"
+`;
+
+exports[`MJML Snapshot Tests > serializes webinar template to MJML 1`] = `
+"<mjml>
+  <mj-head>
+    <mj-preview>Rejoignez notre webinaire gratuit !</mj-preview>
+  </mj-head>
+  <mj-body background-color="#f4f4f4" css-class="ebb-node-id-38">
+    <mj-section background-color="#ffffff" padding="20px 0" css-class="ebb-node-id-3">
+      <mj-column css-class="ebb-node-id-2">
+        <mj-image src="https://via.placeholder.com/150x50/01A8AB/ffffff?text=LOGO" alt="Logo" padding="0" width="150px" align="center" css-class="ebb-node-id-1" />
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="30px 20px 10px 20px" css-class="ebb-node-id-8">
+      <mj-column css-class="ebb-node-id-7">
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#2563eb" padding="0 0 10px 0" align="center" css-class="ebb-node-id-4">
+          <p style="margin: 0; text-transform: uppercase; letter-spacing: 2px; text-align: center;">Webinaire gratuit</p>
+        </mj-text>
+        <mj-text font-size="24px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 10px 0" align="center" css-class="ebb-node-id-5">
+          <h1 style="margin: 0;">Maîtrisez l'email marketing en 2026</h1>
+        </mj-text>
+        <mj-text font-size="15px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 30px 20px 30px" align="center" line-height="1.6" css-class="ebb-node-id-6">
+          <p style="margin: 0;">Rejoignez nos experts pour une session live de 60 minutes remplie de stratégies concrètes et de cas pratiques.</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#eff6ff" padding="20px 15px" border-radius="8px" css-class="ebb-node-id-18">
+      <mj-column width="33.33%" css-class="ebb-node-id-11">
+        <mj-text font-size="13px" font-family="Helvetica, Arial, sans-serif" color="#2563eb" padding="0 0 5px 0" css-class="ebb-node-id-9">
+          <p style="margin: 0; font-weight: bold; color: #2563eb;">📅 Date</p>
+        </mj-text>
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0" css-class="ebb-node-id-10">
+          <p style="margin: 0;">Jeudi 20 Mars 2026</p>
+        </mj-text>
+      </mj-column>
+      <mj-column width="33.33%" css-class="ebb-node-id-14">
+        <mj-text font-size="13px" font-family="Helvetica, Arial, sans-serif" color="#2563eb" padding="0 0 5px 0" css-class="ebb-node-id-12">
+          <p style="margin: 0; font-weight: bold; color: #2563eb;">⏰ Heure</p>
+        </mj-text>
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0" css-class="ebb-node-id-13">
+          <p style="margin: 0;">14h00 - 15h00 (CET)</p>
+        </mj-text>
+      </mj-column>
+      <mj-column width="33.33%" css-class="ebb-node-id-17">
+        <mj-text font-size="13px" font-family="Helvetica, Arial, sans-serif" color="#2563eb" padding="0 0 5px 0" css-class="ebb-node-id-15">
+          <p style="margin: 0; font-weight: bold; color: #2563eb;">📍 Lieu</p>
+        </mj-text>
+        <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0" css-class="ebb-node-id-16">
+          <p style="margin: 0;">En ligne (Zoom)</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="20px 25px" css-class="ebb-node-id-24">
+      <mj-column width="20%" vertical-align="middle" css-class="ebb-node-id-20">
+        <mj-image src="https://via.placeholder.com/100x100/e5e7eb/6b7280?text=Speaker" alt="Intervenant" padding="0" width="80px" border-radius="50%" css-class="ebb-node-id-19" />
+      </mj-column>
+      <mj-column width="80%" vertical-align="middle" css-class="ebb-node-id-23">
+        <mj-text font-size="15px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0 0 3px 0" css-class="ebb-node-id-21">
+          <p style="margin: 0; font-weight: bold;">Marie Dupont</p>
+        </mj-text>
+        <mj-text font-size="13px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0" line-height="1.5" css-class="ebb-node-id-22">
+          <p style="margin: 0;">Directrice Marketing, 15 ans d'expérience en email marketing et automatisation.</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding="15px 20px 25px 20px" css-class="ebb-node-id-28">
+      <mj-column css-class="ebb-node-id-27">
+        <mj-button background-color="#2563eb" color="#ffffff" font-size="16px" border-radius="6px" inner-padding="14px 36px" href="#" font-weight="bold" css-class="ebb-node-id-25">
+          S'inscrire gratuitement
+        </mj-button>
+        <mj-text font-size="12px" font-family="Helvetica, Arial, sans-serif" color="#999999" padding="10px 0 0 0" align="center" css-class="ebb-node-id-26">
+          <p style="margin: 0;">Places limitées à 200 participants</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#333333" padding="25px 20px" css-class="ebb-node-id-37">
+      <mj-column css-class="ebb-node-id-36">
+        <mj-social font-size="11px" icon-size="24px" mode="horizontal" align="center" padding="0 0 15px 0" color="#999999" css-class="ebb-node-id-33">
+          <mj-social-element name="facebook" href="https://facebook.com/" background-color="#555555" css-class="ebb-node-id-29"></mj-social-element>
+          <mj-social-element name="twitter" href="https://twitter.com/" background-color="#555555" css-class="ebb-node-id-30"></mj-social-element>
+          <mj-social-element name="instagram" href="https://instagram.com/" background-color="#555555" css-class="ebb-node-id-31"></mj-social-element>
+          <mj-social-element name="linkedin" href="https://linkedin.com/" background-color="#555555" css-class="ebb-node-id-32"></mj-social-element>
+        </mj-social>
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#999999" padding="0 20px" align="center" line-height="1.6" css-class="ebb-node-id-34">
+          <p style="margin: 0;">Vous recevez cet email car vous êtes inscrit sur notre plateforme.<br/><a href="#" style="color: #01A8AB; text-decoration: underline;">Se désinscrire</a> &nbsp;|&nbsp; <a href="#" style="color: #01A8AB; text-decoration: underline;">Préférences</a></p>
+        </mj-text>
+        <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="10px 0 0 0" align="center" css-class="ebb-node-id-35">
           <p style="margin: 0;">&copy; 2026 Votre Entreprise. Tous droits réservés.</p>
         </mj-text>
       </mj-column>
