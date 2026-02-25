@@ -131,14 +131,14 @@ html[data-theme='dark'] .ebb-template-card {
 }
 
 .ebb-template-card:hover {
-  border-color: #01A8AB;
+  border-color: var(--ee-primary);
   background: #f0fdfd;
   box-shadow: 0 2px 8px rgba(1, 168, 171, 0.1);
 }
 
 html[data-theme='dark'] .ebb-template-card:hover {
   background: #0d3d3e;
-  border-color: #01A8AB;
+  border-color: var(--ee-primary);
 }
 
 .ebb-template-card__icon {
@@ -268,7 +268,7 @@ html[data-theme='dark'] .ebb-confirm-dialog__btn--cancel:hover {
 }
 
 .ebb-confirm-dialog__btn--confirm {
-  background: #01A8AB;
+  background: var(--ee-primary);
   color: #ffffff;
 }
 
