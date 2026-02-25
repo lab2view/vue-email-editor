@@ -1,4 +1,5 @@
 import type { EmailNode, EmailDocument, EmailNodeType } from '../types'
+import { DEFAULT_THEME } from '../types'
 import { createId } from '../utils/id'
 
 /** Create a node with defaults */
@@ -73,7 +74,7 @@ export function createButton(
   return createNode(
     'mj-button',
     {
-      'background-color': '#01A8AB',
+      'background-color': DEFAULT_THEME.primaryColor,
       color: '#ffffff',
       'font-size': '14px',
       'border-radius': '6px',

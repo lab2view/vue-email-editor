@@ -1,20 +1,28 @@
 <script setup lang="ts">
 import { ref, computed, inject } from 'vue'
 import EIcon from '../internal/EIcon.vue'
-import { EMAIL_EDITOR_CONFIG_KEY } from '../../injection-keys'
-import { EMAIL_LABELS_KEY, DEFAULT_LABELS } from '../../labels'
+import { EMAIL_EDITOR_CONFIG_KEY, PLUGIN_REGISTRY_KEY } from '../../injection-keys'
+import { EMAIL_LABELS_KEY, DEFAULT_LABELS, type EditorLabels } from '../../labels'
 import { getBlocksByCategory } from '../../blocks/block-definitions'
 import BlockCategory from './blocks/BlockCategory.vue'
 import TemplatesPanel from './TemplatesPanel.vue'
 
 const labels = inject(EMAIL_LABELS_KEY, DEFAULT_LABELS)
 const config = inject(EMAIL_EDITOR_CONFIG_KEY)!
+const registry = inject(PLUGIN_REGISTRY_KEY, null)
 const searchQuery = ref('')
 const showTemplates = ref(false)
 
+/** Resolve a label key through labels, falling back to raw string */
+function resolveLabel(key: string): string {
+  return (labels as EditorLabels)[key as keyof EditorLabels] ?? key
+}
+
 const categories = computed(() => {
   const vars = config.variables?.value ?? []
-  const all = getBlocksByCategory(vars)
+  const pluginBlocks = registry?.registeredBlocks.value ?? []
+  const pluginCategories = registry?.registeredCategories.value ?? []
+  const all = getBlocksByCategory(vars, pluginBlocks, pluginCategories)
 
   const q = searchQuery.value.trim().toLowerCase()
   if (!q) return all
@@ -22,7 +30,7 @@ const categories = computed(() => {
   return all
     .map((cat) => ({
       ...cat,
-      blocks: cat.blocks.filter((b) => b.label.toLowerCase().includes(q)),
+      blocks: cat.blocks.filter((b) => resolveLabel(b.label).toLowerCase().includes(q)),
     }))
     .filter((cat) => cat.blocks.length > 0)
 })
@@ -35,17 +43,19 @@ function onTemplateApplied() {
 <template>
   <div class="ebb-blocks-panel">
     <!-- Search -->
-    <div class="ebb-blocks-panel__search">
+    <div class="ebb-blocks-panel__search" role="search">
       <EIcon name="Search" :size="14" />
       <input
         v-model="searchQuery"
         type="text"
         :placeholder="labels.search_blocks"
+        :aria-label="labels.search_blocks"
         class="ebb-blocks-panel__search-input"
       />
       <button
         v-if="searchQuery"
         class="ebb-blocks-panel__search-clear"
+        :aria-label="labels.close"
         @click="searchQuery = ''"
       >
         <EIcon name="X" :size="12" />
@@ -57,7 +67,7 @@ function onTemplateApplied() {
       <button class="ebb-blocks-panel__templates-toggle" @click="showTemplates = !showTemplates">
         <EIcon :name="showTemplates ? 'ChevronDown' : 'ChevronRight'" :size="14" />
         <EIcon name="LayoutTemplate" :size="14" />
-        <span>Modèles de départ</span>
+        <span>{{ resolveLabel('starter_templates') }}</span>
       </button>
       <TemplatesPanel v-if="showTemplates" @applied="onTemplateApplied" />
     </div>
@@ -67,7 +77,7 @@ function onTemplateApplied() {
       <BlockCategory
         v-for="cat in categories"
         :key="cat.category"
-        :label="cat.label"
+        :label="resolveLabel(cat.label)"
         :icon="cat.icon"
         :blocks="cat.blocks"
         :columns="cat.category === 'content' ? 3 : 2"
@@ -76,7 +86,7 @@ function onTemplateApplied() {
       <!-- Empty search state -->
       <div v-if="categories.length === 0 && searchQuery" class="ebb-blocks-panel__empty">
         <EIcon name="SearchX" :size="24" />
-        <p>Aucun bloc trouvé pour "{{ searchQuery }}"</p>
+        <p>{{ resolveLabel('no_blocks_found') }} "{{ searchQuery }}"</p>
       </div>
     </div>
   </div>
