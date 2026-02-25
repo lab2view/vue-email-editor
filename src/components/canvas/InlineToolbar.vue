@@ -3,12 +3,20 @@
  * InlineToolbar — Floating formatting toolbar for the TipTap inline text editor.
  * Positioned above the editing area, shows bold/italic/underline/link/color/align.
  */
+import { inject } from 'vue'
 import type { Editor } from '@tiptap/vue-3'
 import EIcon from '../internal/EIcon.vue'
+import { EMAIL_LABELS_KEY, DEFAULT_LABELS, type EditorLabels } from '../../labels'
 
 const props = defineProps<{
   editor: Editor | null
 }>()
+
+const labels = inject(EMAIL_LABELS_KEY, DEFAULT_LABELS)
+
+function resolveLabel(key: string): string {
+  return (labels as EditorLabels)[key as keyof EditorLabels] ?? key
+}
 
 function toggle(command: string) {
   if (!props.editor) return
@@ -27,7 +35,7 @@ function toggle(command: string) {
       break
     case 'link': {
       const prev = props.editor.getAttributes('link').href
-      const url = prompt('URL du lien :', prev || 'https://')
+      const url = prompt(resolveLabel('link_url_prompt'), prev || 'https://')
       if (url === null) return
       if (url === '') {
         props.editor.chain().focus().unsetLink().run()
@@ -64,11 +72,13 @@ function isActive(name: string, attrs?: Record<string, unknown>): boolean {
 </script>
 
 <template>
-  <div v-if="editor" class="ebb-inline-toolbar" @mousedown.prevent>
+  <div v-if="editor" class="ebb-inline-toolbar" role="toolbar" aria-label="Text formatting" @mousedown.prevent>
     <button
       class="ebb-inline-toolbar__btn"
       :class="{ 'ebb-inline-toolbar__btn--active': isActive('bold') }"
-      title="Gras"
+      :aria-pressed="isActive('bold')"
+      :title="resolveLabel('bold')"
+      :aria-label="resolveLabel('bold')"
       @click="toggle('bold')"
     >
       <EIcon name="Bold" :size="14" />
@@ -76,7 +86,9 @@ function isActive(name: string, attrs?: Record<string, unknown>): boolean {
     <button
       class="ebb-inline-toolbar__btn"
       :class="{ 'ebb-inline-toolbar__btn--active': isActive('italic') }"
-      title="Italique"
+      :aria-pressed="isActive('italic')"
+      :title="resolveLabel('italic')"
+      :aria-label="resolveLabel('italic')"
       @click="toggle('italic')"
     >
       <EIcon name="Italic" :size="14" />
@@ -84,7 +96,9 @@ function isActive(name: string, attrs?: Record<string, unknown>): boolean {
     <button
       class="ebb-inline-toolbar__btn"
       :class="{ 'ebb-inline-toolbar__btn--active': isActive('underline') }"
-      title="Souligné"
+      :aria-pressed="isActive('underline')"
+      :title="resolveLabel('underline')"
+      :aria-label="resolveLabel('underline')"
       @click="toggle('underline')"
     >
       <EIcon name="Underline" :size="14" />
@@ -92,7 +106,9 @@ function isActive(name: string, attrs?: Record<string, unknown>): boolean {
     <button
       class="ebb-inline-toolbar__btn"
       :class="{ 'ebb-inline-toolbar__btn--active': isActive('strike') }"
-      title="Barré"
+      :aria-pressed="isActive('strike')"
+      :title="resolveLabel('strikethrough')"
+      :aria-label="resolveLabel('strikethrough')"
       @click="toggle('strike')"
     >
       <EIcon name="Strikethrough" :size="14" />
@@ -103,7 +119,8 @@ function isActive(name: string, attrs?: Record<string, unknown>): boolean {
     <button
       class="ebb-inline-toolbar__btn"
       :class="{ 'ebb-inline-toolbar__btn--active': isActive('link') }"
-      title="Lien"
+      :title="resolveLabel('link')"
+      :aria-label="resolveLabel('link')"
       @click="toggle('link')"
     >
       <EIcon name="Link" :size="14" />
@@ -111,7 +128,8 @@ function isActive(name: string, attrs?: Record<string, unknown>): boolean {
     <button
       v-if="isActive('link')"
       class="ebb-inline-toolbar__btn"
-      title="Supprimer le lien"
+      :title="resolveLabel('unlink')"
+      :aria-label="resolveLabel('unlink')"
       @click="toggle('unlink')"
     >
       <EIcon name="Unlink" :size="14" />
@@ -122,7 +140,9 @@ function isActive(name: string, attrs?: Record<string, unknown>): boolean {
     <button
       class="ebb-inline-toolbar__btn"
       :class="{ 'ebb-inline-toolbar__btn--active': isActive('textAlign', { textAlign: 'left' }) }"
-      title="Aligner à gauche"
+      :aria-pressed="isActive('textAlign', { textAlign: 'left' })"
+      :title="resolveLabel('align_text_left')"
+      :aria-label="resolveLabel('align_text_left')"
       @click="toggle('align-left')"
     >
       <EIcon name="AlignLeft" :size="14" />
@@ -130,7 +150,9 @@ function isActive(name: string, attrs?: Record<string, unknown>): boolean {
     <button
       class="ebb-inline-toolbar__btn"
       :class="{ 'ebb-inline-toolbar__btn--active': isActive('textAlign', { textAlign: 'center' }) }"
-      title="Centrer"
+      :aria-pressed="isActive('textAlign', { textAlign: 'center' })"
+      :title="resolveLabel('align_text_center')"
+      :aria-label="resolveLabel('align_text_center')"
       @click="toggle('align-center')"
     >
       <EIcon name="AlignCenter" :size="14" />
@@ -138,7 +160,9 @@ function isActive(name: string, attrs?: Record<string, unknown>): boolean {
     <button
       class="ebb-inline-toolbar__btn"
       :class="{ 'ebb-inline-toolbar__btn--active': isActive('textAlign', { textAlign: 'right' }) }"
-      title="Aligner à droite"
+      :aria-pressed="isActive('textAlign', { textAlign: 'right' })"
+      :title="resolveLabel('align_text_right')"
+      :aria-label="resolveLabel('align_text_right')"
       @click="toggle('align-right')"
     >
       <EIcon name="AlignRight" :size="14" />
@@ -146,9 +170,9 @@ function isActive(name: string, attrs?: Record<string, unknown>): boolean {
 
     <span class="ebb-inline-toolbar__sep"></span>
 
-    <label class="ebb-inline-toolbar__color" title="Couleur du texte">
+    <label class="ebb-inline-toolbar__color" :title="resolveLabel('text_color_label')">
       <EIcon name="Palette" :size="14" />
-      <input type="color" @input="setColor" />
+      <input type="color" :aria-label="resolveLabel('text_color_label')" @input="setColor" />
     </label>
   </div>
 </template>
@@ -186,7 +210,7 @@ function isActive(name: string, attrs?: Record<string, unknown>): boolean {
 
 .ebb-inline-toolbar__btn--active {
   background: rgba(1, 168, 171, 0.3);
-  color: #01A8AB;
+  color: var(--ee-primary);
 }
 
 .ebb-inline-toolbar__sep {

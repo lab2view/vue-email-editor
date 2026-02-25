@@ -4,7 +4,7 @@ import { createSection, createColumn } from '../serializer/node-factory'
 export const layoutBlocks: BlockDefinition[] = [
   {
     id: 'layout-1-col',
-    label: '1 colonne',
+    label: 'block_layout_1_col',
     category: 'layout',
     icon: 'Square',
     factory: () =>
@@ -12,7 +12,7 @@ export const layoutBlocks: BlockDefinition[] = [
   },
   {
     id: 'layout-2-col',
-    label: '2 colonnes',
+    label: 'block_layout_2_col',
     category: 'layout',
     icon: 'Columns2',
     factory: () =>
@@ -23,7 +23,7 @@ export const layoutBlocks: BlockDefinition[] = [
   },
   {
     id: 'layout-3-col',
-    label: '3 colonnes',
+    label: 'block_layout_3_col',
     category: 'layout',
     icon: 'Columns3',
     factory: () =>
@@ -35,7 +35,7 @@ export const layoutBlocks: BlockDefinition[] = [
   },
   {
     id: 'layout-4-col',
-    label: '4 colonnes',
+    label: 'block_layout_4_col',
     category: 'layout',
     icon: 'Columns4',
     factory: () =>
@@ -48,7 +48,7 @@ export const layoutBlocks: BlockDefinition[] = [
   },
   {
     id: 'layout-sidebar-left',
-    label: 'Sidebar G.',
+    label: 'block_layout_sidebar_left',
     category: 'layout',
     icon: 'PanelLeft',
     factory: () =>
@@ -59,7 +59,7 @@ export const layoutBlocks: BlockDefinition[] = [
   },
   {
     id: 'layout-sidebar-right',
-    label: 'Sidebar D.',
+    label: 'block_layout_sidebar_right',
     category: 'layout',
     icon: 'PanelRight',
     factory: () =>

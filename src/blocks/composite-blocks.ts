@@ -19,7 +19,7 @@ export const compositeBlocks: BlockDefinition[] = [
   // ── En-tête avec logo ──
   {
     id: 'composite-header',
-    label: 'En-tête',
+    label: 'block_comp_header',
     category: 'composite',
     icon: 'LayoutTemplate',
     factory: () =>
@@ -42,7 +42,7 @@ export const compositeBlocks: BlockDefinition[] = [
   // ── En-tête + Navigation ──
   {
     id: 'composite-header-nav',
-    label: 'En-tête + Nav',
+    label: 'block_comp_header_nav',
     category: 'composite',
     icon: 'LayoutTemplate',
     factory: () =>
@@ -77,7 +77,7 @@ export const compositeBlocks: BlockDefinition[] = [
   // ── Bannière Hero ──
   {
     id: 'composite-hero',
-    label: 'Bannière Hero',
+    label: 'block_comp_hero_banner',
     category: 'composite',
     icon: 'Monitor',
     factory: () =>
@@ -112,7 +112,7 @@ export const compositeBlocks: BlockDefinition[] = [
   // ── Hero Gradient ──
   {
     id: 'composite-hero-gradient',
-    label: 'Hero Gradient',
+    label: 'block_comp_hero_gradient',
     category: 'composite',
     icon: 'Palette',
     factory: () =>
@@ -144,7 +144,7 @@ export const compositeBlocks: BlockDefinition[] = [
   // ── Image + Texte ──
   {
     id: 'composite-img-text',
-    label: 'Image + Texte',
+    label: 'block_comp_image_text',
     category: 'composite',
     icon: 'LayoutList',
     factory: () =>
@@ -191,7 +191,7 @@ export const compositeBlocks: BlockDefinition[] = [
   // ── Texte + Image ──
   {
     id: 'composite-text-img',
-    label: 'Texte + Image',
+    label: 'block_comp_text_image',
     category: 'composite',
     icon: 'LayoutList',
     factory: () =>
@@ -238,7 +238,7 @@ export const compositeBlocks: BlockDefinition[] = [
   // ── Appel à l'action (CTA) ──
   {
     id: 'composite-cta',
-    label: 'CTA',
+    label: 'block_comp_cta',
     category: 'composite',
     icon: 'MousePointerClick',
     factory: () =>
@@ -270,7 +270,7 @@ export const compositeBlocks: BlockDefinition[] = [
   // ── Grille images 2x2 ──
   {
     id: 'composite-image-grid',
-    label: 'Grille images',
+    label: 'block_comp_image_grid',
     category: 'composite',
     icon: 'Grid2x2',
     factory: (): EmailNode[] => [
@@ -306,7 +306,7 @@ export const compositeBlocks: BlockDefinition[] = [
   // ── 3 colonnes fonctionnalités ──
   {
     id: 'composite-features',
-    label: 'Fonctionnalités',
+    label: 'block_comp_features',
     category: 'composite',
     icon: 'ListChecks',
     factory: () =>
@@ -344,7 +344,7 @@ export const compositeBlocks: BlockDefinition[] = [
   // ── Témoignage ──
   {
     id: 'composite-testimonial',
-    label: 'Témoignage',
+    label: 'block_comp_testimonial',
     category: 'composite',
     icon: 'Quote',
     factory: () =>
@@ -374,7 +374,7 @@ export const compositeBlocks: BlockDefinition[] = [
   // ── Offre / Prix ──
   {
     id: 'composite-pricing',
-    label: 'Offre / Prix',
+    label: 'block_comp_pricing',
     category: 'composite',
     icon: 'BadgeDollarSign',
     factory: () =>
@@ -407,7 +407,7 @@ export const compositeBlocks: BlockDefinition[] = [
   // ── Code promo ──
   {
     id: 'composite-coupon',
-    label: 'Code promo',
+    label: 'block_comp_promo_code',
     category: 'composite',
     icon: 'Ticket',
     factory: () =>
@@ -434,7 +434,7 @@ export const compositeBlocks: BlockDefinition[] = [
   // ── Vidéo ──
   {
     id: 'composite-video',
-    label: 'Vidéo',
+    label: 'block_comp_video',
     category: 'composite',
     icon: 'Play',
     factory: () =>
@@ -458,7 +458,7 @@ export const compositeBlocks: BlockDefinition[] = [
   // ── Réseaux sociaux ──
   {
     id: 'composite-social',
-    label: 'Social',
+    label: 'block_comp_social',
     category: 'composite',
     icon: 'Users',
     factory: () =>
@@ -484,7 +484,7 @@ export const compositeBlocks: BlockDefinition[] = [
   // ── Pied de page ──
   {
     id: 'composite-footer',
-    label: 'Footer',
+    label: 'block_comp_footer',
     category: 'composite',
     icon: 'PanelBottom',
     factory: () =>
@@ -520,7 +520,7 @@ export const compositeBlocks: BlockDefinition[] = [
   // ── Pied de page simple ──
   {
     id: 'composite-footer-minimal',
-    label: 'Footer simple',
+    label: 'block_comp_footer_simple',
     category: 'composite',
     icon: 'PanelBottomClose',
     factory: () =>
@@ -540,7 +540,7 @@ export const compositeBlocks: BlockDefinition[] = [
   // ── Séparateur décoré ──
   {
     id: 'composite-separator',
-    label: 'Séparateur',
+    label: 'block_comp_separator',
     category: 'composite',
     icon: 'SeparatorHorizontal',
     factory: () =>
@@ -557,7 +557,7 @@ export const compositeBlocks: BlockDefinition[] = [
   // ── Carte produit ──
   {
     id: 'composite-product-card',
-    label: 'Carte produit',
+    label: 'block_comp_product_card',
     category: 'composite',
     icon: 'ShoppingBag',
     factory: () =>
@@ -625,7 +625,7 @@ export const compositeBlocks: BlockDefinition[] = [
   // ── Notification / Alerte ──
   {
     id: 'composite-notification',
-    label: 'Notification',
+    label: 'block_comp_notification',
     category: 'composite',
     icon: 'Bell',
     factory: () =>
@@ -658,7 +658,7 @@ export const compositeBlocks: BlockDefinition[] = [
   // ── Statistiques / Compteurs ──
   {
     id: 'composite-stats',
-    label: 'Statistiques',
+    label: 'block_comp_stats',
     category: 'composite',
     icon: 'BarChart3',
     factory: () =>
@@ -693,7 +693,7 @@ export const compositeBlocks: BlockDefinition[] = [
   // ── Bandeau d'annonce ──
   {
     id: 'composite-announcement',
-    label: 'Annonce',
+    label: 'block_comp_announcement',
     category: 'composite',
     icon: 'Megaphone',
     factory: () =>
@@ -713,7 +713,7 @@ export const compositeBlocks: BlockDefinition[] = [
   // ── Timeline / Étapes ──
   {
     id: 'composite-timeline',
-    label: 'Étapes',
+    label: 'block_comp_steps',
     category: 'composite',
     icon: 'GitBranch',
     factory: () =>
@@ -751,7 +751,7 @@ export const compositeBlocks: BlockDefinition[] = [
   // ── Récapitulatif commande ──
   {
     id: 'composite-order-summary',
-    label: 'Commande',
+    label: 'block_comp_order',
     category: 'composite',
     icon: 'Receipt',
     factory: (): EmailNode[] => [
@@ -822,7 +822,7 @@ export const compositeBlocks: BlockDefinition[] = [
   // ── FAQ ──
   {
     id: 'composite-faq',
-    label: 'FAQ',
+    label: 'block_comp_faq',
     category: 'composite',
     icon: 'HelpCircle',
     factory: () =>
@@ -847,7 +847,7 @@ export const compositeBlocks: BlockDefinition[] = [
   // ── Carte équipe ──
   {
     id: 'composite-team',
-    label: 'Équipe',
+    label: 'block_comp_team',
     category: 'composite',
     icon: 'UsersRound',
     factory: () =>
@@ -885,7 +885,7 @@ export const compositeBlocks: BlockDefinition[] = [
   // ── Compte à rebours ──
   {
     id: 'composite-countdown',
-    label: 'Countdown',
+    label: 'block_comp_countdown',
     category: 'composite',
     icon: 'Timer',
     factory: () =>
@@ -902,7 +902,7 @@ export const compositeBlocks: BlockDefinition[] = [
   // ── Avis client ──
   {
     id: 'composite-review',
-    label: 'Avis client',
+    label: 'block_comp_review',
     category: 'composite',
     icon: 'Star',
     factory: () =>
@@ -923,7 +923,7 @@ export const compositeBlocks: BlockDefinition[] = [
   // ── Lien app mobile ──
   {
     id: 'composite-app-download',
-    label: 'App mobile',
+    label: 'block_comp_mobile_app',
     category: 'composite',
     icon: 'Smartphone',
     factory: () =>

@@ -1,4 +1,5 @@
-import type { BlockDefinition, EmailNode } from '../types'
+import type { BlockDefinition } from '../types'
+import { DEFAULT_THEME } from '../types'
 import {
   createText,
   createImage,
@@ -15,42 +16,42 @@ import {
 export const contentBlocks: BlockDefinition[] = [
   {
     id: 'content-text',
-    label: 'Texte',
+    label: 'block_content_text',
     category: 'content',
     icon: 'Type',
     factory: () => createText(),
   },
   {
     id: 'content-image',
-    label: 'Image',
+    label: 'block_content_image',
     category: 'content',
     icon: 'Image',
     factory: () => createImage(),
   },
   {
     id: 'content-button',
-    label: 'Bouton',
+    label: 'block_content_button',
     category: 'content',
     icon: 'RectangleHorizontal',
     factory: () => createButton(),
   },
   {
     id: 'content-divider',
-    label: 'Séparateur',
+    label: 'block_content_divider',
     category: 'content',
     icon: 'Minus',
     factory: () => createDivider(),
   },
   {
     id: 'content-spacer',
-    label: 'Espacement',
+    label: 'block_content_spacer',
     category: 'content',
     icon: 'MoveVertical',
     factory: () => createSpacer(),
   },
   {
     id: 'content-social',
-    label: 'Social',
+    label: 'block_content_social',
     category: 'content',
     icon: 'Share2',
     factory: () =>
@@ -63,7 +64,7 @@ export const contentBlocks: BlockDefinition[] = [
   },
   {
     id: 'content-hero',
-    label: 'Hero',
+    label: 'block_content_hero',
     category: 'content',
     icon: 'Maximize2',
     factory: () =>
@@ -77,7 +78,7 @@ export const contentBlocks: BlockDefinition[] = [
           { align: 'center', color: '#cccccc', 'font-size': '16px', padding: '0 40px 25px 40px' },
         ),
         createButton('Découvrir', {
-          'background-color': '#01A8AB',
+          'background-color': DEFAULT_THEME.primaryColor,
           color: '#ffffff',
           'font-size': '16px',
           'border-radius': '6px',

@@ -2,7 +2,8 @@
 import { inject, computed } from 'vue'
 import EIcon from '../internal/EIcon.vue'
 import { EMAIL_DOCUMENT_KEY, EMAIL_SELECTION_KEY } from '../../injection-keys'
-import { PROPERTY_MAP, getNodeTypeLabel } from '../../properties/property-definitions'
+import { PROPERTY_MAP, getNodeTypeLabelKey } from '../../properties/property-definitions'
+import { EMAIL_LABELS_KEY, DEFAULT_LABELS, type EditorLabels } from '../../labels'
 import { findNode } from '../../utils/tree'
 import type { PropertyDefinition, EmailNodeType } from '../../types'
 import { CONTENT_NODE_TYPES } from '../../types'
@@ -11,6 +12,11 @@ import PropertyGroup from './properties/PropertyGroup.vue'
 
 const doc = inject(EMAIL_DOCUMENT_KEY)!
 const selection = inject(EMAIL_SELECTION_KEY)!
+const labels = inject(EMAIL_LABELS_KEY, DEFAULT_LABELS)
+
+function resolveLabel(key: string): string {
+  return (labels as EditorLabels)[key as keyof EditorLabels] ?? key
+}
 
 const selectedNode = computed(() => selection.selectedNode.value)
 
@@ -22,7 +28,7 @@ const breadcrumb = computed(() => {
     const node = findNode(doc.document.value.body, id)
     return {
       id,
-      label: node ? getNodeTypeLabel(node.type) : id,
+      label: node ? resolveLabel(getNodeTypeLabelKey(node.type)) : id,
       isCurrent: id === selection.selectedNodeId.value,
     }
   })
@@ -49,7 +55,7 @@ const groupedProperties = computed(() => {
 
 const nodeLabel = computed(() => {
   if (!selectedNode.value) return ''
-  return getNodeTypeLabel(selectedNode.value.type)
+  return resolveLabel(getNodeTypeLabelKey(selectedNode.value.type))
 })
 
 const isContentNode = computed(() => {
@@ -106,7 +112,7 @@ function onPreviewTextChange(value: string) {
     <!-- Header -->
     <div class="ebb-properties__header">
       <span class="ebb-properties__type">{{ nodeLabel }}</span>
-      <button class="ebb-properties__close" @click="clearSelection">
+      <button class="ebb-properties__close" :aria-label="resolveLabel('close')" @click="clearSelection">
         <EIcon name="X" :size="14" />
       </button>
     </div>
@@ -127,7 +133,7 @@ function onPreviewTextChange(value: string) {
 
     <!-- Content editor (for text/button nodes) -->
     <div v-if="isContentNode" class="ebb-properties__content-group">
-      <label class="ebb-properties__label">Contenu</label>
+      <label class="ebb-properties__label">{{ resolveLabel('content_label') }}</label>
       <textarea
         class="ebb-properties__textarea"
         :value="selectedNode.htmlContent || ''"
@@ -140,7 +146,7 @@ function onPreviewTextChange(value: string) {
     <PropertyGroup
       v-for="(props, groupName) in groupedProperties"
       :key="groupName"
-      :label="String(groupName)"
+      :label="resolveLabel(String(groupName))"
       :properties="props"
       :node="selectedNode"
       @update="onPropertyChange"
@@ -151,25 +157,25 @@ function onPreviewTextChange(value: string) {
   <div v-else class="ebb-global-styles">
     <div class="ebb-global-styles__header">
       <EIcon name="Globe" :size="16" />
-      <span>Styles globaux</span>
+      <span>{{ resolveLabel('global_styles') }}</span>
     </div>
 
     <!-- Preview text -->
     <div class="ebb-global-styles__section">
       <div class="ebb-global-styles__section-title">
         <EIcon name="Eye" :size="13" />
-        <span>Aperçu boîte de réception</span>
+        <span>{{ resolveLabel('inbox_preview') }}</span>
       </div>
       <div class="ebb-global-styles__field">
-        <label class="ebb-global-styles__label">Texte d'aperçu</label>
+        <label class="ebb-global-styles__label">{{ resolveLabel('preview_text') }}</label>
         <input
           type="text"
           class="ebb-global-styles__input"
           :value="previewText"
-          placeholder="Résumé visible avant l'ouverture..."
+          :placeholder="resolveLabel('preview_text_placeholder')"
           @input="onPreviewTextChange(($event.target as HTMLInputElement).value)"
         />
-        <p class="ebb-global-styles__hint">Visible dans la liste d'emails du destinataire</p>
+        <p class="ebb-global-styles__hint">{{ resolveLabel('preview_text_hint') }}</p>
       </div>
     </div>
 
@@ -177,16 +183,17 @@ function onPreviewTextChange(value: string) {
     <div class="ebb-global-styles__section">
       <div class="ebb-global-styles__section-title">
         <EIcon name="Palette" :size="13" />
-        <span>Couleurs</span>
+        <span>{{ resolveLabel('colors') }}</span>
       </div>
 
       <div class="ebb-global-styles__field">
-        <label class="ebb-global-styles__label">Fond de l'email</label>
+        <label class="ebb-global-styles__label">{{ resolveLabel('email_background') }}</label>
         <div class="ebb-global-styles__color-row">
           <input
             type="color"
             class="ebb-global-styles__color-input"
             :value="bodyBg"
+            :aria-label="resolveLabel('email_background')"
             @input="onBodyBgChange(($event.target as HTMLInputElement).value)"
           />
           <input
@@ -199,12 +206,13 @@ function onPreviewTextChange(value: string) {
       </div>
 
       <div class="ebb-global-styles__field">
-        <label class="ebb-global-styles__label">Couleur du texte</label>
+        <label class="ebb-global-styles__label">{{ resolveLabel('text_color') }}</label>
         <div class="ebb-global-styles__color-row">
           <input
             type="color"
             class="ebb-global-styles__color-input"
             :value="defaultTextColor"
+            :aria-label="resolveLabel('text_color')"
             @input="onDefaultTextColorChange(($event.target as HTMLInputElement).value)"
           />
           <input
@@ -221,17 +229,17 @@ function onPreviewTextChange(value: string) {
     <div class="ebb-global-styles__section">
       <div class="ebb-global-styles__section-title">
         <EIcon name="Type" :size="13" />
-        <span>Typographie</span>
+        <span>{{ resolveLabel('typography') }}</span>
       </div>
 
       <div class="ebb-global-styles__field">
-        <label class="ebb-global-styles__label">Police par défaut</label>
+        <label class="ebb-global-styles__label">{{ resolveLabel('default_font') }}</label>
         <select
           class="ebb-global-styles__select"
           :value="defaultFont"
           @change="onDefaultFontChange(($event.target as HTMLSelectElement).value)"
         >
-          <option value="">— Par défaut —</option>
+          <option value="">{{ resolveLabel('font_default') }}</option>
           <option v-for="font in FONT_OPTIONS" :key="font.value" :value="font.value">
             {{ font.label }}
           </option>
@@ -241,7 +249,7 @@ function onPreviewTextChange(value: string) {
 
     <div class="ebb-global-styles__tip">
       <EIcon name="MousePointer" :size="14" />
-      <span>Cliquez sur un élément du canvas pour modifier ses propriétés</span>
+      <span>{{ resolveLabel('select_element_hint') }}</span>
     </div>
   </div>
 </template>
@@ -268,7 +276,7 @@ html[data-theme='dark'] .ebb-properties__header {
 .ebb-properties__type {
   font-size: 13px;
   font-weight: 600;
-  color: #01A8AB;
+  color: var(--ee-primary);
 }
 
 .ebb-properties__close {
@@ -333,7 +341,7 @@ html[data-theme='dark'] .ebb-properties__textarea {
 
 .ebb-properties__textarea:focus {
   outline: none;
-  border-color: #01A8AB;
+  border-color: var(--ee-primary);
   box-shadow: 0 0 0 2px rgba(1, 168, 171, 0.1);
 }
 
@@ -351,7 +359,7 @@ html[data-theme='dark'] .ebb-properties__textarea {
   background: #f9fafb;
   font-size: 13px;
   font-weight: 600;
-  color: #01A8AB;
+  color: var(--ee-primary);
 }
 
 html[data-theme='dark'] .ebb-global-styles__header {
@@ -429,7 +437,7 @@ html[data-theme='dark'] .ebb-global-styles__input {
 }
 
 .ebb-global-styles__input:focus {
-  border-color: #01A8AB;
+  border-color: var(--ee-primary);
   box-shadow: 0 0 0 2px rgba(1, 168, 171, 0.1);
 }
 
@@ -457,7 +465,7 @@ html[data-theme='dark'] .ebb-global-styles__select {
 }
 
 .ebb-global-styles__select:focus {
-  border-color: #01A8AB;
+  border-color: var(--ee-primary);
 }
 
 .ebb-global-styles__color-row {
@@ -545,7 +553,7 @@ html[data-theme='dark'] .ebb-properties__breadcrumb-item:hover {
 }
 
 .ebb-properties__breadcrumb-item--active {
-  color: #01A8AB;
+  color: var(--ee-primary);
   font-weight: 600;
 }
 </style>
