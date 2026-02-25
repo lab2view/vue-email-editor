@@ -3,16 +3,42 @@
  * InlineToolbar — Floating formatting toolbar for the TipTap inline text editor.
  * Positioned above the editing area, shows bold/italic/underline/link/color/align.
  */
-import { inject } from 'vue'
+import { inject, ref, computed } from 'vue'
 import type { Editor } from '@tiptap/vue-3'
+import type { MergeTag } from '../../types'
 import EIcon from '../internal/EIcon.vue'
 import { EMAIL_LABELS_KEY, DEFAULT_LABELS, type EditorLabels } from '../../labels'
 
 const props = defineProps<{
   editor: Editor | null
+  mergeTags?: MergeTag[]
 }>()
 
 const labels = inject(EMAIL_LABELS_KEY, DEFAULT_LABELS)
+
+const showMergeMenu = ref(false)
+
+const mergeTagsByCategory = computed(() => {
+  const tags = props.mergeTags ?? []
+  if (tags.length === 0) return []
+  const groups = new Map<string, MergeTag[]>()
+  for (const tag of tags) {
+    const cat = tag.category || ''
+    if (!groups.has(cat)) groups.set(cat, [])
+    groups.get(cat)!.push(tag)
+  }
+  return Array.from(groups.entries()).map(([category, items]) => ({ category, items }))
+})
+
+function insertMergeTag(tag: MergeTag) {
+  if (!props.editor) return
+  props.editor.chain().focus().insertMergeTag({ label: tag.name, value: tag.value }).run()
+  showMergeMenu.value = false
+}
+
+function toggleMergeMenu() {
+  showMergeMenu.value = !showMergeMenu.value
+}
 
 function resolveLabel(key: string): string {
   return (labels as EditorLabels)[key as keyof EditorLabels] ?? key
@@ -174,6 +200,39 @@ function isActive(name: string, attrs?: Record<string, unknown>): boolean {
       <EIcon name="Palette" :size="14" />
       <input type="color" :aria-label="resolveLabel('text_color_label')" @input="setColor" />
     </label>
+
+    <!-- Merge Tags -->
+    <template v-if="mergeTags && mergeTags.length > 0">
+      <span class="ebb-inline-toolbar__sep"></span>
+      <div class="ebb-inline-toolbar__merge-wrap">
+        <button
+          class="ebb-inline-toolbar__btn"
+          :class="{ 'ebb-inline-toolbar__btn--active': showMergeMenu }"
+          :title="resolveLabel('insert_merge_tag')"
+          :aria-label="resolveLabel('insert_merge_tag')"
+          :aria-expanded="showMergeMenu"
+          aria-haspopup="true"
+          @click="toggleMergeMenu"
+        >
+          <EIcon name="Tags" :size="14" />
+        </button>
+        <div v-if="showMergeMenu" class="ebb-merge-menu" role="menu" @mousedown.prevent>
+          <template v-for="group in mergeTagsByCategory" :key="group.category">
+            <div v-if="group.category" class="ebb-merge-menu__category">{{ group.category }}</div>
+            <button
+              v-for="tag in group.items"
+              :key="tag.value"
+              class="ebb-merge-menu__item"
+              role="menuitem"
+              @click="insertMergeTag(tag)"
+            >
+              <span class="ebb-merge-menu__name">{{ tag.name }}</span>
+              <span class="ebb-merge-menu__value">{{ tag.value }}</span>
+            </button>
+          </template>
+        </div>
+      </div>
+    </template>
   </div>
 </template>
 
@@ -242,5 +301,68 @@ function isActive(name: string, attrs?: Record<string, unknown>): boolean {
   cursor: pointer;
   width: 100%;
   height: 100%;
+}
+
+/* ─── Merge Tag Dropdown ─── */
+.ebb-inline-toolbar__merge-wrap {
+  position: relative;
+}
+
+.ebb-merge-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 200px;
+  max-height: 240px;
+  overflow-y: auto;
+  background: #1f2937;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  padding: 4px;
+  z-index: 10;
+}
+
+.ebb-merge-menu__category {
+  padding: 6px 10px 2px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #9ca3af;
+}
+
+.ebb-merge-menu__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  padding: 6px 10px;
+  border: none;
+  background: transparent;
+  color: #d1d5db;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: left;
+}
+
+.ebb-merge-menu__item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.ebb-merge-menu__name {
+  flex: 1;
+  white-space: nowrap;
+}
+
+.ebb-merge-menu__value {
+  font-family: monospace;
+  font-size: 10px;
+  color: #6b7280;
+  white-space: nowrap;
 }
 </style>

@@ -196,6 +196,11 @@ export interface EditorLabels {
   column_label: string
   empty_canvas_hint: string
 
+  // ─── Merge Tags ───
+  merge_tags: string
+  merge_tags_empty: string
+  insert_merge_tag: string
+
   // ─── Image Upload ───
   image_upload: string
   image_browse: string
@@ -420,6 +425,11 @@ export const DEFAULT_LABELS: EditorLabels = {
   section_label: 'Section',
   column_label: 'Column',
   empty_canvas_hint: 'Drag blocks to the canvas to build your email',
+
+  // ─── Merge Tags ───
+  merge_tags: 'Merge tags',
+  merge_tags_empty: 'No merge tags configured',
+  insert_merge_tag: 'Insert merge tag',
 
   // ─── Image Upload ───
   image_upload: 'Upload image',

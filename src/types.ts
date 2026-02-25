@@ -312,6 +312,17 @@ export interface PluginContext {
 
 export type Plugin = (context: PluginContext) => void | Promise<void>
 
+// ─── Merge Tags ─────────────────────────────────────────────────
+
+export interface MergeTag {
+  /** Display name, e.g. "First Name" */
+  name: string
+  /** Template value inserted into HTML, e.g. "{{first_name}}" */
+  value: string
+  /** Optional category for grouping, e.g. "Contact" */
+  category?: string
+}
+
 // ─── Image Upload ───────────────────────────────────────────────
 
 export interface ImageUploadResult {
