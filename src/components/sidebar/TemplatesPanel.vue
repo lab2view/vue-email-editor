@@ -268,12 +268,12 @@ html[data-theme='dark'] .ebb-confirm-dialog__btn--cancel:hover {
 }
 
 .ebb-confirm-dialog__btn--confirm {
-  background: var(--ee-primary);
+  background: var(--ee-primary, #01A8AB);
   color: #ffffff;
 }
 
 .ebb-confirm-dialog__btn--confirm:hover {
-  background: #019193;
+  background: var(--ee-primary-hover, #019193);
 }
 
 /* Transition */
