@@ -86,3 +86,22 @@ export { STATIC_BLOCKS } from './blocks/block-definitions'
 
 // ─── Extensions ───
 export { MergeTagExtension } from './extensions/merge-tag'
+
+// ─── ESP Export Presets ───
+export type { EspExportOptions, EspExportResult, EspPreset } from './export/esp-presets'
+export {
+  exportForEsp,
+  exportForMailchimp,
+  exportForSendGrid,
+  exportForBrevo,
+  exportForAwsSes,
+  exportForPostmark,
+  exportForResend,
+  ESP_PRESETS,
+  MAILCHIMP_PRESET,
+  SENDGRID_PRESET,
+  BREVO_PRESET,
+  AWS_SES_PRESET,
+  POSTMARK_PRESET,
+  RESEND_PRESET,
+} from './export/esp-presets'
