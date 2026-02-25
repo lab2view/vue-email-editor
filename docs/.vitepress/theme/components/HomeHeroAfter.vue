@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import TemplateGallery from './TemplateGallery.vue'
+
 const stats = [
-  { number: '43', label: 'Pre-built Blocks' },
+  { number: '93+', label: 'Starter Templates' },
+  { number: '43', label: 'Drag & Drop Blocks' },
   { number: '147+', label: 'Tests' },
-  { number: '249KB', label: 'Gzipped' },
   { number: 'MIT', label: 'License' },
 ]
 </script>
@@ -19,7 +21,7 @@ const stats = [
 
     <div class="home-section-divider" />
 
-    <!-- Screenshot -->
+    <!-- Editor mockup -->
     <section class="home-screenshot">
       <div class="home-screenshot__wrapper">
         <div class="home-screenshot__glow" />
@@ -59,6 +61,11 @@ const stats = [
         </div>
       </div>
     </section>
+
+    <div class="home-section-divider" />
+
+    <!-- Template Gallery — the centerpiece -->
+    <TemplateGallery />
 
     <div class="home-section-divider" />
 
