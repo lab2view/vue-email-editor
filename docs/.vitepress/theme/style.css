@@ -1,0 +1,366 @@
+/* ============================================================
+   @lab2view/vue-email-editor — VitePress Custom Theme
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   1. Brand Color Palette
+   ---------------------------------------------------------- */
+:root {
+  --vp-c-brand-1: #01A8AB;
+  --vp-c-brand-2: #019B9E;
+  --vp-c-brand-3: #018A8D;
+  --vp-c-brand-soft: rgba(1, 168, 171, 0.14);
+
+  /* Hero gradient name */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(135deg, #01A8AB 0%, #6366f1 50%, #a855f7 100%);
+
+  /* Hero image glow */
+  --vp-home-hero-image-background-image: linear-gradient(
+    135deg,
+    rgba(1, 168, 171, 0.4) 0%,
+    rgba(99, 102, 241, 0.4) 50%,
+    rgba(168, 85, 247, 0.4) 100%
+  );
+  --vp-home-hero-image-filter: blur(56px);
+
+  /* Button brand override */
+  --vp-button-brand-bg: #01A8AB;
+  --vp-button-brand-hover-bg: #019B9E;
+  --vp-button-brand-active-bg: #018A8D;
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-hover-border: transparent;
+}
+
+.dark {
+  --vp-c-brand-1: #2dd4bf;
+  --vp-c-brand-2: #14b8a6;
+  --vp-c-brand-3: #0d9488;
+  --vp-c-brand-soft: rgba(45, 212, 191, 0.14);
+
+  --vp-home-hero-name-background: linear-gradient(135deg, #2dd4bf 0%, #818cf8 50%, #c084fc 100%);
+
+  --vp-home-hero-image-background-image: linear-gradient(
+    135deg,
+    rgba(45, 212, 191, 0.25) 0%,
+    rgba(129, 140, 248, 0.25) 50%,
+    rgba(192, 132, 252, 0.25) 100%
+  );
+
+  --vp-button-brand-bg: #0d9488;
+  --vp-button-brand-hover-bg: #14b8a6;
+  --vp-button-brand-active-bg: #0f766e;
+}
+
+/* ----------------------------------------------------------
+   2. Typography — Inter font
+   ---------------------------------------------------------- */
+:root {
+  --vp-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
+}
+
+/* ----------------------------------------------------------
+   3. Hero Section
+   ---------------------------------------------------------- */
+.VPHero .name {
+  letter-spacing: -0.02em;
+}
+
+.VPHero .text {
+  font-size: 2.25rem !important;
+  line-height: 1.2;
+  background: linear-gradient(135deg, var(--vp-c-text-1) 60%, var(--vp-c-brand-1));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.VPHero .tagline {
+  font-size: 1.15rem !important;
+  max-width: 520px;
+  line-height: 1.6;
+}
+
+/* Brand button gradient */
+.VPHero .actions .VPButton.brand {
+  background: linear-gradient(135deg, #01A8AB, #6366f1);
+  border: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.VPHero .actions .VPButton.brand:hover {
+  background: linear-gradient(135deg, #019B9E, #4f46e5);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(1, 168, 171, 0.35);
+}
+
+.dark .VPHero .actions .VPButton.brand {
+  background: linear-gradient(135deg, #0d9488, #818cf8);
+}
+.dark .VPHero .actions .VPButton.brand:hover {
+  background: linear-gradient(135deg, #14b8a6, #6366f1);
+  box-shadow: 0 6px 20px rgba(45, 212, 191, 0.3);
+}
+
+/* Alt button */
+.VPHero .actions .VPButton.alt {
+  transition: all 0.2s ease;
+}
+.VPHero .actions .VPButton.alt:hover {
+  transform: translateY(-1px);
+}
+
+/* ----------------------------------------------------------
+   4. Feature Cards
+   ---------------------------------------------------------- */
+.VPFeature {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.VPFeature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(1, 168, 171, 0.12);
+  border-color: var(--vp-c-brand-1) !important;
+}
+
+.dark .VPFeature:hover {
+  box-shadow: 0 12px 32px rgba(45, 212, 191, 0.08);
+}
+
+/* Feature icon styling — gradient background circle */
+.VPFeature .VPImage,
+.VPFeatures .icon {
+  font-size: 1.75rem;
+}
+
+/* Feature title */
+.VPFeature .title {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* ----------------------------------------------------------
+   5. Sidebar & Nav refinements
+   ---------------------------------------------------------- */
+.VPNavBar .title {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* Active sidebar link */
+.VPSidebarItem.is-active > .item > .indicator {
+  background-color: var(--vp-c-brand-1);
+}
+
+/* ----------------------------------------------------------
+   6. Code blocks
+   ---------------------------------------------------------- */
+:root {
+  --vp-code-color: #01A8AB;
+}
+
+.dark {
+  --vp-code-color: #2dd4bf;
+}
+
+/* ----------------------------------------------------------
+   7. Custom sections (HomeHeroAfter)
+   ---------------------------------------------------------- */
+
+/* Stats bar */
+.home-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2.5rem 1.5rem;
+  margin: 0 auto;
+  max-width: 720px;
+}
+
+.home-stats__item {
+  text-align: center;
+  flex: 1;
+}
+
+.home-stats__number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--vp-c-brand-1), #6366f1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dark .home-stats__number {
+  background: linear-gradient(135deg, #2dd4bf, #818cf8);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.home-stats__label {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--vp-c-text-2);
+  font-weight: 500;
+}
+
+/* Screenshot section */
+.home-screenshot {
+  max-width: 960px;
+  margin: 1rem auto 3rem;
+  padding: 0 1.5rem;
+}
+
+.home-screenshot__wrapper {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.05),
+    0 20px 60px rgba(1, 168, 171, 0.15);
+  border: 1px solid var(--vp-c-divider);
+  transform: perspective(1200px) rotateX(2deg);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.home-screenshot__wrapper:hover {
+  transform: perspective(1200px) rotateX(0deg);
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.05),
+    0 24px 70px rgba(1, 168, 171, 0.2);
+}
+
+.dark .home-screenshot__wrapper {
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.2),
+    0 20px 60px rgba(45, 212, 191, 0.1);
+}
+
+.dark .home-screenshot__wrapper:hover {
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.2),
+    0 24px 70px rgba(45, 212, 191, 0.15);
+}
+
+.home-screenshot__wrapper img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Gradient glow behind screenshot */
+.home-screenshot__glow {
+  position: absolute;
+  inset: -20%;
+  background: linear-gradient(
+    135deg,
+    rgba(1, 168, 171, 0.08) 0%,
+    rgba(99, 102, 241, 0.08) 50%,
+    rgba(168, 85, 247, 0.08) 100%
+  );
+  filter: blur(40px);
+  z-index: -1;
+  border-radius: 50%;
+}
+
+/* Code example section */
+.home-code {
+  max-width: 680px;
+  margin: 0 auto 4rem;
+  padding: 0 1.5rem;
+}
+
+.home-code__title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+  color: var(--vp-c-text-1);
+}
+
+.home-code__subtitle {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--vp-c-text-2);
+  margin-bottom: 1.5rem;
+}
+
+.home-code__block {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--vp-c-divider);
+  background: var(--vp-code-block-bg);
+}
+
+.home-code__block pre {
+  margin: 0;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  overflow-x: auto;
+}
+
+.home-code__block code {
+  font-family: 'Fira Code', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Syntax highlighting within the code block */
+.home-code__block .code-keyword { color: #a855f7; }
+.home-code__block .code-string { color: #22c55e; }
+.home-code__block .code-tag { color: #01A8AB; }
+.home-code__block .code-attr { color: #6366f1; }
+.home-code__block .code-comment { color: var(--vp-c-text-3); font-style: italic; }
+
+.dark .home-code__block .code-keyword { color: #c084fc; }
+.dark .home-code__block .code-string { color: #4ade80; }
+.dark .home-code__block .code-tag { color: #2dd4bf; }
+.dark .home-code__block .code-attr { color: #818cf8; }
+
+/* Section divider */
+.home-section-divider {
+  width: 60px;
+  height: 3px;
+  margin: 3rem auto;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--vp-c-brand-1), #6366f1);
+}
+
+/* ----------------------------------------------------------
+   8. Responsive
+   ---------------------------------------------------------- */
+@media (max-width: 768px) {
+  .home-stats {
+    gap: 1rem;
+    padding: 2rem 1rem;
+  }
+  .home-stats__number {
+    font-size: 1.5rem;
+  }
+  .home-stats__label {
+    font-size: 0.75rem;
+  }
+  .home-screenshot__wrapper {
+    transform: none;
+  }
+  .home-screenshot__wrapper:hover {
+    transform: none;
+  }
+  .home-code__title {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-stats {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .home-stats__item {
+    flex: 0 0 calc(50% - 0.75rem);
+  }
+}

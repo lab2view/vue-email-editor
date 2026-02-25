@@ -7,6 +7,14 @@ export default defineConfig({
 
   head: [
     ['link', { rel: 'icon', href: '/vue-email-editor/logo.png' }],
+    ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
+    ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
+    ['link', { href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap', rel: 'stylesheet' }],
+    ['meta', { property: 'og:title', content: 'Vue Email Editor — Drag & drop email builder for Vue 3' }],
+    ['meta', { property: 'og:description', content: 'Professional, extensible, MJML-powered email editor. Free and open-source.' }],
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:url', content: 'https://lab2view.github.io/vue-email-editor/' }],
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
   ],
 
   themeConfig: {
