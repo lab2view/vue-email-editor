@@ -2,6 +2,16 @@
 
 A professional, extensible drag-and-drop email editor built with **Vue 3** and **MJML**. Design responsive HTML emails visually with 43 pre-built blocks, a plugin system, full i18n support, and a complete imperative API.
 
+## Screenshots
+
+| Blocks & Layout | Ready-made Templates |
+|:---:|:---:|
+| ![Blocks panel with layout and content blocks](src/assets/capture_blocs_layouts_1.png) | ![Ready-made composite blocks](src/assets/capture_blocs_ready_made_1.png) |
+
+| Property Editing | Layers Panel |
+|:---:|:---:|
+| ![Image properties and styling](src/assets/capture_blocs_styes_image_1.png) | ![Document tree layers view](src/assets/capture_layers_1.png) |
+
 ## Features
 
 ### Visual Drag & Drop Builder
