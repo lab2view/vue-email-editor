@@ -58,6 +58,7 @@ const isFullscreen = ref(false)
 const activeView = ref<'visual' | 'code'>('visual')
 const initError = ref('')
 const activeDeviceIndex = ref(0)
+const isDarkPreview = ref(false)
 
 const canvasWidth = computed(() => DEVICE_PRESETS[activeDeviceIndex.value].width)
 
@@ -67,6 +68,10 @@ function toggleFullscreen() {
 
 function toggleCodeView() {
   activeView.value = activeView.value === 'visual' ? 'code' : 'visual'
+}
+
+function toggleDarkPreview() {
+  isDarkPreview.value = !isDarkPreview.value
 }
 </script>
 
@@ -103,15 +108,17 @@ function toggleCodeView() {
         :is-fullscreen="isFullscreen"
         :active-view="activeView"
         :active-device-index="activeDeviceIndex"
+        :is-dark-preview="isDarkPreview"
         @toggle-fullscreen="toggleFullscreen"
         @toggle-code-view="toggleCodeView"
+        @toggle-dark-preview="toggleDarkPreview"
         @update:active-device-index="activeDeviceIndex = $event"
       />
 
       <!-- ═══ MAIN AREA ═══ -->
       <div class="ebb-main">
         <!-- Canvas (visual editor) -->
-        <EditorCanvas v-show="activeView === 'visual'" :canvas-width="canvasWidth" />
+        <EditorCanvas v-show="activeView === 'visual'" :canvas-width="canvasWidth" :dark-preview="isDarkPreview" />
 
         <!-- Code view (CodeMirror) -->
         <CodeEditor v-if="activeView === 'code'" />

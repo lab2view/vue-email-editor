@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { computed, inject } from 'vue'
+import { computed, inject, ref } from 'vue'
 import EIcon from '../internal/EIcon.vue'
-import { EMAIL_DOCUMENT_KEY, EMAIL_SELECTION_KEY, EMAIL_DRAG_DROP_KEY } from '../../injection-keys'
+import { EMAIL_DOCUMENT_KEY, EMAIL_SELECTION_KEY, EMAIL_DRAG_DROP_KEY, EMAIL_EDITOR_CONFIG_KEY } from '../../injection-keys'
 import { EMAIL_LABELS_KEY, DEFAULT_LABELS, type EditorLabels } from '../../labels'
+import type { ConditionalRule } from '../../types'
 import { findNode, findParent } from '../../utils/tree'
 import { getNodeTypeLabelKey } from '../../properties/property-definitions'
 
@@ -19,6 +20,7 @@ const props = defineProps<{
 const doc = inject(EMAIL_DOCUMENT_KEY)!
 const selection = inject(EMAIL_SELECTION_KEY)!
 const dragDrop = inject(EMAIL_DRAG_DROP_KEY)!
+const config = inject(EMAIL_EDITOR_CONFIG_KEY, undefined)
 const labels = inject(EMAIL_LABELS_KEY, DEFAULT_LABELS)
 
 function resolveLabel(key: string): string {
@@ -98,6 +100,61 @@ function onDragHandleEnd() {
   dragDrop.endDrag()
 }
 
+// ─── Conditional Content ───
+
+const showConditionPanel = ref(false)
+const mergeTags = computed(() => config?.mergeTags ?? [])
+const hasMergeTags = computed(() => mergeTags.value.length > 0)
+
+const selectedNodeCondition = computed(() => {
+  if (!props.selectedNodeId) return undefined
+  const node = findNode(doc.document.value.body, props.selectedNodeId)
+  return node?.condition
+})
+
+const hasCondition = computed(() => !!selectedNodeCondition.value)
+
+function toggleConditionPanel() {
+  showConditionPanel.value = !showConditionPanel.value
+}
+
+function addCondition() {
+  if (!props.selectedNodeId || mergeTags.value.length === 0) return
+  const firstTag = mergeTags.value[0]
+  doc.updateNodeCondition(props.selectedNodeId, {
+    variable: firstTag.value,
+    operator: 'exists',
+  })
+}
+
+function updateCondition(updates: Partial<ConditionalRule>) {
+  if (!props.selectedNodeId || !selectedNodeCondition.value) return
+  doc.updateNodeCondition(props.selectedNodeId, {
+    ...selectedNodeCondition.value,
+    ...updates,
+  })
+}
+
+function removeCondition() {
+  if (!props.selectedNodeId) return
+  doc.updateNodeCondition(props.selectedNodeId, undefined)
+  showConditionPanel.value = false
+}
+
+const OPERATORS: Array<{ value: ConditionalRule['operator']; labelKey: string }> = [
+  { value: 'equals', labelKey: 'condition_equals' },
+  { value: 'not_equals', labelKey: 'condition_not_equals' },
+  { value: 'contains', labelKey: 'condition_contains' },
+  { value: 'not_contains', labelKey: 'condition_not_contains' },
+  { value: 'exists', labelKey: 'condition_exists' },
+  { value: 'not_exists', labelKey: 'condition_not_exists' },
+]
+
+const needsValue = computed(() => {
+  const op = selectedNodeCondition.value?.operator
+  return op !== 'exists' && op !== 'not_exists'
+})
+
 const dropIndicatorStyle = computed(() => {
   const rect = props.dropIndicatorRect
   if (!rect) return {} as Record<string, string>
@@ -172,8 +229,61 @@ const dropIndicatorStyle = computed(() => {
         <button class="ebb-overlay__btn" :title="resolveLabel('duplicate_node')" :aria-label="resolveLabel('duplicate_node')" @click.stop="onDuplicate">
           <EIcon name="Copy" :size="12" />
         </button>
+        <button
+          v-if="hasMergeTags"
+          class="ebb-overlay__btn"
+          :class="{ 'ebb-overlay__btn--condition': hasCondition }"
+          :title="hasCondition ? resolveLabel('condition_active') : resolveLabel('condition_add')"
+          :aria-label="resolveLabel('condition')"
+          @click.stop="hasMergeTags && (hasCondition ? toggleConditionPanel() : addCondition())"
+        >
+          <EIcon name="Filter" :size="12" />
+        </button>
         <button class="ebb-overlay__btn ebb-overlay__btn--danger" :title="resolveLabel('delete_node')" :aria-label="resolveLabel('delete_node')" @click.stop="onDelete">
           <EIcon name="Trash2" :size="12" />
+        </button>
+      </div>
+
+      <!-- Condition panel popover -->
+      <div v-if="showConditionPanel && hasCondition && selectedNodeCondition" class="ebb-condition-panel" @mousedown.stop>
+        <div class="ebb-condition-panel__header">
+          <EIcon name="Filter" :size="12" />
+          <span>{{ resolveLabel('condition') }}</span>
+          <button class="ebb-condition-panel__close" @click.stop="showConditionPanel = false">
+            <EIcon name="X" :size="10" />
+          </button>
+        </div>
+        <div class="ebb-condition-panel__body">
+          <label class="ebb-condition-panel__label">{{ resolveLabel('condition_variable') }}</label>
+          <select
+            class="ebb-condition-panel__select"
+            :value="selectedNodeCondition.variable"
+            @change="updateCondition({ variable: ($event.target as HTMLSelectElement).value })"
+          >
+            <option v-for="tag in mergeTags" :key="tag.value" :value="tag.value">{{ tag.name }}</option>
+          </select>
+          <label class="ebb-condition-panel__label">{{ resolveLabel('condition_operator') }}</label>
+          <select
+            class="ebb-condition-panel__select"
+            :value="selectedNodeCondition.operator"
+            @change="updateCondition({ operator: ($event.target as HTMLSelectElement).value as ConditionalRule['operator'] })"
+          >
+            <option v-for="op in OPERATORS" :key="op.value" :value="op.value">{{ resolveLabel(op.labelKey) }}</option>
+          </select>
+          <template v-if="needsValue">
+            <label class="ebb-condition-panel__label">{{ resolveLabel('condition_value') }}</label>
+            <input
+              class="ebb-condition-panel__input"
+              type="text"
+              :value="selectedNodeCondition.value || ''"
+              :placeholder="resolveLabel('condition_value')"
+              @input="updateCondition({ value: ($event.target as HTMLInputElement).value })"
+            />
+          </template>
+        </div>
+        <button class="ebb-condition-panel__remove" @click.stop="removeCondition">
+          <EIcon name="Trash2" :size="10" />
+          {{ resolveLabel('condition_remove') }}
         </button>
       </div>
     </div>
@@ -327,5 +437,107 @@ const dropIndicatorStyle = computed(() => {
 @keyframes ebb-drag-pulse {
   0%, 100% { border-color: rgba(1, 168, 171, 0.15); }
   50% { border-color: rgba(1, 168, 171, 0.35); }
+}
+
+/* ─── Condition Button & Panel ─── */
+.ebb-overlay__btn--condition {
+  background: rgba(251, 191, 36, 0.3);
+  color: #fbbf24;
+}
+
+.ebb-condition-panel {
+  position: absolute;
+  top: -28px;
+  right: 0;
+  transform: translateY(-100%);
+  background: #1f2937;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  min-width: 220px;
+  pointer-events: auto;
+  z-index: 20;
+}
+
+.ebb-condition-panel__header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  border-bottom: 1px solid #374151;
+  font-size: 11px;
+  font-weight: 600;
+  color: #d1d5db;
+}
+
+.ebb-condition-panel__close {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: none;
+  background: transparent;
+  color: #9ca3af;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.ebb-condition-panel__close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.ebb-condition-panel__body {
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ebb-condition-panel__label {
+  font-size: 10px;
+  font-weight: 600;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.ebb-condition-panel__select,
+.ebb-condition-panel__input {
+  width: 100%;
+  padding: 5px 8px;
+  font-size: 12px;
+  border: 1px solid #374151;
+  border-radius: 4px;
+  background: #111827;
+  color: #d1d5db;
+  outline: none;
+}
+
+.ebb-condition-panel__select:focus,
+.ebb-condition-panel__input:focus {
+  border-color: var(--ee-primary, #01A8AB);
+}
+
+.ebb-condition-panel__remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  padding: 6px;
+  border: none;
+  border-top: 1px solid #374151;
+  background: transparent;
+  color: #ef4444;
+  font-size: 11px;
+  cursor: pointer;
+  border-radius: 0 0 8px 8px;
+}
+
+.ebb-condition-panel__remove:hover {
+  background: rgba(239, 68, 68, 0.1);
 }
 </style>

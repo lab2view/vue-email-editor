@@ -10,8 +10,10 @@ import InlineTextEditor from './InlineTextEditor.vue'
 
 const props = withDefaults(defineProps<{
   canvasWidth?: number
+  darkPreview?: boolean
 }>(), {
   canvasWidth: 600,
+  darkPreview: false,
 })
 
 const doc = inject(EMAIL_DOCUMENT_KEY)!
@@ -43,8 +45,36 @@ function updateIframe() {
   const iframe = iframeRef.value
   if (!iframe || !doc.compiledHtml.value) return
 
+  const darkModeStyles = props.darkPreview ? `
+    /* Dark mode preview — simulates email client dark mode */
+    body { background-color: #1a1a2e !important; color: #e0e0e0 !important; }
+    table { background-color: transparent !important; }
+    div[style*="background"] { filter: brightness(0.3) saturate(1.2); }
+    td[style*="background-color:#ffffff"], td[style*="background-color: #ffffff"],
+    td[style*="background-color:#fff"], td[style*="background-color: #fff"],
+    div[style*="background-color:#ffffff"], div[style*="background-color: #ffffff"],
+    div[style*="background:#ffffff"], div[style*="background: #ffffff"],
+    div[style*="background:#fff"], div[style*="background: #fff"] {
+      background-color: #1e1e2f !important;
+    }
+    td[style*="background-color:#f"], div[style*="background-color:#f"],
+    td[style*="background:#f"], div[style*="background:#f"] {
+      background-color: #2a2a3d !important;
+    }
+    td[style*="color:#000"], td[style*="color: #000"],
+    td[style*="color:#1"], td[style*="color:#2"], td[style*="color:#3"],
+    div[style*="color:#000"], div[style*="color: #000"],
+    p[style*="color:#000"], p[style*="color: #000"],
+    span[style*="color:#000"], span[style*="color: #000"],
+    h1, h2, h3, h4, h5, h6, p {
+      color: #e0e0e0 !important;
+    }
+    a { color: #64b5f6 !important; }
+    img { opacity: 0.9; }
+  ` : ''
+
   const html = `<!DOCTYPE html>
-<html>
+<html${props.darkPreview ? ' data-dark-preview' : ''}>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -54,6 +84,7 @@ function updateIframe() {
     [data-node-id]:hover { outline: 1px dashed rgba(1, 168, 171, 0.4); outline-offset: -1px; }
     /* Editor mode: give empty columns a minimum drop target area */
     div[class*="mj-column-"] { min-height: 60px; }
+    ${darkModeStyles}
   </style>
 </head>
 <body>
@@ -500,6 +531,10 @@ function onOverlayDragLeave(e: DragEvent) {
 watch(() => doc.compiledHtml.value, () => {
   updateIframe()
 }, { flush: 'post' })
+
+watch(() => props.darkPreview, () => {
+  updateIframe()
+})
 
 onMounted(() => {
   window.addEventListener('message', handleMessage)

@@ -8,6 +8,7 @@ import type { Editor } from '@tiptap/vue-3'
 import type { MergeTag } from '../../types'
 import EIcon from '../internal/EIcon.vue'
 import { EMAIL_LABELS_KEY, DEFAULT_LABELS, type EditorLabels } from '../../labels'
+import { EMAIL_EDITOR_CONFIG_KEY } from '../../injection-keys'
 
 const props = defineProps<{
   editor: Editor | null
@@ -15,8 +16,15 @@ const props = defineProps<{
 }>()
 
 const labels = inject(EMAIL_LABELS_KEY, DEFAULT_LABELS)
+const config = inject(EMAIL_EDITOR_CONFIG_KEY, undefined)
 
 const showMergeMenu = ref(false)
+const showAiMenu = ref(false)
+const aiLoading = ref(false)
+const showAiPrompt = ref(false)
+const aiPromptText = ref('')
+
+const hasAi = computed(() => !!config?.aiProvider)
 
 const mergeTagsByCategory = computed(() => {
   const tags = props.mergeTags ?? []
@@ -38,6 +46,83 @@ function insertMergeTag(tag: MergeTag) {
 
 function toggleMergeMenu() {
   showMergeMenu.value = !showMergeMenu.value
+  showAiMenu.value = false
+}
+
+function toggleAiMenu() {
+  showAiMenu.value = !showAiMenu.value
+  showMergeMenu.value = false
+  showAiPrompt.value = false
+}
+
+async function aiAction(action: 'improve' | 'shorten' | 'expand' | 'translate' | 'generate') {
+  if (!props.editor || !config?.aiProvider || aiLoading.value) return
+
+  if (action === 'generate') {
+    showAiPrompt.value = true
+    return
+  }
+
+  const selectedText = props.editor.state.doc.textBetween(
+    props.editor.state.selection.from,
+    props.editor.state.selection.to,
+    ' ',
+  ) || props.editor.getText()
+
+  if (!selectedText.trim()) return
+
+  aiLoading.value = true
+  showAiMenu.value = false
+
+  try {
+    const instructions: Record<string, string> = {
+      improve: 'Improve this text. Make it clearer and more engaging.',
+      shorten: 'Make this text shorter and more concise.',
+      expand: 'Expand this text with more detail.',
+      translate: 'Translate this text to English if it\'s in another language, or to French if it\'s in English.',
+    }
+
+    let result: string | undefined
+    if (config.aiProvider.improveText) {
+      result = await config.aiProvider.improveText(selectedText, instructions[action])
+    } else {
+      result = await config.aiProvider.generateText(instructions[action] + '\n\nText: ' + selectedText)
+    }
+
+    if (result && props.editor) {
+      const { from, to } = props.editor.state.selection
+      if (from !== to) {
+        props.editor.chain().focus().deleteRange({ from, to }).insertContent(result).run()
+      } else {
+        props.editor.chain().focus().setContent(result).run()
+      }
+    }
+  } catch {
+    // Silently fail — consumer can handle errors in their provider
+  } finally {
+    aiLoading.value = false
+  }
+}
+
+async function submitAiPrompt() {
+  if (!props.editor || !config?.aiProvider || !aiPromptText.value.trim() || aiLoading.value) return
+
+  aiLoading.value = true
+  showAiPrompt.value = false
+  showAiMenu.value = false
+
+  try {
+    const context = props.editor.getText()
+    const result = await config.aiProvider.generateText(aiPromptText.value, context)
+    if (result && props.editor) {
+      props.editor.chain().focus().insertContent(result).run()
+    }
+  } catch {
+    // Silently fail
+  } finally {
+    aiLoading.value = false
+    aiPromptText.value = ''
+  }
 }
 
 function resolveLabel(key: string): string {
@@ -233,6 +318,58 @@ function isActive(name: string, attrs?: Record<string, unknown>): boolean {
         </div>
       </div>
     </template>
+
+    <!-- AI Actions -->
+    <template v-if="hasAi">
+      <span class="ebb-inline-toolbar__sep"></span>
+      <div class="ebb-inline-toolbar__ai-wrap">
+        <button
+          class="ebb-inline-toolbar__btn ebb-inline-toolbar__btn--ai"
+          :class="{ 'ebb-inline-toolbar__btn--active': showAiMenu, 'ebb-inline-toolbar__btn--loading': aiLoading }"
+          :title="resolveLabel('ai_generate')"
+          :aria-label="resolveLabel('ai_generate')"
+          :disabled="aiLoading"
+          @click="toggleAiMenu"
+        >
+          <EIcon :name="aiLoading ? 'Loader2' : 'Sparkles'" :size="14" />
+        </button>
+        <div v-if="showAiMenu && !aiLoading" class="ebb-ai-menu" role="menu" @mousedown.prevent>
+          <button class="ebb-ai-menu__item" role="menuitem" @click="aiAction('generate')">
+            <EIcon name="Sparkles" :size="12" />
+            {{ resolveLabel('ai_generate') }}
+          </button>
+          <button class="ebb-ai-menu__item" role="menuitem" @click="aiAction('improve')">
+            <EIcon name="Wand2" :size="12" />
+            {{ resolveLabel('ai_improve') }}
+          </button>
+          <button class="ebb-ai-menu__item" role="menuitem" @click="aiAction('shorten')">
+            <EIcon name="Minimize2" :size="12" />
+            {{ resolveLabel('ai_shorten') }}
+          </button>
+          <button class="ebb-ai-menu__item" role="menuitem" @click="aiAction('expand')">
+            <EIcon name="Maximize2" :size="12" />
+            {{ resolveLabel('ai_expand') }}
+          </button>
+          <button class="ebb-ai-menu__item" role="menuitem" @click="aiAction('translate')">
+            <EIcon name="Languages" :size="12" />
+            {{ resolveLabel('ai_translate') }}
+          </button>
+          <!-- Prompt input -->
+          <div v-if="showAiPrompt" class="ebb-ai-menu__prompt">
+            <input
+              v-model="aiPromptText"
+              class="ebb-ai-menu__prompt-input"
+              :placeholder="resolveLabel('ai_prompt_placeholder')"
+              @keydown.enter="submitAiPrompt"
+              @keydown.stop
+            />
+            <button class="ebb-ai-menu__prompt-btn" :disabled="!aiPromptText.trim()" @click="submitAiPrompt">
+              <EIcon name="Send" :size="12" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </template>
   </div>
 </template>
 
@@ -364,5 +501,115 @@ function isActive(name: string, attrs?: Record<string, unknown>): boolean {
   font-size: 10px;
   color: #6b7280;
   white-space: nowrap;
+}
+
+/* ─── AI Menu ─── */
+.ebb-inline-toolbar__ai-wrap {
+  position: relative;
+}
+
+.ebb-inline-toolbar__btn--ai {
+  color: #a78bfa;
+}
+
+.ebb-inline-toolbar__btn--ai:hover {
+  color: #c4b5fd;
+  background: rgba(167, 139, 250, 0.15);
+}
+
+.ebb-inline-toolbar__btn--loading {
+  opacity: 0.6;
+  cursor: wait;
+  animation: ebb-ai-spin 1s linear infinite;
+}
+
+@keyframes ebb-ai-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.ebb-ai-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 180px;
+  background: #1f2937;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  padding: 4px;
+  z-index: 10;
+}
+
+.ebb-ai-menu__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 7px 10px;
+  border: none;
+  background: transparent;
+  color: #d1d5db;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: left;
+}
+
+.ebb-ai-menu__item:hover {
+  background: rgba(167, 139, 250, 0.15);
+  color: #ffffff;
+}
+
+.ebb-ai-menu__prompt {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border-top: 1px solid #374151;
+  margin-top: 4px;
+}
+
+.ebb-ai-menu__prompt-input {
+  flex: 1;
+  padding: 5px 8px;
+  border: 1px solid #4b5563;
+  border-radius: 4px;
+  background: #111827;
+  color: #e5e7eb;
+  font-size: 11px;
+  outline: none;
+}
+
+.ebb-ai-menu__prompt-input:focus {
+  border-color: #a78bfa;
+}
+
+.ebb-ai-menu__prompt-input::placeholder {
+  color: #6b7280;
+}
+
+.ebb-ai-menu__prompt-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border: none;
+  background: #a78bfa;
+  color: #ffffff;
+  border-radius: 4px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.ebb-ai-menu__prompt-btn:hover {
+  background: #8b5cf6;
+}
+
+.ebb-ai-menu__prompt-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 </style>

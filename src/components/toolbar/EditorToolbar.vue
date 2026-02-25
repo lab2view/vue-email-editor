@@ -9,11 +9,13 @@ const props = defineProps<{
   isFullscreen: boolean
   activeView: 'visual' | 'code'
   activeDeviceIndex: number
+  isDarkPreview: boolean
 }>()
 
 const emit = defineEmits<{
   'toggle-fullscreen': []
   'toggle-code-view': []
+  'toggle-dark-preview': []
   'update:activeDeviceIndex': [index: number]
 }>()
 
@@ -86,6 +88,16 @@ function redo() {
         <EIcon name="Redo2" :size="16" />
       </button>
       <div class="ebb-toolbar__divider"></div>
+      <button
+        class="ebb-toolbar__action-btn"
+        :class="{ 'ebb-toolbar__action-btn--active': isDarkPreview }"
+        :aria-pressed="isDarkPreview"
+        :title="labels.dark_mode_preview"
+        :aria-label="labels.dark_mode_preview"
+        @click="emit('toggle-dark-preview')"
+      >
+        <EIcon :name="isDarkPreview ? 'Sun' : 'Moon'" :size="16" />
+      </button>
       <button
         class="ebb-toolbar__action-btn"
         :class="{ 'ebb-toolbar__action-btn--active': activeView === 'code' }"

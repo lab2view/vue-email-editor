@@ -57,6 +57,8 @@ export interface EmailNode {
   children: EmailNode[]
   /** Inner HTML content — only for mj-text and mj-button */
   htmlContent?: string
+  /** Optional conditional display rule */
+  condition?: ConditionalRule
 }
 
 // ─── Document (top-level) ───────────────────────────────────────
@@ -321,6 +323,28 @@ export interface MergeTag {
   value: string
   /** Optional category for grouping, e.g. "Contact" */
   category?: string
+}
+
+// ─── Conditional Content ────────────────────────────────────────
+
+export interface ConditionalRule {
+  /** Merge tag value to check, e.g. "{{plan}}" */
+  variable: string
+  /** Comparison operator */
+  operator: 'equals' | 'not_equals' | 'contains' | 'not_contains' | 'exists' | 'not_exists'
+  /** Value to compare against (not used for exists/not_exists) */
+  value?: string
+}
+
+// ─── AI Provider ────────────────────────────────────────────────
+
+export interface AiProvider {
+  /** Generate text from a prompt and optional context */
+  generateText: (prompt: string, context?: string) => Promise<string>
+  /** Generate subject line suggestions from email content */
+  generateSubjectLine?: (emailContent: string) => Promise<string[]>
+  /** Improve existing text with an instruction */
+  improveText?: (text: string, instruction: string) => Promise<string>
 }
 
 // ─── Image Upload ───────────────────────────────────────────────
