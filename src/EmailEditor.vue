@@ -6,7 +6,7 @@
  * the external props/emits contract matching the old GrapesJS editor.
  */
 import { provide, watch, onMounted, toRef, computed } from 'vue'
-import type { EmailDesignJson, ThemeConfig, Plugin, EmailEditorAPI, EmailNode, NodeId } from './types'
+import type { EmailDesignJson, ThemeConfig, Plugin, EmailEditorAPI, EmailNode, NodeId, ImageUploadHandler, BrowseAssetsHandler } from './types'
 import { isNewEditorJson } from './types'
 import { useEmailDocument } from './composables/useEmailDocument'
 import { useEmailSelection } from './composables/useEmailSelection'
@@ -37,6 +37,8 @@ const props = withDefaults(
     required?: boolean
     theme?: Partial<ThemeConfig>
     plugins?: Plugin[]
+    onImageUpload?: ImageUploadHandler
+    onBrowseAssets?: BrowseAssetsHandler
   }>(),
   {
     label: '',
@@ -45,6 +47,8 @@ const props = withDefaults(
     variables: () => [],
     theme: undefined,
     plugins: () => [],
+    onImageUpload: undefined,
+    onBrowseAssets: undefined,
   },
 )
 
@@ -85,7 +89,11 @@ provide(EMAIL_SELECTION_KEY, selection)
 provide(EMAIL_DRAG_DROP_KEY, dragDrop)
 provide(EMAIL_EVENTS_KEY, events)
 provide(PLUGIN_REGISTRY_KEY, pluginRegistry)
-provide(EMAIL_EDITOR_CONFIG_KEY, { variables: toRef(props, 'variables') })
+provide(EMAIL_EDITOR_CONFIG_KEY, {
+  variables: toRef(props, 'variables'),
+  onImageUpload: props.onImageUpload,
+  onBrowseAssets: props.onBrowseAssets,
+})
 
 // Merge user-provided labels with defaults
 const mergedLabels = computed<EditorLabels>(() => ({

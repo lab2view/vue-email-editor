@@ -21,6 +21,9 @@ export type {
   ToolbarAction,
   SidebarPanel,
   BlockCategoryDefinition,
+  ImageUploadHandler,
+  ImageUploadResult,
+  BrowseAssetsHandler,
 } from './types'
 
 // ─── Block / Property Types ───

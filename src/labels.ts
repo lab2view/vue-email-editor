@@ -196,6 +196,18 @@ export interface EditorLabels {
   column_label: string
   empty_canvas_hint: string
 
+  // ─── Image Upload ───
+  image_upload: string
+  image_browse: string
+  image_drop_hint: string
+  image_uploading: string
+  image_upload_error: string
+  image_max_size: string
+  image_invalid_type: string
+  image_remove: string
+  image_change: string
+  image_no_preview: string
+
   // ─── Status Messages ───
   loading: string
 
@@ -408,6 +420,18 @@ export const DEFAULT_LABELS: EditorLabels = {
   section_label: 'Section',
   column_label: 'Column',
   empty_canvas_hint: 'Drag blocks to the canvas to build your email',
+
+  // ─── Image Upload ───
+  image_upload: 'Upload image',
+  image_browse: 'Browse assets',
+  image_drop_hint: 'Drop an image or click to upload',
+  image_uploading: 'Uploading...',
+  image_upload_error: 'Upload failed',
+  image_max_size: 'Max file size: 5MB',
+  image_invalid_type: 'Only JPG, PNG, GIF, SVG, and WebP are allowed',
+  image_remove: 'Remove image',
+  image_change: 'Change image',
+  image_no_preview: 'No image selected',
 
   // ─── Status Messages ───
   loading: 'Loading...',
