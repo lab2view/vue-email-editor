@@ -213,6 +213,34 @@ export interface EditorLabels {
   image_change: string
   image_no_preview: string
 
+  // ─── Conditional Content ───
+  condition: string
+  condition_add: string
+  condition_remove: string
+  condition_variable: string
+  condition_operator: string
+  condition_value: string
+  condition_equals: string
+  condition_not_equals: string
+  condition_contains: string
+  condition_not_contains: string
+  condition_exists: string
+  condition_not_exists: string
+  condition_active: string
+
+  // ─── AI ───
+  ai_generate: string
+  ai_improve: string
+  ai_shorten: string
+  ai_expand: string
+  ai_translate: string
+  ai_prompt_placeholder: string
+  ai_loading: string
+  ai_error: string
+
+  // ─── Dark Mode Preview ───
+  dark_mode_preview: string
+
   // ─── Status Messages ───
   loading: string
 
@@ -442,6 +470,34 @@ export const DEFAULT_LABELS: EditorLabels = {
   image_remove: 'Remove image',
   image_change: 'Change image',
   image_no_preview: 'No image selected',
+
+  // ─── Conditional Content ───
+  condition: 'Condition',
+  condition_add: 'Add condition',
+  condition_remove: 'Remove condition',
+  condition_variable: 'Variable',
+  condition_operator: 'Operator',
+  condition_value: 'Value',
+  condition_equals: 'Equals',
+  condition_not_equals: 'Does not equal',
+  condition_contains: 'Contains',
+  condition_not_contains: 'Does not contain',
+  condition_exists: 'Exists',
+  condition_not_exists: 'Does not exist',
+  condition_active: 'Conditional',
+
+  // ─── AI ───
+  ai_generate: 'Generate with AI',
+  ai_improve: 'Improve',
+  ai_shorten: 'Shorten',
+  ai_expand: 'Expand',
+  ai_translate: 'Translate',
+  ai_prompt_placeholder: 'Describe what you want...',
+  ai_loading: 'AI is thinking...',
+  ai_error: 'AI generation failed',
+
+  // ─── Dark Mode Preview ───
+  dark_mode_preview: 'Dark mode preview',
 
   // ─── Status Messages ───
   loading: 'Loading...',

@@ -25,6 +25,8 @@ export type {
   ImageUploadResult,
   BrowseAssetsHandler,
   MergeTag,
+  ConditionalRule,
+  AiProvider,
 } from './types'
 
 // ─── Block / Property Types ───

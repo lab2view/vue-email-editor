@@ -7,7 +7,7 @@
 
 import { ref, type Ref } from 'vue'
 import { useDebounceFn } from '@vueuse/core'
-import type { EmailDocument, EmailNode, NodeId, EmailDesignJson } from '../types'
+import type { EmailDocument, EmailNode, NodeId, EmailDesignJson, ConditionalRule } from '../types'
 import { isNewEditorJson } from '../types'
 import { findNode, findParent, removeNode, moveNode as treeMoveNode, cloneSubtree } from '../utils/tree'
 import { documentToMjml } from '../serializer/json-to-mjml'
@@ -23,6 +23,7 @@ export interface UseEmailDocumentReturn {
   compiledHtml: Ref<string>
   isCompiling: Ref<boolean>
   updateNodeAttribute: (nodeId: NodeId, key: string, value: string) => void
+  updateNodeCondition: (nodeId: NodeId, condition: ConditionalRule | undefined) => void
   updateNodeContent: (nodeId: NodeId, htmlContent: string) => void
   updateHeadStyle: (tag: string, key: string, value: string) => void
   updatePreviewText: (text: string) => void
@@ -95,6 +96,18 @@ export function useEmailDocument(options: {
       node.attributes[key] = value
     }
     options.events?.emit('property:changed', { nodeId, key, value })
+    emitChanges()
+  }
+
+  function updateNodeCondition(nodeId: NodeId, condition: ConditionalRule | undefined) {
+    const node = findNode(document.value.body, nodeId)
+    if (!node) return
+    history.commit()
+    if (condition) {
+      node.condition = condition
+    } else {
+      delete node.condition
+    }
     emitChanges()
   }
 
@@ -227,6 +240,7 @@ export function useEmailDocument(options: {
     compiledHtml,
     isCompiling,
     updateNodeAttribute,
+    updateNodeCondition,
     updateNodeContent,
     updateHeadStyle,
     updatePreviewText,

@@ -213,6 +213,34 @@ export const FR_LABELS: EditorLabels = {
   image_change: "Changer l'image",
   image_no_preview: 'Aucune image sélectionnée',
 
+  // ─── Conditional Content ───
+  condition: 'Condition',
+  condition_add: 'Ajouter une condition',
+  condition_remove: 'Supprimer la condition',
+  condition_variable: 'Variable',
+  condition_operator: 'Opérateur',
+  condition_value: 'Valeur',
+  condition_equals: 'Égal à',
+  condition_not_equals: 'Différent de',
+  condition_contains: 'Contient',
+  condition_not_contains: 'Ne contient pas',
+  condition_exists: 'Existe',
+  condition_not_exists: 'N\'existe pas',
+  condition_active: 'Conditionnel',
+
+  // ─── AI ───
+  ai_generate: 'Générer avec l\'IA',
+  ai_improve: 'Améliorer',
+  ai_shorten: 'Raccourcir',
+  ai_expand: 'Développer',
+  ai_translate: 'Traduire',
+  ai_prompt_placeholder: 'Décrivez ce que vous voulez...',
+  ai_loading: 'L\'IA réfléchit...',
+  ai_error: 'La génération IA a échoué',
+
+  // ─── Dark Mode Preview ───
+  dark_mode_preview: 'Aperçu mode sombre',
+
   // ─── Status Messages ───
   loading: 'Chargement...',
 

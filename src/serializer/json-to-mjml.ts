@@ -47,6 +47,33 @@ function serializeHead(head: EmailDocument['headAttributes']): string {
 function serializeNode(node: EmailNode, indent: number): string {
   const pad = ' '.repeat(indent)
 
+  // Wrap conditional nodes in mj-raw HTML comments
+  if (node.condition) {
+    const inner = serializeNodeInner(node, indent)
+    const condComment = buildConditionComment(node.condition)
+    return `${pad}<mj-raw><!-- ${condComment} --></mj-raw>\n${inner}\n${pad}<mj-raw><!--[endif]--></mj-raw>`
+  }
+
+  return serializeNodeInner(node, indent)
+}
+
+function buildConditionComment(condition: EmailNode['condition']): string {
+  if (!condition) return ''
+  const { variable, operator, value } = condition
+  switch (operator) {
+    case 'equals': return `[if ${variable} == "${value ?? ''}"]`
+    case 'not_equals': return `[if ${variable} != "${value ?? ''}"]`
+    case 'contains': return `[if ${variable} contains "${value ?? ''}"]`
+    case 'not_contains': return `[if ${variable} not_contains "${value ?? ''}"]`
+    case 'exists': return `[if ${variable}]`
+    case 'not_exists': return `[if not ${variable}]`
+    default: return `[if ${variable}]`
+  }
+}
+
+function serializeNodeInner(node: EmailNode, indent: number): string {
+  const pad = ' '.repeat(indent)
+
   // Build attributes string, injecting css-class for node identification
   const allAttrs = { ...node.attributes }
 
