@@ -15,6 +15,7 @@ import { mjmlToDocument } from '../serializer/mjml-to-json'
 import { createDefaultDocument } from '../serializer/node-factory'
 import { compileMjml } from './useMjmlCompiler'
 import { useEmailHistory, type UseEmailHistoryReturn } from './useEmailHistory'
+import type { UseEmailEventsReturn } from './useEmailEvents'
 
 export interface UseEmailDocumentReturn {
   document: Ref<EmailDocument>
@@ -41,13 +42,14 @@ export function useEmailDocument(options: {
   onMjmlChange: (mjml: string) => void
   onHtmlChange: (html: string) => void
   onDesignJsonChange: (data: EmailDesignJson) => void
+  events?: UseEmailEventsReturn
 }): UseEmailDocumentReturn {
   const document = ref<EmailDocument>(createDefaultDocument())
   const compiledHtml = ref('')
   const isCompiling = ref(false)
 
   // History wraps the document ref — no circular dependency
-  const history = useEmailHistory(document)
+  const history = useEmailHistory(document, options.events)
 
   // ─── Emission pipeline (debounced) ───
 
@@ -73,6 +75,7 @@ export function useEmailDocument(options: {
         document: document.value,
       }
       options.onDesignJsonChange(designJson)
+      options.events?.emit('editor:change', { document: document.value })
     } catch (err) {
       console.error('[EmailEditor] doEmit error:', err)
     } finally {
@@ -91,6 +94,7 @@ export function useEmailDocument(options: {
     } else {
       node.attributes[key] = value
     }
+    options.events?.emit('property:changed', { nodeId, key, value })
     emitChanges()
   }
 
@@ -143,12 +147,16 @@ export function useEmailDocument(options: {
   function deleteNode(nodeId: NodeId) {
     history.commit()
     removeNode(document.value.body, nodeId)
+    options.events?.emit('node:deleted', { nodeId })
     emitChanges()
   }
 
   function moveNodeTo(nodeId: NodeId, newParentId: NodeId, newIndex: number) {
+    const oldParent = findParent(document.value.body, nodeId)
+    const fromParentId = oldParent?.id ?? nodeId
     history.commit()
     treeMoveNode(document.value.body, nodeId, newParentId, newIndex)
+    options.events?.emit('node:moved', { nodeId, fromParentId, toParentId: newParentId })
     emitChanges()
   }
 
@@ -186,6 +194,7 @@ export function useEmailDocument(options: {
     const clone = cloneSubtree(node)
     const refIndex = parent.children.findIndex((c) => c.id === nodeId)
     parent.children.splice(refIndex + 1, 0, clone)
+    options.events?.emit('node:duplicated', { originalId: nodeId, newId: clone.id })
     emitChanges()
     return clone.id
   }
