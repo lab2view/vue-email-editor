@@ -1,12 +1,14 @@
 <script setup lang="ts">
-import { inject, watch, ref, onMounted, onBeforeUnmount } from 'vue'
+import { inject, watch, ref, onMounted, onBeforeUnmount, defineAsyncComponent } from 'vue'
 import { EMAIL_DOCUMENT_KEY, EMAIL_SELECTION_KEY, EMAIL_DRAG_DROP_KEY } from '../../injection-keys'
 import { EMAIL_LABELS_KEY, DEFAULT_LABELS } from '../../labels'
 import type { IframeMessage, DropPosition, EmailNode } from '../../types'
 import { CONTENT_NODE_TYPES } from '../../types'
 import { findNode, findParent } from '../../utils/tree'
 import CanvasOverlay from './CanvasOverlay.vue'
-import InlineTextEditor from './InlineTextEditor.vue'
+
+// Lazy load TipTap-based inline editor — only loaded when user double-clicks to edit
+const InlineTextEditor = defineAsyncComponent(() => import('./InlineTextEditor.vue'))
 
 const props = withDefaults(defineProps<{
   canvasWidth?: number

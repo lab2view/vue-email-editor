@@ -30,6 +30,16 @@ export default defineConfig({
           vue: 'Vue',
           'mjml-browser': 'mjml',
         },
+        manualChunks(id) {
+          // TipTap + ProseMirror in their own chunk (loaded on inline edit)
+          if (id.includes('@tiptap') || id.includes('prosemirror') || id.includes('tippy')) {
+            return 'tiptap'
+          }
+          // CodeMirror in its own chunk (loaded on code view)
+          if (id.includes('@codemirror') || id.includes('@lezer')) {
+            return 'codemirror'
+          }
+        },
       },
     },
     sourcemap: true,

@@ -4,7 +4,7 @@
  * Positioned over the iframe node using the node's bounding rect.
  * On blur/close, the HTML is committed back to the document.
  */
-import { ref, watch, onBeforeUnmount, nextTick, inject, computed } from 'vue'
+import { ref, watch, onBeforeUnmount, nextTick, inject, computed, markRaw } from 'vue'
 import { useEditor, EditorContent } from '@tiptap/vue-3'
 import StarterKit from '@tiptap/starter-kit'
 import Link from '@tiptap/extension-link'
@@ -30,19 +30,22 @@ const toolbarRef = ref<HTMLDivElement | null>(null)
 const config = inject(EMAIL_EDITOR_CONFIG_KEY, undefined)
 const mergeTags = computed(() => config?.mergeTags ?? [])
 
+// markRaw prevents Vue from deeply tracking TipTap extension internals
+const editorExtensions = markRaw([
+  StarterKit.configure({
+    heading: { levels: [1, 2, 3, 4] },
+  }),
+  Link.configure({ openOnClick: false }),
+  TextStyle,
+  Color,
+  TextAlign.configure({ types: ['heading', 'paragraph'] }),
+  Underline,
+  MergeTagExtension,
+])
+
 const editor = useEditor({
   content: props.content,
-  extensions: [
-    StarterKit.configure({
-      heading: { levels: [1, 2, 3, 4] },
-    }),
-    Link.configure({ openOnClick: false }),
-    TextStyle,
-    Color,
-    TextAlign.configure({ types: ['heading', 'paragraph'] }),
-    Underline,
-    MergeTagExtension,
-  ],
+  extensions: editorExtensions,
   editorProps: {
     attributes: {
       class: 'ebb-inline-editor__content',

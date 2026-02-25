@@ -3,7 +3,7 @@
  * LayersPanel — Displays the document structure as an interactive tree.
  * Users can click to select, expand/collapse sections, and delete nodes.
  */
-import { inject, computed, ref } from 'vue'
+import { inject, computed, ref, watch } from 'vue'
 import EIcon from '../internal/EIcon.vue'
 import { EMAIL_LABELS_KEY, DEFAULT_LABELS, type EditorLabels } from '../../labels'
 import { EMAIL_DOCUMENT_KEY, EMAIL_SELECTION_KEY } from '../../injection-keys'
@@ -95,23 +95,37 @@ function getTypeColor(type: string): string {
   return colors[type] || '#6b7280'
 }
 
+// Memoized label cache — avoids recomputing HTML-stripping on every render
+const labelCache = new Map<string, string>()
+
+// Clear cache when document structure changes
+watch(() => doc.document.value, () => {
+  labelCache.clear()
+}, { deep: true })
+
 function getShortLabel(node: EmailNode): string {
+  const cached = labelCache.get(node.id)
+  if (cached !== undefined) return cached
+
   const base = resolveLabel(getNodeTypeLabelKey(node.type))
+  let label = base
   // For text, show a snippet
   if (node.type === 'mj-text' && node.htmlContent) {
     const text = node.htmlContent.replace(/<[^>]+>/g, '').trim()
-    if (text.length > 20) return text.substring(0, 20) + '…'
-    if (text) return text
+    if (text.length > 20) label = text.substring(0, 20) + '…'
+    else if (text) label = text
   }
   // For image, show alt text
   if (node.type === 'mj-image' && node.attributes.alt) {
-    return node.attributes.alt
+    label = node.attributes.alt
   }
   // For button, show text
   if (node.type === 'mj-button' && node.htmlContent) {
-    return node.htmlContent.replace(/<[^>]+>/g, '').trim() || base
+    label = node.htmlContent.replace(/<[^>]+>/g, '').trim() || base
   }
-  return base
+
+  labelCache.set(node.id, label)
+  return label
 }
 </script>
 

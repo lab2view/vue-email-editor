@@ -52,8 +52,14 @@ export function useEmailDocument(options: {
   // History wraps the document ref — no circular dependency
   const history = useEmailHistory(document, options.events)
 
-  // ─── Emission pipeline (debounced) ───
+  // ─── Emission pipeline (tiered debouncing) ───
 
+  // Attribute changes (color, font, padding) — fast feedback
+  const emitAttributeChanges = useDebounceFn(async () => {
+    await doEmit()
+  }, 150)
+
+  // Structure changes (insert, delete, move, reorder) — slower, heavier
   const emitChanges = useDebounceFn(async () => {
     await doEmit()
   }, 300)
@@ -96,7 +102,7 @@ export function useEmailDocument(options: {
       node.attributes[key] = value
     }
     options.events?.emit('property:changed', { nodeId, key, value })
-    emitChanges()
+    emitAttributeChanges() // Fast debounce for property tweaks
   }
 
   function updateNodeCondition(nodeId: NodeId, condition: ConditionalRule | undefined) {
@@ -108,7 +114,7 @@ export function useEmailDocument(options: {
     } else {
       delete node.condition
     }
-    emitChanges()
+    emitAttributeChanges()
   }
 
   function updateNodeContent(nodeId: NodeId, htmlContent: string) {
@@ -116,7 +122,7 @@ export function useEmailDocument(options: {
     if (!node) return
     history.commit()
     node.htmlContent = htmlContent
-    emitChanges()
+    emitAttributeChanges() // Fast debounce for content edits
   }
 
   function updateHeadStyle(tag: string, key: string, value: string) {
@@ -129,13 +135,13 @@ export function useEmailDocument(options: {
     } else {
       document.value.headAttributes.defaultStyles[tag][key] = value
     }
-    emitChanges()
+    emitAttributeChanges() // Fast debounce for style changes
   }
 
   function updatePreviewText(text: string) {
     history.commit()
     document.value.headAttributes.previewText = text
-    emitChanges()
+    emitAttributeChanges()
   }
 
   function insertNode(parentId: NodeId, index: number, newNode: EmailNode) {
