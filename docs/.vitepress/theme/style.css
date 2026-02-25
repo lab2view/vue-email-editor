@@ -138,6 +138,7 @@
 .VPFeature .title {
   font-weight: 700;
   letter-spacing: -0.01em;
+  color: var(--vp-c-text-1) !important;
 }
 
 /* ----------------------------------------------------------
