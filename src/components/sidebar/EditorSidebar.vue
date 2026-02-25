@@ -28,28 +28,40 @@ function switchTab(tab: 'blocks' | 'properties' | 'layers') {
 </script>
 
 <template>
-  <div class="ebb-sidebar">
+  <div class="ebb-sidebar" role="region" aria-label="Sidebar">
     <!-- Tab buttons -->
-    <div class="ebb-sidebar__tabs">
+    <div class="ebb-sidebar__tabs" role="tablist">
       <button
+        id="ebb-tab-blocks"
         class="ebb-sidebar__tab"
         :class="{ 'ebb-sidebar__tab--active': activeTab === 'blocks' }"
+        role="tab"
+        :aria-selected="activeTab === 'blocks'"
+        aria-controls="ebb-tabpanel-blocks"
         @click="switchTab('blocks')"
       >
         <EIcon name="LayoutGrid" :size="16" />
         <span>{{ labels.blocks }}</span>
       </button>
       <button
+        id="ebb-tab-properties"
         class="ebb-sidebar__tab"
         :class="{ 'ebb-sidebar__tab--active': activeTab === 'properties' }"
+        role="tab"
+        :aria-selected="activeTab === 'properties'"
+        aria-controls="ebb-tabpanel-properties"
         @click="switchTab('properties')"
       >
         <EIcon name="Paintbrush" :size="16" />
         <span>{{ labels.styles }}</span>
       </button>
       <button
+        id="ebb-tab-layers"
         class="ebb-sidebar__tab"
         :class="{ 'ebb-sidebar__tab--active': activeTab === 'layers' }"
+        role="tab"
+        :aria-selected="activeTab === 'layers'"
+        aria-controls="ebb-tabpanel-layers"
         @click="switchTab('layers')"
       >
         <EIcon name="Layers" :size="16" />
@@ -59,9 +71,15 @@ function switchTab(tab: 'blocks' | 'properties' | 'layers') {
 
     <!-- Tab content -->
     <div class="ebb-sidebar__content">
-      <BlocksPanel v-show="activeTab === 'blocks'" />
-      <PropertiesPanel v-show="activeTab === 'properties'" />
-      <LayersPanel v-show="activeTab === 'layers'" />
+      <div id="ebb-tabpanel-blocks" role="tabpanel" aria-labelledby="ebb-tab-blocks" :hidden="activeTab !== 'blocks'">
+        <BlocksPanel v-show="activeTab === 'blocks'" />
+      </div>
+      <div id="ebb-tabpanel-properties" role="tabpanel" aria-labelledby="ebb-tab-properties" :hidden="activeTab !== 'properties'">
+        <PropertiesPanel v-show="activeTab === 'properties'" />
+      </div>
+      <div id="ebb-tabpanel-layers" role="tabpanel" aria-labelledby="ebb-tab-layers" :hidden="activeTab !== 'layers'">
+        <LayersPanel v-show="activeTab === 'layers'" />
+      </div>
     </div>
   </div>
 </template>
@@ -119,12 +137,12 @@ html[data-theme='dark'] .ebb-sidebar__tab:hover {
 }
 
 .ebb-sidebar__tab--active {
-  color: #01A8AB;
-  border-bottom-color: #01A8AB;
+  color: var(--ee-primary);
+  border-bottom-color: var(--ee-primary);
 }
 
 .ebb-sidebar__tab--active:hover {
-  color: #01A8AB;
+  color: var(--ee-primary);
 }
 
 .ebb-sidebar__content {
