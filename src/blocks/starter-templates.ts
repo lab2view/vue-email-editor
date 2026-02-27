@@ -3440,15 +3440,15 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
           [
             createColumn(
               [createImage({ src: 'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=250&h=300&fit=crop', alt: 'Green Dress', 'border-radius': '8px', padding: '0' })],
-              { width: '50%' },
+              { width: '50%', 'padding-right': '8px' },
             ),
             createColumn(
               [
                 createImage({ src: 'https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=120&h=80&fit=crop', alt: 'Necklace', 'border-radius': '6px', padding: '0 0 8px 0' }),
                 createText('<p style="margin: 0; font-size: 11px; color: #666;">SHAMROCK &amp; GOLD<br/>DRAGON PENDANT<br/><strong style="color: #2d5a3d;">$89</strong></p>', { 'font-size': '11px', color: '#666666', padding: '4px 0' }),
-                createButton('SHOP NOW', { 'background-color': '#2d5a3d', color: '#ffffff', 'font-size': '10px', 'border-radius': '4px', 'inner-padding': '6px 14px', 'font-weight': '600', align: 'left' }),
+                createButton('SHOP NOW', { 'background-color': '#2d5a3d', color: '#ffffff', 'font-size': '10px', 'border-radius': '4px', 'inner-padding': '6px 14px', 'font-weight': '600', align: 'left', padding: '0' }),
               ],
-              { width: '50%' },
+              { width: '50%', padding: '8px 0 0 8px' },
             ),
           ],
           { 'background-color': '#f0ede6', padding: '0 24px 20px 24px' },
@@ -3475,14 +3475,14 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
           [
             createColumn(
               [createImage({ src: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=250&h=200&fit=crop', alt: 'Suit', 'border-radius': '8px', padding: '0' })],
-              { width: '50%' },
+              { width: '50%', 'padding-right': '8px' },
             ),
             createColumn(
               [
                 createText('<p style="margin: 0; font-size: 11px; color: #666;">SHAMROCK &amp; CO<br/>LUXE TIMEPIECE<br/><strong style="color: #2d5a3d;">$249</strong></p>', { 'font-size': '11px', color: '#666666', padding: '4px 0' }),
-                createButton('SHOP NOW', { 'background-color': '#2d5a3d', color: '#ffffff', 'font-size': '10px', 'border-radius': '4px', 'inner-padding': '6px 14px', 'font-weight': '600', align: 'left' }),
+                createButton('SHOP NOW', { 'background-color': '#2d5a3d', color: '#ffffff', 'font-size': '10px', 'border-radius': '4px', 'inner-padding': '6px 14px', 'font-weight': '600', align: 'left', padding: '0' }),
               ],
-              { width: '50%' },
+              { width: '50%', 'padding-left': '8px' },
             ),
           ],
           { 'background-color': '#f0ede6', padding: '0 24px 20px 24px' },
@@ -3498,17 +3498,17 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
           [
             createColumn(
               [createImage({ src: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=250&h=160&fit=crop', alt: 'Leather Bag', 'border-radius': '8px', padding: '0' })],
-              { width: '50%' },
+              { width: '50%', 'padding-right': '8px' },
             ),
             createColumn(
               [
                 createText('<p style="margin: 0; font-size: 11px; color: #666;">LUXE<br/>LEATHER GLOVES<br/><strong style="color: #2d5a3d;">$65</strong></p>', { 'font-size': '11px', color: '#666666', padding: '4px 0' }),
-                createButton('SHOP NOW', { 'background-color': '#2d5a3d', color: '#ffffff', 'font-size': '10px', 'border-radius': '4px', 'inner-padding': '6px 14px', 'font-weight': '600', align: 'left' }),
+                createButton('SHOP NOW', { 'background-color': '#2d5a3d', color: '#ffffff', 'font-size': '10px', 'border-radius': '4px', 'inner-padding': '6px 14px', 'font-weight': '600', align: 'left', padding: '0' }),
               ],
-              { width: '50%' },
+              { width: '50%', 'padding-left': '8px' },
             ),
           ],
-          { 'background-color': '#f0ede6', padding: '0 24px 24px 24px' },
+          { 'background-color': '#f0ede6', padding: '0 24px 16px 24px' },
         ),
         // Footer
         createSection(
@@ -3656,7 +3656,7 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
           [createColumn([
             createText('<p style="margin: 0; font-size: 28px; font-weight: 700;">15% OFF</p>', { align: 'center', 'font-size': '28px', color: '#8b1a1a', padding: '0' }),
             createText('<p style="margin: 0;">All Red &amp; Gold Items!</p>', { align: 'center', 'font-size': '14px', color: '#8b1a1a', padding: '4px 0 12px 0' }),
-            createButton('Explore Our Festive Collection', { 'background-color': '#8b1a1a', color: '#ffd700', 'font-size': '13px', 'border-radius': '6px', 'inner-padding': '10px 28px', 'font-weight': '600' }),
+            createButton('Explore Our Festive Collection', { 'background-color': '#8b1a1a', color: '#ffd700', 'font-size': '13px', 'border-radius': '6px', 'inner-padding': '10px 28px', 'font-weight': '600', padding: '0' }),
           ])],
           { 'background-color': '#ffd700', padding: '24px', 'border-radius': '12px' },
         ),
@@ -3773,7 +3773,7 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
         createSection(
           [createColumn([
             createText('<h3 style="margin: 0;">Dream Vacation</h3>', { 'font-size': '15px', color: '#2c3e50', padding: '0 0 4px 0' }),
-            createButton('Begin', { 'background-color': '#2c8fa0', color: '#ffffff', 'font-size': '12px', 'border-radius': '6px', 'inner-padding': '8px 20px', 'font-weight': '600', align: 'left' }),
+            createButton('Begin', { 'background-color': '#2c8fa0', color: '#ffffff', 'font-size': '12px', 'border-radius': '6px', 'inner-padding': '8px 20px', 'font-weight': '600', align: 'left', padding: '0' }),
           ])],
           { 'background-color': '#ffffff', padding: '0 24px 16px 24px' },
         ),
@@ -3839,7 +3839,7 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
             createText('<p style="margin: 0; font-weight: 700; font-size: 10px; background: #8b5cf6; color: white; padding: 3px 10px; border-radius: 4px; display: inline-block;">NOW!</p>', { align: 'center', 'font-size': '10px', color: '#ffffff', padding: '0 0 8px 0' }),
             createText('<h3 style="margin: 0;">Launch Offer!</h3>', { align: 'center', 'font-size': '18px', color: '#ffffff', padding: '0 0 8px 0' }),
             createText('<p style="margin: 0;">um carrying case.</p>', { align: 'center', 'font-size': '12px', color: '#94a3b8', padding: '0 0 12px 0' }),
-            createButton('Watch the Teaser Video', { 'background-color': '#8b5cf6', color: '#ffffff', 'font-size': '13px', 'border-radius': '8px', 'inner-padding': '12px 32px', 'font-weight': '700' }),
+            createButton('Watch the Teaser Video', { 'background-color': '#8b5cf6', color: '#ffffff', 'font-size': '13px', 'border-radius': '8px', 'inner-padding': '12px 32px', 'font-weight': '700', padding: '0' }),
           ])],
           { 'background-color': '#0a0a14', padding: '24px' },
         ),
@@ -3897,7 +3897,7 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
             createText('<h2 style="margin: 0;">Get Ready to Unwrap Incredible Deals!</h2>', { align: 'center', 'font-size': '20px', color: '#2c3e50', padding: '0 0 12px 0' }),
             createText('<p style="margin: 0;">This warming season did our editor material. Strong our uses wide lots under available they your saves to fall to play and of over the sale saving gold cards.</p>', { align: 'center', 'font-size': '12px', color: '#666666', 'line-height': '1.7', padding: '0 0 16px 0' }),
             createText('<p style="margin: 0; font-weight: 700;">Sale Ends: December 25th at Midnight</p>', { align: 'center', 'font-size': '13px', color: '#c41e3a', padding: '0 0 16px 0' }),
-            createButton('Shop All Christmas Deals', { 'background-color': '#2c3e50', color: '#ffffff', 'font-size': '13px', 'border-radius': '6px', 'inner-padding': '10px 28px', 'font-weight': '600' }),
+            createButton('Shop All Christmas Deals', { 'background-color': '#2c3e50', color: '#ffffff', 'font-size': '13px', 'border-radius': '6px', 'inner-padding': '10px 28px', 'font-weight': '600', padding: '0' }),
           ])],
           { 'background-color': '#ffffff', padding: '24px' },
         ),
@@ -3912,7 +3912,7 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
         // CTA
         createSection(
           [createColumn([
-            createButton('Explore Our Best Sellers!', { 'background-color': '#c41e3a', color: '#ffffff', 'font-size': '14px', 'border-radius': '6px', 'inner-padding': '12px 32px', 'font-weight': '700' }),
+            createButton('Explore Our Best Sellers!', { 'background-color': '#c41e3a', color: '#ffffff', 'font-size': '14px', 'border-radius': '6px', 'inner-padding': '12px 32px', 'font-weight': '700', padding: '0' }),
           ])],
           { 'background-color': '#ffffff', padding: '0 24px 24px 24px' },
         ),
@@ -3986,7 +3986,7 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
         // CTA
         createSection(
           [createColumn([
-            createButton('Dive In', { 'background-color': '#01A8AB', color: '#ffffff', 'font-size': '14px', 'border-radius': '8px', 'inner-padding': '12px 40px', 'font-weight': '600' }),
+            createButton('Dive In', { 'background-color': '#01A8AB', color: '#ffffff', 'font-size': '14px', 'border-radius': '8px', 'inner-padding': '12px 40px', 'font-weight': '600', padding: '0' }),
           ])],
           { 'background-color': '#ffffff', padding: '0 32px 24px 32px' },
         ),
@@ -4071,7 +4071,7 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
                 createImage({ src: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=150&h=120&fit=crop', alt: 'Beach Towel', 'border-radius': '8px', padding: '0 0 6px 0' }),
                 createText('<p style="margin: 0; font-weight: 600;">Sunset Stripe Beach Towel</p>', { align: 'center', 'font-size': '11px', color: '#333333', padding: '0' }),
                 createText('<p style="margin: 0;"><s>$129.95</s></p>', { align: 'center', 'font-size': '11px', color: '#999999', padding: '2px 0' }),
-                createButton('SHOP NOW', { 'background-color': '#e65100', color: '#ffffff', 'font-size': '9px', 'border-radius': '3px', 'inner-padding': '4px 10px', 'font-weight': '600' }),
+                createButton('SHOP NOW', { 'background-color': '#e65100', color: '#ffffff', 'font-size': '9px', 'border-radius': '3px', 'inner-padding': '4px 10px', 'font-weight': '600', padding: '0' }),
               ],
               { width: '33.33%' },
             ),
@@ -4105,7 +4105,7 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
                 createText('<h3 style="margin: 0;">Summer Adventure<br/>Shop Collection</h3>', { 'font-size': '16px', color: '#333333', padding: '0 0 8px 0' }),
                 createImage({ src: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=100&h=60&fit=crop', alt: 'Swimwear', 'border-radius': '6px', width: '100px', padding: '0 0 4px 0' }),
                 createText('<p style="margin: 0; font-weight: 600;">Swimwear</p>', { 'font-size': '10px', color: '#e65100', padding: '0 0 8px 0' }),
-                createButton('SHOP ALL', { 'background-color': '#e65100', color: '#ffffff', 'font-size': '10px', 'border-radius': '4px', 'inner-padding': '6px 16px', 'font-weight': '600', align: 'left' }),
+                createButton('SHOP ALL', { 'background-color': '#e65100', color: '#ffffff', 'font-size': '10px', 'border-radius': '4px', 'inner-padding': '6px 16px', 'font-weight': '600', align: 'left', padding: '0' }),
               ],
               { width: '50%' },
             ),
@@ -4268,7 +4268,7 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
             createText('<p style="margin: 0; font-weight: 700; font-size: 10px; background: #e65100; color: white; padding: 2px 8px; border-radius: 3px; display: inline-block;">Top Pick</p>', { 'font-size': '10px', color: '#ffffff', padding: '0 0 6px 0' }),
             createText('<h2 style="margin: 0; font-weight: 700; line-height: 1.3;">New Frontier:<br/>Machine Learning is<br/>Transforming Industries</h2>', { 'font-size': '20px', color: '#ffffff', padding: '0 0 4px 0' }),
             createText('<p style="margin: 0; line-height: 1.5;">Exclusively, all believe it to the mean long game transforming from the attention to influence, and else a Wurea of luck.</p>', { 'font-size': '11px', color: '#d1d5db', padding: '0 0 8px 0' }),
-            createButton('MORE', { 'background-color': '#e65100', color: '#ffffff', 'font-size': '11px', 'border-radius': '4px', 'inner-padding': '6px 16px', 'font-weight': '600', align: 'left' }),
+            createButton('MORE', { 'background-color': '#e65100', color: '#ffffff', 'font-size': '11px', 'border-radius': '4px', 'inner-padding': '6px 16px', 'font-weight': '600', align: 'left', padding: '0' }),
           ],
           {
             'background-url': 'https://images.unsplash.com/photo-1504711434969-e33886168d6c?w=600&h=340&fit=crop',
@@ -4302,28 +4302,28 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
                 createImage({ src: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=120&h=80&fit=crop', alt: 'Routines', 'border-radius': '6px', padding: '0 0 4px 0' }),
                 createText('<p style="margin: 0; font-weight: 600; line-height: 1.3;">Routines of<br/>Dreamworkers</p>', { align: 'center', 'font-size': '10px', color: '#333333', padding: '0' }),
               ],
-              { width: '25%' },
+              { width: '25%', padding: '4px' },
             ),
             createColumn(
               [
                 createImage({ src: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=120&h=80&fit=crop', alt: 'Mindfulness', 'border-radius': '6px', padding: '0 0 4px 0' }),
                 createText('<p style="margin: 0; font-weight: 600; line-height: 1.3;">Mindfulness in<br/>the Digital Age</p>', { align: 'center', 'font-size': '10px', color: '#333333', padding: '0' }),
               ],
-              { width: '25%' },
+              { width: '25%', padding: '4px' },
             ),
             createColumn(
               [
                 createImage({ src: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=120&h=80&fit=crop', alt: 'Reading', 'border-radius': '6px', padding: '0 0 4px 0' }),
                 createText('<p style="margin: 0; font-weight: 600; line-height: 1.3;">Reading List: Top 5<br/>Business Books</p>', { align: 'center', 'font-size': '10px', color: '#333333', padding: '0' }),
               ],
-              { width: '25%' },
+              { width: '25%', padding: '4px' },
             ),
             createColumn(
               [
                 createImage({ src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=120&h=80&fit=crop', alt: 'Trends', 'border-radius': '6px', padding: '0 0 4px 0' }),
                 createText('<p style="margin: 0; font-weight: 600; line-height: 1.3;">Global Remote<br/>Trends 2024</p>', { align: 'center', 'font-size': '10px', color: '#333333', padding: '0' }),
               ],
-              { width: '25%' },
+              { width: '25%', padding: '4px' },
             ),
           ],
           { 'background-color': '#ffffff', padding: '0 24px 24px 24px' },
@@ -4333,7 +4333,7 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
           [createColumn([
             createText('<h4 style="margin: 0; font-weight: 700; letter-spacing: 1px;">MISS THESE:</h4>', { 'font-size': '12px', color: '#e65100', padding: '0 0 8px 0' }),
             createText('<p style="margin: 0; line-height: 1.5;">one of Sustainable Tech<br/>smartly Explore\'d</p>', { 'font-size': '12px', color: '#475569', padding: '0 0 12px 0' }),
-            createButton('VISIT OUR BLOG', { 'background-color': '#e65100', color: '#ffffff', 'font-size': '11px', 'border-radius': '4px', 'inner-padding': '8px 20px', 'font-weight': '600', align: 'left' }),
+            createButton('VISIT OUR BLOG', { 'background-color': '#e65100', color: '#ffffff', 'font-size': '11px', 'border-radius': '4px', 'inner-padding': '8px 20px', 'font-weight': '600', align: 'left', padding: '0' }),
           ], { border: '1px solid #e5e7eb', 'border-radius': '8px', padding: '16px' })],
           { 'background-color': '#ffffff', padding: '0 24px 24px 24px' },
         ),
@@ -4411,7 +4411,7 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
                 createText('<div style="width: 40px; height: 40px; background: #2a2a4e; border-radius: 8px; margin: 0 auto 6px;"></div>', { align: 'center', 'font-size': '10px', padding: '12px 8px 0 8px' }),
                 createText('<p style="margin: 0; font-weight: 600;">Classic Tech Deals</p>', { align: 'center', 'font-size': '10px', color: '#cccccc', padding: '0 8px 2px 8px' }),
                 createText('<p style="margin: 0;">Top trending favorites</p>', { align: 'center', 'font-size': '9px', color: '#666666', padding: '0 8px 6px 8px' }),
-                createButton('NOW $99.C', { 'background-color': 'transparent', color: '#00ffff', 'font-size': '8px', border: '1px solid #00ffff', 'border-radius': '3px', 'inner-padding': '3px 8px', 'font-weight': '600' }),
+                createButton('NOW $99.C', { 'background-color': 'transparent', color: '#00ffff', 'font-size': '8px', border: '1px solid #00ffff', 'border-radius': '3px', 'inner-padding': '3px 8px', 'font-weight': '600', padding: '0' }),
               ],
               { width: '33.33%', 'background-color': '#1a1a2e', border: '1px solid #333333', 'border-radius': '8px' },
             ),
@@ -4420,7 +4420,7 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
                 createText('<div style="width: 40px; height: 40px; background: #2a2a4e; border-radius: 8px; margin: 0 auto 6px;"></div>', { align: 'center', 'font-size': '10px', padding: '12px 8px 0 8px' }),
                 createText('<p style="margin: 0; font-weight: 600;">Glowing Fashion Finds</p>', { align: 'center', 'font-size': '10px', color: '#cccccc', padding: '0 8px 2px 8px' }),
                 createText('<p style="margin: 0;">Buy one and our anything!</p>', { align: 'center', 'font-size': '9px', color: '#666666', padding: '0 8px 6px 8px' }),
-                createButton('NOW $99.C', { 'background-color': 'transparent', color: '#ff00ff', 'font-size': '8px', border: '1px solid #ff00ff', 'border-radius': '3px', 'inner-padding': '3px 8px', 'font-weight': '600' }),
+                createButton('NOW $99.C', { 'background-color': 'transparent', color: '#ff00ff', 'font-size': '8px', border: '1px solid #ff00ff', 'border-radius': '3px', 'inner-padding': '3px 8px', 'font-weight': '600', padding: '0' }),
               ],
               { width: '33.33%', 'background-color': '#1a1a2e', border: '1px solid #333333', 'border-radius': '8px' },
             ),
@@ -4429,7 +4429,7 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
                 createText('<div style="width: 40px; height: 40px; background: #2a2a4e; border-radius: 8px; margin: 0 auto 6px;"></div>', { align: 'center', 'font-size': '10px', padding: '12px 8px 0 8px' }),
                 createText('<p style="margin: 0; font-weight: 600;">Glowing Fashion Fr...</p>', { align: 'center', 'font-size': '10px', color: '#cccccc', padding: '0 8px 2px 8px' }),
                 createText('<p style="margin: 0;">Buy one and our anything!</p>', { align: 'center', 'font-size': '9px', color: '#666666', padding: '0 8px 6px 8px' }),
-                createButton('NOW $99.C', { 'background-color': 'transparent', color: '#ff00ff', 'font-size': '8px', border: '1px solid #ff00ff', 'border-radius': '3px', 'inner-padding': '3px 8px', 'font-weight': '600' }),
+                createButton('NOW $99.C', { 'background-color': 'transparent', color: '#ff00ff', 'font-size': '8px', border: '1px solid #ff00ff', 'border-radius': '3px', 'inner-padding': '3px 8px', 'font-weight': '600', padding: '0' }),
               ],
               { width: '33.33%', 'background-color': '#1a1a2e', border: '1px solid #333333', 'border-radius': '8px' },
             ),
@@ -4448,11 +4448,11 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
             createSection(
               [
                 createColumn(
-                  [createButton('SHOP FASHION DEALS', { 'background-color': '#ff00ff', color: '#ffffff', 'font-size': '10px', 'border-radius': '4px', 'inner-padding': '8px 16px', 'font-weight': '700' })],
+                  [createButton('SHOP FASHION DEALS', { 'background-color': '#ff00ff', color: '#ffffff', 'font-size': '10px', 'border-radius': '4px', 'inner-padding': '8px 16px', 'font-weight': '700', padding: '0' })],
                   { width: '50%' },
                 ),
                 createColumn(
-                  [createButton('SHOP DOORBUSTERS', { 'background-color': '#00ffff', color: '#0a0a0a', 'font-size': '10px', 'border-radius': '4px', 'inner-padding': '8px 16px', 'font-weight': '700' })],
+                  [createButton('SHOP DOORBUSTERS', { 'background-color': '#00ffff', color: '#0a0a0a', 'font-size': '10px', 'border-radius': '4px', 'inner-padding': '8px 16px', 'font-weight': '700', padding: '0' })],
                   { width: '50%' },
                 ),
               ],
