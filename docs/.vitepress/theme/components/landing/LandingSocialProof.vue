@@ -109,7 +109,7 @@
 
 <style scoped>
 .proof {
-  background: #F9FAFB;
+  background: var(--proof-bg, #F9FAFB);
   padding: 96px 72px;
 }
 
@@ -141,7 +141,7 @@
   font-size: 42px;
   font-weight: 500;
   letter-spacing: -1px;
-  color: #1A1A1A;
+  color: var(--proof-heading, #1A1A1A);
   line-height: 1.15;
 }
 
@@ -165,7 +165,7 @@
   font-family: 'JetBrains Mono', monospace;
   font-size: 48px;
   font-weight: 700;
-  color: #1A1A1A;
+  color: var(--proof-stat-num, #1A1A1A);
   line-height: 1.1;
 }
 
@@ -173,13 +173,13 @@
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 500;
-  color: #888888;
+  color: var(--proof-stat-label, #888888);
 }
 
 .proof__stat-divider {
   width: 1px;
   height: 56px;
-  background: #E5E5E5;
+  background: var(--proof-divider, #E5E5E5);
   flex-shrink: 0;
 }
 
@@ -196,8 +196,8 @@
   gap: 8px;
   padding: 8px 16px;
   border-radius: 8px;
-  background: #FFFFFF;
-  border: 1px solid #E5E5E5;
+  background: var(--proof-badge-bg, #FFFFFF);
+  border: 1px solid var(--proof-badge-border, #E5E5E5);
 }
 
 .proof__badge-name {
@@ -209,14 +209,14 @@
 .proof__badge-sep {
   width: 1px;
   height: 16px;
-  background: #E5E5E5;
+  background: var(--proof-divider, #E5E5E5);
 }
 
 .proof__badge-val {
   font-family: 'JetBrains Mono', monospace;
   font-size: 12px;
   font-weight: 500;
-  color: #666666;
+  color: var(--proof-stat-label, #666666);
 }
 
 /* Testimonials */
@@ -228,8 +228,8 @@
 }
 
 .proof__card {
-  background: #FFFFFF;
-  border: 1px solid #E5E5E5;
+  background: var(--proof-card-bg, #FFFFFF);
+  border: 1px solid var(--proof-card-border, #E5E5E5);
   border-radius: 16px;
   padding: 32px;
   display: flex;
@@ -253,7 +253,7 @@
   font-size: 16px;
   font-style: italic;
   line-height: 1.6;
-  color: #444444;
+  color: var(--proof-quote, #444444);
 }
 
 .proof__author {
@@ -266,7 +266,7 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: #E5E5E5;
+  background: var(--proof-avatar-bg, #E5E5E5);
   flex-shrink: 0;
 }
 
@@ -280,13 +280,13 @@
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 600;
-  color: #1A1A1A;
+  color: var(--proof-author-name, #1A1A1A);
 }
 
 .proof__author-role {
   font-family: 'Inter', sans-serif;
   font-size: 13px;
-  color: #888888;
+  color: var(--proof-author-role, #888888);
 }
 
 /* ── Responsive ── */

@@ -116,7 +116,7 @@ import { withBase } from 'vitepress'
 
 <style scoped>
 .cta {
-  background: #F9FAFB;
+  background: var(--cta-bg, #F9FAFB);
   padding: 120px 72px;
 }
 
