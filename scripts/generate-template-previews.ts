@@ -21,7 +21,7 @@ async function main() {
   const mjml = await import('mjml')
   const mjml2html = mjml.default
 
-  const manifest: Array<{ id: string; label: string; description: string; color: string; file: string }> = []
+  const manifest: Array<{ id: string; label: string; description: string; color: string; file: string; category: string; tags: string[] }> = []
 
   for (const tpl of STARTER_TEMPLATES) {
     const doc = tpl.factory()
@@ -40,6 +40,8 @@ async function main() {
         description: tpl.description,
         color: tpl.color,
         file: filename,
+        category: tpl.category,
+        tags: tpl.tags,
       })
 
       console.log(`  ✓ ${tpl.id} (${tpl.label})`)

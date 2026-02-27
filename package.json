@@ -1,6 +1,6 @@
 {
   "name": "@lab2view/vue-email-editor",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Vue 3 drag-and-drop email editor built on MJML",
   "license": "MIT",
   "type": "module",
@@ -24,10 +24,24 @@
     "dist",
     "!dist/**/*.map"
   ],
+  "homepage": "https://lab2view.github.io/vue-email-editor",
   "repository": {
     "type": "git",
     "url": "https://github.com/lab2view/vue-email-editor.git"
   },
+  "bugs": {
+    "url": "https://github.com/lab2view/vue-email-editor/issues"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "email",
+    "editor",
+    "mjml",
+    "drag-and-drop",
+    "email-builder",
+    "newsletter"
+  ],
   "peerDependencies": {
     "mjml-browser": "^4.15.0",
     "vue": "^3.4.0"

@@ -1,156 +1,656 @@
 [
   {
     "id": "blank",
-    "label": "Vide",
-    "description": "Commencez de zéro",
+    "label": "Blank",
+    "description": "Start from scratch",
     "color": "#9ca3af",
-    "file": "blank.html"
+    "file": "blank.html",
+    "category": "marketing",
+    "tags": [
+      "empty",
+      "blank",
+      "new"
+    ]
+  },
+  {
+    "id": "fashion-gift-guide",
+    "label": "Fashion Gift Guide",
+    "description": "Elegant fashion gift guide with product sections",
+    "color": "#2d5a3d",
+    "file": "fashion-gift-guide.html",
+    "category": "marketing",
+    "tags": [
+      "fashion",
+      "gift",
+      "e-commerce",
+      "luxury"
+    ]
+  },
+  {
+    "id": "womens-day",
+    "label": "Women's Day Elegant",
+    "description": "International Women's Day celebration",
+    "color": "#8b3a5a",
+    "file": "womens-day.html",
+    "category": "evenement",
+    "tags": [
+      "womens day",
+      "celebration",
+      "holiday",
+      "event"
+    ]
+  },
+  {
+    "id": "chinese-new-year",
+    "label": "Chinese New Year",
+    "description": "Lunar New Year festive greeting",
+    "color": "#8b1a1a",
+    "file": "chinese-new-year.html",
+    "category": "evenement",
+    "tags": [
+      "chinese new year",
+      "lunar",
+      "festive",
+      "holiday"
+    ]
+  },
+  {
+    "id": "travel-newsletter",
+    "label": "Travel Newsletter",
+    "description": "Tropical destination newsletter",
+    "color": "#2c8fa0",
+    "file": "travel-newsletter.html",
+    "category": "marketing",
+    "tags": [
+      "travel",
+      "newsletter",
+      "destination",
+      "vacation"
+    ]
+  },
+  {
+    "id": "product-launch-aurora",
+    "label": "Product Launch",
+    "description": "Aurora Sound headphones launch",
+    "color": "#8b5cf6",
+    "file": "product-launch-aurora.html",
+    "category": "marketing",
+    "tags": [
+      "product",
+      "launch",
+      "tech",
+      "announcement"
+    ]
+  },
+  {
+    "id": "holiday-sale-christmas",
+    "label": "Holiday Sale",
+    "description": "Christmas holiday sale with deals",
+    "color": "#c41e3a",
+    "file": "holiday-sale-christmas.html",
+    "category": "marketing",
+    "tags": [
+      "holiday",
+      "christmas",
+      "sale",
+      "e-commerce"
+    ]
+  },
+  {
+    "id": "welcome-series",
+    "label": "Welcome Series",
+    "description": "Getting started onboarding welcome",
+    "color": "#01A8AB",
+    "file": "welcome-series.html",
+    "category": "engagement",
+    "tags": [
+      "welcome",
+      "onboarding",
+      "getting started",
+      "series"
+    ]
+  },
+  {
+    "id": "summer-promo",
+    "label": "Summer Promo",
+    "description": "Beach summer sale promotion",
+    "color": "#e65100",
+    "file": "summer-promo.html",
+    "category": "marketing",
+    "tags": [
+      "summer",
+      "sale",
+      "beach",
+      "promotion"
+    ]
+  },
+  {
+    "id": "order-confirmation-phone",
+    "label": "Order Confirmation",
+    "description": "Minimalist order confirmation",
+    "color": "#1a1a1a",
+    "file": "order-confirmation-phone.html",
+    "category": "transactionnel",
+    "tags": [
+      "order",
+      "confirmation",
+      "minimalist",
+      "transactional"
+    ]
+  },
+  {
+    "id": "weekly-digest",
+    "label": "Weekly Digest",
+    "description": "Innovate Hub weekly newsletter digest",
+    "color": "#e65100",
+    "file": "weekly-digest.html",
+    "category": "marketing",
+    "tags": [
+      "weekly",
+      "digest",
+      "newsletter",
+      "articles"
+    ]
+  },
+  {
+    "id": "black-friday-deal",
+    "label": "Black Friday Deal",
+    "description": "Neon-themed Black Friday mega sale",
+    "color": "#ff00ff",
+    "file": "black-friday-deal.html",
+    "category": "marketing",
+    "tags": [
+      "black friday",
+      "sale",
+      "deals",
+      "e-commerce"
+    ]
   },
   {
     "id": "newsletter",
     "label": "Newsletter",
-    "description": "Actualités et articles",
+    "description": "News and articles",
     "color": "#3b82f6",
-    "file": "newsletter.html"
+    "file": "newsletter.html",
+    "category": "marketing",
+    "tags": [
+      "newsletter",
+      "content",
+      "blog",
+      "articles"
+    ]
   },
   {
     "id": "promotion",
     "label": "Promotion",
-    "description": "Offre commerciale",
+    "description": "Sales offer",
     "color": "#dc2626",
-    "file": "promotion.html"
+    "file": "promotion.html",
+    "category": "marketing",
+    "tags": [
+      "promotion",
+      "sale",
+      "deals",
+      "offer"
+    ]
   },
   {
     "id": "welcome",
-    "label": "Bienvenue",
-    "description": "Accueil nouveau client",
+    "label": "Welcome",
+    "description": "New customer onboarding",
     "color": "#01A8AB",
-    "file": "welcome.html"
+    "file": "welcome.html",
+    "category": "engagement",
+    "tags": [
+      "welcome",
+      "onboarding",
+      "signup",
+      "new user"
+    ]
   },
   {
     "id": "order-confirmation",
-    "label": "Confirmation",
-    "description": "Confirmation de commande",
+    "label": "Order Confirmation",
+    "description": "Order receipt",
     "color": "#16a34a",
-    "file": "order-confirmation.html"
+    "file": "order-confirmation.html",
+    "category": "transactionnel",
+    "tags": [
+      "order",
+      "confirmation",
+      "purchase",
+      "transactional"
+    ]
   },
   {
     "id": "event",
-    "label": "Événement",
-    "description": "Invitation à un événement",
+    "label": "Event",
+    "description": "Event invitation",
     "color": "#7c3aed",
-    "file": "event.html"
+    "file": "event.html",
+    "category": "evenement",
+    "tags": [
+      "event",
+      "invitation",
+      "conference"
+    ]
   },
   {
     "id": "notification",
     "label": "Notification",
-    "description": "Alerte ou mise à jour",
+    "description": "Alert or update",
     "color": "#f59e0b",
-    "file": "notification.html"
+    "file": "notification.html",
+    "category": "transactionnel",
+    "tags": [
+      "notification",
+      "alert",
+      "update"
+    ]
   },
   {
     "id": "password-reset",
-    "label": "Mot de passe",
-    "description": "Réinitialisation du mot de passe",
+    "label": "Password Reset",
+    "description": "Password reset request",
     "color": "#6366f1",
-    "file": "password-reset.html"
+    "file": "password-reset.html",
+    "category": "transactionnel",
+    "tags": [
+      "password",
+      "security",
+      "reset"
+    ]
   },
   {
     "id": "abandoned-cart",
-    "label": "Panier abandonné",
-    "description": "Récupération de panier",
+    "label": "Abandoned Cart",
+    "description": "Cart recovery",
     "color": "#ea580c",
-    "file": "abandoned-cart.html"
+    "file": "abandoned-cart.html",
+    "category": "marketing",
+    "tags": [
+      "cart",
+      "abandoned",
+      "e-commerce",
+      "recovery"
+    ]
   },
   {
     "id": "product-launch",
-    "label": "Lancement produit",
-    "description": "Annonce de nouveau produit",
+    "label": "Product Launch",
+    "description": "New product announcement",
     "color": "#0891b2",
-    "file": "product-launch.html"
+    "file": "product-launch.html",
+    "category": "marketing",
+    "tags": [
+      "product",
+      "launch",
+      "new",
+      "announcement"
+    ]
   },
   {
     "id": "survey",
-    "label": "Enquête",
-    "description": "Satisfaction client",
+    "label": "Survey",
+    "description": "Customer satisfaction",
     "color": "#059669",
-    "file": "survey.html"
+    "file": "survey.html",
+    "category": "engagement",
+    "tags": [
+      "survey",
+      "feedback",
+      "satisfaction",
+      "review"
+    ]
   },
   {
     "id": "referral",
-    "label": "Parrainage",
-    "description": "Programme de parrainage",
+    "label": "Referral",
+    "description": "Referral program",
     "color": "#8b5cf6",
-    "file": "referral.html"
+    "file": "referral.html",
+    "category": "engagement",
+    "tags": [
+      "referral",
+      "reference",
+      "reward",
+      "friends"
+    ]
   },
   {
     "id": "re-engagement",
-    "label": "Réengagement",
-    "description": "Reconquérir les inactifs",
+    "label": "Re-engagement",
+    "description": "Win back inactive users",
     "color": "#e11d48",
-    "file": "re-engagement.html"
+    "file": "re-engagement.html",
+    "category": "engagement",
+    "tags": [
+      "re-engagement",
+      "inactive",
+      "win-back",
+      "loyalty"
+    ]
   },
   {
     "id": "webinar",
-    "label": "Webinaire",
-    "description": "Invitation webinaire",
+    "label": "Webinar",
+    "description": "Webinar invitation",
     "color": "#2563eb",
-    "file": "webinar.html"
+    "file": "webinar.html",
+    "category": "evenement",
+    "tags": [
+      "webinar",
+      "online",
+      "presentation",
+      "training"
+    ]
   },
   {
     "id": "receipt",
-    "label": "Reçu",
-    "description": "Reçu de paiement",
+    "label": "Receipt",
+    "description": "Payment receipt",
     "color": "#0d9488",
-    "file": "receipt.html"
+    "file": "receipt.html",
+    "category": "transactionnel",
+    "tags": [
+      "receipt",
+      "payment",
+      "invoice",
+      "transaction"
+    ]
   },
   {
     "id": "shipping",
-    "label": "Expédition",
-    "description": "Confirmation d'expédition",
+    "label": "Shipping",
+    "description": "Shipping confirmation",
     "color": "#0284c7",
-    "file": "shipping.html"
+    "file": "shipping.html",
+    "category": "transactionnel",
+    "tags": [
+      "shipping",
+      "delivery",
+      "package",
+      "tracking"
+    ]
   },
   {
     "id": "birthday",
-    "label": "Anniversaire",
-    "description": "Voeux d'anniversaire",
+    "label": "Birthday",
+    "description": "Birthday wishes",
     "color": "#ec4899",
-    "file": "birthday.html"
+    "file": "birthday.html",
+    "category": "engagement",
+    "tags": [
+      "birthday",
+      "celebration",
+      "special offer",
+      "gift"
+    ]
   },
   {
     "id": "seasonal-sale",
-    "label": "Soldes",
-    "description": "Promotions saisonnières",
+    "label": "Seasonal Sale",
+    "description": "Seasonal promotions",
     "color": "#1d4ed8",
-    "file": "seasonal-sale.html"
+    "file": "seasonal-sale.html",
+    "category": "marketing",
+    "tags": [
+      "sale",
+      "season",
+      "promotion",
+      "discount"
+    ]
   },
   {
     "id": "saas-onboarding",
-    "label": "Onboarding",
-    "description": "Onboarding application SaaS",
+    "label": "SaaS Onboarding",
+    "description": "App onboarding sequence",
     "color": "#7c3aed",
-    "file": "saas-onboarding.html"
+    "file": "saas-onboarding.html",
+    "category": "engagement",
+    "tags": [
+      "onboarding",
+      "saas",
+      "welcome",
+      "getting started"
+    ]
   },
   {
     "id": "testimonials",
-    "label": "Témoignages",
-    "description": "Avis et témoignages clients",
+    "label": "Testimonials",
+    "description": "Customer reviews & social proof",
     "color": "#d97706",
-    "file": "testimonials.html"
+    "file": "testimonials.html",
+    "category": "marketing",
+    "tags": [
+      "testimonials",
+      "reviews",
+      "customers",
+      "social proof"
+    ]
   },
   {
     "id": "real-estate",
-    "label": "Immobilier",
-    "description": "Annonce immobilière",
+    "label": "Real Estate",
+    "description": "Property listing",
     "color": "#15803d",
-    "file": "real-estate.html"
+    "file": "real-estate.html",
+    "category": "industrie",
+    "tags": [
+      "real estate",
+      "listing",
+      "property",
+      "agency"
+    ]
   },
   {
     "id": "restaurant",
     "label": "Restaurant",
-    "description": "Menu et réservation",
+    "description": "Menu & reservation",
     "color": "#b45309",
-    "file": "restaurant.html"
+    "file": "restaurant.html",
+    "category": "industrie",
+    "tags": [
+      "restaurant",
+      "menu",
+      "reservation",
+      "gastronomy"
+    ]
+  },
+  {
+    "id": "flash-sale",
+    "label": "Flash Sale",
+    "description": "Limited-time flash sale",
+    "color": "#e11d48",
+    "file": "flash-sale.html",
+    "category": "marketing",
+    "tags": [
+      "flash",
+      "sale",
+      "urgent",
+      "limited"
+    ]
+  },
+  {
+    "id": "loyalty-program",
+    "label": "Loyalty Program",
+    "description": "Loyalty rewards update",
+    "color": "#7c3aed",
+    "file": "loyalty-program.html",
+    "category": "marketing",
+    "tags": [
+      "loyalty",
+      "rewards",
+      "points",
+      "program"
+    ]
+  },
+  {
+    "id": "case-study",
+    "label": "Case Study",
+    "description": "Customer success story",
+    "color": "#0891b2",
+    "file": "case-study.html",
+    "category": "marketing",
+    "tags": [
+      "case study",
+      "success",
+      "results",
+      "story"
+    ]
+  },
+  {
+    "id": "account-verification",
+    "label": "Account Verification",
+    "description": "Email verification request",
+    "color": "#059669",
+    "file": "account-verification.html",
+    "category": "transactionnel",
+    "tags": [
+      "verification",
+      "account",
+      "email",
+      "confirm"
+    ]
+  },
+  {
+    "id": "subscription-renewal",
+    "label": "Subscription Renewal",
+    "description": "Renewal reminder",
+    "color": "#d97706",
+    "file": "subscription-renewal.html",
+    "category": "transactionnel",
+    "tags": [
+      "subscription",
+      "renewal",
+      "billing",
+      "plan"
+    ]
+  },
+  {
+    "id": "invoice",
+    "label": "Invoice",
+    "description": "Monthly invoice",
+    "color": "#334155",
+    "file": "invoice.html",
+    "category": "transactionnel",
+    "tags": [
+      "invoice",
+      "billing",
+      "payment",
+      "monthly"
+    ]
+  },
+  {
+    "id": "feedback-request",
+    "label": "Feedback Request",
+    "description": "Post-purchase feedback",
+    "color": "#8b5cf6",
+    "file": "feedback-request.html",
+    "category": "engagement",
+    "tags": [
+      "feedback",
+      "review",
+      "rating",
+      "experience"
+    ]
+  },
+  {
+    "id": "milestone",
+    "label": "Milestone",
+    "description": "Achievement celebration",
+    "color": "#eab308",
+    "file": "milestone.html",
+    "category": "engagement",
+    "tags": [
+      "milestone",
+      "achievement",
+      "celebration",
+      "anniversary"
+    ]
+  },
+  {
+    "id": "win-back",
+    "label": "Win-Back",
+    "description": "Reactivation campaign",
+    "color": "#dc2626",
+    "file": "win-back.html",
+    "category": "engagement",
+    "tags": [
+      "win-back",
+      "reactivation",
+      "comeback",
+      "inactive"
+    ]
+  },
+  {
+    "id": "conference",
+    "label": "Conference",
+    "description": "Conference invitation",
+    "color": "#4f46e5",
+    "file": "conference.html",
+    "category": "evenement",
+    "tags": [
+      "conference",
+      "event",
+      "summit",
+      "networking"
+    ]
+  },
+  {
+    "id": "workshop",
+    "label": "Workshop",
+    "description": "Workshop registration",
+    "color": "#0d9488",
+    "file": "workshop.html",
+    "category": "evenement",
+    "tags": [
+      "workshop",
+      "training",
+      "learn",
+      "hands-on"
+    ]
+  },
+  {
+    "id": "fitness",
+    "label": "Fitness",
+    "description": "Fitness & wellness newsletter",
+    "color": "#16a34a",
+    "file": "fitness.html",
+    "category": "industrie",
+    "tags": [
+      "fitness",
+      "health",
+      "wellness",
+      "gym"
+    ]
+  },
+  {
+    "id": "travel",
+    "label": "Travel",
+    "description": "Travel deals & destinations",
+    "color": "#0ea5e9",
+    "file": "travel.html",
+    "category": "industrie",
+    "tags": [
+      "travel",
+      "vacation",
+      "destination",
+      "deals"
+    ]
+  },
+  {
+    "id": "education",
+    "label": "Education",
+    "description": "Online course promotion",
+    "color": "#6366f1",
+    "file": "education.html",
+    "category": "industrie",
+    "tags": [
+      "education",
+      "course",
+      "learning",
+      "online"
+    ]
   }
 ]
