@@ -202,7 +202,7 @@
 
 <style scoped>
 .features {
-  background: #FFFFFF;
+  background: var(--features-bg, #FFFFFF);
   padding: 96px 72px;
 }
 
@@ -233,7 +233,7 @@
   font-size: 32px;
   font-weight: 500;
   line-height: 1.2;
-  color: #1A1A1A;
+  color: var(--features-heading, #1A1A1A);
   margin-bottom: 20px;
 }
 
@@ -241,7 +241,7 @@
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   line-height: 1.7;
-  color: #666666;
+  color: var(--features-text, #666666);
 }
 
 /* ── Mockup ── */
@@ -255,14 +255,14 @@
   height: 400px;
   border-radius: 16px;
   overflow: hidden;
-  background: #F5F5F5;
+  background: var(--features-mock-bg, #F5F5F5);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
 }
 
 /* Canvas */
 .editor-mock__canvas {
   flex: 1;
-  background: #E8E8E8;
+  background: var(--features-mock-canvas, #E8E8E8);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -272,7 +272,7 @@
 .editor-mock__email {
   width: 100%;
   max-width: 340px;
-  background: #FFFFFF;
+  background: var(--features-mock-email, #FFFFFF);
   border-radius: 4px;
   overflow: hidden;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
@@ -465,8 +465,8 @@
 /* ── Sidebar ── */
 .editor-mock__sidebar {
   width: 180px;
-  background: #FFFFFF;
-  border-left: 1px solid #E5E5E5;
+  background: var(--features-mock-sidebar-bg, #FFFFFF);
+  border-left: 1px solid var(--features-mock-sidebar-border, #E5E5E5);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -475,8 +475,8 @@
 .editor-mock__tabs {
   display: flex;
   height: 40px;
-  background: #FAFAFA;
-  border-bottom: 1px solid #E8E8E8;
+  background: var(--features-mock-tab-bg, #FAFAFA);
+  border-bottom: 1px solid var(--features-mock-tab-border, #E8E8E8);
   padding: 0 12px;
   align-items: center;
   gap: 16px;
@@ -486,7 +486,7 @@
   font-family: 'Inter', sans-serif;
   font-size: 11px;
   font-weight: 400;
-  color: #999999;
+  color: var(--features-mock-tab-color, #999999);
 }
 
 .editor-mock__tab--active {
@@ -508,7 +508,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  background: #F5F5F5;
+  background: var(--features-mock-field-bg, #F5F5F5);
   border-radius: 15px;
   padding: 6px 10px;
 }
@@ -524,7 +524,7 @@
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 1.5px;
-  color: #888888;
+  color: var(--features-mock-tab-color, #888888);
 }
 
 .editor-mock__block-grid {
@@ -540,11 +540,11 @@
   gap: 4px;
   padding: 6px 4px;
   border-radius: 6px;
-  background: #FAFAFA;
-  border: 1px solid #F0F0F0;
+  background: var(--features-mock-block-bg, #FAFAFA);
+  border: 1px solid var(--features-mock-block-border, #F0F0F0);
   font-family: 'Inter', sans-serif;
   font-size: 8px;
-  color: #888888;
+  color: var(--features-mock-tab-color, #888888);
 }
 
 .editor-mock__block-icon {
@@ -567,7 +567,7 @@
 .editor-mock__style-preview {
   width: 100%;
   height: 60px;
-  background: #E8E8E8;
+  background: var(--features-mock-canvas, #E8E8E8);
   border-radius: 4px;
 }
 
@@ -575,8 +575,8 @@
   width: 100%;
   padding: 4px 8px;
   border-radius: 4px;
-  background: #F5F5F5;
-  border: 1px solid #E8E8E8;
+  background: var(--features-mock-field-bg, #F5F5F5);
+  border: 1px solid var(--features-mock-field-border, #E8E8E8);
   font-family: 'Inter', sans-serif;
   font-size: 9px;
   color: #666666;
@@ -596,8 +596,8 @@
   justify-content: space-between;
   padding: 4px 6px;
   border-radius: 4px;
-  background: #F5F5F5;
-  border: 1px solid #E8E8E8;
+  background: var(--features-mock-field-bg, #F5F5F5);
+  border: 1px solid var(--features-mock-field-border, #E8E8E8);
   font-family: 'Inter', sans-serif;
   font-size: 9px;
   color: #666;
@@ -613,8 +613,8 @@
   text-align: center;
   padding: 4px;
   border-radius: 4px;
-  background: #F5F5F5;
-  border: 1px solid #E8E8E8;
+  background: var(--features-mock-field-bg, #F5F5F5);
+  border: 1px solid var(--features-mock-field-border, #E8E8E8);
   font-family: 'Inter', sans-serif;
   font-size: 9px;
   color: #888;
@@ -630,8 +630,8 @@
   width: 100%;
   height: 40px;
   border-radius: 4px;
-  border: 2px dashed #D4D4D4;
-  background: #FAFAFA;
+  border: 2px dashed var(--features-mock-block-border, #D4D4D4);
+  background: var(--features-mock-block-bg, #FAFAFA);
   position: relative;
 }
 
@@ -658,8 +658,8 @@
 .editor-mock__readymade-item {
   height: 40px;
   border-radius: 4px;
-  background: #F0F0F0;
-  border: 1px solid #E8E8E8;
+  background: var(--features-mock-block-bg, #F0F0F0);
+  border: 1px solid var(--features-mock-block-border, #E8E8E8);
 }
 
 /* ── Responsive ── */

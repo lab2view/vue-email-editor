@@ -61,3 +61,129 @@
 .VPSidebarItem.is-active > .item > .indicator {
   background-color: var(--vp-c-brand-1);
 }
+
+/* ----------------------------------------------------------
+   5. Landing Page — Light mode defaults
+   ---------------------------------------------------------- */
+:root {
+  /* Gallery */
+  --gallery-bg: #F9FAFB;
+  --gallery-heading: #1A1A1A;
+  --gallery-text: #666666;
+  --gallery-badge-bg: #FFFFFF;
+  --gallery-badge-border: #E5E5E5;
+  --gallery-badge-text: #666666;
+  --gallery-code-bg: rgba(1, 168, 171, 0.06);
+  --gallery-code-border: rgba(1, 168, 171, 0.15);
+  --gallery-pill-bg: #FFFFFF;
+  --gallery-pill-border: #E5E5E5;
+  --gallery-pill-text: #1A1A1A;
+  --gallery-card-bg: #FFFFFF;
+  --gallery-card-name: #1A1A1A;
+  --gallery-card-cat: #888888;
+  --gallery-card-blank-border: #E5E5E5;
+  --gallery-expand-bg: #FFFFFF;
+  --gallery-expand-border: #E5E5E5;
+  --gallery-expand-text: #1A1A1A;
+
+  /* Features */
+  --features-bg: #FFFFFF;
+  --features-heading: #1A1A1A;
+  --features-text: #666666;
+  --features-mock-bg: #F5F5F5;
+  --features-mock-canvas: #E8E8E8;
+  --features-mock-email: #FFFFFF;
+  --features-mock-sidebar-bg: #FFFFFF;
+  --features-mock-sidebar-border: #E5E5E5;
+  --features-mock-tab-bg: #FAFAFA;
+  --features-mock-tab-border: #E8E8E8;
+  --features-mock-tab-color: #999999;
+  --features-mock-block-bg: #FAFAFA;
+  --features-mock-block-border: #F0F0F0;
+  --features-mock-field-bg: #F5F5F5;
+  --features-mock-field-border: #E8E8E8;
+
+  /* Social Proof */
+  --proof-bg: #F9FAFB;
+  --proof-heading: #1A1A1A;
+  --proof-stat-num: #1A1A1A;
+  --proof-stat-label: #888888;
+  --proof-divider: #E5E5E5;
+  --proof-badge-bg: #FFFFFF;
+  --proof-badge-border: #E5E5E5;
+  --proof-card-bg: #FFFFFF;
+  --proof-card-border: #E5E5E5;
+  --proof-quote: #444444;
+  --proof-author-name: #1A1A1A;
+  --proof-author-role: #888888;
+  --proof-avatar-bg: #E5E5E5;
+
+  /* CTA */
+  --cta-bg: #F9FAFB;
+
+  /* Modal */
+  --gallery-modal-name: #1A1A1A;
+}
+
+/* ----------------------------------------------------------
+   6. Landing Page — Dark mode overrides
+   ---------------------------------------------------------- */
+.dark {
+  /* Gallery */
+  --gallery-bg: #0F172A;
+  --gallery-heading: #F1F5F9;
+  --gallery-text: #94A3B8;
+  --gallery-badge-bg: #1E293B;
+  --gallery-badge-border: #334155;
+  --gallery-badge-text: #94A3B8;
+  --gallery-code-bg: rgba(45, 212, 191, 0.08);
+  --gallery-code-border: rgba(45, 212, 191, 0.2);
+  --gallery-pill-bg: #1E293B;
+  --gallery-pill-border: #334155;
+  --gallery-pill-text: #F1F5F9;
+  --gallery-card-bg: #1E293B;
+  --gallery-card-name: #F1F5F9;
+  --gallery-card-cat: #64748B;
+  --gallery-card-blank-border: #334155;
+  --gallery-expand-bg: #1E293B;
+  --gallery-expand-border: #334155;
+  --gallery-expand-text: #F1F5F9;
+
+  /* Features */
+  --features-bg: #0F172A;
+  --features-heading: #F1F5F9;
+  --features-text: #94A3B8;
+  --features-mock-bg: #1E293B;
+  --features-mock-canvas: #0F172A;
+  --features-mock-email: #1E293B;
+  --features-mock-sidebar-bg: #1E293B;
+  --features-mock-sidebar-border: #334155;
+  --features-mock-tab-bg: #1E293B;
+  --features-mock-tab-border: #334155;
+  --features-mock-tab-color: #64748B;
+  --features-mock-block-bg: #0F172A;
+  --features-mock-block-border: #334155;
+  --features-mock-field-bg: #0F172A;
+  --features-mock-field-border: #334155;
+
+  /* Social Proof */
+  --proof-bg: #0F172A;
+  --proof-heading: #F1F5F9;
+  --proof-stat-num: #F1F5F9;
+  --proof-stat-label: #64748B;
+  --proof-divider: #334155;
+  --proof-badge-bg: #1E293B;
+  --proof-badge-border: #334155;
+  --proof-card-bg: #1E293B;
+  --proof-card-border: #334155;
+  --proof-quote: #CBD5E1;
+  --proof-author-name: #F1F5F9;
+  --proof-author-role: #64748B;
+  --proof-avatar-bg: #334155;
+
+  /* CTA */
+  --cta-bg: #0F172A;
+
+  /* Modal */
+  --gallery-modal-name: #F1F5F9;
+}

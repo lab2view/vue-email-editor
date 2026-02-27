@@ -354,7 +354,7 @@ const categoryCounts = computed(() => {
 
 <style scoped>
 .gallery {
-  background: #F9FAFB;
+  background: var(--gallery-bg, #F9FAFB);
   padding: 96px 72px;
 }
 
@@ -390,9 +390,9 @@ const categoryCounts = computed(() => {
   font-family: 'Inter', sans-serif;
   font-size: 12px;
   font-weight: 500;
-  color: #666666;
-  background: #FFFFFF;
-  border: 1px solid #E5E5E5;
+  color: var(--gallery-badge-text, #666666);
+  background: var(--gallery-badge-bg, #FFFFFF);
+  border: 1px solid var(--gallery-badge-border, #E5E5E5);
   border-radius: 100px;
   padding: 5px 12px;
 }
@@ -402,7 +402,7 @@ const categoryCounts = computed(() => {
   font-size: 42px;
   font-weight: 500;
   letter-spacing: -1px;
-  color: #1A1A1A;
+  color: var(--gallery-heading, #1A1A1A);
   margin-bottom: 16px;
   line-height: 1.15;
 }
@@ -411,7 +411,7 @@ const categoryCounts = computed(() => {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 400;
-  color: #666666;
+  color: var(--gallery-text, #666666);
   line-height: 1.7;
   margin-bottom: 24px;
 }
@@ -425,8 +425,8 @@ const categoryCounts = computed(() => {
   font-family: 'JetBrains Mono', monospace;
   font-size: 12.5px;
   color: #01A8AB;
-  background: rgba(1, 168, 171, 0.06);
-  border: 1px solid rgba(1, 168, 171, 0.15);
+  background: var(--gallery-code-bg, rgba(1, 168, 171, 0.06));
+  border: 1px solid var(--gallery-code-border, rgba(1, 168, 171, 0.15));
   border-radius: 8px;
   padding: 10px 20px;
   letter-spacing: -0.2px;
@@ -452,9 +452,9 @@ const categoryCounts = computed(() => {
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
-  background: #FFFFFF;
-  color: #1A1A1A;
-  border: 1px solid #E5E5E5;
+  background: var(--gallery-pill-bg, #FFFFFF);
+  color: var(--gallery-pill-text, #1A1A1A);
+  border: 1px solid var(--gallery-pill-border, #E5E5E5);
 }
 
 .gallery__pill:hover {
@@ -494,7 +494,7 @@ const categoryCounts = computed(() => {
   margin-bottom: 20px;
   border-radius: 12px;
   overflow: hidden;
-  background: #FFFFFF;
+  background: var(--gallery-card-bg, #FFFFFF);
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
@@ -515,7 +515,7 @@ const categoryCounts = computed(() => {
   align-items: center;
   justify-content: center;
   gap: 16px;
-  border: 1px solid #E5E5E5;
+  border: 1px solid var(--gallery-card-blank-border, #E5E5E5);
   border-radius: 12px;
 }
 
@@ -523,7 +523,7 @@ const categoryCounts = computed(() => {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 500;
-  color: #1A1A1A;
+  color: var(--gallery-card-name, #1A1A1A);
 }
 
 /* Iframe preview card */
@@ -557,14 +557,14 @@ const categoryCounts = computed(() => {
   font-family: 'Newsreader', Georgia, serif;
   font-size: 14px;
   font-weight: 500;
-  color: #1A1A1A;
+  color: var(--gallery-card-name, #1A1A1A);
 }
 
 .gallery__card-cat {
   font-family: 'Inter', sans-serif;
   font-size: 12px;
   font-weight: 400;
-  color: #888888;
+  color: var(--gallery-card-cat, #888888);
   text-transform: capitalize;
 }
 
@@ -585,9 +585,9 @@ const categoryCounts = computed(() => {
   font-weight: 500;
   cursor: pointer;
   transition: all 0.25s ease;
-  background: #FFFFFF;
-  color: #1A1A1A;
-  border: 1.5px solid #E5E5E5;
+  background: var(--gallery-expand-bg, #FFFFFF);
+  color: var(--gallery-expand-text, #1A1A1A);
+  border: 1.5px solid var(--gallery-expand-border, #E5E5E5);
 }
 
 .gallery__expand-btn:hover {
@@ -660,7 +660,7 @@ const categoryCounts = computed(() => {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 13px;
   font-weight: 600;
-  color: #1A1A1A;
+  color: var(--gallery-modal-name, #1A1A1A);
   margin: 0;
   line-height: 1;
   white-space: nowrap;
