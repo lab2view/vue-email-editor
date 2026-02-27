@@ -323,7 +323,7 @@ exports[`MJML Snapshot Tests > serializes black-friday-deal template to MJML 1`]
         <mj-text font-size="9px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 8px 6px 8px" align="center" css-class="ebb-node-id-16">
           <p style="margin: 0;">Top trending favorites</p>
         </mj-text>
-        <mj-button background-color="transparent" color="#00ffff" font-size="8px" border-radius="3px" inner-padding="3px 8px" href="#" border="1px solid #00ffff" font-weight="600" css-class="ebb-node-id-17">
+        <mj-button background-color="transparent" color="#00ffff" font-size="8px" border-radius="3px" inner-padding="3px 8px" href="#" border="1px solid #00ffff" font-weight="600" padding="0" css-class="ebb-node-id-17">
           NOW $99.C
         </mj-button>
       </mj-column>
@@ -337,7 +337,7 @@ exports[`MJML Snapshot Tests > serializes black-friday-deal template to MJML 1`]
         <mj-text font-size="9px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 8px 6px 8px" align="center" css-class="ebb-node-id-21">
           <p style="margin: 0;">Buy one and our anything!</p>
         </mj-text>
-        <mj-button background-color="transparent" color="#ff00ff" font-size="8px" border-radius="3px" inner-padding="3px 8px" href="#" border="1px solid #ff00ff" font-weight="600" css-class="ebb-node-id-22">
+        <mj-button background-color="transparent" color="#ff00ff" font-size="8px" border-radius="3px" inner-padding="3px 8px" href="#" border="1px solid #ff00ff" font-weight="600" padding="0" css-class="ebb-node-id-22">
           NOW $99.C
         </mj-button>
       </mj-column>
@@ -351,7 +351,7 @@ exports[`MJML Snapshot Tests > serializes black-friday-deal template to MJML 1`]
         <mj-text font-size="9px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="0 8px 6px 8px" align="center" css-class="ebb-node-id-26">
           <p style="margin: 0;">Buy one and our anything!</p>
         </mj-text>
-        <mj-button background-color="transparent" color="#ff00ff" font-size="8px" border-radius="3px" inner-padding="3px 8px" href="#" border="1px solid #ff00ff" font-weight="600" css-class="ebb-node-id-27">
+        <mj-button background-color="transparent" color="#ff00ff" font-size="8px" border-radius="3px" inner-padding="3px 8px" href="#" border="1px solid #ff00ff" font-weight="600" padding="0" css-class="ebb-node-id-27">
           NOW $99.C
         </mj-button>
       </mj-column>
@@ -366,12 +366,12 @@ exports[`MJML Snapshot Tests > serializes black-friday-deal template to MJML 1`]
       </mj-section>
       <mj-section background-color="#0a0a0a" padding="0 24px 16px 24px" css-class="ebb-node-id-37">
         <mj-column width="50%" css-class="ebb-node-id-34">
-          <mj-button background-color="#ff00ff" color="#ffffff" font-size="10px" border-radius="4px" inner-padding="8px 16px" href="#" font-weight="700" css-class="ebb-node-id-33">
+          <mj-button background-color="#ff00ff" color="#ffffff" font-size="10px" border-radius="4px" inner-padding="8px 16px" href="#" font-weight="700" padding="0" css-class="ebb-node-id-33">
             SHOP FASHION DEALS
           </mj-button>
         </mj-column>
         <mj-column width="50%" css-class="ebb-node-id-36">
-          <mj-button background-color="#00ffff" color="#0a0a0a" font-size="10px" border-radius="4px" inner-padding="8px 16px" href="#" font-weight="700" css-class="ebb-node-id-35">
+          <mj-button background-color="#00ffff" color="#0a0a0a" font-size="10px" border-radius="4px" inner-padding="8px 16px" href="#" font-weight="700" padding="0" css-class="ebb-node-id-35">
             SHOP DOORBUSTERS
           </mj-button>
         </mj-column>
@@ -629,7 +629,7 @@ exports[`MJML Snapshot Tests > serializes chinese-new-year template to MJML 1`] 
         <mj-text font-size="14px" font-family="Helvetica, Arial, sans-serif" color="#8b1a1a" padding="4px 0 12px 0" align="center" css-class="ebb-node-id-14">
           <p style="margin: 0;">All Red &amp; Gold Items!</p>
         </mj-text>
-        <mj-button background-color="#8b1a1a" color="#ffd700" font-size="13px" border-radius="6px" inner-padding="10px 28px" href="#" font-weight="600" css-class="ebb-node-id-15">
+        <mj-button background-color="#8b1a1a" color="#ffd700" font-size="13px" border-radius="6px" inner-padding="10px 28px" href="#" font-weight="600" padding="0" css-class="ebb-node-id-15">
           Explore Our Festive Collection
         </mj-button>
       </mj-column>
@@ -1213,15 +1213,15 @@ exports[`MJML Snapshot Tests > serializes fashion-gift-guide template to MJML 1`
       </mj-column>
     </mj-section>
     <mj-section background-color="#f0ede6" padding="0 24px 20px 24px" css-class="ebb-node-id-17">
-      <mj-column width="50%" css-class="ebb-node-id-12">
+      <mj-column width="50%" padding-right="8px" css-class="ebb-node-id-12">
         <mj-image src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=250&amp;h=300&amp;fit=crop" alt="Green Dress" padding="0" border-radius="8px" css-class="ebb-node-id-11" />
       </mj-column>
-      <mj-column width="50%" css-class="ebb-node-id-16">
+      <mj-column width="50%" padding="8px 0 0 8px" css-class="ebb-node-id-16">
         <mj-image src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=120&amp;h=80&amp;fit=crop" alt="Necklace" padding="0 0 8px 0" border-radius="6px" css-class="ebb-node-id-13" />
         <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="4px 0" css-class="ebb-node-id-14">
           <p style="margin: 0; font-size: 11px; color: #666;">SHAMROCK &amp; GOLD<br/>DRAGON PENDANT<br/><strong style="color: #2d5a3d;">$89</strong></p>
         </mj-text>
-        <mj-button background-color="#2d5a3d" color="#ffffff" font-size="10px" border-radius="4px" inner-padding="6px 14px" href="#" font-weight="600" align="left" css-class="ebb-node-id-15">
+        <mj-button background-color="#2d5a3d" color="#ffffff" font-size="10px" border-radius="4px" inner-padding="6px 14px" href="#" font-weight="600" align="left" padding="0" css-class="ebb-node-id-15">
           SHOP NOW
         </mj-button>
       </mj-column>
@@ -1248,14 +1248,14 @@ exports[`MJML Snapshot Tests > serializes fashion-gift-guide template to MJML 1`
       </mj-column>
     </mj-section>
     <mj-section background-color="#f0ede6" padding="0 24px 20px 24px" css-class="ebb-node-id-35">
-      <mj-column width="50%" css-class="ebb-node-id-31">
+      <mj-column width="50%" padding-right="8px" css-class="ebb-node-id-31">
         <mj-image src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=250&amp;h=200&amp;fit=crop" alt="Suit" padding="0" border-radius="8px" css-class="ebb-node-id-30" />
       </mj-column>
-      <mj-column width="50%" css-class="ebb-node-id-34">
+      <mj-column width="50%" padding-left="8px" css-class="ebb-node-id-34">
         <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="4px 0" css-class="ebb-node-id-32">
           <p style="margin: 0; font-size: 11px; color: #666;">SHAMROCK &amp; CO<br/>LUXE TIMEPIECE<br/><strong style="color: #2d5a3d;">$249</strong></p>
         </mj-text>
-        <mj-button background-color="#2d5a3d" color="#ffffff" font-size="10px" border-radius="4px" inner-padding="6px 14px" href="#" font-weight="600" align="left" css-class="ebb-node-id-33">
+        <mj-button background-color="#2d5a3d" color="#ffffff" font-size="10px" border-radius="4px" inner-padding="6px 14px" href="#" font-weight="600" align="left" padding="0" css-class="ebb-node-id-33">
           SHOP NOW
         </mj-button>
       </mj-column>
@@ -1267,15 +1267,15 @@ exports[`MJML Snapshot Tests > serializes fashion-gift-guide template to MJML 1`
         </mj-text>
       </mj-column>
     </mj-section>
-    <mj-section background-color="#f0ede6" padding="0 24px 24px 24px" css-class="ebb-node-id-44">
-      <mj-column width="50%" css-class="ebb-node-id-40">
+    <mj-section background-color="#f0ede6" padding="0 24px 16px 24px" css-class="ebb-node-id-44">
+      <mj-column width="50%" padding-right="8px" css-class="ebb-node-id-40">
         <mj-image src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=250&amp;h=160&amp;fit=crop" alt="Leather Bag" padding="0" border-radius="8px" css-class="ebb-node-id-39" />
       </mj-column>
-      <mj-column width="50%" css-class="ebb-node-id-43">
+      <mj-column width="50%" padding-left="8px" css-class="ebb-node-id-43">
         <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#666666" padding="4px 0" css-class="ebb-node-id-41">
           <p style="margin: 0; font-size: 11px; color: #666;">LUXE<br/>LEATHER GLOVES<br/><strong style="color: #2d5a3d;">$65</strong></p>
         </mj-text>
-        <mj-button background-color="#2d5a3d" color="#ffffff" font-size="10px" border-radius="4px" inner-padding="6px 14px" href="#" font-weight="600" align="left" css-class="ebb-node-id-42">
+        <mj-button background-color="#2d5a3d" color="#ffffff" font-size="10px" border-radius="4px" inner-padding="6px 14px" href="#" font-weight="600" align="left" padding="0" css-class="ebb-node-id-42">
           SHOP NOW
         </mj-button>
       </mj-column>
@@ -1697,7 +1697,7 @@ exports[`MJML Snapshot Tests > serializes holiday-sale-christmas template to MJM
         <mj-text font-size="13px" font-family="Helvetica, Arial, sans-serif" color="#c41e3a" padding="0 0 16px 0" align="center" css-class="ebb-node-id-15">
           <p style="margin: 0; font-weight: 700;">Sale Ends: December 25th at Midnight</p>
         </mj-text>
-        <mj-button background-color="#2c3e50" color="#ffffff" font-size="13px" border-radius="6px" inner-padding="10px 28px" href="#" font-weight="600" css-class="ebb-node-id-16">
+        <mj-button background-color="#2c3e50" color="#ffffff" font-size="13px" border-radius="6px" inner-padding="10px 28px" href="#" font-weight="600" padding="0" css-class="ebb-node-id-16">
           Shop All Christmas Deals
         </mj-button>
       </mj-column>
@@ -1714,7 +1714,7 @@ exports[`MJML Snapshot Tests > serializes holiday-sale-christmas template to MJM
     </mj-section>
     <mj-section background-color="#ffffff" padding="0 24px 24px 24px" css-class="ebb-node-id-25">
       <mj-column css-class="ebb-node-id-24">
-        <mj-button background-color="#c41e3a" color="#ffffff" font-size="14px" border-radius="6px" inner-padding="12px 32px" href="#" font-weight="700" css-class="ebb-node-id-23">
+        <mj-button background-color="#c41e3a" color="#ffffff" font-size="14px" border-radius="6px" inner-padding="12px 32px" href="#" font-weight="700" padding="0" css-class="ebb-node-id-23">
           Explore Our Best Sellers!
         </mj-button>
       </mj-column>
@@ -2875,7 +2875,7 @@ exports[`MJML Snapshot Tests > serializes product-launch-aurora template to MJML
         <mj-text font-size="12px" font-family="Helvetica, Arial, sans-serif" color="#94a3b8" padding="0 0 12px 0" align="center" css-class="ebb-node-id-19">
           <p style="margin: 0;">um carrying case.</p>
         </mj-text>
-        <mj-button background-color="#8b5cf6" color="#ffffff" font-size="13px" border-radius="8px" inner-padding="12px 32px" href="#" font-weight="700" css-class="ebb-node-id-20">
+        <mj-button background-color="#8b5cf6" color="#ffffff" font-size="13px" border-radius="8px" inner-padding="12px 32px" href="#" font-weight="700" padding="0" css-class="ebb-node-id-20">
           Watch the Teaser Video
         </mj-button>
       </mj-column>
@@ -4163,7 +4163,7 @@ exports[`MJML Snapshot Tests > serializes summer-promo template to MJML 1`] = `
         <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#999999" padding="2px 0" align="center" css-class="ebb-node-id-19">
           <p style="margin: 0;"><s>$129.95</s></p>
         </mj-text>
-        <mj-button background-color="#e65100" color="#ffffff" font-size="9px" border-radius="3px" inner-padding="4px 10px" href="#" font-weight="600" css-class="ebb-node-id-20">
+        <mj-button background-color="#e65100" color="#ffffff" font-size="9px" border-radius="3px" inner-padding="4px 10px" href="#" font-weight="600" padding="0" css-class="ebb-node-id-20">
           SHOP NOW
         </mj-button>
       </mj-column>
@@ -4196,7 +4196,7 @@ exports[`MJML Snapshot Tests > serializes summer-promo template to MJML 1`] = `
         <mj-text font-size="10px" font-family="Helvetica, Arial, sans-serif" color="#e65100" padding="0 0 8px 0" css-class="ebb-node-id-34">
           <p style="margin: 0; font-weight: 600;">Swimwear</p>
         </mj-text>
-        <mj-button background-color="#e65100" color="#ffffff" font-size="10px" border-radius="4px" inner-padding="6px 16px" href="#" font-weight="600" align="left" css-class="ebb-node-id-35">
+        <mj-button background-color="#e65100" color="#ffffff" font-size="10px" border-radius="4px" inner-padding="6px 16px" href="#" font-weight="600" align="left" padding="0" css-class="ebb-node-id-35">
           SHOP ALL
         </mj-button>
       </mj-column>
@@ -4631,7 +4631,7 @@ exports[`MJML Snapshot Tests > serializes travel-newsletter template to MJML 1`]
         <mj-text font-size="15px" font-family="Helvetica, Arial, sans-serif" color="#2c3e50" padding="0 0 4px 0" css-class="ebb-node-id-28">
           <h3 style="margin: 0;">Dream Vacation</h3>
         </mj-text>
-        <mj-button background-color="#2c8fa0" color="#ffffff" font-size="12px" border-radius="6px" inner-padding="8px 20px" href="#" font-weight="600" align="left" css-class="ebb-node-id-29">
+        <mj-button background-color="#2c8fa0" color="#ffffff" font-size="12px" border-radius="6px" inner-padding="8px 20px" href="#" font-weight="600" align="left" padding="0" css-class="ebb-node-id-29">
           Begin
         </mj-button>
       </mj-column>
@@ -4785,7 +4785,7 @@ exports[`MJML Snapshot Tests > serializes weekly-digest template to MJML 1`] = `
       <mj-text font-size="11px" font-family="Helvetica, Arial, sans-serif" color="#d1d5db" padding="0 0 8px 0" css-class="ebb-node-id-10">
         <p style="margin: 0; line-height: 1.5;">Exclusively, all believe it to the mean long game transforming from the attention to influence, and else a Wurea of luck.</p>
       </mj-text>
-      <mj-button background-color="#e65100" color="#ffffff" font-size="11px" border-radius="4px" inner-padding="6px 16px" href="#" font-weight="600" align="left" css-class="ebb-node-id-11">
+      <mj-button background-color="#e65100" color="#ffffff" font-size="11px" border-radius="4px" inner-padding="6px 16px" href="#" font-weight="600" align="left" padding="0" css-class="ebb-node-id-11">
         MORE
       </mj-button>
     </mj-hero>
@@ -4802,25 +4802,25 @@ exports[`MJML Snapshot Tests > serializes weekly-digest template to MJML 1`] = `
       </mj-column>
     </mj-section>
     <mj-section background-color="#ffffff" padding="0 24px 24px 24px" css-class="ebb-node-id-31">
-      <mj-column width="25%" css-class="ebb-node-id-21">
+      <mj-column width="25%" padding="4px" css-class="ebb-node-id-21">
         <mj-image src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=120&amp;h=80&amp;fit=crop" alt="Routines" padding="0 0 4px 0" border-radius="6px" css-class="ebb-node-id-19" />
         <mj-text font-size="10px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0" align="center" css-class="ebb-node-id-20">
           <p style="margin: 0; font-weight: 600; line-height: 1.3;">Routines of<br/>Dreamworkers</p>
         </mj-text>
       </mj-column>
-      <mj-column width="25%" css-class="ebb-node-id-24">
+      <mj-column width="25%" padding="4px" css-class="ebb-node-id-24">
         <mj-image src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=120&amp;h=80&amp;fit=crop" alt="Mindfulness" padding="0 0 4px 0" border-radius="6px" css-class="ebb-node-id-22" />
         <mj-text font-size="10px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0" align="center" css-class="ebb-node-id-23">
           <p style="margin: 0; font-weight: 600; line-height: 1.3;">Mindfulness in<br/>the Digital Age</p>
         </mj-text>
       </mj-column>
-      <mj-column width="25%" css-class="ebb-node-id-27">
+      <mj-column width="25%" padding="4px" css-class="ebb-node-id-27">
         <mj-image src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=120&amp;h=80&amp;fit=crop" alt="Reading" padding="0 0 4px 0" border-radius="6px" css-class="ebb-node-id-25" />
         <mj-text font-size="10px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0" align="center" css-class="ebb-node-id-26">
           <p style="margin: 0; font-weight: 600; line-height: 1.3;">Reading List: Top 5<br/>Business Books</p>
         </mj-text>
       </mj-column>
-      <mj-column width="25%" css-class="ebb-node-id-30">
+      <mj-column width="25%" padding="4px" css-class="ebb-node-id-30">
         <mj-image src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=120&amp;h=80&amp;fit=crop" alt="Trends" padding="0 0 4px 0" border-radius="6px" css-class="ebb-node-id-28" />
         <mj-text font-size="10px" font-family="Helvetica, Arial, sans-serif" color="#333333" padding="0" align="center" css-class="ebb-node-id-29">
           <p style="margin: 0; font-weight: 600; line-height: 1.3;">Global Remote<br/>Trends 2024</p>
@@ -4835,7 +4835,7 @@ exports[`MJML Snapshot Tests > serializes weekly-digest template to MJML 1`] = `
         <mj-text font-size="12px" font-family="Helvetica, Arial, sans-serif" color="#475569" padding="0 0 12px 0" css-class="ebb-node-id-33">
           <p style="margin: 0; line-height: 1.5;">one of Sustainable Tech<br/>smartly Explore'd</p>
         </mj-text>
-        <mj-button background-color="#e65100" color="#ffffff" font-size="11px" border-radius="4px" inner-padding="8px 20px" href="#" font-weight="600" align="left" css-class="ebb-node-id-34">
+        <mj-button background-color="#e65100" color="#ffffff" font-size="11px" border-radius="4px" inner-padding="8px 20px" href="#" font-weight="600" align="left" padding="0" css-class="ebb-node-id-34">
           VISIT OUR BLOG
         </mj-button>
       </mj-column>
@@ -5082,7 +5082,7 @@ exports[`MJML Snapshot Tests > serializes welcome-series template to MJML 1`] = 
     </mj-section>
     <mj-section background-color="#ffffff" padding="0 32px 24px 32px" css-class="ebb-node-id-25">
       <mj-column css-class="ebb-node-id-24">
-        <mj-button background-color="#01A8AB" color="#ffffff" font-size="14px" border-radius="8px" inner-padding="12px 40px" href="#" font-weight="600" css-class="ebb-node-id-23">
+        <mj-button background-color="#01A8AB" color="#ffffff" font-size="14px" border-radius="8px" inner-padding="12px 40px" href="#" font-weight="600" padding="0" css-class="ebb-node-id-23">
           Dive In
         </mj-button>
       </mj-column>
