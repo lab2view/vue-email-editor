@@ -84,6 +84,10 @@ export {
 // ─── Block Definitions ───
 export { STATIC_BLOCKS } from './blocks/block-definitions'
 
+// ─── Starter Templates ───
+export type { StarterTemplate } from './blocks/starter-templates'
+export { STARTER_TEMPLATES } from './blocks/starter-templates'
+
 // ─── Extensions ───
 export { MergeTagExtension } from './extensions/merge-tag'
 

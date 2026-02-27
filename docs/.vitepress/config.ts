@@ -1,18 +1,19 @@
 import { defineConfig } from 'vitepress'
+import { resolve } from 'path'
 
 export default defineConfig({
   title: '@lab2view/vue-email-editor',
-  description: 'A professional, extensible drag-and-drop email editor for Vue 3, built on MJML.',
+  description: 'Professional and extensible drag & drop email editor for Vue 3, powered by MJML.',
   base: '/vue-email-editor/',
-  appearance: false,
+  appearance: true,
 
   head: [
     ['link', { rel: 'icon', href: '/vue-email-editor/logo.png' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
-    ['link', { href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap', rel: 'stylesheet' }],
-    ['meta', { property: 'og:title', content: 'Vue Email Editor — Drag & drop email builder for Vue 3' }],
-    ['meta', { property: 'og:description', content: 'Professional, extensible, MJML-powered email editor. Free and open-source.' }],
+    ['link', { href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap', rel: 'stylesheet' }],
+    ['meta', { property: 'og:title', content: 'Vue Email Editor — Drag & Drop Email Editor for Vue 3' }],
+    ['meta', { property: 'og:description', content: 'Professional, extensible email editor powered by MJML. Free and open-source.' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:url', content: 'https://lab2view.github.io/vue-email-editor/' }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
@@ -84,11 +85,22 @@ export default defineConfig({
 
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright Lab2view',
+      copyright: '© Lab2view — All rights reserved',
     },
 
     editLink: {
       pattern: 'https://github.com/lab2view/vue-email-editor/edit/main/docs/:path',
+    },
+  },
+
+  vite: {
+    resolve: {
+      alias: {
+        '@lab2view/vue-email-editor': resolve(__dirname, '../../src/index.ts'),
+      },
+    },
+    optimizeDeps: {
+      include: ['mjml-browser'],
     },
   },
 })

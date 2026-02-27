@@ -1,14 +1,11 @@
-import { h } from 'vue'
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
-import HomeHeroAfter from './components/HomeHeroAfter.vue'
+import LandingPage from './components/landing/LandingPage.vue'
 import './style.css'
 
 export default {
   extends: DefaultTheme,
-  Layout() {
-    return h(DefaultTheme.Layout, null, {
-      'home-features-after': () => h(HomeHeroAfter),
-    })
+  enhanceApp({ app }) {
+    app.component('LandingPage', LandingPage)
   },
 } satisfies Theme
