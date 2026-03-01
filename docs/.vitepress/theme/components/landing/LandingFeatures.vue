@@ -1,68 +1,62 @@
 <template>
   <section class="features">
-    <!-- Feature 1: Visual drag & drop editing -->
+    <!-- Feature 1: AI-powered template generation -->
     <div class="features__block">
       <div class="features__mockup">
         <div class="editor-mock">
-          <!-- Email Canvas -->
+          <!-- Email Canvas with AI-generated preview -->
           <div class="editor-mock__canvas">
             <div class="editor-mock__email">
-              <!-- Header -->
-              <div class="editor-mock__email-header">
-                <span class="editor-mock__brand-icon" />
-                <span class="editor-mock__brand-text">AuraX</span>
+              <div class="editor-mock__ai-header">
+                <span class="editor-mock__ai-header-text">WEEKLY DIGEST</span>
               </div>
-              <!-- Product area -->
-              <div class="editor-mock__product-area">
-                <div class="editor-mock__headphones" />
+              <div class="editor-mock__ai-hero">
+                <span class="editor-mock__ai-hero-title">Your Week in Review</span>
+                <span class="editor-mock__ai-hero-sub">Curated highlights just for you</span>
               </div>
-              <!-- CTA section -->
-              <div class="editor-mock__cta-section">
-                <span class="editor-mock__cta-title">DISCOVER MORE</span>
-                <div class="editor-mock__cta-button">SHOP NOW</div>
+              <div class="editor-mock__ai-cards">
+                <div class="editor-mock__ai-card" />
+                <div class="editor-mock__ai-card" />
+              </div>
+              <div class="editor-mock__ai-cta">
+                <div class="editor-mock__ai-cta-btn">Read More</div>
               </div>
             </div>
           </div>
-          <!-- Sidebar -->
+          <!-- Sidebar - AI Chat panel -->
           <div class="editor-mock__sidebar">
             <div class="editor-mock__tabs">
-              <span class="editor-mock__tab editor-mock__tab--active">Blocks</span>
+              <span class="editor-mock__tab">Blocks</span>
               <span class="editor-mock__tab">Styles</span>
               <span class="editor-mock__tab">Layers</span>
+              <span class="editor-mock__tab editor-mock__tab--active editor-mock__tab--ai">AI</span>
             </div>
-            <div class="editor-mock__sidebar-content">
-              <!-- Search -->
-              <div class="editor-mock__search">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                <span class="editor-mock__search-text">Search blocks...</span>
+            <div class="editor-mock__sidebar-content editor-mock__ai-chat">
+              <div class="editor-mock__ai-msg editor-mock__ai-msg--user">
+                Create a weekly digest newsletter with a modern blue theme
               </div>
-              <span class="editor-mock__section-label">STRUCTURE</span>
-              <div class="editor-mock__block-grid">
-                <div class="editor-mock__block-item"><div class="editor-mock__block-icon editor-mock__block-icon--teal" /><span>1 Column</span></div>
-                <div class="editor-mock__block-item"><div class="editor-mock__block-icon editor-mock__block-icon--teal" /><span>2 Column</span></div>
-                <div class="editor-mock__block-item"><div class="editor-mock__block-icon editor-mock__block-icon--teal" /><span>3 Column</span></div>
-                <div class="editor-mock__block-item"><div class="editor-mock__block-icon editor-mock__block-icon--teal" /><span>Sidebar</span></div>
+              <div class="editor-mock__ai-msg editor-mock__ai-msg--assistant">
+                <span class="editor-mock__ai-sparkle">&#x2728;</span>
+                Template created (3 sections, 2 images, 1 button). Apply it to load in the editor.
               </div>
-              <span class="editor-mock__section-label">CONTENT</span>
-              <div class="editor-mock__block-grid">
-                <div class="editor-mock__block-item"><div class="editor-mock__block-icon editor-mock__block-icon--purple" /><span>Heading</span></div>
-                <div class="editor-mock__block-item"><div class="editor-mock__block-icon editor-mock__block-icon--purple" /><span>Text</span></div>
-                <div class="editor-mock__block-item"><div class="editor-mock__block-icon editor-mock__block-icon--amber" /><span>Image</span></div>
-                <div class="editor-mock__block-item"><div class="editor-mock__block-icon editor-mock__block-icon--amber" /><span>Button</span></div>
+              <div class="editor-mock__ai-actions">
+                <div class="editor-mock__ai-apply-btn">Apply</div>
+                <div class="editor-mock__ai-discard-btn">Discard</div>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="features__text">
-        <h3 class="features__title">1. Visual drag &amp; drop editing</h3>
+        <h3 class="features__title">1. AI-powered template generation</h3>
         <p class="features__desc">
-          Build stunning emails without writing a single line of HTML. Our intuitive drag-and-drop
-          editor lets you assemble professional layouts by simply placing content blocks exactly
-          where you want them. Choose from a rich library of pre-built sections — headers,
-          columns, images, buttons, and more — then customize every detail through a clean
-          visual interface. Powered by a modern Vue.js architecture, the editor delivers a seamless
-          experience that bridges the gap between design freedom and technical precision.
+          Describe your email in plain language and let AI build the entire template for you.
+          The built-in AI chat panel generates complete, production-ready MJML templates from
+          a simple prompt — with full preview before applying. Refine the result through
+          conversation: ask the AI to tweak colors, add sections, or change the layout, and see
+          updates instantly. Bring your own AI provider (OpenAI, Anthropic, or any LLM) with the
+          flexible BYOAI pattern. From first draft to final design, AI makes email creation
+          faster than ever.
         </p>
       </div>
     </div>
@@ -83,10 +77,8 @@
       </div>
       <div class="features__mockup">
         <div class="editor-mock">
-          <!-- Email Canvas -->
           <div class="editor-mock__canvas">
             <div class="editor-mock__email">
-              <!-- Birthday email -->
               <div class="editor-mock__birthday-emoji">🎂</div>
               <div class="editor-mock__birthday-text">
                 <span class="editor-mock__birthday-title">Joyeux anniversaire !</span>
@@ -98,7 +90,6 @@
               </div>
             </div>
           </div>
-          <!-- Sidebar - Styles panel -->
           <div class="editor-mock__sidebar">
             <div class="editor-mock__tabs">
               <span class="editor-mock__tab">Blocks</span>
@@ -138,17 +129,13 @@
     <div class="features__block">
       <div class="features__mockup">
         <div class="editor-mock">
-          <!-- Email Canvas -->
           <div class="editor-mock__canvas">
             <div class="editor-mock__email">
-              <!-- Restaurant header -->
               <div class="editor-mock__restaurant-header">
                 <span class="editor-mock__restaurant-name">LE COMPTOIR</span>
                 <span class="editor-mock__restaurant-sub">BRASSERIE</span>
               </div>
-              <!-- Food image -->
               <div class="editor-mock__food-image" />
-              <!-- Menu -->
               <div class="editor-mock__menu-section">
                 <span class="editor-mock__menu-title">Menu de Saison</span>
                 <span class="editor-mock__menu-desc">Découvrez nos nouvelles créations</span>
@@ -156,7 +143,6 @@
               </div>
             </div>
           </div>
-          <!-- Sidebar -->
           <div class="editor-mock__sidebar">
             <div class="editor-mock__tabs">
               <span class="editor-mock__tab editor-mock__tab--active">Blocks</span>
@@ -195,6 +181,67 @@
           component is designed to reinforce your brand identity and make your emails
           unmistakably yours.
         </p>
+      </div>
+    </div>
+
+    <!-- Feature 4: Visual drag & drop editing (reversed) -->
+    <div class="features__block features__block--reversed">
+      <div class="features__text">
+        <h3 class="features__title">4. Visual drag &amp; drop editing</h3>
+        <p class="features__desc">
+          Build stunning emails without writing a single line of HTML. Our intuitive drag-and-drop
+          editor lets you assemble professional layouts by simply placing content blocks exactly
+          where you want them. Choose from a rich library of pre-built sections — headers,
+          columns, images, buttons, and more — then customize every detail through a clean
+          visual interface. Powered by a modern Vue.js architecture, the editor delivers a seamless
+          experience that bridges the gap between design freedom and technical precision.
+        </p>
+      </div>
+      <div class="features__mockup">
+        <div class="editor-mock">
+          <div class="editor-mock__canvas">
+            <div class="editor-mock__email">
+              <div class="editor-mock__email-header">
+                <span class="editor-mock__brand-icon" />
+                <span class="editor-mock__brand-text">AuraX</span>
+              </div>
+              <div class="editor-mock__product-area">
+                <div class="editor-mock__headphones" />
+              </div>
+              <div class="editor-mock__cta-section">
+                <span class="editor-mock__cta-title">DISCOVER MORE</span>
+                <div class="editor-mock__cta-button">SHOP NOW</div>
+              </div>
+            </div>
+          </div>
+          <div class="editor-mock__sidebar">
+            <div class="editor-mock__tabs">
+              <span class="editor-mock__tab editor-mock__tab--active">Blocks</span>
+              <span class="editor-mock__tab">Styles</span>
+              <span class="editor-mock__tab">Layers</span>
+            </div>
+            <div class="editor-mock__sidebar-content">
+              <div class="editor-mock__search">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <span class="editor-mock__search-text">Search blocks...</span>
+              </div>
+              <span class="editor-mock__section-label">STRUCTURE</span>
+              <div class="editor-mock__block-grid">
+                <div class="editor-mock__block-item"><div class="editor-mock__block-icon editor-mock__block-icon--teal" /><span>1 Column</span></div>
+                <div class="editor-mock__block-item"><div class="editor-mock__block-icon editor-mock__block-icon--teal" /><span>2 Column</span></div>
+                <div class="editor-mock__block-item"><div class="editor-mock__block-icon editor-mock__block-icon--teal" /><span>3 Column</span></div>
+                <div class="editor-mock__block-item"><div class="editor-mock__block-icon editor-mock__block-icon--teal" /><span>Sidebar</span></div>
+              </div>
+              <span class="editor-mock__section-label">CONTENT</span>
+              <div class="editor-mock__block-grid">
+                <div class="editor-mock__block-item"><div class="editor-mock__block-icon editor-mock__block-icon--purple" /><span>Heading</span></div>
+                <div class="editor-mock__block-item"><div class="editor-mock__block-icon editor-mock__block-icon--purple" /><span>Text</span></div>
+                <div class="editor-mock__block-item"><div class="editor-mock__block-icon editor-mock__block-icon--amber" /><span>Image</span></div>
+                <div class="editor-mock__block-item"><div class="editor-mock__block-icon editor-mock__block-icon--amber" /><span>Button</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -633,6 +680,149 @@
   border: 2px dashed var(--features-mock-block-border, #D4D4D4);
   background: var(--features-mock-block-bg, #FAFAFA);
   position: relative;
+}
+
+/* Feature 4 - AI tab */
+.editor-mock__tab--ai {
+  color: #a78bfa !important;
+}
+
+.editor-mock__tab--ai.editor-mock__tab--active {
+  border-bottom-color: #a78bfa !important;
+}
+
+/* Feature 4 - AI-generated email */
+.editor-mock__ai-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  background: #1e3a5f;
+}
+
+.editor-mock__ai-header-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #FFFFFF;
+}
+
+.editor-mock__ai-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 12px;
+  background: linear-gradient(135deg, #1e3a5f, #2563eb);
+  color: white;
+}
+
+.editor-mock__ai-hero-title {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.editor-mock__ai-hero-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  opacity: 0.8;
+}
+
+.editor-mock__ai-cards {
+  display: flex;
+  gap: 6px;
+  padding: 10px;
+}
+
+.editor-mock__ai-card {
+  flex: 1;
+  height: 50px;
+  border-radius: 4px;
+  background: var(--features-mock-block-bg, #F0F0F0);
+  border: 1px solid var(--features-mock-block-border, #E8E8E8);
+}
+
+.editor-mock__ai-cta {
+  display: flex;
+  justify-content: center;
+  padding: 8px 10px 12px;
+}
+
+.editor-mock__ai-cta-btn {
+  background: #2563eb;
+  color: white;
+  padding: 6px 24px;
+  border-radius: 4px;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* Feature 4 - AI Chat sidebar */
+.editor-mock__ai-chat {
+  gap: 6px !important;
+}
+
+.editor-mock__ai-msg {
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  line-height: 1.4;
+}
+
+.editor-mock__ai-msg--user {
+  background: var(--features-mock-field-bg, #F0F0FF);
+  color: #4B5563;
+  align-self: flex-end;
+  border-bottom-right-radius: 2px;
+}
+
+.editor-mock__ai-msg--assistant {
+  background: var(--features-mock-block-bg, #F8F8FF);
+  border: 1px solid var(--features-mock-block-border, #E8E8F0);
+  color: #374151;
+  display: flex;
+  gap: 4px;
+  align-items: flex-start;
+}
+
+.editor-mock__ai-sparkle {
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+.editor-mock__ai-actions {
+  display: flex;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.editor-mock__ai-apply-btn {
+  flex: 1;
+  text-align: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: #a78bfa;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.editor-mock__ai-discard-btn {
+  flex: 1;
+  text-align: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: var(--features-mock-field-bg, #F5F5F5);
+  border: 1px solid var(--features-mock-field-border, #E8E8E8);
+  color: #888;
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  font-weight: 500;
 }
 
 /* Sidebar - Ready-made */

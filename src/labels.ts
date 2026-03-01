@@ -238,6 +238,26 @@ export interface EditorLabels {
   ai_loading: string
   ai_error: string
 
+  // ─── AI Chat ───
+  ai_chat: string
+  ai_chat_placeholder: string
+  ai_chat_send: string
+  ai_chat_apply: string
+  ai_chat_discard: string
+  ai_chat_new: string
+  ai_chat_thinking: string
+  ai_chat_success: string
+  ai_chat_parse_error: string
+  ai_chat_welcome: string
+  ai_chat_welcome_hint: string
+  ai_chat_retry: string
+  ai_chat_context_sent: string
+  ai_chat_attach: string
+  ai_chat_attach_hint: string
+  ai_chat_file_too_large: string
+  ai_chat_preview: string
+  ai_chat_preview_hint: string
+
   // ─── Dark Mode Preview ───
   dark_mode_preview: string
 
@@ -495,6 +515,26 @@ export const DEFAULT_LABELS: EditorLabels = {
   ai_prompt_placeholder: 'Describe what you want...',
   ai_loading: 'AI is thinking...',
   ai_error: 'AI generation failed',
+
+  // ─── AI Chat ───
+  ai_chat: 'AI',
+  ai_chat_placeholder: 'Describe the email you want...',
+  ai_chat_send: 'Generate',
+  ai_chat_apply: 'Apply template',
+  ai_chat_discard: 'Discard',
+  ai_chat_new: 'New conversation',
+  ai_chat_thinking: 'Generating template...',
+  ai_chat_success: 'Template generated!',
+  ai_chat_parse_error: 'Could not parse the AI response',
+  ai_chat_welcome: "Describe the email you'd like to create",
+  ai_chat_welcome_hint: 'Be specific about layout, colors, content...',
+  ai_chat_retry: 'Retry',
+  ai_chat_context_sent: 'Current template sent as context',
+  ai_chat_attach: 'Attach image or document',
+  ai_chat_attach_hint: 'Add a screenshot, Figma export, or document for reference',
+  ai_chat_file_too_large: 'File too large (max 10 MB)',
+  ai_chat_preview: 'Preview',
+  ai_chat_preview_hint: 'Preview of the generated template',
 
   // ─── Dark Mode Preview ───
   dark_mode_preview: 'Dark mode preview',
