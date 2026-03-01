@@ -54,6 +54,7 @@ export default defineConfig({
         {
           text: 'Advanced',
           items: [
+            { text: 'AI Generation', link: '/guide/ai' },
             { text: 'Plugins', link: '/guide/plugins' },
             { text: 'Events', link: '/guide/events' },
             { text: 'Imperative API', link: '/guide/imperative-api' },

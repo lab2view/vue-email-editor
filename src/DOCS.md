@@ -31,6 +31,7 @@
 20. [Invariants & Rules That Must Never Be Broken](#20-invariants--rules)
 21. [Known Limitations](#21-known-limitations)
 22. [Common Maintenance Scenarios](#22-common-maintenance-scenarios)
+23. [AI Template Generation](#23-ai-template-generation)
 
 ---
 
@@ -1408,6 +1409,151 @@ but more delay before the iframe updates.
 
 ---
 
+## 23. AI Template Generation
+
+The AI subsystem lets users generate complete email templates from natural language
+descriptions via a chat interface. It follows a BYOAI (Bring Your Own AI) pattern:
+the host application provides an `AiProvider` implementation, and the editor handles
+the chat UI, system prompt, response parsing, preview, and iterative refinement.
+
+### 23.1 File Map
+
+| File | Purpose |
+|------|---------|
+| `src/types.ts` (lines 339–369) | `AiProvider`, `AiChatMessage`, `AiAttachment` type definitions |
+| `src/ai/system-prompt.ts` | `buildTemplateSystemPrompt()` — generates the system prompt with schema, design rules, examples, and merge tags |
+| `src/ai/parse-ai-response.ts` | `parseAiTemplateResponse()` — extracts and validates `EmailDocument` JSON from raw AI output; `AiParseError` class |
+| `src/composables/useAiChat.ts` | `useAiChat()` composable — manages messages, streaming, auto-retry, preview compilation, apply/discard |
+| `src/components/sidebar/AiChatPanel.vue` | Chat UI component — messages list, input with attachments, preview iframe, apply/discard actions |
+| `src/ai/index.ts` | Barrel re-exports for the `ai/` module |
+
+### 23.2 Data Flow
+
+```
+User message
+    │
+    ▼
+useAiChat.sendMessage(text, attachments?)
+    │
+    ├── Builds system prompt (buildTemplateSystemPrompt)
+    ├── Injects current template as context (lastGeneratedTemplate or editor document)
+    ├── Calls aiProvider.generateTemplateStream() or aiProvider.generateTemplate()
+    │
+    ▼
+Raw AI response string
+    │
+    ├── looksLikeJson() heuristic
+    │   ├── true  → parseAiTemplateResponse()
+    │   │           ├── extractJson() — tries: direct parse, code fences, bracket-counted extraction
+    │   │           ├── validateDocument() — checks version, body.type, node types; auto-fills missing fields
+    │   │           ├── regenerateIds() — replaces all node IDs with fresh nanoid(8)
+    │   │           └── Returns EmailDocument
+    │   │
+    │   │   On AiParseError → auto-retry: asks AI to re-send raw JSON
+    │   │
+    │   └── false → Conversation mode: display text as assistant message
+    │
+    ▼
+lastGeneratedTemplate = parsed EmailDocument
+    │
+    ├── documentToMjml(doc) → MJML string
+    ├── compileMjml(mjml)   → { html }
+    └── previewHtml = html  → displayed in <iframe srcdoc="...">
+```
+
+### 23.3 System Prompt Architecture
+
+`buildTemplateSystemPrompt(options?)` generates a ~400-line prompt including:
+
+1. **Absolute rules** — image sources (picsum.photos only), color requirements, minimum section count, font declarations, section title patterns
+2. **Operating modes** — Conversation (ask questions), Generation (output JSON only), Refinement (modify existing template)
+3. **Image/document attachment handling** — instructions for analyzing visual references
+4. **Design system** — 8 color palettes, typography hierarchy, image dimensions, layout patterns
+5. **JSON schema reference** — complete `EmailDocument` / `EmailNode` type definitions and MJML rendering rules
+6. **Complete example** — a 10-section marketing newsletter with all patterns demonstrated
+7. **Merge tags** — if provided, listed for the AI to use in templates
+8. **Output format reminder** — strict rules for JSON-only or text-only responses
+
+Customizable via `promptPrefix` and `promptSuffix` options.
+
+### 23.4 Response Parsing
+
+`parseAiTemplateResponse(raw)` uses multiple strategies to extract valid JSON:
+
+1. Direct `JSON.parse` (with auto-repair for trailing commas, truncated output)
+2. Extract from markdown code fences (````json ... ````)
+3. Bracket-counted extraction from arbitrary positions in the text
+
+Auto-repair handles:
+- Trailing commas before `}` or `]`
+- Single-line `//` comments
+- Truncated JSON (unclosed brackets/braces are auto-closed)
+- Missing `version`, `headAttributes`, `children` fields
+
+All node IDs are regenerated with `createId()` (nanoid 8 chars) to prevent
+conflicts with existing editor nodes.
+
+### 23.5 useAiChat Composable
+
+```ts
+function useAiChat(
+  aiProvider: AiProvider,
+  document: Ref<EmailDocument>,
+  replaceDocument: (doc: EmailDocument) => void,
+  options?: UseAiChatOptions,
+): UseAiChatReturn
+```
+
+**Options:**
+- `mergeTags?: MergeTag[]` — passed to system prompt
+- `promptPrefix?: string` — prepended to system prompt
+- `promptSuffix?: string` — appended to system prompt
+
+**Returned state:**
+- `messages: Ref<AiChatMessage[]>` — conversation history
+- `isGenerating: Ref<boolean>` — loading state
+- `error: Ref<string | null>` — last error message
+- `lastGeneratedTemplate: Ref<EmailDocument | null>` — pending template (not yet applied)
+- `previewHtml: Ref<string>` — compiled HTML for iframe preview
+- `streamBuffer: Ref<string>` — real-time stream output
+
+**Returned actions:**
+- `sendMessage(text, attachments?)` — send user message and trigger AI
+- `applyTemplate()` — load `lastGeneratedTemplate` into editor via `replaceDocument()`
+- `discardTemplate()` — clear pending template without applying
+- `clearConversation()` — reset all state
+- `retry()` — resend last failed message
+
+**Key invariants:**
+- Refinement context: when a previewed template exists (`lastGeneratedTemplate`), it is sent to the AI as `CURRENT_PREVIEW_TEMPLATE_JSON` — not the editor document. This ensures iterative refinement works correctly.
+- Auto-retry: if `parseAiTemplateResponse` throws `AiParseError`, the composable automatically sends a follow-up message asking the AI to re-send raw JSON, then tries parsing again.
+- Streaming: if `generateTemplateStream` is available, it is preferred over `generateTemplate`. Chunks are concatenated in `streamBuffer` for real-time display.
+
+### 23.6 AiChatPanel.vue
+
+The sidebar panel component. Key features:
+
+- **Messages list** — square messages with colored left border (primary for user, gray for assistant)
+- **Preview toggle** — Chat/Preview tabs appear when a template is generated; Preview activates automatically
+- **Iframe preview** — `<iframe srcdoc="..." sandbox="allow-same-origin">` showing compiled email HTML
+- **Apply/Discard actions** — text-only actions (no buttons) separated by a vertical line
+- **Input row** — capsule-shaped textarea with image attachment support (ImagePlus icon)
+- **Streaming indicator** — spinner and "Generating..." text during AI calls
+- **Error state** — error message with retry action
+
+### 23.7 Maintenance Notes
+
+- **Adding new node types**: Update `VALID_NODE_TYPES` set in `parse-ai-response.ts` and
+  the JSON schema section in `system-prompt.ts`.
+- **Changing the system prompt**: Always test with multiple AI models (Claude, GPT-4, etc.)
+  since different models respond differently to prompt structure.
+- **Preview compilation**: Uses the same `documentToMjml` + `compileMjml` pipeline as the
+  main editor. Any changes to the serializer affect previews too.
+- **Chat labels**: All UI strings use `EditorLabels` keys prefixed with `ai_chat_`. See
+  `labels.ts` for the full list.
+
+---
+
 ## Appendix: External Dependencies
 
 | Package | Used for | Where |
@@ -1424,4 +1570,4 @@ but more delay before the iframe updates.
 
 ---
 
-*Last updated: 2026-02-24*
+*Last updated: 2026-03-01*

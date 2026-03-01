@@ -246,6 +246,92 @@ interface EditorEventMap {
 }
 ```
 
+## AI Types
+
+### `AiProvider`
+
+The AI integration interface. Implement this to connect your AI backend.
+
+```ts
+interface AiProvider {
+  /** Generate text from a prompt and optional context */
+  generateText: (prompt: string, context?: string) => Promise<string>
+  /** Generate subject line suggestions from email content */
+  generateSubjectLine?: (emailContent: string) => Promise<string[]>
+  /** Improve existing text with an instruction */
+  improveText?: (text: string, instruction: string) => Promise<string>
+  /** Generate a complete email template from a multi-turn conversation */
+  generateTemplate?: (messages: AiChatMessage[], systemPrompt: string) => Promise<string>
+  /** Streaming variant for real-time feedback */
+  generateTemplateStream?: (messages: AiChatMessage[], systemPrompt: string) => AsyncIterable<string>
+}
+```
+
+### `AiChatMessage`
+
+A message in the AI chat conversation.
+
+```ts
+interface AiChatMessage {
+  role: 'user' | 'assistant'
+  content: string
+  /** Optional file attachments (images, documents) for multimodal AI */
+  attachments?: AiAttachment[]
+}
+```
+
+### `AiAttachment`
+
+A file attached to a chat message.
+
+```ts
+interface AiAttachment {
+  /** MIME type (e.g. 'image/png', 'application/pdf') */
+  mimeType: string
+  /** Base64-encoded file data */
+  data: string
+  /** Original file name for display */
+  name?: string
+}
+```
+
+### `MergeTag`
+
+A personalization variable for template insertion.
+
+```ts
+interface MergeTag {
+  /** Display name, e.g. "First Name" */
+  name: string
+  /** Template value inserted into HTML, e.g. "{{first_name}}" */
+  value: string
+  /** Optional category for grouping, e.g. "Contact" */
+  category?: string
+}
+```
+
+### `BuildSystemPromptOptions`
+
+Options for `buildTemplateSystemPrompt()`.
+
+```ts
+interface BuildSystemPromptOptions {
+  mergeTags?: MergeTag[]
+  promptPrefix?: string
+  promptSuffix?: string
+}
+```
+
+### `AiParseError`
+
+Error class thrown when AI response parsing fails.
+
+```ts
+class AiParseError extends Error {
+  readonly rawResponse?: string
+}
+```
+
 ## Utility Types
 
 ### Node Type Constants
