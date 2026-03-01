@@ -15,7 +15,7 @@
 
 <p align="center">
   A professional, extensible drag-and-drop email editor built with <strong>Vue 3</strong> and <strong>MJML</strong>.<br/>
-  Design responsive HTML emails visually with 43 pre-built blocks, a plugin system, full i18n support, and a complete imperative API.<br/>
+  Design responsive HTML emails visually with AI-powered template generation, 43 pre-built blocks, a plugin system, full i18n support, and a complete imperative API.<br/>
   <strong>Free and open-source alternative to Unlayer, Beefree, and Stripo.</strong>
 </p>
 
@@ -28,6 +28,10 @@
 | Property Editing | Layers Panel |
 |:---:|:---:|
 | ![Image properties and styling](src/assets/capture_blocs_styes_image_1.png) | ![Document tree layers view](src/assets/capture_layers_1.png) |
+
+| AI Chat & Preview |
+|:---:|
+| ![AI chat panel with template preview](src/assets/capture_ia_chat_preview_1.png) |
 
 ## Features
 
@@ -75,9 +79,16 @@ Powered by [TipTap](https://tiptap.dev), with inline formatting:
 - 6 operators: equals, not equals, contains, not contains, exists, not exists
 - Exports as HTML conditional comments for ESP processing
 
+### AI Template Generation
+- Describe an email in plain language and get a complete, production-ready template
+- Built-in AI chat panel with multi-turn conversation for iterative refinement
+- Live HTML preview of the generated template before applying
+- Streaming support for real-time generation feedback
+- Automatic JSON repair for robust parsing of AI responses with auto-retry
+- BYOAI (Bring Your Own AI) — plug in OpenAI, Anthropic, or any LLM
+
 ### AI Text Generation
-- BYOAI (Bring Your Own AI) pattern — plug in any AI provider
-- Generate, improve, shorten, expand, and translate text
+- Inline text generation, improvement, shortening, expansion, and translation
 - Custom prompt input for freeform generation
 - Non-blocking async generation with loading state
 
@@ -423,7 +434,7 @@ import {
 | `theme` | `Partial<ThemeConfig>` | `DEFAULT_THEME` | Visual customization |
 | `plugins` | `Plugin[]` | `[]` | Editor extensions |
 | `mergeTags` | `MergeTag[]` | — | Dynamic variable tags |
-| `aiProvider` | `AiProvider` | — | AI text generation callbacks |
+| `aiProvider` | `AiProvider` | — | AI template generation and inline text callbacks |
 | `onImageUpload` | `(file: File) => Promise<{ url }>` | — | Image upload handler |
 | `onBrowseAssets` | `() => Promise<string \| null>` | — | Asset browser handler |
 
@@ -441,26 +452,59 @@ Insert dynamic content with merge tag variables:
 />
 ```
 
-## AI Text Generation
+## AI Template Generation
 
-Bring your own AI provider for inline text generation:
+Generate complete email templates from natural language prompts. The AI chat panel supports multi-turn conversations — describe your email, preview the result, then refine it through follow-up messages before applying.
 
 ```vue
 <EmailEditor
   :ai-provider="{
+    // Full template generation via chat (enables the AI sidebar tab)
+    generateTemplate: async (messages, systemPrompt) => {
+      const response = await fetch('/api/ai/chat', {
+        method: 'POST',
+        body: JSON.stringify({
+          messages: [
+            { role: 'system', content: systemPrompt },
+            ...messages,
+          ],
+        }),
+      })
+      return (await response.json()).content
+    },
+
+    // Optional: streaming for real-time generation feedback
+    async *generateTemplateStream(messages, systemPrompt) {
+      const response = await fetch('/api/ai/chat/stream', {
+        method: 'POST',
+        body: JSON.stringify({
+          messages: [{ role: 'system', content: systemPrompt }, ...messages],
+          stream: true,
+        }),
+      })
+      const reader = response.body.getReader()
+      const decoder = new TextDecoder()
+      while (true) {
+        const { done, value } = await reader.read()
+        if (done) break
+        yield decoder.decode(value)
+      }
+    },
+
+    // Inline text generation (generate, improve, shorten, expand, translate)
     generateText: async (prompt, context) => {
-      const response = await fetch('/api/ai/generate', {
+      const res = await fetch('/api/ai/generate', {
         method: 'POST',
         body: JSON.stringify({ prompt, context }),
       })
-      return (await response.json()).text
+      return (await res.json()).text
     },
     improveText: async (text, instruction) => {
-      const response = await fetch('/api/ai/improve', {
+      const res = await fetch('/api/ai/improve', {
         method: 'POST',
         body: JSON.stringify({ text, instruction }),
       })
-      return (await response.json()).text
+      return (await res.json()).text
     },
   }"
 />

@@ -338,6 +338,23 @@ export interface ConditionalRule {
 
 // ─── AI Provider ────────────────────────────────────────────────
 
+/** A file attached to a chat message (image, PDF, etc.) */
+export interface AiAttachment {
+  /** MIME type of the file (e.g. 'image/png', 'application/pdf') */
+  mimeType: string
+  /** Base64-encoded file data */
+  data: string
+  /** Original file name for display */
+  name?: string
+}
+
+export interface AiChatMessage {
+  role: 'user' | 'assistant'
+  content: string
+  /** Optional file attachments (images, documents) for multimodal AI */
+  attachments?: AiAttachment[]
+}
+
 export interface AiProvider {
   /** Generate text from a prompt and optional context */
   generateText: (prompt: string, context?: string) => Promise<string>
@@ -345,6 +362,10 @@ export interface AiProvider {
   generateSubjectLine?: (emailContent: string) => Promise<string[]>
   /** Improve existing text with an instruction */
   improveText?: (text: string, instruction: string) => Promise<string>
+  /** Generate a complete email template from a multi-turn conversation */
+  generateTemplate?: (messages: AiChatMessage[], systemPrompt: string) => Promise<string>
+  /** Optional streaming variant for better UX */
+  generateTemplateStream?: (messages: AiChatMessage[], systemPrompt: string) => AsyncIterable<string>
 }
 
 // ─── Image Upload ───────────────────────────────────────────────

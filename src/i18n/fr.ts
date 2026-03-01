@@ -238,6 +238,26 @@ export const FR_LABELS: EditorLabels = {
   ai_loading: 'L\'IA réfléchit...',
   ai_error: 'La génération IA a échoué',
 
+  // ─── AI Chat ───
+  ai_chat: 'IA',
+  ai_chat_placeholder: 'Décrivez l\'email souhaité...',
+  ai_chat_send: 'Générer',
+  ai_chat_apply: 'Appliquer le modèle',
+  ai_chat_discard: 'Ignorer',
+  ai_chat_new: 'Nouvelle conversation',
+  ai_chat_thinking: 'Génération en cours...',
+  ai_chat_success: 'Modèle généré !',
+  ai_chat_parse_error: 'Impossible de lire la réponse',
+  ai_chat_welcome: 'Décrivez l\'email que vous souhaitez créer',
+  ai_chat_welcome_hint: 'Soyez précis sur la mise en page, les couleurs, le contenu...',
+  ai_chat_retry: 'Réessayer',
+  ai_chat_context_sent: 'Modèle actuel envoyé comme contexte',
+  ai_chat_attach: 'Joindre image ou document',
+  ai_chat_attach_hint: 'Ajoutez une capture d\'écran, un export Figma ou un document de référence',
+  ai_chat_file_too_large: 'Fichier trop volumineux (max 10 Mo)',
+  ai_chat_preview: 'Aperçu',
+  ai_chat_preview_hint: 'Aperçu du modèle généré',
+
   // ─── Dark Mode Preview ───
   dark_mode_preview: 'Aperçu mode sombre',
 
