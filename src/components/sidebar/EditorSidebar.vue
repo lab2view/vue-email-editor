@@ -1,18 +1,54 @@
 <script setup lang="ts">
-import { ref, inject, watch } from 'vue'
+import { ref, inject, watch, computed, onBeforeUnmount, defineAsyncComponent } from 'vue'
 import EIcon from '../internal/EIcon.vue'
-import { EMAIL_SELECTION_KEY } from '../../injection-keys'
+import { EMAIL_SELECTION_KEY, EMAIL_EDITOR_CONFIG_KEY } from '../../injection-keys'
 import { EMAIL_LABELS_KEY, DEFAULT_LABELS } from '../../labels'
+import { PLUGIN_REGISTRY_KEY } from '../../injection-keys'
 import BlocksPanel from './BlocksPanel.vue'
 import PropertiesPanel from './PropertiesPanel.vue'
 import LayersPanel from './LayersPanel.vue'
 
+const AiChatPanel = defineAsyncComponent(() => import('./AiChatPanel.vue'))
+
 const labels = inject(EMAIL_LABELS_KEY, DEFAULT_LABELS)
 const selection = inject(EMAIL_SELECTION_KEY)!
+const config = inject(EMAIL_EDITOR_CONFIG_KEY)!
+const pluginRegistry = inject(PLUGIN_REGISTRY_KEY, undefined)
 
-const activeTab = ref<'blocks' | 'properties' | 'layers'>('blocks')
+interface TabDef {
+  id: string
+  label: string
+  icon: string
+}
 
-// Auto-switch to properties when a node is newly selected (not on explicit tab click)
+const hasAiChat = computed(
+  () => !!config.aiProvider?.generateTemplate || !!config.aiProvider?.generateTemplateStream,
+)
+
+const tabs = computed<TabDef[]>(() => {
+  const base: TabDef[] = [
+    { id: 'blocks', label: labels.blocks, icon: 'LayoutGrid' },
+    { id: 'properties', label: labels.styles, icon: 'Paintbrush' },
+    { id: 'layers', label: labels.layers, icon: 'Layers' },
+  ]
+
+  if (hasAiChat.value) {
+    base.push({ id: 'ai', label: labels.ai_chat, icon: 'Sparkles' })
+  }
+
+  // Append plugin sidebar panels
+  if (pluginRegistry?.sidebarPanels.value) {
+    for (const panel of pluginRegistry.sidebarPanels.value) {
+      base.push({ id: panel.id, label: panel.label, icon: panel.icon })
+    }
+  }
+
+  return base
+})
+
+const activeTab = ref('blocks')
+
+// Auto-switch to properties when a node is newly selected
 watch(
   () => selection.selectedNodeId.value,
   (newId, oldId) => {
@@ -22,50 +58,72 @@ watch(
   },
 )
 
-function switchTab(tab: 'blocks' | 'properties' | 'layers') {
-  activeTab.value = tab
+function switchTab(tabId: string) {
+  activeTab.value = tabId
 }
+
+// ─── Resizable sidebar ───
+const MIN_WIDTH = 260
+const MAX_WIDTH = 600
+const sidebarWidth = ref(300)
+const isResizing = ref(false)
+
+function onResizeStart(e: PointerEvent) {
+  e.preventDefault()
+  isResizing.value = true
+  const startX = e.clientX
+  const startWidth = sidebarWidth.value
+
+  function onPointerMove(ev: PointerEvent) {
+    // Sidebar is on the right, so moving left = wider
+    const delta = startX - ev.clientX
+    sidebarWidth.value = Math.min(MAX_WIDTH, Math.max(MIN_WIDTH, startWidth + delta))
+  }
+
+  function onPointerUp() {
+    isResizing.value = false
+    document.removeEventListener('pointermove', onPointerMove)
+    document.removeEventListener('pointerup', onPointerUp)
+  }
+
+  document.addEventListener('pointermove', onPointerMove)
+  document.addEventListener('pointerup', onPointerUp)
+}
+
+onBeforeUnmount(() => {
+  isResizing.value = false
+})
 </script>
 
 <template>
-  <div class="ebb-sidebar" role="region" aria-label="Sidebar">
+  <div
+    class="ebb-sidebar"
+    :class="{ 'ebb-sidebar--resizing': isResizing }"
+    :style="{ width: sidebarWidth + 'px' }"
+    role="region"
+    aria-label="Sidebar"
+  >
+    <!-- Resize handle -->
+    <div class="ebb-sidebar__resize-handle" @pointerdown="onResizeStart"></div>
+
     <!-- Tab buttons -->
     <div class="ebb-sidebar__tabs" role="tablist">
       <button
-        id="ebb-tab-blocks"
+        v-for="tab in tabs"
+        :key="tab.id"
+        :id="`ebb-tab-${tab.id}`"
         class="ebb-sidebar__tab"
-        :class="{ 'ebb-sidebar__tab--active': activeTab === 'blocks' }"
+        :class="{
+          'ebb-sidebar__tab--active': activeTab === tab.id,
+          'ebb-sidebar__tab--ai': tab.id === 'ai',
+        }"
         role="tab"
-        :aria-selected="activeTab === 'blocks'"
-        aria-controls="ebb-tabpanel-blocks"
-        @click="switchTab('blocks')"
+        :aria-selected="activeTab === tab.id"
+        :aria-controls="`ebb-tabpanel-${tab.id}`"
+        @click="switchTab(tab.id)"
       >
-        <EIcon name="LayoutGrid" :size="16" />
-        <span>{{ labels.blocks }}</span>
-      </button>
-      <button
-        id="ebb-tab-properties"
-        class="ebb-sidebar__tab"
-        :class="{ 'ebb-sidebar__tab--active': activeTab === 'properties' }"
-        role="tab"
-        :aria-selected="activeTab === 'properties'"
-        aria-controls="ebb-tabpanel-properties"
-        @click="switchTab('properties')"
-      >
-        <EIcon name="Paintbrush" :size="16" />
-        <span>{{ labels.styles }}</span>
-      </button>
-      <button
-        id="ebb-tab-layers"
-        class="ebb-sidebar__tab"
-        :class="{ 'ebb-sidebar__tab--active': activeTab === 'layers' }"
-        role="tab"
-        :aria-selected="activeTab === 'layers'"
-        aria-controls="ebb-tabpanel-layers"
-        @click="switchTab('layers')"
-      >
-        <EIcon name="Layers" :size="16" />
-        <span>{{ labels.layers }}</span>
+        <EIcon :name="tab.icon" :size="16" />
+        <span>{{ tab.label }}</span>
       </button>
     </div>
 
@@ -80,13 +138,29 @@ function switchTab(tab: 'blocks' | 'properties' | 'layers') {
       <div id="ebb-tabpanel-layers" role="tabpanel" aria-labelledby="ebb-tab-layers" :hidden="activeTab !== 'layers'">
         <LayersPanel v-show="activeTab === 'layers'" />
       </div>
+      <div v-if="hasAiChat" id="ebb-tabpanel-ai" role="tabpanel" aria-labelledby="ebb-tab-ai" :hidden="activeTab !== 'ai'">
+        <AiChatPanel v-show="activeTab === 'ai'" />
+      </div>
+      <!-- Plugin sidebar panels -->
+      <template v-if="pluginRegistry?.sidebarPanels.value">
+        <div
+          v-for="panel in pluginRegistry.sidebarPanels.value"
+          :key="panel.id"
+          :id="`ebb-tabpanel-${panel.id}`"
+          role="tabpanel"
+          :aria-labelledby="`ebb-tab-${panel.id}`"
+          :hidden="activeTab !== panel.id"
+        >
+          <component :is="panel.component" v-show="activeTab === panel.id" />
+        </div>
+      </template>
     </div>
   </div>
 </template>
 
 <style>
 .ebb-sidebar {
-  width: 300px;
+  position: relative;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -94,9 +168,30 @@ function switchTab(tab: 'blocks' | 'properties' | 'layers') {
   border-left: 1px solid #e5e7eb;
 }
 
+.ebb-sidebar--resizing {
+  user-select: none;
+}
+
 html[data-theme='dark'] .ebb-sidebar {
   background: #1f2937;
   border-left-color: #374151;
+}
+
+/* ─── Resize handle ─── */
+.ebb-sidebar__resize-handle {
+  position: absolute;
+  top: 0;
+  left: -3px;
+  width: 6px;
+  height: 100%;
+  cursor: col-resize;
+  z-index: 10;
+}
+
+.ebb-sidebar__resize-handle:hover,
+.ebb-sidebar--resizing .ebb-sidebar__resize-handle {
+  background: var(--ee-primary);
+  opacity: 0.4;
 }
 
 .ebb-sidebar__tabs {
@@ -149,6 +244,19 @@ html[data-theme='dark'] .ebb-sidebar__tab:hover {
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.ebb-sidebar__content > [role="tabpanel"] {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.ebb-sidebar__content > [role="tabpanel"][hidden] {
+  display: none;
 }
 
 .ebb-sidebar__content::-webkit-scrollbar {

@@ -27,6 +27,8 @@ export type {
   MergeTag,
   ConditionalRule,
   AiProvider,
+  AiChatMessage,
+  AiAttachment,
 } from './types'
 
 // ─── Block / Property Types ───
@@ -90,6 +92,11 @@ export { STARTER_TEMPLATES } from './blocks/starter-templates'
 
 // ─── Extensions ───
 export { MergeTagExtension } from './extensions/merge-tag'
+
+// ─── AI Utilities ───
+export { buildTemplateSystemPrompt } from './ai/system-prompt'
+export type { BuildSystemPromptOptions } from './ai/system-prompt'
+export { parseAiTemplateResponse, AiParseError } from './ai/parse-ai-response'
 
 // ─── ESP Export Presets ───
 export type { EspExportOptions, EspExportResult, EspPreset } from './export/esp-presets'

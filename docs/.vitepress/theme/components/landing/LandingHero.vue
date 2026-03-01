@@ -55,11 +55,12 @@ function goTo(idx: number) {
         </div>
         <h1 class="hero__title">
           Build stunning emails<br>
-          <span class="hero__title-gradient">without writing HTML</span>
+          <span class="hero__title-gradient">with AI + drag &amp; drop</span>
         </h1>
         <p class="hero__desc">
-          A drag-and-drop email editor for Vue 3. 47 free templates,
-          MJML-powered rendering, and full responsive preview — all in one component.
+          Describe your email and let AI generate it — or drag &amp; drop it yourself.
+          A Vue 3 email editor with built-in AI chat, 47 free templates, MJML rendering,
+          and full responsive preview.
         </p>
         <div class="hero__actions">
           <a href="https://www.npmjs.com/package/@lab2view/vue-email-editor" class="hero__btn hero__btn--primary" target="_blank" rel="noopener">
@@ -136,6 +137,7 @@ function goTo(idx: number) {
               <span class="editor-showcase__tab editor-showcase__tab--active">Blocks</span>
               <span class="editor-showcase__tab">Styles</span>
               <span class="editor-showcase__tab">Layers</span>
+              <span class="editor-showcase__tab editor-showcase__tab--ai">AI</span>
             </div>
             <div class="editor-showcase__sidebar-body">
               <div class="editor-showcase__search">
@@ -496,6 +498,11 @@ function goTo(idx: number) {
   font-weight: 600;
   color: #2dd4bf;
   border-bottom: 2px solid #2dd4bf;
+}
+
+.editor-showcase__tab--ai {
+  color: #a78bfa;
+  font-weight: 500;
 }
 
 .editor-showcase__sidebar-body {
