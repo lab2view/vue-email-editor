@@ -12,6 +12,10 @@
 | `required` | `boolean` | `false` | Form validation required flag |
 | `theme` | `Partial<ThemeConfig>` | `DEFAULT_THEME` | Visual customization |
 | `plugins` | `Plugin[]` | `[]` | Editor extensions |
+| `aiProvider` | `AiProvider` | — | AI integration (template generation, text tools) |
+| `mergeTags` | `MergeTag[]` | `[]` | Personalization variables for AI and merge tag insertion |
+| `imageUpload` | `ImageUploadHandler` | — | Custom image upload handler |
+| `browseAssets` | `BrowseAssetsHandler` | — | Custom asset browser handler |
 
 ## `modelValue` / `v-model`
 
@@ -62,6 +66,25 @@ Array of plugin functions. See [Plugins guide](/guide/plugins).
 
 ```vue
 <EmailEditor :plugins="[myPlugin, anotherPlugin]" />
+```
+
+## `aiProvider`
+
+An object implementing the `AiProvider` interface. Enables AI-powered features: template generation via chat, text improvement, and subject line suggestions. See [AI Generation guide](/guide/ai).
+
+```vue
+<EmailEditor :ai-provider="myAiProvider" />
+```
+
+## `mergeTags`
+
+Array of `MergeTag` objects representing personalization variables. Displayed in the sidebar for insertion and included in the AI system prompt.
+
+```vue
+<EmailEditor :merge-tags="[
+  { name: 'First Name', value: '{{first_name}}', category: 'Contact' },
+  { name: 'Company', value: '{{company}}', category: 'Company' },
+]" />
 ```
 
 ## Emitted Events (Vue)
