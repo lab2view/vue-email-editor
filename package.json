@@ -1,7 +1,7 @@
 {
   "name": "@lab2view/vue-email-editor",
   "version": "0.2.0",
-  "description": "Vue 3 drag-and-drop email editor built on MJML",
+  "description": "Vue 3 drag-and-drop email editor with AI-assisted editing, built on MJML",
   "license": "MIT",
   "type": "module",
   "main": "dist/email-editor.js",
