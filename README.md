@@ -14,8 +14,8 @@
 </p>
 
 <p align="center">
-  A professional, extensible drag-and-drop email editor built with <strong>Vue 3</strong> and <strong>MJML</strong>.<br/>
-  Design responsive HTML emails visually with AI-powered template generation, 43 pre-built blocks, a plugin system, full i18n support, and a complete imperative API.<br/>
+  A professional, extensible drag-and-drop email editor with <strong>AI-assisted editing</strong>, built with <strong>Vue 3</strong> and <strong>MJML</strong>.<br/>
+  Design responsive HTML emails visually or let AI generate complete templates from a text description. 43 pre-built blocks, a plugin system, full i18n support, and a complete imperative API.<br/>
   <strong>Free and open-source alternative to Unlayer, Beefree, and Stripo.</strong>
 </p>
 
