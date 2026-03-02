@@ -19,6 +19,10 @@
   <strong>Free and open-source alternative to Unlayer, Beefree, and Stripo.</strong>
 </p>
 
+<p align="center">
+  <a href="https://lab2view.github.io/vue-email-editor/#templates"><strong>Try the editor live &rarr;</strong></a>
+</p>
+
 ## Screenshots
 
 | Blocks & Layout | Ready-made Templates |
@@ -454,61 +458,46 @@ Insert dynamic content with merge tag variables:
 
 ## AI Template Generation
 
-Generate complete email templates from natural language prompts. The AI chat panel supports multi-turn conversations — describe your email, preview the result, then refine it through follow-up messages before applying.
+Generate complete email templates from natural language. Plug in any LLM — OpenAI, Anthropic, Google Gemini, or your own.
 
 ```vue
-<EmailEditor
-  :ai-provider="{
-    // Full template generation via chat (enables the AI sidebar tab)
-    generateTemplate: async (messages, systemPrompt) => {
-      const response = await fetch('/api/ai/chat', {
-        method: 'POST',
-        body: JSON.stringify({
-          messages: [
-            { role: 'system', content: systemPrompt },
-            ...messages,
-          ],
-        }),
-      })
-      return (await response.json()).content
-    },
+<script setup lang="ts">
+import { ref } from 'vue'
+import { EmailEditor } from '@lab2view/vue-email-editor'
+import type { AiProvider } from '@lab2view/vue-email-editor'
 
-    // Optional: streaming for real-time generation feedback
-    async *generateTemplateStream(messages, systemPrompt) {
-      const response = await fetch('/api/ai/chat/stream', {
-        method: 'POST',
-        body: JSON.stringify({
-          messages: [{ role: 'system', content: systemPrompt }, ...messages],
-          stream: true,
-        }),
-      })
-      const reader = response.body.getReader()
-      const decoder = new TextDecoder()
-      while (true) {
-        const { done, value } = await reader.read()
-        if (done) break
-        yield decoder.decode(value)
-      }
-    },
+const mjml = ref('')
 
-    // Inline text generation (generate, improve, shorten, expand, translate)
-    generateText: async (prompt, context) => {
-      const res = await fetch('/api/ai/generate', {
-        method: 'POST',
-        body: JSON.stringify({ prompt, context }),
-      })
-      return (await res.json()).text
-    },
-    improveText: async (text, instruction) => {
-      const res = await fetch('/api/ai/improve', {
-        method: 'POST',
-        body: JSON.stringify({ text, instruction }),
-      })
-      return (await res.json()).text
-    },
-  }"
-/>
+const aiProvider: AiProvider = {
+  generateText: async (prompt, context) => {
+    const res = await fetch('/api/ai/text', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt, context }),
+    })
+    return (await res.json()).text
+  },
+  generateTemplate: async (messages, systemPrompt) => {
+    const res = await fetch('/api/ai/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages, systemPrompt }),
+    })
+    return (await res.json()).content
+  },
+}
+</script>
+
+<template>
+  <EmailEditor v-model="mjml" :ai-provider="aiProvider" />
+</template>
 ```
+
+Your backend just forwards to any LLM and returns the raw response. The editor handles JSON parsing, repair, and retry automatically.
+
+**Want to test without an API key?** Use the [mock provider](https://lab2view.github.io/vue-email-editor/guide/ai#mock-provider-for-testing) — a static `AiProvider` that returns dummy responses for development and testing.
+
+**[Full AI integration guide →](https://lab2view.github.io/vue-email-editor/guide/ai)** — complete backend examples for OpenAI, Anthropic, and Google Gemini, streaming setup, error handling, and more.
 
 ## ESP Export
 
