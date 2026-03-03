@@ -1,8 +1,4 @@
-<p align="center">
-  <img src="src/assets/logo.png" alt="@lab2view/vue-email-editor" width="200" />
-</p>
-
-<h1 align="center">@lab2view/vue-email-editor</h1>
+# Vue Email Editor
 
 <p align="center">
   <a href="https://www.npmjs.com/package/@lab2view/vue-email-editor"><img src="https://img.shields.io/npm/v/@lab2view/vue-email-editor.svg?style=flat-square" alt="npm version" /></a>
