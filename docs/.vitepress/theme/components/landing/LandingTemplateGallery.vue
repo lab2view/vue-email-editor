@@ -227,7 +227,7 @@ const categoryCounts = computed(() => {
 </script>
 
 <template>
-  <section class="gallery">
+  <section id="templates" class="gallery">
     <!-- Header -->
     <div class="gallery__header">
       <div class="gallery__header-top">
@@ -289,6 +289,13 @@ const categoryCounts = computed(() => {
               tabindex="-1"
               scrolling="no"
             />
+            <!-- Hover overlay à la Stripo -->
+            <div class="gallery__card-overlay">
+              <span class="gallery__card-overlay-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                Edit
+              </span>
+            </div>
           </div>
           <div class="gallery__card-info">
             <span class="gallery__card-name">{{ tpl.label }}</span>
@@ -543,6 +550,44 @@ const categoryCounts = computed(() => {
   border: none;
   transform-origin: top left;
   pointer-events: none;
+}
+
+/* Hover overlay */
+.gallery__card-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.3s ease;
+  pointer-events: none;
+}
+
+.gallery__card-overlay-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #FFFFFF;
+  background: #01A8AB;
+  box-shadow: 0 4px 20px rgba(1, 168, 171, 0.4);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.gallery__card:hover .gallery__card-overlay {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.gallery__card:hover .gallery__card-overlay-btn {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .gallery__card-info {
