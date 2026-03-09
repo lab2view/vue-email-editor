@@ -13,160 +13,6 @@
     ]
   },
   {
-    "id": "fashion-gift-guide",
-    "label": "Fashion Gift Guide",
-    "description": "Elegant fashion gift guide with product sections",
-    "color": "#2d5a3d",
-    "file": "fashion-gift-guide.html",
-    "category": "marketing",
-    "tags": [
-      "fashion",
-      "gift",
-      "e-commerce",
-      "luxury"
-    ]
-  },
-  {
-    "id": "womens-day",
-    "label": "Women's Day Elegant",
-    "description": "International Women's Day celebration",
-    "color": "#8b3a5a",
-    "file": "womens-day.html",
-    "category": "evenement",
-    "tags": [
-      "womens day",
-      "celebration",
-      "holiday",
-      "event"
-    ]
-  },
-  {
-    "id": "chinese-new-year",
-    "label": "Chinese New Year",
-    "description": "Lunar New Year festive greeting",
-    "color": "#8b1a1a",
-    "file": "chinese-new-year.html",
-    "category": "evenement",
-    "tags": [
-      "chinese new year",
-      "lunar",
-      "festive",
-      "holiday"
-    ]
-  },
-  {
-    "id": "travel-newsletter",
-    "label": "Travel Newsletter",
-    "description": "Tropical destination newsletter",
-    "color": "#2c8fa0",
-    "file": "travel-newsletter.html",
-    "category": "marketing",
-    "tags": [
-      "travel",
-      "newsletter",
-      "destination",
-      "vacation"
-    ]
-  },
-  {
-    "id": "product-launch-aurora",
-    "label": "Product Launch",
-    "description": "Aurora Sound headphones launch",
-    "color": "#8b5cf6",
-    "file": "product-launch-aurora.html",
-    "category": "marketing",
-    "tags": [
-      "product",
-      "launch",
-      "tech",
-      "announcement"
-    ]
-  },
-  {
-    "id": "holiday-sale-christmas",
-    "label": "Holiday Sale",
-    "description": "Christmas holiday sale with deals",
-    "color": "#c41e3a",
-    "file": "holiday-sale-christmas.html",
-    "category": "marketing",
-    "tags": [
-      "holiday",
-      "christmas",
-      "sale",
-      "e-commerce"
-    ]
-  },
-  {
-    "id": "welcome-series",
-    "label": "Welcome Series",
-    "description": "Getting started onboarding welcome",
-    "color": "#01A8AB",
-    "file": "welcome-series.html",
-    "category": "engagement",
-    "tags": [
-      "welcome",
-      "onboarding",
-      "getting started",
-      "series"
-    ]
-  },
-  {
-    "id": "summer-promo",
-    "label": "Summer Promo",
-    "description": "Beach summer sale promotion",
-    "color": "#e65100",
-    "file": "summer-promo.html",
-    "category": "marketing",
-    "tags": [
-      "summer",
-      "sale",
-      "beach",
-      "promotion"
-    ]
-  },
-  {
-    "id": "order-confirmation-phone",
-    "label": "Order Confirmation",
-    "description": "Minimalist order confirmation",
-    "color": "#1a1a1a",
-    "file": "order-confirmation-phone.html",
-    "category": "transactionnel",
-    "tags": [
-      "order",
-      "confirmation",
-      "minimalist",
-      "transactional"
-    ]
-  },
-  {
-    "id": "weekly-digest",
-    "label": "Weekly Digest",
-    "description": "Innovate Hub weekly newsletter digest",
-    "color": "#e65100",
-    "file": "weekly-digest.html",
-    "category": "marketing",
-    "tags": [
-      "weekly",
-      "digest",
-      "newsletter",
-      "articles"
-    ]
-  },
-  {
-    "id": "black-friday-deal",
-    "label": "Black Friday Deal",
-    "description": "Neon-themed Black Friday mega sale",
-    "color": "#ff00ff",
-    "file": "black-friday-deal.html",
-    "category": "marketing",
-    "tags": [
-      "black friday",
-      "sale",
-      "deals",
-      "e-commerce"
-    ]
-  },
-  {
     "id": "newsletter",
     "label": "Newsletter",
     "description": "News and articles",
@@ -651,6 +497,160 @@
       "course",
       "learning",
       "online"
+    ]
+  },
+  {
+    "id": "fashion-gift-guide",
+    "label": "Fashion Gift Guide",
+    "description": "Elegant fashion gift guide with product sections",
+    "color": "#2d5a3d",
+    "file": "fashion-gift-guide.html",
+    "category": "marketing",
+    "tags": [
+      "fashion",
+      "gift",
+      "e-commerce",
+      "luxury"
+    ]
+  },
+  {
+    "id": "womens-day",
+    "label": "Women's Day Elegant",
+    "description": "Elegant celebration for International Women's Day",
+    "color": "#8b3a5a",
+    "file": "womens-day.html",
+    "category": "evenement",
+    "tags": [
+      "womens day",
+      "celebration",
+      "holiday",
+      "event"
+    ]
+  },
+  {
+    "id": "chinese-new-year",
+    "label": "Chinese New Year",
+    "description": "Festive Chinese New Year celebration email",
+    "color": "#8b1a1a",
+    "file": "chinese-new-year.html",
+    "category": "evenement",
+    "tags": [
+      "chinese new year",
+      "lunar",
+      "festive",
+      "holiday"
+    ]
+  },
+  {
+    "id": "travel-newsletter",
+    "label": "Travel Newsletter",
+    "description": "Travel destination newsletter with activities",
+    "color": "#2c8fa0",
+    "file": "travel-newsletter.html",
+    "category": "marketing",
+    "tags": [
+      "travel",
+      "newsletter",
+      "destination",
+      "vacation"
+    ]
+  },
+  {
+    "id": "product-launch-aurora",
+    "label": "Product Launch",
+    "description": "Dark-themed tech product launch announcement",
+    "color": "#8b5cf6",
+    "file": "product-launch-aurora.html",
+    "category": "marketing",
+    "tags": [
+      "product",
+      "launch",
+      "tech",
+      "announcement"
+    ]
+  },
+  {
+    "id": "holiday-sale-christmas",
+    "label": "Holiday Sale",
+    "description": "Christmas holiday sale with festive deals",
+    "color": "#c41e3a",
+    "file": "holiday-sale-christmas.html",
+    "category": "marketing",
+    "tags": [
+      "holiday",
+      "christmas",
+      "sale",
+      "e-commerce"
+    ]
+  },
+  {
+    "id": "welcome-series",
+    "label": "Welcome Series",
+    "description": "Onboarding welcome email with getting started steps",
+    "color": "#01A8AB",
+    "file": "welcome-series.html",
+    "category": "engagement",
+    "tags": [
+      "welcome",
+      "onboarding",
+      "getting started",
+      "series"
+    ]
+  },
+  {
+    "id": "summer-promo",
+    "label": "Summer Promo",
+    "description": "Vibrant summer sale promotion with beach vibes",
+    "color": "#e65100",
+    "file": "summer-promo.html",
+    "category": "marketing",
+    "tags": [
+      "summer",
+      "sale",
+      "beach",
+      "promotion"
+    ]
+  },
+  {
+    "id": "order-confirmation-phone",
+    "label": "Order Confirmation",
+    "description": "Minimalist order confirmation with item details",
+    "color": "#1a1a1a",
+    "file": "order-confirmation-phone.html",
+    "category": "transactionnel",
+    "tags": [
+      "order",
+      "confirmation",
+      "minimalist",
+      "transactional"
+    ]
+  },
+  {
+    "id": "weekly-digest",
+    "label": "Weekly Digest",
+    "description": "Modern content digest with featured and curated articles",
+    "color": "#1e293b",
+    "file": "weekly-digest.html",
+    "category": "marketing",
+    "tags": [
+      "weekly",
+      "digest",
+      "newsletter",
+      "articles"
+    ]
+  },
+  {
+    "id": "black-friday-deal",
+    "label": "Black Friday Deal",
+    "description": "Bold neon-styled Black Friday sale campaign",
+    "color": "#ff00ff",
+    "file": "black-friday-deal.html",
+    "category": "marketing",
+    "tags": [
+      "black friday",
+      "sale",
+      "deals",
+      "e-commerce"
     ]
   }
 ]
