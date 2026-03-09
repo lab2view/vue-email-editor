@@ -36,18 +36,12 @@ const categories = [
 
 // The 12 showcase template IDs — displayed first, with specific heights
 const showcaseHeights: Record<string, number> = {
-  'blank': 280,
-  'fashion-gift-guide': 620,
-  'womens-day': 520,
-  'chinese-new-year': 420,
-  'travel-newsletter': 620,
-  'product-launch-aurora': 520,
-  'holiday-sale-christmas': 520,
-  'welcome-series': 420,
-  'summer-promo': 620,
-  'order-confirmation-phone': 420,
-  'weekly-digest': 520,
   'black-friday-deal': 620,
+  'weekly-digest': 520,
+  'saas-onboarding': 480,
+  'real-estate': 520,
+  'product-launch-aurora': 520,
+  'blank': 280,
 }
 
 const showcaseOrder = Object.keys(showcaseHeights)

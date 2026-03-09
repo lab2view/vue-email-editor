@@ -4238,126 +4238,143 @@ export const STARTER_TEMPLATES: StarterTemplate[] = [
   {
     id: 'weekly-digest',
     label: 'Weekly Digest',
-    description: 'Content digest with featured and curated articles',
+    description: 'Modern content digest with featured and curated articles',
     icon: 'BookOpen',
-    color: '#e65100',
+    color: '#1e293b',
     category: 'marketing',
     tags: ['weekly', 'digest', 'newsletter', 'articles'],
     factory: (): EmailDocument => ({
       version: 1,
-      headAttributes: { defaultStyles: { 'mj-all': { 'font-family': "'Inter', Arial, sans-serif" } }, fonts: [{ name: 'Inter', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap' }, { name: 'Playfair Display', href: 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap' }], previewText: 'Weekly Digest from Innovate Hub — Machine Learning is Transforming Industries' },
+      headAttributes: { defaultStyles: { 'mj-all': { 'font-family': "'Inter', Arial, sans-serif" } }, fonts: [{ name: 'Inter', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap' }], previewText: 'This week: AI in Healthcare, Remote Work Trends, and more' },
       body: createBody([
-        // Preheader
-        createSection(
-          [createColumn([
-            createText('<p style="margin: 0;">Digest from Weekly Digest</p>', { 'font-size': '11px', color: '#94a3b8', padding: '0' }),
-          ])],
-          { 'background-color': '#ffffff', padding: '8px 24px' },
-        ),
         // Header
         createSection(
           [createColumn([
-            createText('<h1 style="margin: 0; font-weight: 800; letter-spacing: 2px;">WEEKLY DIGEST</h1>', { align: 'center', 'font-size': '28px', color: '#ffffff', padding: '0 0 4px 0' }),
-            createText('<p style="margin: 0;">from Innovate Hub</p>', { align: 'center', 'font-size': '12px', color: '#ffccbc', padding: '0' }),
+            createText('<h1 style="margin: 0; font-weight: 800; letter-spacing: 3px;">WEEKLY DIGEST</h1>', { align: 'center', 'font-size': '22px', color: '#ffffff', padding: '0 0 6px 0' }),
+            createText('<p style="margin: 0; opacity: 0.7;">March 2026 &middot; Issue #42</p>', { align: 'center', 'font-size': '13px', color: '#94a3b8', padding: '0' }),
           ])],
-          { 'background-color': '#e65100', padding: '24px' },
+          { 'background-color': '#1e293b', padding: '32px 24px' },
         ),
-        // Featured article — hero with background image overlay
+        // Featured article hero
         createHero(
           [
-            createText('<p style="margin: 0; font-weight: 700; font-size: 10px; background: #e65100; color: white; padding: 2px 8px; border-radius: 3px; display: inline-block;">Top Pick</p>', { 'font-size': '10px', color: '#ffffff', padding: '0 0 6px 0' }),
-            createText('<h2 style="margin: 0; font-weight: 700; line-height: 1.3;">New Frontier:<br/>Machine Learning is<br/>Transforming Industries</h2>', { 'font-size': '20px', color: '#ffffff', padding: '0 0 4px 0' }),
-            createText('<p style="margin: 0; line-height: 1.5;">Exclusively, all believe it to the mean long game transforming from the attention to influence, and else a Wurea of luck.</p>', { 'font-size': '11px', color: '#d1d5db', padding: '0 0 8px 0' }),
-            createButton('MORE', { 'background-color': '#e65100', color: '#ffffff', 'font-size': '11px', 'border-radius': '4px', 'inner-padding': '6px 16px', 'font-weight': '600', align: 'left', padding: '0' }),
+            createText('<p style="margin: 0; font-weight: 600; font-size: 11px; background: #f97316; color: white; padding: 4px 14px; border-radius: 20px; display: inline-block; letter-spacing: 1px;">FEATURED</p>', { 'font-size': '11px', color: '#ffffff', padding: '0 0 12px 0' }),
+            createText('<h2 style="margin: 0; font-weight: 700; line-height: 1.25;">How AI is Revolutionizing<br/>Healthcare Diagnostics</h2>', { 'font-size': '24px', color: '#ffffff', padding: '0 0 10px 0' }),
+            createText('<p style="margin: 0; line-height: 1.6;">New research shows AI-powered imaging tools can detect early-stage conditions with 94% accuracy, outperforming traditional screening methods.</p>', { 'font-size': '14px', color: '#cbd5e1', padding: '0 0 16px 0' }),
+            createButton('Read Article →', { 'background-color': '#f97316', color: '#ffffff', 'font-size': '14px', 'border-radius': '8px', 'inner-padding': '12px 28px', 'font-weight': '600', align: 'left', padding: '0' }),
           ],
           {
-            'background-url': 'https://images.unsplash.com/photo-1504711434969-e33886168d6c?w=600&h=340&fit=crop',
-            'background-height': '340px',
+            'background-url': 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=400&fit=crop',
+            'background-height': '400px',
             'background-width': '600px',
-            'background-color': '#1a1a2e',
+            'background-color': '#1e293b',
             mode: 'fluid',
-            padding: '80px 24px 16px 24px',
+            padding: '120px 32px 32px 32px',
             'vertical-align': 'bottom',
           },
         ),
-        // Divider bar
+        // Trending heading
         createSection(
           [createColumn([
-            createSpacer({ height: '3px' }),
+            createText('<p style="margin: 0; font-weight: 700; letter-spacing: 2px;">TRENDING THIS WEEK</p>', { 'font-size': '13px', color: '#f97316', padding: '0' }),
           ])],
-          { 'background-color': '#e65100', padding: '0' },
+          { 'background-color': '#ffffff', padding: '32px 32px 20px 32px' },
         ),
-        // Articles heading
-        createSection(
-          [createColumn([
-            createText('<h3 style="margin: 0; font-weight: 700; letter-spacing: 1px;">ARTICLES</h3>', { 'font-size': '14px', color: '#e65100', padding: '0 0 16px 0' }),
-          ])],
-          { 'background-color': '#ffffff', padding: '24px 24px 0 24px' },
-        ),
-        // Articles grid — four columns
+        // Article 1
         createSection(
           [
             createColumn(
-              [
-                createImage({ src: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=120&h=80&fit=crop', alt: 'Routines', 'border-radius': '6px', padding: '0 0 4px 0' }),
-                createText('<p style="margin: 0; font-weight: 600; line-height: 1.3;">Routines of<br/>Dreamworkers</p>', { align: 'center', 'font-size': '10px', color: '#333333', padding: '0' }),
-              ],
-              { width: '25%', padding: '4px' },
+              [createImage({ src: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=260&h=160&fit=crop', alt: 'Remote Work', 'border-radius': '8px', padding: '0' })],
+              { width: '40%', padding: '0 16px 0 0' },
             ),
             createColumn(
               [
-                createImage({ src: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=120&h=80&fit=crop', alt: 'Mindfulness', 'border-radius': '6px', padding: '0 0 4px 0' }),
-                createText('<p style="margin: 0; font-weight: 600; line-height: 1.3;">Mindfulness in<br/>the Digital Age</p>', { align: 'center', 'font-size': '10px', color: '#333333', padding: '0' }),
+                createText('<p style="margin: 0; font-weight: 600; line-height: 1.4;">The Future of Remote Work: What 2026 Data Tells Us</p>', { 'font-size': '16px', color: '#1e293b', padding: '0 0 6px 0' }),
+                createText('<p style="margin: 0; line-height: 1.6;">Hybrid models are winning as companies find the sweet spot between flexibility and collaboration.</p>', { 'font-size': '13px', color: '#64748b', padding: '0 0 8px 0' }),
+                createText('<a href="#" style="color: #f97316; font-weight: 600; text-decoration: none; font-size: 13px;">Read more →</a>', { 'font-size': '13px', padding: '0' }),
               ],
-              { width: '25%', padding: '4px' },
-            ),
-            createColumn(
-              [
-                createImage({ src: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=120&h=80&fit=crop', alt: 'Reading', 'border-radius': '6px', padding: '0 0 4px 0' }),
-                createText('<p style="margin: 0; font-weight: 600; line-height: 1.3;">Reading List: Top 5<br/>Business Books</p>', { align: 'center', 'font-size': '10px', color: '#333333', padding: '0' }),
-              ],
-              { width: '25%', padding: '4px' },
-            ),
-            createColumn(
-              [
-                createImage({ src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=120&h=80&fit=crop', alt: 'Trends', 'border-radius': '6px', padding: '0 0 4px 0' }),
-                createText('<p style="margin: 0; font-weight: 600; line-height: 1.3;">Global Remote<br/>Trends 2024</p>', { align: 'center', 'font-size': '10px', color: '#333333', padding: '0' }),
-              ],
-              { width: '25%', padding: '4px' },
+              { width: '60%', 'vertical-align': 'middle' },
             ),
           ],
-          { 'background-color': '#ffffff', padding: '0 24px 24px 24px' },
+          { 'background-color': '#ffffff', padding: '0 32px 20px 32px' },
         ),
-        // Miss these section — bordered card
+        // Divider
         createSection(
-          [createColumn([
-            createText('<h4 style="margin: 0; font-weight: 700; letter-spacing: 1px;">MISS THESE:</h4>', { 'font-size': '12px', color: '#e65100', padding: '0 0 8px 0' }),
-            createText('<p style="margin: 0; line-height: 1.5;">one of Sustainable Tech<br/>smartly Explore\'d</p>', { 'font-size': '12px', color: '#475569', padding: '0 0 12px 0' }),
-            createButton('VISIT OUR BLOG', { 'background-color': '#e65100', color: '#ffffff', 'font-size': '11px', 'border-radius': '4px', 'inner-padding': '8px 20px', 'font-weight': '600', align: 'left', padding: '0' }),
-          ], { border: '1px solid #e5e7eb', 'border-radius': '8px', padding: '16px' })],
-          { 'background-color': '#ffffff', padding: '0 24px 24px 24px' },
+          [createColumn([createDivider({ 'border-color': '#e2e8f0', 'border-width': '1px', padding: '0' })])],
+          { 'background-color': '#ffffff', padding: '0 32px 20px 32px' },
         ),
-        // Social
+        // Article 2
         createSection(
-          [createColumn([
-            createSocial(
-              [
-                createSocialElement('twitter', 'https://twitter.com/', { 'background-color': '#333333' }),
-                createSocialElement('linkedin', 'https://linkedin.com/', { 'background-color': '#333333' }),
-              ],
-              { 'icon-size': '28px', mode: 'horizontal', align: 'right', padding: '0', color: '#ffffff' },
+          [
+            createColumn(
+              [createImage({ src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=260&h=160&fit=crop', alt: 'Data Analytics', 'border-radius': '8px', padding: '0' })],
+              { width: '40%', padding: '0 16px 0 0' },
             ),
+            createColumn(
+              [
+                createText('<p style="margin: 0; font-weight: 600; line-height: 1.4;">Data-Driven Decision Making in Small Business</p>', { 'font-size': '16px', color: '#1e293b', padding: '0 0 6px 0' }),
+                createText('<p style="margin: 0; line-height: 1.6;">Affordable analytics tools are leveling the playing field for startups and small teams.</p>', { 'font-size': '13px', color: '#64748b', padding: '0 0 8px 0' }),
+                createText('<a href="#" style="color: #f97316; font-weight: 600; text-decoration: none; font-size: 13px;">Read more →</a>', { 'font-size': '13px', padding: '0' }),
+              ],
+              { width: '60%', 'vertical-align': 'middle' },
+            ),
+          ],
+          { 'background-color': '#ffffff', padding: '0 32px 20px 32px' },
+        ),
+        // Divider
+        createSection(
+          [createColumn([createDivider({ 'border-color': '#e2e8f0', 'border-width': '1px', padding: '0' })])],
+          { 'background-color': '#ffffff', padding: '0 32px 20px 32px' },
+        ),
+        // Article 3
+        createSection(
+          [
+            createColumn(
+              [createImage({ src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=260&h=160&fit=crop', alt: 'Sustainability', 'border-radius': '8px', padding: '0' })],
+              { width: '40%', padding: '0 16px 0 0' },
+            ),
+            createColumn(
+              [
+                createText('<p style="margin: 0; font-weight: 600; line-height: 1.4;">Sustainable Tech: Building a Greener Digital Future</p>', { 'font-size': '16px', color: '#1e293b', padding: '0 0 6px 0' }),
+                createText('<p style="margin: 0; line-height: 1.6;">How leading tech companies are reducing their carbon footprint while scaling operations.</p>', { 'font-size': '13px', color: '#64748b', padding: '0 0 8px 0' }),
+                createText('<a href="#" style="color: #f97316; font-weight: 600; text-decoration: none; font-size: 13px;">Read more →</a>', { 'font-size': '13px', padding: '0' }),
+              ],
+              { width: '60%', 'vertical-align': 'middle' },
+            ),
+          ],
+          { 'background-color': '#ffffff', padding: '0 32px 24px 32px' },
+        ),
+        // Stat highlight
+        createSection(
+          [createColumn([
+            createText('<p style="margin: 0; font-size: 40px; font-weight: 800; color: #f97316; line-height: 1;">78%</p>', { 'font-size': '40px', color: '#f97316', padding: '0 0 8px 0', align: 'center' }),
+            createText('<p style="margin: 0; line-height: 1.6;">of tech leaders say AI will be their top investment priority in 2026, according to a new Gartner survey.</p>', { 'font-size': '14px', color: '#334155', padding: '0', align: 'center' }),
+          ], { 'border-radius': '12px', 'background-color': '#fff7ed', padding: '28px' })],
+          { 'background-color': '#ffffff', padding: '0 32px 28px 32px' },
+        ),
+        // CTA
+        createSection(
+          [createColumn([
+            createButton('Visit Our Blog', { 'background-color': '#1e293b', color: '#ffffff', 'font-size': '15px', 'border-radius': '8px', 'inner-padding': '14px 36px', 'font-weight': '600', padding: '0' }),
           ])],
-          { 'background-color': '#ffffff', padding: '0 24px 8px 24px' },
+          { 'background-color': '#ffffff', padding: '0 32px 32px 32px' },
         ),
         // Footer
         createSection(
           [createColumn([
-            createText('<p style="margin: 0;">&copy; 123 Tech Lane, Silicon Valley, CA. &copy; 2024. All Year reserved.</p>', { align: 'center', 'font-size': '9px', color: '#94a3b8', padding: '0' }),
+            createSocial(
+              [
+                createSocialElement('twitter', 'https://twitter.com/', { 'background-color': '#1e293b' }),
+                createSocialElement('linkedin', 'https://linkedin.com/', { 'background-color': '#1e293b' }),
+                createSocialElement('github', 'https://github.com/', { 'background-color': '#1e293b' }),
+              ],
+              { 'icon-size': '28px', mode: 'horizontal', align: 'center', padding: '0 0 16px 0', color: '#ffffff' },
+            ),
+            createText('<p style="margin: 0;">You received this because you subscribed to our newsletter.<br/><a href="#" style="color: #f97316; text-decoration: underline;">Unsubscribe</a> &middot; <a href="#" style="color: #f97316; text-decoration: underline;">Preferences</a></p>', { align: 'center', 'font-size': '12px', color: '#94a3b8', padding: '0' }),
           ])],
-          { 'background-color': '#f8fafc', padding: '12px 24px', 'border-top': '1px solid #e5e7eb' },
+          { 'background-color': '#f8fafc', padding: '24px 32px', 'border-top': '1px solid #e2e8f0' },
         ),
-      ], { 'background-color': '#f5f5f5' }),
+      ], { 'background-color': '#f1f5f9' }),
     }),
   },
 
