@@ -15,9 +15,9 @@
   <!-- <strong>Free and open-source alternative to Unlayer, Beefree, and Stripo.</strong> -->
 </p>
 
-<p align="center">
+<!-- <p align="center">
   <a href="https://lab2view.github.io/vue-email-editor/#templates"><strong>Try the editor live &rarr;</strong></a>
-</p>
+</p> -->
 
 ## Screenshots
 
