@@ -2,9 +2,9 @@
 import { ref, computed, onMounted, onUnmounted, nextTick, watch, defineAsyncComponent } from 'vue'
 import { STARTER_TEMPLATES } from '../../../../../src/blocks/starter-templates'
 
-const EmailEditor = defineAsyncComponent(() =>
-  import('../../../../../src/EmailEditor.vue')
-)
+// Eagerly preload the editor chunk so it's ready when the user clicks a template
+const editorChunkPromise = import('../../../../../src/EmailEditor.vue')
+const EmailEditor = defineAsyncComponent(() => editorChunkPromise)
 
 interface TemplateEntry {
   id: string
@@ -118,12 +118,16 @@ function openEditor(tpl: TemplateEntry) {
   // Otherwise the watcher below handles it when the async component mounts
 }
 
-// Watch for the async EmailEditor to become available on first load
+// Watch for the async EmailEditor to become available on first load.
+// The editor emits 'editor:ready' in its onMounted, so we wait two ticks
+// to ensure it's fully initialized before loading a template.
 watch(editorRef, (editor) => {
   if (editor && pendingTemplate.value) {
     nextTick(() => {
-      loadTemplateInEditor(pendingTemplate.value!)
-      pendingTemplate.value = null
+      nextTick(() => {
+        loadTemplateInEditor(pendingTemplate.value!)
+        pendingTemplate.value = null
+      })
     })
   }
 })
