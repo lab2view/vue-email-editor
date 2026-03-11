@@ -2,9 +2,10 @@
 import { ref, computed, onMounted, onUnmounted, nextTick, watch, defineAsyncComponent } from 'vue'
 import { STARTER_TEMPLATES } from '../../../../../src/blocks/starter-templates'
 
-// Eagerly preload the editor chunk so it's ready when the user clicks a template
-const editorChunkPromise = import('../../../../../src/EmailEditor.vue')
-const EmailEditor = defineAsyncComponent(() => editorChunkPromise)
+// Lazy-load the editor (client-only) and preload the chunk on mount
+const EmailEditor = defineAsyncComponent(() =>
+  import('../../../../../src/EmailEditor.vue')
+)
 
 interface TemplateEntry {
   id: string
@@ -199,6 +200,9 @@ function updateScale() {
 watch([activeCategory, showAll], () => nextTick(updateScale))
 
 onMounted(() => {
+  // Preload editor chunk in background so it's ready when the user clicks a template
+  import('../../../../../src/EmailEditor.vue')
+
   document.addEventListener('keydown', onKeydown)
   nextTick(() => {
     updateScale()
