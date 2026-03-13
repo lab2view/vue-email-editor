@@ -185,6 +185,7 @@ export type IframeMessage =
   | { type: 'ebb:drag-over'; nodeId: string; position: DropPosition; rect: DOMRect }
   | { type: 'ebb:drop'; nodeId: string; position: DropPosition }
   | { type: 'ebb:hit-test-result'; nodeId: string | null; position?: DropPosition; rect?: DOMRect; isDrop: boolean }
+  | { type: 'ebb:query-rect-result'; nodeId: string; rect: DOMRect | null }
   | { type: 'ebb:height'; height: number }
   | { type: 'ebb:ready' }
 
