@@ -211,8 +211,19 @@ function updateIframe() {
       return best || nodeEl;
     }
 
-    // Handle hit-test requests from parent (for cross-iframe drag-and-drop)
+    // Handle query-rect requests from parent (for breadcrumb navigation)
     window.addEventListener('message', function(e) {
+      if (e.data && e.data.type === 'ebb:query-rect') {
+        var qNodeId = e.data.nodeId;
+        var el = qNodeId ? document.querySelector('[data-node-id="' + qNodeId + '"]') : null;
+        if (el) {
+          var r = el.getBoundingClientRect();
+          window.parent.postMessage({ type: 'ebb:query-rect-result', nodeId: qNodeId, rect: { top: r.top, left: r.left, width: r.width, height: r.height } }, '*');
+        } else {
+          window.parent.postMessage({ type: 'ebb:query-rect-result', nodeId: qNodeId, rect: null }, '*');
+        }
+        return;
+      }
       if (e.data && e.data.type === 'ebb:hit-test') {
         var x = e.data.x;
         var y = e.data.y;
@@ -291,6 +302,11 @@ function handleMessage(e: MessageEvent) {
       break
     case 'ebb:dblclick':
       openInlineEditor(msg.nodeId, msg.rect)
+      break
+    case 'ebb:query-rect-result':
+      if (msg.nodeId === selection.selectedNodeId.value) {
+        selectedRect.value = msg.rect
+      }
       break
     case 'ebb:hit-test-result':
       handleHitTestResult(msg)
@@ -529,6 +545,17 @@ function onOverlayDragLeave(e: DragEvent) {
 }
 
 // ─── Watchers ───
+
+// When selectedNodeId changes (e.g. via breadcrumb), ask iframe for the new rect
+watch(() => selection.selectedNodeId.value, (nodeId) => {
+  const iframe = iframeRef.value
+  if (!iframe?.contentWindow || !isReady.value) return
+  if (nodeId) {
+    iframe.contentWindow.postMessage({ type: 'ebb:query-rect', nodeId }, '*')
+  } else {
+    selectedRect.value = null
+  }
+})
 
 watch(() => doc.compiledHtml.value, () => {
   updateIframe()
