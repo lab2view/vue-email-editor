@@ -14,9 +14,9 @@
   Design responsive HTML emails visually — 43 blocks, AI generation, merge tags, plugins, i18n, and more.
 </p>
 
-| Drag & Drop Builder | Styles & Layers |
+| Drag & Drop Builder | Ready-made Templates |
 |:---:|:---:|
-| ![Blocks panel](src/assets/capture_blocs_layouts_1.png) | ![Layers panel](src/assets/capture_layers_1.png) |
+| ![Blocks panel](src/assets/capture_blocs_layouts_1.png) | ![Ready-made composite blocks](src/assets/capture_blocs_ready_made_1.png) |
 
 ## Installation
 
