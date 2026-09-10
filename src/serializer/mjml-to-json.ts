@@ -107,7 +107,13 @@ function parseHead(headEl: Element): EmailHeadAttributes {
   // Parse <mj-attributes>
   const attrsEl = headEl.querySelector('mj-attributes')
   if (attrsEl) {
-    for (const child of Array.from(attrsEl.children)) {
+    // Use querySelectorAll('*') rather than .children: when the source is not well-formed
+    // XML (a bare &nbsp;, <br> or <img> anywhere in the body), mjmlToDocument falls back to
+    // the HTML parser, which cannot self-close unknown elements and therefore nests every
+    // <mj-attributes> entry inside the previous one. Only the first would survive .children.
+    // <mj-attributes> has no legitimate nesting, so walking all descendants is equivalent
+    // under the XML parser and repairs the HTML one.
+    for (const child of Array.from(attrsEl.querySelectorAll('*'))) {
       const tag = child.tagName.toLowerCase()
       const attrs: Record<string, string> = {}
       for (const attr of Array.from(child.attributes)) {
