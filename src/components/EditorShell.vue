@@ -113,7 +113,11 @@ function toggleDarkPreview() {
         @toggle-code-view="toggleCodeView"
         @toggle-dark-preview="toggleDarkPreview"
         @update:active-device-index="activeDeviceIndex = $event"
-      />
+      >
+        <template #toolbar-start><slot name="toolbar-start"></slot></template>
+        <template #toolbar-title><slot name="toolbar-title"></slot></template>
+        <template #toolbar-end><slot name="toolbar-end"></slot></template>
+      </EditorToolbar>
 
       <!-- ═══ MAIN AREA ═══ -->
       <div class="ebb-main">

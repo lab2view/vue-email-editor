@@ -39,8 +39,10 @@ function redo() {
 
 <template>
   <div class="ebb-toolbar" role="toolbar" :aria-label="labels.editor_title">
-    <!-- Left: Device switcher -->
+    <!-- Left: host region, then the device switcher -->
     <div class="ebb-toolbar__left">
+      <!-- @slot Host content at the start of the toolbar. Empty by default. -->
+      <slot name="toolbar-start"></slot>
       <div class="ebb-toolbar__device-group" role="radiogroup" :aria-label="labels.desktop">
         <button
           v-for="(device, i) in DEVICE_PRESETS"
@@ -60,7 +62,8 @@ function redo() {
 
     <!-- Center: Title -->
     <div class="ebb-toolbar__title">
-      {{ labels.editor_title }}
+      <!-- @slot The centre of the toolbar. Defaults to the editor title. -->
+      <slot name="toolbar-title">{{ labels.editor_title }}</slot>
     </div>
 
     <!-- Right: Undo/Redo + Code + Fullscreen -->
@@ -118,6 +121,8 @@ function redo() {
       >
         <EIcon :name="isFullscreen ? 'Minimize2' : 'Maximize2'" :size="16" />
       </button>
+      <!-- @slot Host content at the end of the toolbar, after the built-in actions. Empty by default. -->
+      <slot name="toolbar-end"></slot>
     </div>
   </div>
 </template>

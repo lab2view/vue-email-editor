@@ -206,5 +206,13 @@ defineExpose(api)
 </script>
 
 <template>
-  <EditorShell :label="label" :required="required" :theme="theme" />
+  <EditorShell :label="label" :required="required" :theme="theme">
+    <!--
+      Forwarded generically rather than named one at a time: a slot added to the shell is then
+      available to the host without this wrapper having to learn about it.
+    -->
+    <template v-for="(_, name) in $slots" #[name]="slotProps">
+      <slot :name="name" v-bind="slotProps ?? {}"></slot>
+    </template>
+  </EditorShell>
 </template>

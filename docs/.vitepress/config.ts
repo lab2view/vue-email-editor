@@ -67,6 +67,7 @@ export default defineConfig({
           items: [
             { text: 'Props', link: '/api/props' },
             { text: 'Events', link: '/api/events' },
+            { text: 'Slots', link: '/api/slots' },
             { text: 'API Methods', link: '/api/methods' },
             { text: 'Types', link: '/api/types' },
             { text: 'Exports', link: '/api/exports' },
