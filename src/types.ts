@@ -30,8 +30,16 @@ export type EmailNodeType =
   | 'mj-raw'
   | 'mj-wrapper'
 
-/** Node types that can contain rich HTML content */
-export const CONTENT_NODE_TYPES: EmailNodeType[] = ['mj-text', 'mj-button']
+/**
+ * Node types that can contain rich HTML content.
+ *
+ * `mj-raw` belongs here even though its content is not "rich": it is the only way to put HTML into a
+ * template that MJML must pass through untouched, and without it the parser treats the element as a
+ * container, finds no MJML children, and stores nothing. Measured before this changed: a document
+ * containing `<mj-raw><table>…</table></mj-raw>` round-tripped to `<mj-raw></mj-raw>` — the content was
+ * deleted, silently, by opening the template in the editor.
+ */
+export const CONTENT_NODE_TYPES: EmailNodeType[] = ['mj-text', 'mj-button', 'mj-raw']
 
 /** Node types that are structural containers */
 export const CONTAINER_NODE_TYPES: EmailNodeType[] = [
