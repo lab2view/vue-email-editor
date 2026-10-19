@@ -18,6 +18,12 @@ export const FR_LABELS: EditorLabels = {
   templates: 'Modèles',
   starter_templates: 'Modèles de départ',
   no_blocks_found: 'Aucun bloc trouvé pour',
+  templates_panel_hint: 'Choisissez un modèle pour démarrer rapidement.',
+  template_apply_title: 'Appliquer « {name} » ?',
+  template_apply_warning:
+    "Le contenu actuel de l'email sera entièrement remplacé par ce modèle. Cette action est irréversible.",
+  cancel: 'Annuler',
+  apply: 'Appliquer',
 
   // ─── Block Categories ───
   category_layout: 'Disposition',

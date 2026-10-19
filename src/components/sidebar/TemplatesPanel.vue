@@ -2,9 +2,11 @@
 import { inject, ref } from 'vue'
 import EIcon from '../internal/EIcon.vue'
 import { EMAIL_DOCUMENT_KEY } from '../../injection-keys'
+import { EMAIL_LABELS_KEY, DEFAULT_LABELS } from '../../labels'
 import { STARTER_TEMPLATES, type StarterTemplate } from '../../blocks/starter-templates'
 
 const doc = inject(EMAIL_DOCUMENT_KEY)!
+const labels = inject(EMAIL_LABELS_KEY, DEFAULT_LABELS)
 
 const emit = defineEmits<{
   applied: []
@@ -32,7 +34,7 @@ function cancelApply() {
 <template>
   <div class="ebb-templates-panel">
     <p class="ebb-templates-panel__hint">
-      Choisissez un modèle pour démarrer rapidement.
+      {{ labels.templates_panel_hint }}
     </p>
     <div class="ebb-templates-panel__grid">
       <button
@@ -59,17 +61,19 @@ function cancelApply() {
             <div class="ebb-confirm-dialog__icon" :style="{ background: pendingTemplate.color + '15', color: pendingTemplate.color }">
               <EIcon :name="pendingTemplate.icon" :size="28" />
             </div>
-            <h3 class="ebb-confirm-dialog__title">Appliquer « {{ pendingTemplate.label }} » ?</h3>
+            <h3 class="ebb-confirm-dialog__title">
+              {{ labels.template_apply_title.replace('{name}', pendingTemplate.label) }}
+            </h3>
             <p class="ebb-confirm-dialog__text">
-              Le contenu actuel de l'email sera entièrement remplacé par ce modèle. Cette action est irréversible.
+              {{ labels.template_apply_warning }}
             </p>
             <div class="ebb-confirm-dialog__actions">
               <button class="ebb-confirm-dialog__btn ebb-confirm-dialog__btn--cancel" @click="cancelApply">
-                Annuler
+                {{ labels.cancel }}
               </button>
               <button class="ebb-confirm-dialog__btn ebb-confirm-dialog__btn--confirm" @click="confirmApply">
                 <EIcon name="Check" :size="14" />
-                Appliquer
+                {{ labels.apply }}
               </button>
             </div>
           </div>

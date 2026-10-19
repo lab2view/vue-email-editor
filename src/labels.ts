@@ -18,6 +18,12 @@ export interface EditorLabels {
   templates: string
   starter_templates: string
   no_blocks_found: string
+  templates_panel_hint: string
+  /** Confirm title; may include `{name}` */
+  template_apply_title: string
+  template_apply_warning: string
+  cancel: string
+  apply: string
 
   // ─── Block Categories ───
   category_layout: string
@@ -296,6 +302,12 @@ export const DEFAULT_LABELS: EditorLabels = {
   templates: 'Templates',
   starter_templates: 'Starter Templates',
   no_blocks_found: 'No blocks found for',
+  templates_panel_hint: 'Choose a template to get started quickly.',
+  template_apply_title: 'Apply "{name}"?',
+  template_apply_warning:
+    'The current email content will be fully replaced by this template. This action cannot be undone.',
+  cancel: 'Cancel',
+  apply: 'Apply',
 
   // ─── Block Categories ───
   category_layout: 'Layout',
